@@ -1,20 +1,21 @@
 $(document).ready(function() {
-  $('#diagramCanvas').diagram({danceUrl: 'canasta_tango.json'});
+  $('#diagramContainer').diagram();
 });
 
 $.widget('shawnpan.diagram', {
-  options: {
-    danceUrl: 'canasta_tango.json'
-  },
 
   _create: function() {
       console.log('widget create');
-      var canvas = this.canvas = this.element.get(0);
-      if (!canvas.getContext) {
+      this.canvas = this.element.find('canvas').get(0);
+      this.$danceSelect = this.element.find('.danceSelect');
+      this.$partSelect = this.element.find('.partSelect');
+      this.$danceSelect.on('change', $.proxy(this._loadDance, this));
+      this.$partSelect.on('change', $.proxy(this._loadPattern, this));
+      if (!this.canvas.getContext) {
         console.log('Canvas not supported');
         return;
       }
-      this.canvasContext = canvas.getContext('2d');
+      this.canvasContext = this.canvas.getContext('2d');
       this._onCanvasResize();
       this._loadDance();
   },
@@ -27,27 +28,37 @@ $.widget('shawnpan.diagram', {
 
   _loadDance: function() {
     var widget = this;
-    $.getJSON(this.options.danceUrl, function(data) {
+    $.getJSON(this.$danceSelect.val(), function(data) {
       console.log(data);
       widget.dance = data;
-      widget._drawPattern();
+      widget._loadPattern();
     });
   },
 
-  _drawPattern: function() {
-    var ctx = this.canvasContext;
-    var pattern, component, path;
-    var patternIndex, componentIndex, pathIndex, lapIndex;
+  _loadPattern: function() {
+    var part, i;
+    part = this.$partSelect.val();
+    console.log(part);
+    for (i = 0; i < this.dance.patterns.length; i++) {
+      pattern = this.dance.patterns[i];
+      if ($.inArray(part, pattern.parts) <= 0) {
+        this.pattern = pattern;
+        break;
+      }
+    }
+    this._drawPattern();
+  },
 
-    patternIndex = 0;
-    pattern = this.dance.patterns[patternIndex];
+  _drawPattern: function() {
+    var ctx, pattern, component, path, lapIndex, componentIndex, pathIndex;
+    ctx = this.canvasContext;
 
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       ctx.save()
       ctx.translate(this.centerX, this.centerY);
       ctx.rotate(this.offsetAngle + 2 * Math.PI * lapIndex / this.dance.patternsPerLap);
-      for (componentIndex = 0; componentIndex < pattern.components.length; componentIndex++) {
-        component = pattern.components[componentIndex];
+      for (componentIndex = 0; componentIndex < this.pattern.components.length; componentIndex++) {
+        component = this.pattern.components[componentIndex];
         for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
           path = component.paths[pathIndex];
           ctx.beginPath();
