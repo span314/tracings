@@ -1,3 +1,21 @@
 canvas {
-	border:1px solid red;
+  border:1px solid red;
+}
+
+select {
+  width:256px;
+}
+
+#controls {
+  width:1024px;
+}
+
+#controls .ui-selectmenu-button {
+  vertical-align: middle;
+}
+
+#speed {
+  display: inline-block;
+  width:256px;
+  vertical-align: middle;
 }

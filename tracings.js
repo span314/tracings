@@ -1,5 +1,25 @@
 $(document).ready(function() {
   $('#diagramContainer').diagram();
+  $('#dance').selectmenu();
+  $('#part').buttonset();
+  $('#buttons').buttonset();
+  $('#beginning').button({
+    text: false,
+    icons: {primary: 'ui-icon-seek-start'}
+  });
+  $('#previous').button({
+    text: false,
+    icons: {primary: 'ui-icon-carat-1-w'}
+  });
+  $('#startStop').button({
+    text: false,
+    icons: {primary: 'ui-icon-play'}
+  });
+  $('#next').button({
+    text: false,
+    icons: {primary: 'ui-icon-carat-1-e'}
+  });
+  $('#speed').slider();
 });
 
 $.widget('shawnpan.diagram', {
