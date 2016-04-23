@@ -3,21 +3,26 @@ var drawOnCanvas = function(canvas, dance) {
     var centerX = canvas.width / 2;
     var centerY = canvas.height / 2;
   	var ctx = canvas.getContext('2d');
-    var pattern = dance.patterns[0];
-    var components = pattern.components;
     var offsetAngle = Math.PI / 2;
-    var patternIndex, i, path;
+    var pattern, component, path;
+    var patternIndex, componentIndex, pathIndex, lapIndex;
 
-    for (patternIndex = 0; patternIndex < dance.patternsPerLap; patternIndex++) {
+    patternIndex = 0;
+    pattern = dance.patterns[patternIndex];
+
+    for (lapIndex = 0; lapIndex < dance.patternsPerLap; lapIndex++) {
       ctx.save()
       ctx.translate(centerX, centerY);
-      ctx.rotate(offsetAngle + 2 * Math.PI * patternIndex / dance.patternsPerLap);
-      for (i = 0; i < components.length; i++) {
-        path = components[i].path;
-        ctx.beginPath();
-        ctx.moveTo(path[0], path[1]);
-        ctx.bezierCurveTo(path[2], path[3], path[4], path[5], path[6], path[7]);
-        ctx.stroke();
+      ctx.rotate(offsetAngle + 2 * Math.PI * lapIndex / dance.patternsPerLap);
+      for (componentIndex = 0; componentIndex < pattern.components.length; componentIndex++) {
+        component = pattern.components[componentIndex];
+        for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
+          path = component.paths[pathIndex];
+          ctx.beginPath();
+          ctx.moveTo.apply(ctx, path.start);
+          ctx.bezierCurveTo.apply(ctx, path.bezier);
+          ctx.stroke();
+        }
       }      
       ctx.restore()
     }
@@ -35,3 +40,5 @@ $(document).ready(function() {
     drawOnCanvas(canvas, data);
   });
 });
+
+console.log("foo");
