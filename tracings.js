@@ -1,48 +1,81 @@
+//Requires IE9 or later - uses HTML5 and ECMAScript5
+
 $(document).ready(function() {
   $('#diagramContainer').diagram();
   $('#danceSelect').selectmenu();
   $('#partButtons').buttonset();
-  $('#buttons').buttonset();
+
   $('#beginningButton').button({
     text: false,
     icons: {primary: 'ui-icon-seek-start'}
   });
+
   $('#previousButton').button({
     text: false,
     icons: {primary: 'ui-icon-carat-1-w'}
   });
-  $('#startStopButton').button({
+
+  $('#startPauseButton').button({
     text: false,
     icons: {primary: 'ui-icon-play'}
   });
+
   $('#nextButton').button({
     text: false,
     icons: {primary: 'ui-icon-carat-1-e'}
   });
+
   $('#speedSlider').slider({
     min: 20,
     max: 100,
     step: 5,
-    value: 100,
-    change: function(event, ui) {
-      var bpm = Math.floor($('#diagramContainer').diagram('speed', ui.value));
-      $('#speedValue').text(ui.value + '% (' + bpm + 'bpm)');
-    }
+    value: 100
   });
 });
 
 $.widget('shawnpan.diagram', {
+  playing: false,
+  part: 'lady',
+  controls: {},
 
   _create: function() {
-      console.log('widget create');
+      var elem, controls;
+      //check canvas compatibility
       this.canvas = this.element.find('canvas').get(0);
-      this.$speedSlider = this.element.find('#speedSlider');
-      this.$danceSelect = this.element.find('#danceSelect');
-      this.$danceSelect.on('change', $.proxy(this._loadDance, this));
       if (!this.canvas.getContext) {
         console.log('Canvas not supported');
         return;
       }
+
+      //find control ui
+      elem = this.element;
+      controls = this.controls;
+      controls.dance = elem.find('#danceSelect');
+      controls.partLady = elem.find('#partLady');
+      controls.partMan = elem.find('#partMan');
+      controls.beginning = elem.find('#beginningButton');
+      controls.previous = elem.find('#previousButton');
+      controls.next = elem.find('#nextButton');
+      controls.startPause = elem.find('#startPauseButton');
+      controls.speed = elem.find('#speedSlider');
+      controls.speedValue = elem.find('#speedValue');
+
+      //bind events
+      controls.dance.on('selectmenuchange', this._loadDance.bind(this));
+
+      controls.partLady.click(this._updatePart.bind(this, 'lady'));
+      controls.partMan.click(this._updatePart.bind(this, 'man'));
+
+      controls.beginning.click(this.beginning.bind(this));
+      controls.previous.click(this.previous.bind(this));
+      controls.next.click(this.next.bind(this));
+      controls.startPause.click(this.toggleStartPause.bind(this));
+
+
+
+      controls.speed.on('slidechange', this._updateSpeed.bind(this));
+
+      //initialize
       this.canvasContext = this.canvas.getContext('2d');
       this._onCanvasResize();
       this._loadDance();
@@ -56,20 +89,21 @@ $.widget('shawnpan.diagram', {
 
   _loadDance: function() {
     var widget = this;
-    $.getJSON(this.$danceSelect.val(), function(data) {
+    console.log(this.controls.dance.val());
+    $.getJSON(this.controls.dance.val(), function(data) {
       console.log(data);
       widget.dance = data;
       widget._loadPattern();
+      widget._updateSpeed();
     });
   },
 
   _loadPattern: function() {
-    var part, i;
-    part = 'lady';
-    console.log(part);
+    var i;
+    console.log('loading pattern ' + this.dance.name + ' ' + this.part);
     for (i = 0; i < this.dance.patterns.length; i++) {
       pattern = this.dance.patterns[i];
-      if ($.inArray(part, pattern.parts) <= 0) {
+      if ($.inArray(this.part, pattern.parts) <= 0) {
         this.pattern = pattern;
         break;
       }
@@ -78,8 +112,8 @@ $.widget('shawnpan.diagram', {
   },
 
   _drawPattern: function() {
-    var ctx, pattern, component, path, lapIndex, componentIndex, pathIndex;
-    ctx = this.canvasContext;
+    var pattern, component, path, lapIndex, componentIndex, pathIndex,
+        ctx = this.canvasContext;
 
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       ctx.save()
@@ -100,9 +134,55 @@ $.widget('shawnpan.diagram', {
     console.log('done');
   },
 
-  speed: function(speedPercentage) {
-    this.speedPercentage = speedPercentage;
-    this.playbackBPM = speedPercentage * this.dance.beatsPerMinute / 100;
-    return this.playbackBPM;
+  _updateSpeed: function() {
+    var percentage = this.controls.speed.slider('value');
+    this.playbackBPM = percentage * this.dance.beatsPerMinute / 100;
+    this.controls.speedValue.text(percentage + '% (' + Math.round(this.playbackBPM) + ' bpm)');
+  },
+
+  _updatePart: function(part) {
+    if (this.part !== part) {
+      this.part = part;
+      this._loadPattern();
+    }
+  },
+
+  beginning: function() {
+    this.pause();
+    console.log('beginning');
+  },
+
+  previous: function() {
+    this.pause();
+    console.log('previous');
+  },
+
+  next: function() {
+    this.pause();
+    console.log('next');
+  },
+
+  start: function() {
+    if (!this.playing) {
+      console.log('start');
+      this.playing = true;
+      this.controls.startPause.button('option', {icons: {primary: 'ui-icon-pause'}});
+    }
+  },
+
+  pause: function() {
+    if (this.playing) {
+      console.log('pause');
+      this.playing = false;
+      this.controls.startPause.button('option', {icons: {primary: 'ui-icon-play'}});
+    }
+  },
+
+  toggleStartPause: function() {
+    if (this.playing) {
+      this.pause();
+    } else {
+      this.start();
+    }
   }
 });
