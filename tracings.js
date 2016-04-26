@@ -1,25 +1,34 @@
 $(document).ready(function() {
   $('#diagramContainer').diagram();
-  $('#dance').selectmenu();
-  $('#part').buttonset();
+  $('#danceSelect').selectmenu();
+  $('#partButtons').buttonset();
   $('#buttons').buttonset();
-  $('#beginning').button({
+  $('#beginningButton').button({
     text: false,
     icons: {primary: 'ui-icon-seek-start'}
   });
-  $('#previous').button({
+  $('#previousButton').button({
     text: false,
     icons: {primary: 'ui-icon-carat-1-w'}
   });
-  $('#startStop').button({
+  $('#startStopButton').button({
     text: false,
     icons: {primary: 'ui-icon-play'}
   });
-  $('#next').button({
+  $('#nextButton').button({
     text: false,
     icons: {primary: 'ui-icon-carat-1-e'}
   });
-  $('#speed').slider();
+  $('#speedSlider').slider({
+    min: 20,
+    max: 100,
+    step: 5,
+    value: 100,
+    change: function(event, ui) {
+      var bpm = Math.floor($('#diagramContainer').diagram('speed', ui.value));
+      $('#speedValue').text(ui.value + '% (' + bpm + 'bpm)');
+    }
+  });
 });
 
 $.widget('shawnpan.diagram', {
@@ -27,10 +36,9 @@ $.widget('shawnpan.diagram', {
   _create: function() {
       console.log('widget create');
       this.canvas = this.element.find('canvas').get(0);
-      this.$danceSelect = this.element.find('.danceSelect');
-      this.$partSelect = this.element.find('.partSelect');
+      this.$speedSlider = this.element.find('#speedSlider');
+      this.$danceSelect = this.element.find('#danceSelect');
       this.$danceSelect.on('change', $.proxy(this._loadDance, this));
-      this.$partSelect.on('change', $.proxy(this._loadPattern, this));
       if (!this.canvas.getContext) {
         console.log('Canvas not supported');
         return;
@@ -57,7 +65,7 @@ $.widget('shawnpan.diagram', {
 
   _loadPattern: function() {
     var part, i;
-    part = this.$partSelect.val();
+    part = 'lady';
     console.log(part);
     for (i = 0; i < this.dance.patterns.length; i++) {
       pattern = this.dance.patterns[i];
@@ -90,5 +98,11 @@ $.widget('shawnpan.diagram', {
       ctx.restore()
     }
     console.log('done');
+  },
+
+  speed: function(speedPercentage) {
+    this.speedPercentage = speedPercentage;
+    this.playbackBPM = speedPercentage * this.dance.beatsPerMinute / 100;
+    return this.playbackBPM;
   }
 });

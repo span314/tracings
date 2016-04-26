@@ -1,21 +1,23 @@
 canvas {
-  border:1px solid red;
-}
-
-select {
-  width:256px;
+  border: 1px solid red;
 }
 
 #controls {
-  width:1024px;
+  width: 1024px;
+}
+
+#controls select {
+  width: 30%;
 }
 
 #controls .ui-selectmenu-button {
   vertical-align: middle;
 }
 
-#speed {
+#speedSlider {
   display: inline-block;
-  width:256px;
+  width: 20%;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   vertical-align: middle;
 }

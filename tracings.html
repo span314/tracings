@@ -5,49 +5,42 @@
 
   <title>Ice Dance Diagrams</title>
 
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="lib/jquery-ui.css">
+<!--  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css"> -->
+  <link rel="stylesheet" href="style.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/jquery-ui.min.js"></script>
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> -->
   <script src="tracings.js"></script>
 </head>
 
 <body>
-  <div id="topContainer">Top</div>
   <div id="diagramContainer">
     <canvas width="1024" height="512"></canvas>
-    <div>
-      <select class="danceSelect">
+    <div id="controls" class="ui-widget-header ui-corner-all">
+      <select id="danceSelect">
         <option value="canasta_tango.json">Canasta Tango</option>
         <option value="broken.json">Broken</option>
       </select>
-      <select class="partSelect">
-        <option value="lady">Lady</option>
-        <option value="man">Man</option>
-      </select>
+
+      <span id="partButtons">
+        <input type="radio" id="partLady" name="part" checked="true"><label for="partLady">Lady</label>
+        <input type="radio" id="partMan" name="part"><label for="partMan">Man</label>
+      </span>
+
+      <span id="buttons">
+        <button id="beginningButton">B</button>
+        <button id="previousButton">P</button>
+        <button id="startStopButton">S</button>
+        <button id="nextButton">N</button>
+      </span>
+
+      <span id="speedSlider"></span>
+      <span id="speedValue">100%</span>
     </div>
   </div>
-  <div id="controls" class="ui-widget-header ui-corner-all">
-    <select id="dance">
-      <option value="canasta_tango.json">Canasta Tango</option>
-      <option value="broken.json">Broken</option>
-    </select>
-
-    <span id="part">
-      <input type="radio" id="partLady" name="part" checked="true"><label for="partLady">Lady</label>
-      <input type="radio" id="partMan" name="part"><label for="partMan">Man</label>
-    </span>
-
-    <span id="buttons">
-      <button id="beginning">B</button>
-      <button id="previous">P</button>
-      <button id="startStop">S</button>
-      <button id="next">N</button>
-    </span>
-
-    <span id="speed"></span>
-  </div>
-  <div id="bottomContainer">Bottom</div>
 </body>
+
 </html>
