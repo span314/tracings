@@ -90,7 +90,7 @@ $.widget('shawnpan.diagram', {
   _loadDance: function() {
     var widget = this;
     console.log(this.controls.dance.val());
-    $.getJSON(this.controls.dance.val(), function(data) {
+    $.getJSON('patterns/' + this.controls.dance.val(), function(data) {
       console.log(data);
       widget.dance = data;
       widget._loadPattern();
