@@ -103,7 +103,7 @@ $.widget('shawnpan.diagram', {
     console.log('loading pattern ' + this.dance.name + ' ' + this.part);
     for (i = 0; i < this.dance.patterns.length; i++) {
       pattern = this.dance.patterns[i];
-      if ($.inArray(this.part, pattern.parts) <= 0) {
+      if ($.inArray(this.part, pattern.parts) >= 0) {
         this.pattern = pattern;
         break;
       }
@@ -114,6 +114,8 @@ $.widget('shawnpan.diagram', {
   _drawPattern: function() {
     var pattern, component, path, lapIndex, componentIndex, pathIndex,
         ctx = this.canvasContext;
+
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       ctx.save()
