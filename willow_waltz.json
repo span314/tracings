@@ -11,128 +11,97 @@
       "components":
       [
         {
-          "stepIndex":"1", "duration":"8", "beats":"2",
-          "edge":"LBO", "shortLabel":"LBO", "label":"Left Back Outside Edge",
+          "stepIndex":"1", "beats":"2000", "edge":"LBO",
           "paths":[{"start":["84.056", "-454.881"], "bezier":["70.232", "-440.552", "54.373", "-430.295", "36.999", "-423.066"]}]
         },
         {
-          "stepIndex":"2", "duration":"4", "beats":"1",
-          "edge":"RBI", "shortLabel":"RBI-Ch", "label":"Right Back Inside Chasse",
+          "stepIndex":"2", "beats":"1000", "edge":"RBI", "step":"Ch",
           "paths":[{"start":["37.887", "-415.963"], "bezier":["25.957", "-411.762", "20.544", "-411.262", "1.929", "-410.932"]}]
         },
         {
-          "stepIndex":"3", "duration":"12", "beats":"3",
-          "edge":"LBO", "shortLabel":"LBO", "label":"Left Back Outside Edge",
+          "stepIndex":"3", "beats":"3000", "edge":"LBO",
           "paths":[{"start":["0.449", "-417.295"], "bezier":["-27.119", "-421.503", "-56.495", "-445.293", "-66.141", "-457.692"]}]
         },
         {
-          "stepIndex":"4", "duration":"12", "beats":"3",
-          "edge":"RBO", "shortLabel":"RBO", "label":"Right Back Outside Edge",
+          "stepIndex":"4", "beats":"3000", "edge":"RBO",
           "paths":[{"start":["-71.764", "-451.921"], "bezier":["-87.679", "-470.861", "-140.384", "-495.126", "-150.339", "-474.266"]}]
         },
         {
-          "stepIndex":"5", "duration":"12", "beats":"3",
-          "edge":"LFO", "shortLabel":"LFO", "label":"Left Forward Outside Edge",
+          "stepIndex":"5", "beats":"3000", "edge":"LFO",
           "paths":[{"start":["-152.559", "-482.849"], "bezier":["-181.763", "-481.527", "-203.159", "-467.045", "-218.557", "-442.451"]}]
         },
         {
-          "stepIndex":"6", "duration":"12", "beats":"3",
-          "edge":"RFI", "shortLabel":"RFI (opt. slCh)", "label":"Right Forward Inside Edge (Optional Slide Chasse)",
+          "stepIndex":"6", "beats":"3000", "edge":"RFI", "step":"opt slCh",
           "paths":[{"start":["-225.364", "-445.558"], "bezier":["-243.319", "-422.012", "-244.513", "-367.208", "-230.099", "-348.486"]}]
         },
         {
-          "stepIndex":"7", "duration":"12", "beats":"3",
-          "edge":"LFO", "shortLabel":"LFO", "label":"Left Forward Ouside Edge",
+          "stepIndex":"7", "beats":"3000", "edge":"LFO",
           "paths":[{"start":["-222.996", "-352.037"], "bezier":["-204.915", "-322.027", "-180.587", "-304.601", "-145.456", "-294.622"]}]
         },
         {
-          "stepIndex":"8", "duration":"8", "beats":"2+1",
-          "edge":"RFO", "shortLabel":"RFO3", "label":"Right Forward Outside 3-turn",
-          "group":"3",
+          "stepIndex":"8", "beats":"2000", "beatLabel":"2+1", "edge":"RFO", "step":"3", "group":"3",
+          "label":"RFO3", "description":"Right Forward Outside 3-turn",
           "paths":[{"start":["-152.855", "-289.295"], "bezier":["-125.771", "-279.321", "-102.352", "-267.832", "-104.467", "-245.790"]}]
         },
         {
-          "stepIndex":"8", "duration":"4", "beats":"2+1",
-          "edge":"LBI", "shortLabel":"RFO3", "label":"Right Forward Outside 3-turn",
-          "group":"3",
+          "stepIndex":"8", "beats":"1000", "beatLabel":"2+1", "edge":"LBI", "step":"3", "group":"3",
+          "label":"RFO3", "description":"Right Forward Outside 3-turn",
           "paths":[{"start":["-104.635", "-246.064"], "bezier":["-85.947", "-247.243", "-77.732", "-237.867", "-75.442", "-224.195"]}]
         },
         {
-          "stepIndex":"9", "duration":"8", "beats":"2",
-          "edge":"LBO", "shortLabel":"LBO", "label":"Left Back Ouside Progressive",
-          "group":"pr1",
+          "stepIndex":"9", "beats":"2000", "edge":"LBO", "step":"pr", "group":"pr1",
           "paths":[{"start":["-81.234", "-222.853"], "bezier":["-75.109", "-203.562", "-73.019", "-184.121", "-74.427", "-164.550"]}]
         },
         {
-          "stepIndex":"10", "duration":"4", "beats":"1",
-          "edge":"RBI", "shortLabel":"RBI-Pr", "label":"Right Back Inside Progressive",
-          "group":"pr1",
+          "stepIndex":"10", "beats":"1000", "edge":"RBI", "step":"pr", "group":"pr1",
           "paths":[{"start":["-68.013", "-163.350"], "bezier":["-68.764", "-149.648", "-72.107", "-139.713", "-77.535", "-130.285"]}]
         },
         {
-          "stepIndex":"11", "duration":"12", "beats":"3",
-          "edge":"LBO", "shortLabel":"LBO", "label":"Left Back Ouside Progressive",
-          "group":"pr1",
+          "stepIndex":"11", "beats":"3000", "edge":"LBO", "step":"pr", "group":"pr1",
           "paths":[{"start":["-82.871", "-133.215"], "bezier":["-101.462", "-98.415", "-126.974", "-84.012", "-152.663", "-72.317"]}]
         },
         {
-          "stepIndex":"12", "duration":"8", "beats":"2",
-          "edge":"RBO", "shortLabel":"RBO", "label":"Right Back Outside Edge",
+          "stepIndex":"12", "beats":"2000", "edge":"RBO",
           "paths":[{"start":["-151.826", "-65.306"], "bezier":["-184.613", "-57.177", "-196.075", "-44.497", "-208.538", "-32.032"]}]
         },
         {
-          "stepIndex":"13", "duration":"4", "beats":"1",
-          "edge":"LBI", "shortLabel":"LBI-Ch", "label":"Left Back Inside Chasse",
+          "stepIndex":"13", "beats":"1000", "edge":"LBI", "step":"Ch",
           "paths":[{"start":["-213.770", "-38.938"], "bezier":["-226.646", "-28.488", "-235.098", "-16.560", "-235.011", "-2.002"]}]
         },
         {
-          "stepIndex":"14", "duration":"12", "beats":"3",
-          "edge":"RBO", "shortLabel":"RBO", "label":"Right Back Outside Edge",
+          "stepIndex":"14", "beats":"3000", "edge":"RBO",
           "paths":[{"start":["-229.256", "4.695"], "bezier":["-233.342", "16.826", "-245.539", "79.469", "-216.177", "84.322"]}]
         },
         {
-          "stepIndex":"15", "duration":"12", "beats":"3",
-          "edge":"LFO", "shortLabel":"LFO", "label":"Left Forward Outside Edge",
+          "stepIndex":"15", "beats":"3000", "edge":"LFO",
           "paths":[{"start":["-220.258", "88.194"], "bezier":["-205.450", "114.616", "-176.237", "132.037", "-136.235", "140.512"]}]
         },
         {
-          "stepIndex":"16", "duration":"12", "beats":"3",
-          "edge":"RFO", "shortLabel":"RFO", "label":"Right Forward Outside Edge",
+          "stepIndex":"16", "beats":"3000", "edge":"RFO",
           "paths":[{"start":["-136.549", "149.092"], "bezier":["-88.826", "160.913", "-68.595", "178.776", "-70.001", "220.767"]}]
         },
         {
-          "stepIndex":"17", "duration":"12", "beats":"3",
-          "edge":"LFI", "shortLabel":"LFI", "label":"Left Forward Inside Edge",
+          "stepIndex":"17", "beats":"3000", "edge":"LFI",
           "paths":[{"start":["-65.920", "225.162"], "bezier":["-70.356", "261.553", "-99.995", "287.223", "-146.699", "293.907"]}]
         },
         {
-          "stepIndex":"18", "duration":"12", "beats":"3",
-          "edge":"RFI", "shortLabel":"RFI opMo", "label":"Right Forward Inside Open Mohawk",
-          "group":"m",
+          "stepIndex":"18", "beats":"3000", "edge":"RFI", "step":"opMo", "group":"m",
           "paths":[{"start":["-153.186", "286.687"], "bezier":["-191.987", "287.395", "-226.027", "313.509", "-227.164", "361.292"]}]
         },
         {
-          "stepIndex":"19", "duration":"12", "beats":"3",
-          "edge":"LBI", "shortLabel":"LBI", "label":"Left Back Inside Edge",
-          "group":"m",
+          "stepIndex":"19", "beats":"3000", "edge":"LBI", "step":"opMo", "group":"m",
           "paths":[{"start":["-215.301", "336.647"], "bezier":["-250.836", "361.772", "-255.041", "422.142", "-230.543", "445.262"]}]
         },
         {
-          "stepIndex":"20", "duration":"8", "beats":"2",
-          "edge":"RBO", "shortLabel":"RBO", "label":"Left Back Outside Progressive",
-          "group":"pr2",
+          "stepIndex":"20", "beats":"2000", "edge":"RBO", "step":"Pr", "group":"pr2",
           "paths":[{"start":["-226.252", "438.751"], "bezier":["-217.063", "458.531", "-200.501", "469.955", "-179.491", "476.338"]}]
         },
         {
-          "stepIndex":"21", "duration":"4", "beats":"1",
-          "edge":"LBI", "shortLabel":"LBI-Pr", "label":"Left Back Inside Progressive",
-          "group":"pr2",
+          "stepIndex":"21", "beats":"1000", "edge":"LBI", "step":"Pr", "group":"pr2",
           "paths":[{"start":["-182.302", "483.884"], "bezier":["-160.818", "490.044", "-154.595", "489.777", "-147.676", "489.803"]}]
         },
         {
-          "stepIndex":"22", "duration":"12", "beats":"3",
-          "edge":"RBO", "shortLabel":"RBO", "label":"Right Back Outside Progressive",
-          "group":"pr2",
+          "stepIndex":"22", "beats":"3000", "edge":"RBO", "step":"Pr", "group":"pr2",
           "paths":[{"start":["-149.156", "483.292"], "bezier":["-128.181", "480.835", "-107.594", "479.614", "-78.571", "451.477"]}]
         }
       ]
@@ -142,122 +111,97 @@
       "components":
       [
         {
-          "stepIndex":"1", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"1", "beats":"2000", "edge":"RFO",
           "paths":[{"start":["-67.768", "452.513"], "bezier":["-53.724", "436.297", "-36.659", "428.911", "-24.411", "426.321"]}]
         },
         {
-          "stepIndex":"2", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"2", "beats":"1000", "edge":"LFI", "step":"Ch",
           "paths":[{"start":["-27.963", "419.367"], "bezier":["-23.422", "416.721", "-14.297", "414.575", "8.292", "413.891"]}]
         },
         {
-          "stepIndex":"3", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"3", "beats":"3000", "edge":"RFO",
           "paths":[{"start":["5.924", "421.142"], "bezier":["39.386", "422.373", "59.353", "431.813", "80.209", "460.504"]}]
         },
         {
-          "stepIndex":"4", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"4", "beats":"3000", "edge":"LFO",
           "paths":[{"start":["85.240", "453.697"], "bezier":["103.950", "475.315", "128.078", "484.984", "165.295", "482.109"]}]
         },
         {
-          "stepIndex":"5", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
-          "group":"m",
+          "stepIndex":"5", "beats":"3000", "edge":"RFI", "step":"opMo", "group":"m",
           "paths":[{"start":["165.443", "490.247"], "bezier":["215.314", "485.400", "230.130", "462.177", "231.293", "431.797"]}]
         },
         {
-          "stepIndex":"6", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
-          "group":"m",
+          "stepIndex":"6", "beats":"3000", "edge":"LBI", "step":"opMo", "group":"m",
           "paths":[{"start":["217.087", "454.437"], "bezier":["240.119", "438.683", "260.884", "407.595", "236.620", "354.997"]}]
         },
         {
-          "stepIndex":"7", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"7", "beats":"3000", "edge":"RBO",
           "paths":[{"start":["230.109", "358.844"], "bezier":["219.259", "333.502", "201.806", "310.784", "160.412", "297.582"]}]
         },
         {
-          "stepIndex":"8", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"8", "beats":"3000", "edge":"LBO",
           "paths":[{"start":["162.484", "288.703"], "bezier":["116.045", "272.183", "82.484", "237.081", "101.517", "225.813"]}]
         },
         {
-          "stepIndex":"9", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"9", "beats":"2000", "edge":"RFO", "step":"Pr", "group":"pr1",
           "paths":[{"start":["89.531", "223.593"], "bezier":["80.589", "212.949", "74.323", "197.717", "76.361", "168.250"]}]
         },
         {
-          "stepIndex":"10", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"10", "beats":"1000", "edge":"LFI", "step":"Pr", "group":"pr1",
           "paths":[{"start":["69.258", "165.142"], "bezier":["69.642", "152.013", "72.928", "139.800", "80.800", "129.036"]}]
         },
         {
-          "stepIndex":"11", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"11", "beats":"3000", "edge":"RFO", "step":"Pr", "group":"pr1",
           "paths":[{"start":["88.939", "133.327"], "bezier":["100.298", "97.218", "125.137", "75.382", "156.565", "60.523"]}]
         },
         {
-          "stepIndex":"12", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"12", "beats":"2000", "edge":"LFO",
           "paths":[{"start":["156.269", "52.828"], "bezier":["180.397", "47.462", "198.485", "39.331", "209.836", "28.116"]}]
         },
         {
-          "stepIndex":"13", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"13", "beats":"1000", "edge":"RFI", "step":"Ch",
           "paths":[{"start":["216.051", "31.815"], "bezier":["225.295", "23.080", "230.284", "17.365", "237.804", "4.439"]}]
         },
         {
-          "stepIndex":"14", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
-          "group":"3",
+          "stepIndex":"14", "beats":"2000", "beatLabel":"2+1", "edge":"LFO", "step":"3", "group":"3",
+          "label":"LFO3", "description":"Left Forward Outside 3-turn",
           "paths":[{"start":["232.477", "-1.924"], "bezier":["246.106", "-36.457", "244.169", "-53.254", "232.329", "-59.783"]}]
         },
         {
-          "stepIndex":"14", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
-          "group":"3",
+          "stepIndex":"14", "beats":"1000", "beatLabel":"2+1", "edge":"RBI", "step":"3", "group":"3",
+          "label":"LFO3", "description":"Left Forward Outside 3-turn",
           "paths":[{"start":["232.448", "-59.133"], "bezier":["238.363", "-64.040", "241.257", "-76.809", "228.995", "-94.343"]}]
         },
         {
-          "stepIndex":"15", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"15", "beats":"3000", "edge":"RBO",
           "paths":[{"start":["222.858", "-89.082"], "bezier":["207.403", "-115.754", "174.485", "-137.483", "133.924", "-146.941"]}]
         },
         {
-          "stepIndex":"16", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"16", "beats":"3000", "edge":"LBO",
           "paths":[{"start":["134.664", "-157.891"], "bezier":["80.033", "-169.389", "68.496", "-194.195", "67.039", "-222.113"]}]
         },
         {
-          "stepIndex":"17", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"17", "beats":"3000", "edge":"RBI",
           "paths":[{"start":["60.380", "-223.297"], "bezier":["60.003", "-304.679", "137.880", "-282.207", "134.960", "-314.747"]}]
         },
         {
-          "stepIndex":"18", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"18", "beats":"3000", "edge":"LFO",
           "paths":[{"start":["139.843", "-303.353"], "bezier":["186.542", "-303.898", "216.605", "-318.791", "231.737", "-346.562"]}]
         },
         {
-          "stepIndex":"19", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"19", "beats":"3000", "edge":"RFI", "step":"opt slCh",
           "paths":[{"start":["240.616", "-343.306"], "bezier":["251.021", "-363.968", "257.003", "-396.896", "241.503", "-436.088"]}]
         },
         {
-          "stepIndex":"20", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"20", "beats":"2000", "edge":"LFO", "step":"Pr", "group":"pr2",
           "paths":[{"start":["237.360", "-431.649"], "bezier":["227.953", "-448.616", "217.115", "-461.719", "203.769", "-468.051"]}]
         },
         {
-          "stepIndex":"21", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"21", "beats":"1000", "edge":"RFI", "step":"Pr", "group":"pr2",
           "paths":[{"start":["207.321", "-471.602"], "bezier":["200.919", "-477.546", "189.997", "-481.640", "174.914", "-484.032"]}]
         },
         {
-          "stepIndex":"22", "duration":"", "beats":"",
-          "edge":"", "shortLabel":"", "label":"",
+          "stepIndex":"22", "beats":"3000", "edge":"LFO", "step":"Pr", "group":"pr2",
           "paths":[{"start":["175.802", "-477.225"], "bezier":["160.071", "-479.431", "122.873", "-478.808", "94.710", "-453.993"]}]
         }
       ]
