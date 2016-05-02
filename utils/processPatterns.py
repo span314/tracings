@@ -1,29 +1,36 @@
 #!/usr/bin/python
-import subprocess
+#This script processes csv (steps and timing) and svg (paths) files into json dance pattern components.
 import json
 import os
+import re
 
 NEW_WIDTH = 512
 NEW_HEIGHT = 1024
 DIRECTORY = "data"
 EXT_SVG = ".svg"
 EXT_CSV = ".csv"
+PATH_REGEX = re.compile("^\s*d=\"(.*)\"")
 
 for file in os.listdir(DIRECTORY):
   if (file.endswith(EXT_CSV)):
     patternName = os.path.splitext(file)[0]
     print "Processing " + patternName
-    svgFile = os.path.join(DIRECTORY, patternName + EXT_SVG)
-    csvFile = os.path.join(DIRECTORY, patternName + EXT_CSV)
+    svgFilename = os.path.join(DIRECTORY, patternName + EXT_SVG)
+    csvFilename = os.path.join(DIRECTORY, patternName + EXT_CSV)
 
-    beziers = []
+    processedPaths = []
 
     #Extract path values from svg
-    pathValues = subprocess.check_output(["sed", "-n", "s/^\\s*d=\\\"\(.*\)\\\"/\\1/p", svgFile])
-    paths = [line.split(",") for line in pathValues.strip().replace(" ",",").split("\n")]
+    paths = []
+    svgFile = open(svgFilename, 'r')
+    for line in svgFile:
+      match = re.match(PATH_REGEX, line)
+      if (match):
+        tokens = match.group(1).strip().replace(" ",",").split(",")
+        paths.append(tokens)
+    svgFile.close()
 
-    oldCenterX = float(paths[1][1])
-    oldCenterY = float(paths[0][2])
+    oldCenter = [float(paths[1][1]), float(paths[0][2])]
     oldWidth = float(paths[0][3])
     oldHeight = float(paths[1][4])
 
@@ -31,35 +38,22 @@ for file in os.listdir(DIRECTORY):
 
     for path in paths[2:]:
       #Convert to absolute coordinate floats
-      x0 = float(path[1])
-      y0 = float(path[2])
+      startPoint = [float(p) for p in path[1:3]]
       if path[3] == "c": #relative coordinates cubic
-        x1 = float(path[4]) + x0
-        y1 = float(path[5]) + y0
-        x2 = float(path[6]) + x0
-        y2 = float(path[7]) + y0
-        x3 = float(path[8]) + x0
-        y3 = float(path[9]) + y0
+        offset = startPoint * 3
+        absPath = [float(p) for p in path[4:10]]
+        cubicPath = [a + o for a, o in zip(absPath, offset)]
       elif path[3] == "C": #absolute coordinates cubic
-        x1 = float(path[4])
-        y1 = float(path[5])
-        x2 = float(path[6])
-        y2 = float(path[7])
-        x3 = float(path[8])
-        y3 = float(path[9])
+        cubicPath = [float(p) for p in path[4:10]]
       else:
         raise Exception("path format code " + path[3] + " is not supported")
       #Normalize - center as (0, 0)
-      x0 = (x0 - oldCenterX) * scaleFactor
-      x1 = (x1 - oldCenterX) * scaleFactor
-      x2 = (x2 - oldCenterX) * scaleFactor
-      x3 = (x3 - oldCenterX) * scaleFactor
-      y0 = (y0 - oldCenterY) * scaleFactor
-      y1 = (y1 - oldCenterY) * scaleFactor
-      y2 = (y2 - oldCenterY) * scaleFactor
-      y3 = (y3 - oldCenterY) * scaleFactor
+      startPoint = [(new - old) * scaleFactor for new, old in zip(startPoint, oldCenter)]
+      cubicPath = [(new - old) * scaleFactor for new, old in zip(cubicPath, oldCenter * 3)]
       
-      beziers.append({"paths":[{"start":[x0,y0],"bezier":[x1,y1,x2,y2,x3,y3]}]});
+      processedPaths.append({"paths":[{"start":startPoint,"bezier":cubicPath}]});
 
-    for bezier in beziers:
+    #Extract steps from csv 
+
+    for bezier in processedPaths:
       print json.dumps(bezier);
