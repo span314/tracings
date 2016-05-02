@@ -1,1 +1,1 @@
-stepIndex,duration,beats,count,edge,label,description,group
+index,duration,offset,beats,edge,step,label,desc,group,optional
