@@ -11,98 +11,676 @@
       "components":
       [
         {
-          "stepIndex":"1", "beats":"2000", "edge":"LBO",
-          "paths":[{"start":["84.056", "-454.881"], "bezier":["70.232", "-440.552", "54.373", "-430.295", "36.999", "-423.066"]}]
+          "beats": "2",
+          "desc": "Left Back Outside Edge",
+          "duration": 8,
+          "edge": "LBO",
+          "group": "",
+          "index": "1",
+          "label": "LBO",
+          "offset": 0,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                70.232,
+                -440.552,
+                54.373,
+                -430.295,
+                36.999,
+                -423.066
+              ],
+              "start": [
+                84.056,
+                -454.881
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"2", "beats":"1000", "edge":"RBI", "step":"Ch",
-          "paths":[{"start":["37.887", "-415.963"], "bezier":["25.957", "-411.762", "20.544", "-411.262", "1.929", "-410.932"]}]
+          "beats": "1",
+          "desc": "Right Back Inside Edge",
+          "duration": 4,
+          "edge": "RBI",
+          "group": "",
+          "index": "2",
+          "label": "RBI",
+          "offset": 8,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                25.957,
+                -411.762,
+                20.544,
+                -411.262,
+                1.929,
+                -410.932
+              ],
+              "start": [
+                37.887,
+                -415.963
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"3", "beats":"3000", "edge":"LBO",
-          "paths":[{"start":["0.449", "-417.295"], "bezier":["-27.119", "-421.503", "-56.495", "-445.293", "-66.141", "-457.692"]}]
+          "beats": "3",
+          "desc": "Left Back Outside Edge",
+          "duration": 12,
+          "edge": "LBO",
+          "group": "",
+          "index": "3",
+          "label": "LBO",
+          "offset": 12,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -27.119,
+                -421.503,
+                -56.495,
+                -445.293,
+                -66.141,
+                -457.692
+              ],
+              "start": [
+                0.449,
+                -417.295
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"4", "beats":"3000", "edge":"RBO",
-          "paths":[{"start":["-71.764", "-451.921"], "bezier":["-87.679", "-470.861", "-140.384", "-495.126", "-150.339", "-474.266"]}]
+          "beats": "3",
+          "desc": "Right Back Outside Edge",
+          "duration": 12,
+          "edge": "RBO",
+          "group": "",
+          "index": "4",
+          "label": "RBO",
+          "offset": 24,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -87.679,
+                -470.861,
+                -140.384,
+                -495.126,
+                -150.339,
+                -474.266
+              ],
+              "start": [
+                -71.764,
+                -451.921
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"5", "beats":"3000", "edge":"LFO",
-          "paths":[{"start":["-152.559", "-482.849"], "bezier":["-181.763", "-481.527", "-203.159", "-467.045", "-218.557", "-442.451"]}]
+          "beats": "3",
+          "desc": "Left Forward Outside Edge",
+          "duration": 12,
+          "edge": "LFO",
+          "group": "",
+          "index": "5",
+          "label": "LFO",
+          "offset": 36,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -181.763,
+                -481.527,
+                -203.159,
+                -467.045,
+                -218.557,
+                -442.451
+              ],
+              "start": [
+                -152.559,
+                -482.849
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"6", "beats":"3000", "edge":"RFI", "step":"opt slCh",
-          "paths":[{"start":["-225.364", "-445.558"], "bezier":["-243.319", "-422.012", "-244.513", "-367.208", "-230.099", "-348.486"]}]
+          "beats": "3",
+          "desc": "Right Forward Inside Edge",
+          "duration": 12,
+          "edge": "RFI",
+          "group": "",
+          "index": "6",
+          "label": "RFI",
+          "offset": 48,
+          "optional": "1",
+          "path": [
+            {
+              "bezier": [
+                -243.319,
+                -422.012,
+                -244.513,
+                -367.208,
+                -230.099,
+                -348.486
+              ],
+              "start": [
+                -225.364,
+                -445.558
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"7", "beats":"3000", "edge":"LFO",
-          "paths":[{"start":["-222.996", "-352.037"], "bezier":["-204.915", "-322.027", "-180.587", "-304.601", "-145.456", "-294.622"]}]
+          "beats": "3",
+          "desc": "Right Forward Inside Slide Chasse",
+          "duration": 12,
+          "edge": "RFI",
+          "group": "",
+          "index": "6",
+          "label": "RFI-slCh",
+          "offset": 48,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -243.319,
+                -422.012,
+                -244.513,
+                -367.208,
+                -230.099,
+                -348.486
+              ],
+              "start": [
+                -225.364,
+                -445.558
+              ]
+            }
+          ],
+          "step": "slch"
         },
         {
-          "stepIndex":"8", "beats":"2000", "beatLabel":"2+1", "edge":"RFO", "step":"3", "group":"3",
-          "label":"RFO3", "description":"Right Forward Outside 3-turn",
-          "paths":[{"start":["-152.855", "-289.295"], "bezier":["-125.771", "-279.321", "-102.352", "-267.832", "-104.467", "-245.790"]}]
+          "beats": "3",
+          "desc": "Left Forward Outside Edge",
+          "duration": 12,
+          "edge": "LFO",
+          "group": "",
+          "index": "7",
+          "label": "LFO",
+          "offset": 60,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -204.915,
+                -322.027,
+                -180.587,
+                -304.601,
+                -145.456,
+                -294.622
+              ],
+              "start": [
+                -222.996,
+                -352.037
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"8", "beats":"1000", "beatLabel":"2+1", "edge":"LBI", "step":"3", "group":"3",
-          "label":"RFO3", "description":"Right Forward Outside 3-turn",
-          "paths":[{"start":["-104.635", "-246.064"], "bezier":["-85.947", "-247.243", "-77.732", "-237.867", "-75.442", "-224.195"]}]
+          "beats": "2+1",
+          "desc": "European 3-turn: Right Forward Outside",
+          "duration": "8",
+          "edge": "RFO",
+          "group": "3",
+          "index": "8",
+          "label": "RFO3",
+          "offset": 72,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -125.771,
+                -279.321,
+                -102.352,
+                -267.832,
+                -104.467,
+                -245.79
+              ],
+              "start": [
+                -152.855,
+                -289.295
+              ]
+            }
+          ],
+          "step": "e3"
         },
         {
-          "stepIndex":"9", "beats":"2000", "edge":"LBO", "step":"pr", "group":"pr1",
-          "paths":[{"start":["-81.234", "-222.853"], "bezier":["-75.109", "-203.562", "-73.019", "-184.121", "-74.427", "-164.550"]}]
+          "beats": "2+1",
+          "desc": "European 3-turn: Right Back Inside",
+          "duration": "4",
+          "edge": "RBI",
+          "group": "3",
+          "index": "8",
+          "label": "RFO3",
+          "offset": 80,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -85.947,
+                -247.243,
+                -77.732,
+                -237.867,
+                -75.442,
+                -224.195
+              ],
+              "start": [
+                -104.635,
+                -246.064
+              ]
+            }
+          ],
+          "step": "e3"
         },
         {
-          "stepIndex":"10", "beats":"1000", "edge":"RBI", "step":"pr", "group":"pr1",
-          "paths":[{"start":["-68.013", "-163.350"], "bezier":["-68.764", "-149.648", "-72.107", "-139.713", "-77.535", "-130.285"]}]
+          "beats": "2",
+          "desc": "Progressive: Left Back Outside Edge",
+          "duration": 8,
+          "edge": "LBO",
+          "group": "pr1",
+          "index": "9",
+          "label": "LBO",
+          "offset": 84,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -75.109,
+                -203.562,
+                -73.019,
+                -184.121,
+                -74.427,
+                -164.55
+              ],
+              "start": [
+                -81.234,
+                -222.853
+              ]
+            }
+          ],
+          "step": "pr"
         },
         {
-          "stepIndex":"11", "beats":"3000", "edge":"LBO", "step":"pr", "group":"pr1",
-          "paths":[{"start":["-82.871", "-133.215"], "bezier":["-101.462", "-98.415", "-126.974", "-84.012", "-152.663", "-72.317"]}]
+          "beats": "1",
+          "desc": "Progressive: Right Back Outside Edge",
+          "duration": 4,
+          "edge": "RBO",
+          "group": "pr1",
+          "index": "10",
+          "label": "RBO-Pr",
+          "offset": 92,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -68.764,
+                -149.648,
+                -72.107,
+                -139.713,
+                -77.535,
+                -130.285
+              ],
+              "start": [
+                -68.013,
+                -163.35
+              ]
+            }
+          ],
+          "step": "pr"
         },
         {
-          "stepIndex":"12", "beats":"2000", "edge":"RBO",
-          "paths":[{"start":["-151.826", "-65.306"], "bezier":["-184.613", "-57.177", "-196.075", "-44.497", "-208.538", "-32.032"]}]
+          "beats": "3",
+          "desc": "Progressive: Left Back Outside Edge",
+          "duration": 12,
+          "edge": "LBO",
+          "group": "pr1",
+          "index": "11",
+          "label": "LBO",
+          "offset": 96,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -101.462,
+                -98.415,
+                -126.974,
+                -84.012,
+                -152.663,
+                -72.317
+              ],
+              "start": [
+                -82.871,
+                -133.215
+              ]
+            }
+          ],
+          "step": "pr"
         },
         {
-          "stepIndex":"13", "beats":"1000", "edge":"LBI", "step":"Ch",
-          "paths":[{"start":["-213.770", "-38.938"], "bezier":["-226.646", "-28.488", "-235.098", "-16.560", "-235.011", "-2.002"]}]
+          "beats": "2",
+          "desc": "Right Back Outside Edge",
+          "duration": 8,
+          "edge": "RBO",
+          "group": "",
+          "index": "12",
+          "label": "RBO",
+          "offset": 108,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -184.613,
+                -57.177,
+                -196.075,
+                -44.497,
+                -208.538,
+                -32.032
+              ],
+              "start": [
+                -151.826,
+                -65.306
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"14", "beats":"3000", "edge":"RBO",
-          "paths":[{"start":["-229.256", "4.695"], "bezier":["-233.342", "16.826", "-245.539", "79.469", "-216.177", "84.322"]}]
+          "beats": "1",
+          "desc": "Left Back Inside Edge",
+          "duration": 4,
+          "edge": "LBI",
+          "group": "",
+          "index": "13",
+          "label": "LBI",
+          "offset": 116,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -226.646,
+                -28.488,
+                -235.098,
+                -16.56,
+                -235.011,
+                -2.002
+              ],
+              "start": [
+                -213.77,
+                -38.938
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"15", "beats":"3000", "edge":"LFO",
-          "paths":[{"start":["-220.258", "88.194"], "bezier":["-205.450", "114.616", "-176.237", "132.037", "-136.235", "140.512"]}]
+          "beats": "3",
+          "desc": "Right Back Outside Edge",
+          "duration": 12,
+          "edge": "RBO",
+          "group": "",
+          "index": "14",
+          "label": "RBO",
+          "offset": 120,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -233.342,
+                16.826,
+                -245.539,
+                79.469,
+                -216.177,
+                84.322
+              ],
+              "start": [
+                -229.256,
+                4.695
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"16", "beats":"3000", "edge":"RFO",
-          "paths":[{"start":["-136.549", "149.092"], "bezier":["-88.826", "160.913", "-68.595", "178.776", "-70.001", "220.767"]}]
+          "beats": "3",
+          "desc": "Left Forward Outside Edge",
+          "duration": 12,
+          "edge": "LFO",
+          "group": "",
+          "index": "15",
+          "label": "LFO",
+          "offset": 132,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -205.45,
+                114.616,
+                -176.237,
+                132.037,
+                -136.235,
+                140.512
+              ],
+              "start": [
+                -220.258,
+                88.194
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"17", "beats":"3000", "edge":"LFI",
-          "paths":[{"start":["-65.920", "225.162"], "bezier":["-70.356", "261.553", "-99.995", "287.223", "-146.699", "293.907"]}]
+          "beats": "3",
+          "desc": "Right Forward Outside Edge",
+          "duration": 12,
+          "edge": "RFO",
+          "group": "",
+          "index": "16",
+          "label": "RFO",
+          "offset": 144,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -88.826,
+                160.913,
+                -68.595,
+                178.776,
+                -70.001,
+                220.767
+              ],
+              "start": [
+                -136.549,
+                149.092
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"18", "beats":"3000", "edge":"RFI", "step":"opMo", "group":"m",
-          "paths":[{"start":["-153.186", "286.687"], "bezier":["-191.987", "287.395", "-226.027", "313.509", "-227.164", "361.292"]}]
+          "beats": "3",
+          "desc": "Left Forward Inside Edge",
+          "duration": 12,
+          "edge": "LFI",
+          "group": "",
+          "index": "17",
+          "label": "LFI",
+          "offset": 156,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -70.356,
+                261.553,
+                -99.995,
+                287.223,
+                -146.699,
+                293.907
+              ],
+              "start": [
+                -65.92,
+                225.162
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"19", "beats":"3000", "edge":"LBI", "step":"opMo", "group":"m",
-          "paths":[{"start":["-215.301", "336.647"], "bezier":["-250.836", "361.772", "-255.041", "422.142", "-230.543", "445.262"]}]
+          "beats": "3",
+          "desc": "Open Mohawk: Right Forward Inside",
+          "duration": 12,
+          "edge": "RFI",
+          "group": "m",
+          "index": "18",
+          "label": "RFI-opMo",
+          "offset": 168,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -191.987,
+                287.395,
+                -226.027,
+                313.509,
+                -227.164,
+                361.292
+              ],
+              "start": [
+                -153.186,
+                286.687
+              ]
+            }
+          ],
+          "step": "opmo"
         },
         {
-          "stepIndex":"20", "beats":"2000", "edge":"RBO", "step":"Pr", "group":"pr2",
-          "paths":[{"start":["-226.252", "438.751"], "bezier":["-217.063", "458.531", "-200.501", "469.955", "-179.491", "476.338"]}]
+          "beats": "3",
+          "desc": "Open Mohawk: Left Back Inside",
+          "duration": 12,
+          "edge": "LBI",
+          "group": "m",
+          "index": "19",
+          "label": "LBI",
+          "offset": 180,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -250.836,
+                361.772,
+                -255.041,
+                422.142,
+                -230.543,
+                445.262
+              ],
+              "start": [
+                -215.301,
+                336.647
+              ]
+            }
+          ],
+          "step": "opmo"
         },
         {
-          "stepIndex":"21", "beats":"1000", "edge":"LBI", "step":"Pr", "group":"pr2",
-          "paths":[{"start":["-182.302", "483.884"], "bezier":["-160.818", "490.044", "-154.595", "489.777", "-147.676", "489.803"]}]
+          "beats": "2",
+          "desc": "Progressive: Right Back Outside Edge",
+          "duration": 8,
+          "edge": "RBO",
+          "group": "pr2",
+          "index": "20",
+          "label": "LBO",
+          "offset": 192,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -217.063,
+                458.531,
+                -200.501,
+                469.955,
+                -179.491,
+                476.338
+              ],
+              "start": [
+                -226.252,
+                438.751
+              ]
+            }
+          ],
+          "step": "pr"
         },
         {
-          "stepIndex":"22", "beats":"3000", "edge":"RBO", "step":"Pr", "group":"pr2",
-          "paths":[{"start":["-149.156", "483.292"], "bezier":["-128.181", "480.835", "-107.594", "479.614", "-78.571", "451.477"]}]
+          "beats": "1",
+          "desc": "Progressive: Left Back Inside Edge",
+          "duration": 4,
+          "edge": "LBI",
+          "group": "pr2",
+          "index": "21",
+          "label": "LBI-Pr",
+          "offset": 200,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -160.818,
+                490.044,
+                -154.595,
+                489.777,
+                -147.676,
+                489.803
+              ],
+              "start": [
+                -182.302,
+                483.884
+              ]
+            }
+          ],
+          "step": "pr"
+        },
+        {
+          "beats": "3",
+          "desc": "Progressive: Right Back Outside Edge",
+          "duration": 12,
+          "edge": "RBO",
+          "group": "pr2",
+          "index": "22",
+          "label": "LBO",
+          "offset": 204,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -128.181,
+                480.835,
+                -107.594,
+                479.614,
+                -78.571,
+                451.477
+              ],
+              "start": [
+                -149.156,
+                483.292
+              ]
+            }
+          ],
+          "step": "pr"
         }
       ]
     },
@@ -111,98 +689,676 @@
       "components":
       [
         {
-          "stepIndex":"1", "beats":"2000", "edge":"RFO",
-          "paths":[{"start":["-67.768", "452.513"], "bezier":["-53.724", "436.297", "-36.659", "428.911", "-24.411", "426.321"]}]
+          "beats": "2",
+          "desc": "Right Forward Outside Edge",
+          "duration": 8,
+          "edge": "RFO",
+          "group": "",
+          "index": "1",
+          "label": "RFO",
+          "offset": 216,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -53.724,
+                436.297,
+                -36.659,
+                428.911,
+                -24.411,
+                426.321
+              ],
+              "start": [
+                -67.768,
+                452.513
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"2", "beats":"1000", "edge":"LFI", "step":"Ch",
-          "paths":[{"start":["-27.963", "419.367"], "bezier":["-23.422", "416.721", "-14.297", "414.575", "8.292", "413.891"]}]
+          "beats": "1",
+          "desc": "Left Forward Inside Edge",
+          "duration": 4,
+          "edge": "LFI",
+          "group": "",
+          "index": "2",
+          "label": "LFI",
+          "offset": 224,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                -23.422,
+                416.721,
+                -14.297,
+                414.575,
+                8.292,
+                413.891
+              ],
+              "start": [
+                -27.963,
+                419.367
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"3", "beats":"3000", "edge":"RFO",
-          "paths":[{"start":["5.924", "421.142"], "bezier":["39.386", "422.373", "59.353", "431.813", "80.209", "460.504"]}]
+          "beats": "3",
+          "desc": "Right Forward Outside Edge",
+          "duration": 12,
+          "edge": "RFO",
+          "group": "",
+          "index": "3",
+          "label": "RFO",
+          "offset": 228,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                39.386,
+                422.373,
+                59.353,
+                431.813,
+                80.209,
+                460.504
+              ],
+              "start": [
+                5.924,
+                421.142
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"4", "beats":"3000", "edge":"LFO",
-          "paths":[{"start":["85.240", "453.697"], "bezier":["103.950", "475.315", "128.078", "484.984", "165.295", "482.109"]}]
+          "beats": "3",
+          "desc": "Left Forward Outside Edge",
+          "duration": 12,
+          "edge": "LFO",
+          "group": "",
+          "index": "4",
+          "label": "LFO",
+          "offset": 240,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                103.95,
+                475.315,
+                128.078,
+                484.984,
+                165.295,
+                482.109
+              ],
+              "start": [
+                85.24,
+                453.697
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"5", "beats":"3000", "edge":"RFI", "step":"opMo", "group":"m",
-          "paths":[{"start":["165.443", "490.247"], "bezier":["215.314", "485.400", "230.130", "462.177", "231.293", "431.797"]}]
+          "beats": "3",
+          "desc": "Open Mohawk: Right Forward Inside",
+          "duration": 12,
+          "edge": "RFI",
+          "group": "m",
+          "index": "5",
+          "label": "RFI-opMo",
+          "offset": 252,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                215.314,
+                485.4,
+                230.13,
+                462.177,
+                231.293,
+                431.797
+              ],
+              "start": [
+                165.443,
+                490.247
+              ]
+            }
+          ],
+          "step": "opmo"
         },
         {
-          "stepIndex":"6", "beats":"3000", "edge":"LBI", "step":"opMo", "group":"m",
-          "paths":[{"start":["217.087", "454.437"], "bezier":["240.119", "438.683", "260.884", "407.595", "236.620", "354.997"]}]
+          "beats": "3",
+          "desc": "Open Mohawk: Left Back Inside",
+          "duration": 12,
+          "edge": "LBI",
+          "group": "m",
+          "index": "6",
+          "label": "LBI",
+          "offset": 264,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                240.119,
+                438.683,
+                260.884,
+                407.595,
+                236.62,
+                354.997
+              ],
+              "start": [
+                217.087,
+                454.437
+              ]
+            }
+          ],
+          "step": "opmo"
         },
         {
-          "stepIndex":"7", "beats":"3000", "edge":"RBO",
-          "paths":[{"start":["230.109", "358.844"], "bezier":["219.259", "333.502", "201.806", "310.784", "160.412", "297.582"]}]
+          "beats": "3",
+          "desc": "Right Back Outside Edge",
+          "duration": 12,
+          "edge": "RBO",
+          "group": "",
+          "index": "7",
+          "label": "RBO",
+          "offset": 276,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                219.259,
+                333.502,
+                201.806,
+                310.784,
+                160.412,
+                297.582
+              ],
+              "start": [
+                230.109,
+                358.844
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"8", "beats":"3000", "edge":"LBO",
-          "paths":[{"start":["162.484", "288.703"], "bezier":["116.045", "272.183", "82.484", "237.081", "101.517", "225.813"]}]
+          "beats": "3",
+          "desc": "Left Back Outside Edge",
+          "duration": 12,
+          "edge": "LBO",
+          "group": "",
+          "index": "8",
+          "label": "LBO",
+          "offset": 288,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                116.045,
+                272.183,
+                82.484,
+                237.081,
+                101.517,
+                225.813
+              ],
+              "start": [
+                162.484,
+                288.703
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"9", "beats":"2000", "edge":"RFO", "step":"Pr", "group":"pr1",
-          "paths":[{"start":["89.531", "223.593"], "bezier":["80.589", "212.949", "74.323", "197.717", "76.361", "168.250"]}]
+          "beats": "2",
+          "desc": "Progressive: Right Forward Outside Edge",
+          "duration": 8,
+          "edge": "RFO",
+          "group": "pr1",
+          "index": "9",
+          "label": "LFO",
+          "offset": 300,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                80.589,
+                212.949,
+                74.323,
+                197.717,
+                76.361,
+                168.25
+              ],
+              "start": [
+                89.531,
+                223.593
+              ]
+            }
+          ],
+          "step": "pr"
         },
         {
-          "stepIndex":"10", "beats":"1000", "edge":"LFI", "step":"Pr", "group":"pr1",
-          "paths":[{"start":["69.258", "165.142"], "bezier":["69.642", "152.013", "72.928", "139.800", "80.800", "129.036"]}]
+          "beats": "1",
+          "desc": "Progressive: Left Forward Inside Edge",
+          "duration": 4,
+          "edge": "LFI",
+          "group": "pr1",
+          "index": "10",
+          "label": "LFI-Pr",
+          "offset": 308,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                69.642,
+                152.013,
+                72.928,
+                139.8,
+                80.8,
+                129.036
+              ],
+              "start": [
+                69.258,
+                165.142
+              ]
+            }
+          ],
+          "step": "pr"
         },
         {
-          "stepIndex":"11", "beats":"3000", "edge":"RFO", "step":"Pr", "group":"pr1",
-          "paths":[{"start":["88.939", "133.327"], "bezier":["100.298", "97.218", "125.137", "75.382", "156.565", "60.523"]}]
+          "beats": "3",
+          "desc": "Progressive: Right Forward Outside Edge",
+          "duration": 12,
+          "edge": "RFO",
+          "group": "pr1",
+          "index": "11",
+          "label": "LFO",
+          "offset": 312,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                100.298,
+                97.218,
+                125.137,
+                75.382,
+                156.565,
+                60.523
+              ],
+              "start": [
+                88.939,
+                133.327
+              ]
+            }
+          ],
+          "step": "pr"
         },
         {
-          "stepIndex":"12", "beats":"2000", "edge":"LFO",
-          "paths":[{"start":["156.269", "52.828"], "bezier":["180.397", "47.462", "198.485", "39.331", "209.836", "28.116"]}]
+          "beats": "2",
+          "desc": "Left Forward Outside Edge",
+          "duration": 8,
+          "edge": "LFO",
+          "group": "",
+          "index": "12",
+          "label": "LFO",
+          "offset": 324,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                180.397,
+                47.462,
+                198.485,
+                39.331,
+                209.836,
+                28.116
+              ],
+              "start": [
+                156.269,
+                52.828
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"13", "beats":"1000", "edge":"RFI", "step":"Ch",
-          "paths":[{"start":["216.051", "31.815"], "bezier":["225.295", "23.080", "230.284", "17.365", "237.804", "4.439"]}]
+          "beats": "1",
+          "desc": "Right Forward Inside Edge",
+          "duration": 4,
+          "edge": "RFI",
+          "group": "",
+          "index": "13",
+          "label": "RFI",
+          "offset": 332,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                225.295,
+                23.08,
+                230.284,
+                17.365,
+                237.804,
+                4.439
+              ],
+              "start": [
+                216.051,
+                31.815
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"14", "beats":"2000", "beatLabel":"2+1", "edge":"LFO", "step":"3", "group":"3",
-          "label":"LFO3", "description":"Left Forward Outside 3-turn",
-          "paths":[{"start":["232.477", "-1.924"], "bezier":["246.106", "-36.457", "244.169", "-53.254", "232.329", "-59.783"]}]
+          "beats": "2+1",
+          "desc": "European 3-turn: Left Forward Outside",
+          "duration": "8",
+          "edge": "LFO",
+          "group": "3",
+          "index": "14",
+          "label": "LFO3",
+          "offset": 336,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                246.106,
+                -36.457,
+                244.169,
+                -53.254,
+                232.329,
+                -59.783
+              ],
+              "start": [
+                232.477,
+                -1.924
+              ]
+            }
+          ],
+          "step": "e3"
         },
         {
-          "stepIndex":"14", "beats":"1000", "beatLabel":"2+1", "edge":"RBI", "step":"3", "group":"3",
-          "label":"LFO3", "description":"Left Forward Outside 3-turn",
-          "paths":[{"start":["232.448", "-59.133"], "bezier":["238.363", "-64.040", "241.257", "-76.809", "228.995", "-94.343"]}]
+          "beats": "2+1",
+          "desc": "European 3-turn: Left Back Inside",
+          "duration": "4",
+          "edge": "LBI",
+          "group": "3",
+          "index": "14",
+          "label": "LFO3",
+          "offset": 344,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                238.363,
+                -64.04,
+                241.257,
+                -76.809,
+                228.995,
+                -94.343
+              ],
+              "start": [
+                232.448,
+                -59.133
+              ]
+            }
+          ],
+          "step": "e3"
         },
         {
-          "stepIndex":"15", "beats":"3000", "edge":"RBO",
-          "paths":[{"start":["222.858", "-89.082"], "bezier":["207.403", "-115.754", "174.485", "-137.483", "133.924", "-146.941"]}]
+          "beats": "3",
+          "desc": "Right Back Outside Edge",
+          "duration": 12,
+          "edge": "RBO",
+          "group": "",
+          "index": "15",
+          "label": "RBO",
+          "offset": 348,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                207.403,
+                -115.754,
+                174.485,
+                -137.483,
+                133.924,
+                -146.941
+              ],
+              "start": [
+                222.858,
+                -89.082
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"16", "beats":"3000", "edge":"LBO",
-          "paths":[{"start":["134.664", "-157.891"], "bezier":["80.033", "-169.389", "68.496", "-194.195", "67.039", "-222.113"]}]
+          "beats": "3",
+          "desc": "Left Back Outside Edge",
+          "duration": 12,
+          "edge": "LBO",
+          "group": "",
+          "index": "16",
+          "label": "LBO",
+          "offset": 360,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                80.033,
+                -169.389,
+                68.496,
+                -194.195,
+                67.039,
+                -222.113
+              ],
+              "start": [
+                134.664,
+                -157.891
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"17", "beats":"3000", "edge":"RBI",
-          "paths":[{"start":["60.380", "-223.297"], "bezier":["60.003", "-304.679", "137.880", "-282.207", "134.960", "-314.747"]}]
+          "beats": "3",
+          "desc": "Right Back Inside Edge",
+          "duration": 12,
+          "edge": "RBI",
+          "group": "",
+          "index": "17",
+          "label": "RBI",
+          "offset": 372,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                60.003,
+                -304.679,
+                137.88,
+                -282.207,
+                134.96,
+                -314.747
+              ],
+              "start": [
+                60.38,
+                -223.297
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"18", "beats":"3000", "edge":"LFO",
-          "paths":[{"start":["139.843", "-303.353"], "bezier":["186.542", "-303.898", "216.605", "-318.791", "231.737", "-346.562"]}]
+          "beats": "3",
+          "desc": "Left Forward Outside Edge",
+          "duration": 12,
+          "edge": "LFO",
+          "group": "",
+          "index": "18",
+          "label": "LFO",
+          "offset": 384,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                186.542,
+                -303.898,
+                216.605,
+                -318.791,
+                231.737,
+                -346.562
+              ],
+              "start": [
+                139.843,
+                -303.353
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"19", "beats":"3000", "edge":"RFI", "step":"opt slCh",
-          "paths":[{"start":["240.616", "-343.306"], "bezier":["251.021", "-363.968", "257.003", "-396.896", "241.503", "-436.088"]}]
+          "beats": "3",
+          "desc": "Right Forward Inside Edge",
+          "duration": 12,
+          "edge": "RFI",
+          "group": "",
+          "index": "19",
+          "label": "RFI",
+          "offset": 396,
+          "optional": "1",
+          "path": [
+            {
+              "bezier": [
+                251.021,
+                -363.968,
+                257.003,
+                -396.896,
+                241.503,
+                -436.088
+              ],
+              "start": [
+                240.616,
+                -343.306
+              ]
+            }
+          ],
+          "step": ""
         },
         {
-          "stepIndex":"20", "beats":"2000", "edge":"LFO", "step":"Pr", "group":"pr2",
-          "paths":[{"start":["237.360", "-431.649"], "bezier":["227.953", "-448.616", "217.115", "-461.719", "203.769", "-468.051"]}]
+          "beats": "3",
+          "desc": "Right Forward Inside Slide Chasse",
+          "duration": 12,
+          "edge": "RFI",
+          "group": "",
+          "index": "19",
+          "label": "RFI-slCh",
+          "offset": 396,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                251.021,
+                -363.968,
+                257.003,
+                -396.896,
+                241.503,
+                -436.088
+              ],
+              "start": [
+                240.616,
+                -343.306
+              ]
+            }
+          ],
+          "step": "slch"
         },
         {
-          "stepIndex":"21", "beats":"1000", "edge":"RFI", "step":"Pr", "group":"pr2",
-          "paths":[{"start":["207.321", "-471.602"], "bezier":["200.919", "-477.546", "189.997", "-481.640", "174.914", "-484.032"]}]
+          "beats": "2",
+          "desc": "Progressive: Left Forward Outside Edge",
+          "duration": 8,
+          "edge": "LFO",
+          "group": "pr2",
+          "index": "20",
+          "label": "LFO",
+          "offset": 408,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                227.953,
+                -448.616,
+                217.115,
+                -461.719,
+                203.769,
+                -468.051
+              ],
+              "start": [
+                237.36,
+                -431.649
+              ]
+            }
+          ],
+          "step": "pr"
         },
         {
-          "stepIndex":"22", "beats":"3000", "edge":"LFO", "step":"Pr", "group":"pr2",
-          "paths":[{"start":["175.802", "-477.225"], "bezier":["160.071", "-479.431", "122.873", "-478.808", "94.710", "-453.993"]}]
+          "beats": "1",
+          "desc": "Progressive: Right Forward Inside Edge",
+          "duration": 4,
+          "edge": "RFI",
+          "group": "pr2",
+          "index": "21",
+          "label": "RFI-Pr",
+          "offset": 416,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                200.919,
+                -477.546,
+                189.997,
+                -481.64,
+                174.914,
+                -484.032
+              ],
+              "start": [
+                207.321,
+                -471.602
+              ]
+            }
+          ],
+          "step": "pr"
+        },
+        {
+          "beats": "3",
+          "desc": "Progressive: Left Forward Outside Edge",
+          "duration": 12,
+          "edge": "LFO",
+          "group": "pr2",
+          "index": "22",
+          "label": "LFO",
+          "offset": 420,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                160.071,
+                -479.431,
+                122.873,
+                -478.808,
+                94.71,
+                -453.993
+              ],
+              "start": [
+                175.802,
+                -477.225
+              ]
+            }
+          ],
+          "step": "pr"
         }
       ]
     }

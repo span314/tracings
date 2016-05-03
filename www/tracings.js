@@ -123,14 +123,14 @@ $.widget('shawnpan.diagram', {
       ctx.rotate(this.offsetAngle + 2 * Math.PI * lapIndex / this.dance.patternsPerLap);
       for (componentIndex = 0; componentIndex < this.pattern.components.length; componentIndex++) {
         component = this.pattern.components[componentIndex];
-        for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
-          path = component.paths[pathIndex];
+        for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
+          path = component.path[pathIndex];
           ctx.beginPath();
           ctx.moveTo.apply(ctx, path.start);
           ctx.bezierCurveTo.apply(ctx, path.bezier);
           ctx.stroke();
         }
-      }      
+      }
       ctx.restore()
     }
     console.log('done');

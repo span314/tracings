@@ -31,11 +31,14 @@ STEP_LABEL_SUFFIX = {
   "pr": "Pr",
   "ch": "Ch",
   "swr": "swR",
-  "slch": "slCh"
+  "slch": "slCh",
+  "opmo": "opMo"
 }
 
 STEP_DESC_PREFIX = {
-  "pr": "Progressive"
+  "pr": "Progressive",
+  "opmo": "Open Mohawk",
+  "e3": "European 3-turn"
 }
 
 STEP_DESC_SUFFIX = {
@@ -86,7 +89,7 @@ for file in os.listdir(DIRECTORY):
       #Normalize - center as (0, 0)
       startPoint = [round((new - old) * scaleFactor, 3) for new, old in zip(startPoint, oldCenter)]
       cubicPath = [round((new - old) * scaleFactor, 3) for new, old in zip(cubicPath, oldCenter * 3)]
-      
+
       processedPaths.append({"start":startPoint,"bezier":cubicPath});
 
 
@@ -111,7 +114,7 @@ for file in os.listdir(DIRECTORY):
             label += "-"
           label += row["edge"]
           if (row["step"] in STEP_LABEL_SUFFIX):
-            label += "-" 
+            label += "-"
             label += STEP_LABEL_SUFFIX[row["step"]]
           row["label"] = label
         #Create descriptions
@@ -122,7 +125,7 @@ for file in os.listdir(DIRECTORY):
             desc += ": "
           desc += EDGE_DESC[row["edge"]]
           if (row["step"] in STEP_DESC_SUFFIX):
-            desc += " " 
+            desc += " "
             desc += STEP_DESC_SUFFIX[row["step"]]
           row["desc"] = desc
         #Add paths
@@ -132,9 +135,9 @@ for file in os.listdir(DIRECTORY):
           pathCount = int(pathCount)
         else:
           pathCount = 1
-        for i in range(pathCount):
-          componentPaths.append(processedPaths[pathIndex])
-          pathIndex += 1
+        for i in range(max(pathCount, 1)):
+          componentPaths.append(processedPaths[pathIndex + i])
+        pathIndex += pathCount
         row["path"] = componentPaths
         components.append(row)
 

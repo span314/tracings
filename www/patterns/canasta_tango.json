@@ -7,424 +7,430 @@
   "patterns":
   [
     {
-      "beats": "1",
-      "desc": "Progressive: Left Forward Outside Edge",
-      "duration": 4,
-      "edge": "LFO",
-      "group": "pr1",
-      "index": "1",
-      "label": "LFO-Pr",
-      "offset": 0,
-      "optional": "",
-      "path": [
+      "parts": ["lady", "man"],
+      "components":
+      [
         {
-          "bezier": [
-            91.53,
-            270.942,
-            106.601,
-            281.156,
-            126.606,
-            285.889
+          "beats": "1",
+          "desc": "Progressive: Left Forward Outside Edge",
+          "duration": 4,
+          "edge": "LFO",
+          "group": "pr1",
+          "index": "1",
+          "label": "LFO",
+          "offset": 0,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                91.53,
+                270.942,
+                106.601,
+                281.156,
+                126.606,
+                285.889
+              ],
+              "start": [
+                78.652,
+                256.515
+              ]
+            }
           ],
-          "start": [
-            78.652,
-            256.515
-          ]
-        }
-      ],
-      "step": "pr"
-    },
-    {
-      "beats": "1",
-      "desc": "Progressive: Right Forward Inside Edge",
-      "duration": 4,
-      "edge": "RFI",
-      "group": "pr1",
-      "index": "2",
-      "label": "RFI-Pr",
-      "offset": 4,
-      "optional": "",
-      "path": [
+          "step": "pr"
+        },
         {
-          "bezier": [
-            142.87,
-            298.456,
-            158.88,
-            298.971,
-            174.559,
-            295.444
+          "beats": "1",
+          "desc": "Progressive: Right Forward Inside Edge",
+          "duration": 4,
+          "edge": "RFI",
+          "group": "pr1",
+          "index": "2",
+          "label": "RFI-Pr",
+          "offset": 4,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                142.87,
+                298.456,
+                158.88,
+                298.971,
+                174.559,
+                295.444
+              ],
+              "start": [
+                126.959,
+                293.498
+              ]
+            }
           ],
-          "start": [
-            126.959,
-            293.498
-          ]
-        }
-      ],
-      "step": "pr"
-    },
-    {
-      "beats": "1",
-      "desc": "Progressive: Left Forward Outside Edge",
-      "duration": 4,
-      "edge": "LFO",
-      "group": "pr1",
-      "index": "3",
-      "label": "LFO-Pr",
-      "offset": 8,
-      "optional": "",
-      "path": [
+          "step": "pr"
+        },
         {
-          "bezier": [
-            189.591,
-            282.498,
-            203.791,
-            276.274,
-            213.665,
-            266.07
+          "beats": "1",
+          "desc": "Progressive: Left Forward Outside Edge",
+          "duration": 4,
+          "edge": "LFO",
+          "group": "pr1",
+          "index": "3",
+          "label": "LFO",
+          "offset": 8,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                189.591,
+                282.498,
+                203.791,
+                276.274,
+                213.665,
+                266.07
+              ],
+              "start": [
+                173.851,
+                287.304
+              ]
+            }
           ],
-          "start": [
-            173.851,
-            287.304
-          ]
-        }
-      ],
-      "step": "pr"
-    },
-    {
-      "beats": "1",
-      "desc": "Right Forward Inside Chasse",
-      "duration": 4,
-      "edge": "RFI",
-      "group": "",
-      "index": "4",
-      "label": "RFI-Ch",
-      "offset": 12,
-      "optional": "",
-      "path": [
+          "step": "pr"
+        },
         {
-          "bezier": [
-            229.109,
-            261.218,
-            235.675,
-            257.235,
-            244.277,
-            239.351
+          "beats": "1",
+          "desc": "Right Forward Inside Chasse",
+          "duration": 4,
+          "edge": "RFI",
+          "group": "",
+          "index": "4",
+          "label": "RFI-Ch",
+          "offset": 12,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                229.109,
+                261.218,
+                235.675,
+                257.235,
+                244.277,
+                239.351
+              ],
+              "start": [
+                218.619,
+                271.379
+              ]
+            }
           ],
-          "start": [
-            218.619,
-            271.379
-          ]
-        }
-      ],
-      "step": "ch"
-    },
-    {
-      "beats": "4",
-      "desc": "Left Forward Outside Swing Roll",
-      "duration": 16,
-      "edge": "LFO",
-      "group": "",
-      "index": "5",
-      "label": "LFO-swR",
-      "offset": 16,
-      "optional": "",
-      "path": [
+          "step": "ch"
+        },
         {
-          "bezier": [
-            257.335,
-            181.104,
-            227.54,
-            120.457,
-            155.979,
-            116.194
+          "beats": "4",
+          "desc": "Left Forward Outside Swing Roll",
+          "duration": 16,
+          "edge": "LFO",
+          "group": "",
+          "index": "5",
+          "label": "LFO-swR",
+          "offset": 16,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                257.335,
+                181.104,
+                227.54,
+                120.457,
+                155.979,
+                116.194
+              ],
+              "start": [
+                239.322,
+                236.166
+              ]
+            }
           ],
-          "start": [
-            239.322,
-            236.166
-          ]
-        }
-      ],
-      "step": "swr"
-    },
-    {
-      "beats": "2",
-      "desc": "Right Forward Outside Edge",
-      "duration": 8,
-      "edge": "RFO",
-      "group": "",
-      "index": "6",
-      "label": "RFO",
-      "offset": 32,
-      "optional": "",
-      "path": [
+          "step": "swr"
+        },
         {
-          "bezier": [
-            111.876,
-            103.119,
-            87.486,
-            91.335,
-            64.85,
-            68.949
+          "beats": "2",
+          "desc": "Right Forward Outside Edge",
+          "duration": 8,
+          "edge": "RFO",
+          "group": "",
+          "index": "6",
+          "label": "RFO",
+          "offset": 32,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                111.876,
+                103.119,
+                87.486,
+                91.335,
+                64.85,
+                68.949
+              ],
+              "start": [
+                145.008,
+                103.985
+              ]
+            }
           ],
-          "start": [
-            145.008,
-            103.985
-          ]
-        }
-      ],
-      "step": ""
-    },
-    {
-      "beats": "2",
-      "desc": "Left Forward Inside Slide Chasse",
-      "duration": 8,
-      "edge": "LFI",
-      "group": "",
-      "index": "7",
-      "label": "LFI-slCh",
-      "offset": 40,
-      "optional": "",
-      "path": [
+          "step": ""
+        },
         {
-          "bezier": [
-            39.747,
-            52.773,
-            31.079,
-            28.352,
-            30.876,
-            0.469
+          "beats": "2",
+          "desc": "Left Forward Inside Slide Chasse",
+          "duration": 8,
+          "edge": "LFI",
+          "group": "",
+          "index": "7",
+          "label": "LFI-slCh",
+          "offset": 40,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                39.747,
+                52.773,
+                31.079,
+                28.352,
+                30.876,
+                0.469
+              ],
+              "start": [
+                59.896,
+                74.257
+              ]
+            }
           ],
-          "start": [
-            59.896,
-            74.257
-          ]
-        }
-      ],
-      "step": "slch"
-    },
-    {
-      "beats": "4",
-      "desc": "Right Forward Outside Swing Roll",
-      "duration": 16,
-      "edge": "RFO",
-      "group": "",
-      "index": "8",
-      "label": "RFO-swR",
-      "offset": 48,
-      "optional": "",
-      "path": [
+          "step": "slch"
+        },
         {
-          "bezier": [
-            43.124,
-            -80.602,
-            107.235,
-            -106.345,
-            151.909,
-            -108.178
+          "beats": "4",
+          "desc": "Right Forward Outside Swing Roll",
+          "duration": 16,
+          "edge": "RFO",
+          "group": "",
+          "index": "8",
+          "label": "RFO-swR",
+          "offset": 48,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                43.124,
+                -80.602,
+                107.235,
+                -106.345,
+                151.909,
+                -108.178
+              ],
+              "start": [
+                37.246,
+                -0.239
+              ]
+            }
           ],
-          "start": [
-            37.246,
-            -0.239
-          ]
-        }
-      ],
-      "step": "swr"
-    },
-    {
-      "beats": "2",
-      "desc": "Left Forward Outside Edge",
-      "duration": 8,
-      "edge": "LFO",
-      "group": "",
-      "index": "9",
-      "label": "LFO",
-      "offset": 64,
-      "optional": "",
-      "path": [
+          "step": "swr"
+        },
         {
-          "bezier": [
-            185.033,
-            -116.947,
-            208.187,
-            -129.329,
-            225.874,
-            -154.185
+          "beats": "2",
+          "desc": "Left Forward Outside Edge",
+          "duration": 8,
+          "edge": "LFO",
+          "group": "",
+          "index": "9",
+          "label": "LFO",
+          "offset": 64,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                185.033,
+                -116.947,
+                208.187,
+                -129.329,
+                225.874,
+                -154.185
+              ],
+              "start": [
+                152.263,
+                -115.433
+              ]
+            }
           ],
-          "start": [
-            152.263,
-            -115.433
-          ]
-        }
-      ],
-      "step": ""
-    },
-    {
-      "beats": "2",
-      "desc": "Right Forward Inside Slide Chasse",
-      "duration": 8,
-      "edge": "RFI",
-      "group": "",
-      "index": "10",
-      "label": "RFI-slCh",
-      "offset": 72,
-      "optional": "",
-      "path": [
+          "step": ""
+        },
         {
-          "bezier": [
-            248.788,
-            -176.987,
-            253.982,
-            -205.488,
-            242.507,
-            -238.59
+          "beats": "2",
+          "desc": "Right Forward Inside Slide Chasse",
+          "duration": 8,
+          "edge": "RFI",
+          "group": "",
+          "index": "10",
+          "label": "RFI-slCh",
+          "offset": 72,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                248.788,
+                -176.987,
+                253.982,
+                -205.488,
+                242.507,
+                -238.59
+              ],
+              "start": [
+                231.714,
+                -152.592
+              ]
+            }
           ],
-          "start": [
-            231.714,
-            -152.592
-          ]
-        }
-      ],
-      "step": "slch"
-    },
-    {
-      "beats": "1",
-      "desc": "Progressive: Left Forward Outside Edge",
-      "duration": 4,
-      "edge": "LFO",
-      "group": "pr2",
-      "index": "11",
-      "label": "LFO-Pr",
-      "offset": 80,
-      "optional": "",
-      "path": [
+          "step": "slch"
+        },
         {
-          "bezier": [
-            231.065,
-            -251.135,
-            220.832,
-            -261.974,
-            208.887,
-            -272.033
+          "beats": "1",
+          "desc": "Progressive: Left Forward Outside Edge",
+          "duration": 4,
+          "edge": "LFO",
+          "group": "pr2",
+          "index": "11",
+          "label": "LFO",
+          "offset": 80,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                231.065,
+                -251.135,
+                220.832,
+                -261.974,
+                208.887,
+                -272.033
+              ],
+              "start": [
+                237.907,
+                -236.289
+              ]
+            }
           ],
-          "start": [
-            237.907,
-            -236.289
-          ]
-        }
-      ],
-      "step": "pr"
-    },
-    {
-      "beats": "1",
-      "desc": "Progressive: Right Forward Inside Edge",
-      "duration": 4,
-      "edge": "RFI",
-      "group": "pr2",
-      "index": "12",
-      "label": "RFI-Pr",
-      "offset": 84,
-      "optional": "",
-      "path": [
+          "step": "pr"
+        },
         {
-          "bezier": [
-            197.499,
-            -287.821,
-            183.997,
-            -295.652,
-            162.88,
-            -296.983
+          "beats": "1",
+          "desc": "Progressive: Right Forward Inside Edge",
+          "duration": 4,
+          "edge": "RFI",
+          "group": "pr2",
+          "index": "12",
+          "label": "RFI-Pr",
+          "offset": 84,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                197.499,
+                -287.821,
+                183.997,
+                -295.652,
+                162.88,
+                -296.983
+              ],
+              "start": [
+                212.957,
+                -276.457
+              ]
+            }
           ],
-          "start": [
-            212.957,
-            -276.457
-          ]
-        }
-      ],
-      "step": "pr"
-    },
-    {
-      "beats": "2",
-      "desc": "Progressive: Left Forward Outside Edge",
-      "duration": 8,
-      "edge": "LFO",
-      "group": "pr2",
-      "index": "13",
-      "label": "LFO-Pr",
-      "offset": 88,
-      "optional": "",
-      "path": [
+          "step": "pr"
+        },
         {
-          "bezier": [
-            114.55,
-            -287.443,
-            80.203,
-            -269.895,
-            69.274,
-            -232.75
+          "beats": "2",
+          "desc": "Progressive: Left Forward Outside Edge",
+          "duration": 8,
+          "edge": "LFO",
+          "group": "pr2",
+          "index": "13",
+          "label": "LFO",
+          "offset": 88,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                114.55,
+                -287.443,
+                80.203,
+                -269.895,
+                69.274,
+                -232.75
+              ],
+              "start": [
+                161.465,
+                -292.028
+              ]
+            }
           ],
-          "start": [
-            161.465,
-            -292.028
-          ]
-        }
-      ],
-      "step": "pr"
-    },
-    {
-      "beats": "4",
-      "desc": "Right Forward Outside Swing Roll",
-      "duration": 16,
-      "edge": "RFO",
-      "group": "",
-      "index": "14",
-      "label": "RFO-swR",
-      "offset": 96,
-      "optional": "1",
-      "path": [
+          "step": "pr"
+        },
         {
-          "bezier": [
-            28.785,
-            -207.086,
-            -22.832,
-            -197.177,
-            -69.455,
-            -250.622
+          "beats": "4",
+          "desc": "Right Forward Outside Swing Roll",
+          "duration": 16,
+          "edge": "RFO",
+          "group": "",
+          "index": "14",
+          "label": "RFO-swR",
+          "offset": 96,
+          "optional": "1",
+          "path": [
+            {
+              "bezier": [
+                28.785,
+                -207.086,
+                -22.832,
+                -197.177,
+                -69.455,
+                -250.622
+              ],
+              "start": [
+                60.249,
+                -238.059
+              ]
+            }
           ],
-          "start": [
-            60.249,
-            -238.059
-          ]
-        }
-      ],
-      "step": "swr"
-    },
-    {
-      "beats": "4",
-      "desc": "Right Forward Outside Cross Roll",
-      "duration": 16,
-      "edge": "RFO",
-      "group": "",
-      "index": "14",
-      "label": "CR-RFO",
-      "offset": 96,
-      "optional": "",
-      "path": [
+          "step": "swr"
+        },
         {
-          "bezier": [
-            26.112,
-            -183.63,
-            -39.972,
-            -205.008,
-            -69.012,
-            -250.445
+          "beats": "4",
+          "desc": "Right Forward Outside Cross Roll",
+          "duration": 16,
+          "edge": "RFO",
+          "group": "",
+          "index": "14",
+          "label": "CR-RFO",
+          "offset": 96,
+          "optional": "",
+          "path": [
+            {
+              "bezier": [
+                26.112,
+                -183.63,
+                -39.972,
+                -205.008,
+                -69.012,
+                -250.445
+              ],
+              "start": [
+                70.513,
+                -221.072
+              ]
+            }
           ],
-          "start": [
-            70.513,
-            -221.072
-          ]
+          "step": "cr"
         }
-      ],
-      "step": "cr"
+      ]
     }
   ]
 }
