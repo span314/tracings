@@ -37,6 +37,8 @@ $(document).ready(function() {
 $.widget('shawnpan.diagram', {
   playing: false,
   part: 'lady',
+  position: 0,
+  positionCount: 0,
   controls: {},
 
   _create: function() {
@@ -68,7 +70,7 @@ $.widget('shawnpan.diagram', {
       controls.partLady.click(this._updatePart.bind(this, 'lady'));
       controls.partMan.click(this._updatePart.bind(this, 'man'));
 
-      controls.optional.click(this._drawPattern.bind(this));
+      controls.optional.click(this._loadPattern.bind(this));
 
       controls.beginning.click(this.beginning.bind(this));
       controls.previous.click(this.previous.bind(this));
@@ -103,44 +105,51 @@ $.widget('shawnpan.diagram', {
   },
 
   _loadPattern: function() {
-    var i;
+    var i
+        optionalSteps = this.controls.optional.prop('checked') ? 'yes' : 'no';;
     console.log('loading pattern ' + this.dance.name + ' ' + this.part);
     for (i = 0; i < this.dance.patterns.length; i++) {
       pattern = this.dance.patterns[i];
       if ($.inArray(this.part, pattern.parts) >= 0) {
-        this.pattern = pattern;
+        this.components = $.grep(pattern.components,
+          function(component) {
+            return !component.optional || component.optional === optionalSteps;
+          });
         break;
       }
     }
+    this.positionCount = this.components.length * this.dance.patternsPerLap;
+    this.beginning();
     this._drawPattern();
   },
 
   _drawPattern: function() {
     var pattern, component, path, lapIndex, componentIndex, pathIndex,
-        ctx = this.canvasContext
-        optionalSteps = this.controls.optional.prop('checked') ? 'yes' : 'no';
+        ctx = this.canvasContext;
 
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
-      ctx.save()
+      ctx.save();
       ctx.translate(this.centerX, this.centerY);
       ctx.rotate(this.offsetAngle + 2 * Math.PI * lapIndex / this.dance.patternsPerLap);
-      for (componentIndex = 0; componentIndex < this.pattern.components.length; componentIndex++) {
-        component = this.pattern.components[componentIndex];
-        if (!component.optional || optionalSteps === component.optional) {
-          for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
-            path = component.path[pathIndex];
-            ctx.beginPath();
-            ctx.moveTo.apply(ctx, path.start);
-            ctx.bezierCurveTo.apply(ctx, path.bezier);
-            ctx.stroke();
-          }
+      for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
+        component = this.components[componentIndex];
+        ctx.save();
+        if (this.position === lapIndex * this.components.length + componentIndex) {
+          ctx.strokeStyle = '#FF0000';
         }
+        for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
+          path = component.path[pathIndex];
+          ctx.beginPath();
+          ctx.moveTo.apply(ctx, path.start);
+          ctx.bezierCurveTo.apply(ctx, path.bezier);
+          ctx.stroke();
+        }
+        ctx.restore();
       }
-      ctx.restore()
+      ctx.restore();
     }
-    console.log('done');
   },
 
   _updateSpeed: function() {
@@ -158,17 +167,20 @@ $.widget('shawnpan.diagram', {
 
   beginning: function() {
     this.pause();
-    console.log('beginning');
+    this.position = 0;
+    this._drawPattern();
   },
 
   previous: function() {
     this.pause();
-    console.log('previous');
+    this.position = (this.position + this.positionCount - 1) % this.positionCount;
+    this._drawPattern();
   },
 
   next: function() {
     this.pause();
-    console.log('next');
+    this.position = (this.position + 1) % this.positionCount;
+    this._drawPattern();
   },
 
   start: function() {
