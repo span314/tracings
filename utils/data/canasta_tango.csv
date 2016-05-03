@@ -12,5 +12,5 @@ index,duration,pathCount,beats,edge,step,label,desc,group,optional
 11,,,1,LFO,pr,LFO,,pr2,
 12,,,1,RFI,pr,,,pr2,
 13,,,2,LFO,pr,LFO,,pr2,
-14,,,4,RFO,swr,,,,1
-14,,,4,RFO,cr,,,,
+14,,,4,RFO,swr,,,,no
+14,,,4,RFO,cr,,,,yes

@@ -4,8 +4,8 @@ index,duration,pathCount,beats,edge,step,label,desc,group,optional
 3,,,3,LBO,,,,,
 4,,,3,RBO,,,,,
 5,,,3,LFO,,,,,
-6,,0,3,RFI,,,,,1
-6,,,3,RFI,slch,,,,
+6,,0,3,RFI,,,,,no
+6,,,3,RFI,slch,,,,yes
 7,,,3,LFO,,,,,
 8,8,,2+1,RFO,e3,RFO3,,3,
 8,4,,2+1,RBI,e3,RFO3,,3,
@@ -42,8 +42,8 @@ index,duration,pathCount,beats,edge,step,label,desc,group,optional
 16,,,3,LBO,,,,,
 17,,,3,RBI,,,,,
 18,,,3,LFO,,,,,
-19,,0,3,RFI,,,,,1
-19,,,3,RFI,slch,,,,
+19,,0,3,RFI,,,,,no
+19,,,3,RFI,slch,,,,yes
 20,,,2,LFO,pr,LFO,,pr2,
 21,,,1,RFI,pr,,,pr2,
 22,,,3,LFO,pr,LFO,,pr2,

@@ -4,6 +4,7 @@ $(document).ready(function() {
   $('#diagramContainer').diagram();
   $('#danceSelect').selectmenu();
   $('#partButtons').buttonset();
+  $('#optButtons').buttonset();
 
   $('#beginningButton').button({
     text: false,
@@ -53,6 +54,7 @@ $.widget('shawnpan.diagram', {
       controls.dance = elem.find('#danceSelect');
       controls.partLady = elem.find('#partLady');
       controls.partMan = elem.find('#partMan');
+      controls.optional = elem.find('#optional');
       controls.beginning = elem.find('#beginningButton');
       controls.previous = elem.find('#previousButton');
       controls.next = elem.find('#nextButton');
@@ -65,6 +67,8 @@ $.widget('shawnpan.diagram', {
 
       controls.partLady.click(this._updatePart.bind(this, 'lady'));
       controls.partMan.click(this._updatePart.bind(this, 'man'));
+
+      controls.optional.click(this._drawPattern.bind(this));
 
       controls.beginning.click(this.beginning.bind(this));
       controls.previous.click(this.previous.bind(this));
@@ -113,7 +117,8 @@ $.widget('shawnpan.diagram', {
 
   _drawPattern: function() {
     var pattern, component, path, lapIndex, componentIndex, pathIndex,
-        ctx = this.canvasContext;
+        ctx = this.canvasContext
+        optionalSteps = this.controls.optional.prop('checked') ? 'yes' : 'no';
 
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -123,12 +128,14 @@ $.widget('shawnpan.diagram', {
       ctx.rotate(this.offsetAngle + 2 * Math.PI * lapIndex / this.dance.patternsPerLap);
       for (componentIndex = 0; componentIndex < this.pattern.components.length; componentIndex++) {
         component = this.pattern.components[componentIndex];
-        for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
-          path = component.path[pathIndex];
-          ctx.beginPath();
-          ctx.moveTo.apply(ctx, path.start);
-          ctx.bezierCurveTo.apply(ctx, path.bezier);
-          ctx.stroke();
+        if (!component.optional || optionalSteps === component.optional) {
+          for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
+            path = component.path[pathIndex];
+            ctx.beginPath();
+            ctx.moveTo.apply(ctx, path.start);
+            ctx.bezierCurveTo.apply(ctx, path.bezier);
+            ctx.stroke();
+          }
         }
       }
       ctx.restore()

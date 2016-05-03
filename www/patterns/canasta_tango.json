@@ -383,7 +383,7 @@
           "index": "14",
           "label": "RFO-swR",
           "offset": 96,
-          "optional": "1",
+          "optional": "no",
           "path": [
             {
               "bezier": [
@@ -411,7 +411,7 @@
           "index": "14",
           "label": "CR-RFO",
           "offset": 96,
-          "optional": "",
+          "optional": "yes",
           "path": [
             {
               "bezier": [

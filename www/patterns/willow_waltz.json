@@ -159,7 +159,7 @@
           "index": "6",
           "label": "RFI",
           "offset": 48,
-          "optional": "1",
+          "optional": "no",
           "path": [
             {
               "bezier": [
@@ -187,7 +187,7 @@
           "index": "6",
           "label": "RFI-slCh",
           "offset": 48,
-          "optional": "",
+          "optional": "yes",
           "path": [
             {
               "bezier": [
@@ -1229,7 +1229,7 @@
           "index": "19",
           "label": "RFI",
           "offset": 396,
-          "optional": "1",
+          "optional": "no",
           "path": [
             {
               "bezier": [
@@ -1257,7 +1257,7 @@
           "index": "19",
           "label": "RFI-slCh",
           "offset": 396,
-          "optional": "",
+          "optional": "yes",
           "path": [
             {
               "bezier": [
