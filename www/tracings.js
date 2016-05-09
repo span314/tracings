@@ -39,6 +39,7 @@ $.widget('shawnpan.diagram', {
   part: 'lady',
   position: 0,
   positionCount: 0,
+  stepTickCount: 0,
   controls: {},
 
   _create: function() {
@@ -128,6 +129,7 @@ $.widget('shawnpan.diagram', {
         ctx = this.canvasContext;
 
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    ctx.lineWidth = 4;
 
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       ctx.save();
@@ -153,9 +155,15 @@ $.widget('shawnpan.diagram', {
   },
 
   _updateSpeed: function() {
-    var percentage = this.controls.speed.slider('value');
-    this.playbackBPM = percentage * this.dance.beatsPerMinute / 100;
-    this.controls.speedValue.text(percentage + '% (' + Math.round(this.playbackBPM) + ' bpm)');
+    console.log('update speed');
+    var percentage = this.controls.speed.slider('value'),
+        playbackBPM = percentage * this.dance.beatsPerMinute / 100;
+    this.playbackInterval = 15000 / playbackBPM; //60000 * 0.25 / BPM
+    this.controls.speedValue.text(percentage + '% (' + Math.round(playbackBPM) + ' bpm)');
+    if (this.playing) {
+      clearInterval(this.timer);
+      this.timer = setInterval(this.tick.bind(this), this.playbackInterval);
+    }
   },
 
   _updatePart: function(part) {
@@ -163,6 +171,10 @@ $.widget('shawnpan.diagram', {
       this.part = part;
       this._loadPattern();
     }
+  },
+
+  _currentComponent: function() {
+    return this.components[this.position % this.components.length];
   },
 
   beginning: function() {
@@ -187,6 +199,7 @@ $.widget('shawnpan.diagram', {
     if (!this.playing) {
       console.log('start');
       this.playing = true;
+      this.timer = setInterval(this.tick.bind(this), this.playbackInterval);
       this.controls.startPause.button('option', {icons: {primary: 'ui-icon-pause'}});
     }
   },
@@ -194,6 +207,7 @@ $.widget('shawnpan.diagram', {
   pause: function() {
     if (this.playing) {
       console.log('pause');
+      clearInterval(this.timer);
       this.playing = false;
       this.controls.startPause.button('option', {icons: {primary: 'ui-icon-play'}});
     }
@@ -204,6 +218,15 @@ $.widget('shawnpan.diagram', {
       this.pause();
     } else {
       this.start();
+    }
+  },
+
+  tick: function() {
+    this.stepTickCount++;
+    if (this.stepTickCount >= this._currentComponent().duration) {
+      this.position = (this.position + 1) % this.positionCount;
+      this.stepTickCount = 0;
+      this._drawPattern();
     }
   }
 });
