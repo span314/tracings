@@ -126,10 +126,16 @@ $.widget('shawnpan.diagram', {
 
   _drawPattern: function() {
     var pattern, component, path, lapIndex, componentIndex, pathIndex,
-        ctx = this.canvasContext;
+        ctx = this.canvasContext,
+        tickCount = this._currentComponent().offset + this.stepTickCount,
+        fracBeat = tickCount % 4,
+        beat = ((tickCount - fracBeat) / 4) % this.dance.timeSignatureTop + 1;
 
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    ctx.lineWidth = 4;
+    ctx.fillRect(0, 0, beat * this.canvas.width / this.dance.timeSignatureTop, 10);
+
+
+    ctx.lineWidth = 3;
 
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       ctx.save();
@@ -139,7 +145,7 @@ $.widget('shawnpan.diagram', {
         component = this.components[componentIndex];
         ctx.save();
         if (this.position === lapIndex * this.components.length + componentIndex) {
-          ctx.strokeStyle = '#FF0000';
+          ctx.strokeStyle = 'rgb(' + (200 + 55 * (fracBeat === 0)) + ',0,0)';
         }
         for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
           path = component.path[pathIndex];
@@ -180,6 +186,7 @@ $.widget('shawnpan.diagram', {
   beginning: function() {
     this.pause();
     this.position = 0;
+    this.stepTickCount = 0;
     this._drawPattern();
   },
 
@@ -226,7 +233,7 @@ $.widget('shawnpan.diagram', {
     if (this.stepTickCount >= this._currentComponent().duration) {
       this.position = (this.position + 1) % this.positionCount;
       this.stepTickCount = 0;
-      this._drawPattern();
     }
+    this._drawPattern();
   }
 });

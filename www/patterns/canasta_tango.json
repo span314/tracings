@@ -1,9 +1,10 @@
 {
   "name": "Canasta Tango",
   "version": "2016",
-  "timeSignature": "4/4",
-  "beatsPerMinute": "104",
-  "patternsPerLap": "2",
+  "timeSignatureTop": 4,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 104,
+  "patternsPerLap": 2,
   "patterns":
   [
     {

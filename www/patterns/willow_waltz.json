@@ -1,9 +1,10 @@
 {
   "name": "Willow Waltz",
   "version": "2016",
-  "timeSignature": "3/4",
-  "beatsPerMinute": "138",
-  "patternsPerLap": "2",
+  "timeSignatureTop": 3,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 138,
+  "patternsPerLap": 2,
   "patterns":
   [
     {
