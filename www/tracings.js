@@ -139,17 +139,17 @@ $.widget('shawnpan.diagram', {
         if (currentLap === lapIndex) {
           ctx.lineWidth = 3;
           if (component === currentComponent) {
+            ctx.lineWidth = 4;
             if (beat === 1 && fracBeat === 0) {
-              ctx.lineWidth = 5;
-              ctx.strokeStyle = 'rgb(0,230,0)';
+              ctx.strokeStyle = 'rgb(0,220,0)';
             } else if (fracBeat === 0) {
-              ctx.lineWidth = 4;
               ctx.strokeStyle = 'rgb(0,200,0)';
             } else {
-              ctx.strokeStyle = 'rgb(0,170,0)';
+              ctx.strokeStyle = 'rgb(0,180,0)';
             }
           } else if (component.group && component.group === currentComponent.group) {
-            ctx.strokeStyle = 'rgb(0,100,0)';
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'rgb(0,120,0)';
           }
         } else {
           ctx.lineWidth = 2;
