@@ -91,9 +91,11 @@ for file in os.listdir(DIRECTORY):
       #Normalize - center as (0, 0)
       startPoint = [round((new - old) * scaleFactor, 3) for new, old in zip(startPoint, oldCenter)]
       cubicPath = [round((new - old) * scaleFactor, 3) for new, old in zip(cubicPath, oldCenter * 3)]
+      #Rotate by 90 degrees x' = -y and y' = x
+      startPoint = [-startPoint[1], startPoint[0]]
+      cubicPath = [-cubicPath[1], cubicPath[0], -cubicPath[3], cubicPath[2], -cubicPath[5], cubicPath[4]]
 
       processedPaths.append({"start":startPoint,"bezier":cubicPath});
-
 
     #Extract steps from csv
     with open(csvFilename, "r") as csvFile:

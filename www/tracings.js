@@ -85,7 +85,6 @@ $.widget('shawnpan.diagram', {
   _onCanvasResize: function() {
     this.centerX = this.canvas.width / 2;
     this.centerY = this.canvas.height / 2;
-    this.offsetAngle = Math.PI / 2 * (this.canvas.width > this.canvas.height);
   },
 
   _loadDance: function() {
@@ -137,7 +136,7 @@ $.widget('shawnpan.diagram', {
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       ctx.save();
       ctx.translate(this.centerX, this.centerY);
-      ctx.rotate(this.offsetAngle + 2 * Math.PI * lapIndex / this.dance.patternsPerLap);
+      ctx.rotate(2 * Math.PI * lapIndex / this.dance.patternsPerLap);
       for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
         component = this.components[componentIndex];
 

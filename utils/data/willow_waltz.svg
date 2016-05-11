@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="willow.svg">
+   sodipodi:docname="willow_waltz.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="831.94147"
-     inkscape:cy="1312.2767"
+     inkscape:cx="614.48526"
+     inkscape:cy="238.3876"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -74,7 +74,7 @@
        transform="translate(0,-513.63782)" />
     <path
        style="fill:none;stroke:#800000"
-       d="m 722.67857,267.42857 c -16.68166,17.29144 -35.82048,29.66857 -56.78571,38.39286"
+       d="m 718.21428,271.89286 c -16.68166,17.29144 -31.35619,25.20428 -52.32142,33.92857"
        id="path3673"
        inkscape:connector-curvature="0"
        transform="translate(0,-513.63782)"
@@ -228,14 +228,14 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#800000"
-       d="m 441.25,1399.5714 c 25.31126,-2.9658 50.15462,-4.4389 85.17857,-38.3928"
+       d="m 441.25,1399.5714 c 25.31126,-3.7487 46.22605,-2.0536 81.25,-34.4643"
        id="path3721"
        inkscape:connector-curvature="0"
        transform="translate(0,-513.63782)"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#800000"
-       d="m 539.46429,1362.4286 c 16.94826,-19.5695 37.54079,-28.4821 52.32143,-31.6072"
+       d="m 534.28572,1368.6786 c 13.92276,-20.2219 41.12214,-35.5062 57.5,-37.8572"
        id="path3723"
        inkscape:connector-curvature="0"
        transform="translate(0,-513.63782)"
@@ -389,7 +389,7 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#800000"
-       d="M 833.39286,240.46428 C 814.40935,237.8028 769.52146,238.55444 735.53572,268.5"
+       d="m 833.39286,240.46428 c -20.37283,-2.77819 -76.70853,2.37549 -102.49999,32.50001"
        id="path3767"
        inkscape:connector-curvature="0"
        transform="translate(0,-513.63782)"
