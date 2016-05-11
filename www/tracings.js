@@ -129,12 +129,18 @@ $.widget('shawnpan.diagram', {
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     //ctx.fillRect(0, 0, beat * this.canvas.width / this.dance.timeSignatureTop, 10);
 
+    //Draw text
+    ctx.font = '30px Arial';
+    ctx.fillText(currentComponent.desc, 10, 30);
+
+    //Draw path
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       ctx.save();
       ctx.translate(this.centerX, this.centerY);
       ctx.rotate(this.offsetAngle + 2 * Math.PI * lapIndex / this.dance.patternsPerLap);
       for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
         component = this.components[componentIndex];
+
         ctx.save();
         if (currentLap === lapIndex) {
           ctx.lineWidth = 3;
@@ -154,6 +160,7 @@ $.widget('shawnpan.diagram', {
         } else {
           ctx.lineWidth = 2;
         }
+
         for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
           path = component.path[pathIndex];
           ctx.beginPath();
@@ -162,6 +169,8 @@ $.widget('shawnpan.diagram', {
           ctx.stroke();
         }
         ctx.restore();
+
+
       }
       ctx.restore();
     }
