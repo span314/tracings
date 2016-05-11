@@ -10,6 +10,7 @@ NEW_HEIGHT = 1024
 DIRECTORY = "data"
 EXT_SVG = ".svg"
 EXT_CSV = ".csv"
+EXT_JSON = ".json"
 PATH_REGEX = re.compile("^\s*d=\"(.*)\"")
 
 EDGE_DESC = {
@@ -56,6 +57,7 @@ for file in os.listdir(DIRECTORY):
     print "Processing " + patternName
     svgFilename = os.path.join(DIRECTORY, patternName + EXT_SVG)
     csvFilename = os.path.join(DIRECTORY, patternName + EXT_CSV)
+    jsonFilename = os.path.join(DIRECTORY, patternName + EXT_JSON)
 
     processedPaths = []
     components = []
@@ -141,5 +143,9 @@ for file in os.listdir(DIRECTORY):
         row["path"] = componentPaths
         components.append(row)
 
+    #Output files
+    with open(jsonFilename, "w") as jsonFile:
+      jsonFile.write(json.dumps(components, sort_keys=True, indent=2))
+
     #Print component array
-    print json.dumps(components, sort_keys=True, indent=2);
+    #print json.dumps(components, sort_keys=True, indent=2);
