@@ -116,8 +116,15 @@ $.widget('shawnpan.diagram', {
     this.beginning();
   },
 
+  _computePositions: function() {
+    this.positions = [];
+
+
+
+  },
+
   _drawPattern: function() {
-    var pattern, component, path, lapIndex, componentIndex, pathIndex,
+    var pattern, component, path, lapIndex, componentIndex, pathIndex, rotationMatrix,
         ctx = this.canvasContext,
         currentComponent = this._currentComponent(),
         currentLap = Math.floor(this.position / this.components.length),
@@ -131,12 +138,17 @@ $.widget('shawnpan.diagram', {
     //Draw text
     ctx.font = '30px Arial';
     ctx.fillText(currentComponent.desc, 10, 30);
+    ctx.font = '14px Arial';
 
     //Draw path
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       ctx.save();
       ctx.translate(this.centerX, this.centerY);
-      ctx.rotate(2 * Math.PI * lapIndex / this.dance.patternsPerLap);
+      rotationMatrix = PathCoordinateUtils.computeRotationMatrix(lapIndex, this.dance.patternsPerLap);
+
+
+
+      //ctx.rotate(2 * Math.PI * lapIndex / this.dance.patternsPerLap);
       for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
         component = this.components[componentIndex];
 
@@ -161,12 +173,21 @@ $.widget('shawnpan.diagram', {
         }
 
         for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
-          path = component.path[pathIndex];
+          path = PathCoordinateUtils.preprocessPath(component.path[pathIndex], rotationMatrix);
           ctx.beginPath();
           ctx.moveTo.apply(ctx, path.start);
           ctx.bezierCurveTo.apply(ctx, path.bezier);
           ctx.stroke();
         }
+
+        ctx.fillStyle = 'rgb(0,0,255)';
+        ctx.textBaseline = 'middle';
+        if (path.labelX < path.midX) {
+          path.labelX -= ctx.measureText(component.label).width;
+        }
+
+        ctx.fillText(component.label, path.labelX, path.labelY); //assumes at least one path!!
+
         ctx.restore();
 
 
@@ -263,3 +284,51 @@ $.widget('shawnpan.diagram', {
     this._drawPattern();
   }
 });
+
+
+
+var PathCoordinateUtils = function() {};
+
+PathCoordinateUtils.computeRotationMatrix = function(index, patternsPerLap) {
+  var theta = 2 * Math.PI * index / patternsPerLap,
+      sinTheta = Math.sin(theta),
+      cosTheta = Math.cos(theta);
+  return [cosTheta, -sinTheta, sinTheta, cosTheta];
+};
+
+PathCoordinateUtils.transformCoordinates = function(coordinates, matrix) {
+  var i, x, y,
+      result = [];
+  for (i = 0; i < coordinates.length; i+=2) {
+    x = coordinates[i];
+    y = coordinates[i+1];
+    result.push(x * matrix[0] + y * matrix[1]);
+    result.push(x * matrix[2] + y * matrix[3]);
+  }
+  return result;
+};
+
+PathCoordinateUtils.preprocessPath = function(path, matrix) {
+  var offsetX, offsetY,
+      start = PathCoordinateUtils.transformCoordinates(path.start, matrix),
+      bezier = PathCoordinateUtils.transformCoordinates(path.bezier, matrix),
+      midX = (start[0] + 3 * bezier[0] + 3 * bezier[2] + bezier[4]) / 8,
+      midY = (start[1] + 3 * bezier[1] + 3 * bezier[3] + bezier[5]) / 8,
+      midDX = 3 * (-start[0] - bezier[0] + bezier[2] + bezier[4]) / 4,
+      midDY = 3 * (-start[1] - bezier[1] + bezier[3] + bezier[5]) / 4,
+      midD2X = 3 * (start[0] - bezier[0] - bezier[2] + bezier[4]),
+      midD2Y = 3 * (start[1] - bezier[1] - bezier[3] + bezier[5]),
+      lengthD = Math.sqrt(midDX * midDX + midDY * midDY),
+      normX = -midDY / lengthD,
+      normY = midDX / lengthD;
+
+      if (normX * midD2X + normY * midD2Y < 0) {
+        offsetX = midX + normX * 7;
+        offsetY = midY + normY * 7;
+      } else {
+        offsetX = midX - normX * 7;
+        offsetY = midY - normY * 7;
+      }
+
+  return {'start': start, 'bezier': bezier, 'labelX': offsetX, 'labelY': offsetY, 'midX': midX, 'midY': midY};
+};
