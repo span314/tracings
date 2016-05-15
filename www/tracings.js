@@ -116,13 +116,6 @@ $.widget('shawnpan.diagram', {
     this.beginning();
   },
 
-  _computePositions: function() {
-    this.positions = [];
-
-
-
-  },
-
   _drawPattern: function() {
     var pattern, component, path, lapIndex, componentIndex, pathIndex, rotationMatrix,
         ctx = this.canvasContext,
@@ -146,9 +139,6 @@ $.widget('shawnpan.diagram', {
       ctx.translate(this.centerX, this.centerY);
       rotationMatrix = PathCoordinateUtils.computeRotationMatrix(lapIndex, this.dance.patternsPerLap);
 
-
-
-      //ctx.rotate(2 * Math.PI * lapIndex / this.dance.patternsPerLap);
       for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
         component = this.components[componentIndex];
 
@@ -182,11 +172,7 @@ $.widget('shawnpan.diagram', {
 
         ctx.fillStyle = 'rgb(0,0,255)';
         ctx.textBaseline = 'middle';
-        if (path.labelX < path.midX) {
-          path.labelX -= ctx.measureText(component.label).width;
-        }
-
-        ctx.fillText(component.label, path.labelX, path.labelY); //assumes at least one path!!
+        ctx.fillText(component.label, path.labelX - path.rightAlign * ctx.measureText(component.label).width, path.labelY); //assumes at least one path!!
 
         ctx.restore();
 
@@ -309,26 +295,12 @@ PathCoordinateUtils.transformCoordinates = function(coordinates, matrix) {
 };
 
 PathCoordinateUtils.preprocessPath = function(path, matrix) {
-  var offsetX, offsetY,
-      start = PathCoordinateUtils.transformCoordinates(path.start, matrix),
+  var start = PathCoordinateUtils.transformCoordinates(path.start, matrix),
       bezier = PathCoordinateUtils.transformCoordinates(path.bezier, matrix),
-      midX = (start[0] + 3 * bezier[0] + 3 * bezier[2] + bezier[4]) / 8,
-      midY = (start[1] + 3 * bezier[1] + 3 * bezier[3] + bezier[5]) / 8,
-      midDX = 3 * (-start[0] - bezier[0] + bezier[2] + bezier[4]) / 4,
-      midDY = 3 * (-start[1] - bezier[1] + bezier[3] + bezier[5]) / 4,
-      midD2X = 3 * (start[0] - bezier[0] - bezier[2] + bezier[4]),
-      midD2Y = 3 * (start[1] - bezier[1] - bezier[3] + bezier[5]),
-      lengthD = Math.sqrt(midDX * midDX + midDY * midDY),
-      normX = -midDY / lengthD,
-      normY = midDX / lengthD;
-
-      if (normX * midD2X + normY * midD2Y < 0) {
-        offsetX = midX + normX * 7;
-        offsetY = midY + normY * 7;
-      } else {
-        offsetX = midX - normX * 7;
-        offsetY = midY - normY * 7;
-      }
-
-  return {'start': start, 'bezier': bezier, 'labelX': offsetX, 'labelY': offsetY, 'midX': midX, 'midY': midY};
+      normal = PathCoordinateUtils.transformCoordinates(path.normal, matrix),
+      mid = PathCoordinateUtils.transformCoordinates(path.mid, matrix),
+      labelX = mid[0] + normal[0] * 7,
+      labelY = mid[1] + normal[1] * 7,
+      rightAlign = mid[0] > labelX ? 1 : 0;
+  return {'start': start, 'bezier': bezier, 'labelX': labelX, 'labelY': labelY, 'rightAlign': rightAlign};
 };
