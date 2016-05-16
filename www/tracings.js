@@ -128,15 +128,22 @@ $.widget('shawnpan.diagram', {
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     //ctx.fillRect(0, 0, beat * this.canvas.width / this.dance.timeSignatureTop, 10);
 
+
+
     //Draw text
     ctx.font = '30px Arial';
     ctx.fillText(currentComponent.desc, 10, 30);
     ctx.font = '14px Arial';
 
+    ctx.save();
+    ctx.translate(this.centerX, this.centerY);
+
+    //Draw rink
+    this._drawRink(ctx, 512);
+
     //Draw path
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
-      ctx.save();
-      ctx.translate(this.centerX, this.centerY);
+
       rotationMatrix = PathCoordinateUtils.computeRotationMatrix(lapIndex, this.dance.patternsPerLap);
 
       for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
@@ -175,11 +182,26 @@ $.widget('shawnpan.diagram', {
         ctx.fillText(component.label, path.labelX - path.rightAlign * ctx.measureText(component.label).width, path.labelY); //assumes at least one path!!
 
         ctx.restore();
-
-
       }
-      ctx.restore();
     }
+    ctx.restore();
+  },
+
+  _drawRink: function(ctx, targetHeight) {
+    var scale = targetHeight / 30,
+        halfWidth = 30.5 * scale,
+        halfWidthStraight = 22 * scale,
+        halfHeight = 15 * scale,
+        halfHeightStraight = 6.5 * scale,
+        cornerRadius = 8.5 * scale;
+
+      ctx.beginPath();
+      ctx.moveTo(-halfWidthStraight, -halfHeight);
+      ctx.arcTo(halfWidth, -halfHeight, halfWidth, halfHeightStraight, cornerRadius);
+      ctx.arcTo(halfWidth, halfHeight, -halfWidthStraight, halfHeight, cornerRadius);
+      ctx.arcTo(-halfWidth, halfHeight, -halfWidth, halfHeightStraight, cornerRadius);
+      ctx.arcTo(-halfWidth, -halfHeight, -halfWidthStraight, -halfHeight, cornerRadius);
+      ctx.stroke();
   },
 
   _updateSpeed: function(event, ui) {
