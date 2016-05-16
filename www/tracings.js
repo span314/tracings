@@ -107,7 +107,7 @@ $.widget('shawnpan.diagram', {
     this.canvas.height = height;
     this.centerX = width / 2;
     this.centerY = height / 2;
-    this.scaleFactor = (width - 64) / 1024;
+    this.scaleFactor = (width - 96) / 1024;
     this.controls.controlContainer.width(width);
 
     if (this.dance) {
@@ -178,7 +178,7 @@ $.widget('shawnpan.diagram', {
     //Draw text
     ctx.font = '30px Arial';
     ctx.fillText(currentComponent.desc, 10, 30);
-    ctx.font = '14px Arial';
+    ctx.font = '16px Arial';
 
     ctx.save();
     ctx.translate(this.centerX, this.centerY);
@@ -229,8 +229,8 @@ $.widget('shawnpan.diagram', {
       ctx.fillStyle = 'rgb(255,0,0)';
       textOffset = path.alignFlag ? 0 : ctx.measureText(component.beats).width;
       ctx.fillText(component.beats, path.beatX - textOffset, path.beatY);
-
       ctx.restore();
+
     }
     ctx.restore();
   },
@@ -370,7 +370,7 @@ PathCoordinateUtils.preprocessPath = function(path, matrix) {
       bezier = PathCoordinateUtils.transformCoordinates(path.bezier, matrix),
       normal = PathCoordinateUtils.transformCoordinates(path.normal, matrix),
       mid = PathCoordinateUtils.transformCoordinates(path.mid, matrix),
-      offset = 7,
+      offset = 10,
       labelX = mid[0] + normal[0] * offset,
       labelY = mid[1] + normal[1] * offset,
       beatX = mid[0] - normal[0] * offset,
