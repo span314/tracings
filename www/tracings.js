@@ -111,6 +111,7 @@ $.widget('shawnpan.diagram', {
     this.controls.controlContainer.width(width);
 
     if (this.dance) {
+      this._computePaths();
       this._drawPattern();
     }
   },
@@ -139,14 +140,29 @@ $.widget('shawnpan.diagram', {
         break;
       }
     }
-    this.positionCount = this.components.length * this.dance.patternsPerLap;
-
+    this._computePaths();
     this._updatePlaybackSpeedLabel();
     this.beginning();
   },
 
+  _computePaths: function() {
+    var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths;
+    this.paths = [];
+    for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
+      transformMatrix = PathCoordinateUtils.computeTransformMatrix(lapIndex, this.dance.patternsPerLap, this.scaleFactor);
+      for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
+        component = this.components[componentIndex];
+        paths = [];
+        for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
+          paths.push(PathCoordinateUtils.preprocessPath(component.path[pathIndex], transformMatrix));
+        }
+        this.paths.push(paths);
+      }
+    }
+  },
+
   _drawPattern: function() {
-    var pattern, component, path, lapIndex, componentIndex, pathIndex, transformMatrix,
+    var pattern, component, path, paths, positionIndex, pathIndex, transformMatrix, textOffset,
         ctx = this.canvasContext,
         currentComponent = this._currentComponent(),
         currentLap = Math.floor(this.position / this.components.length),
@@ -170,48 +186,51 @@ $.widget('shawnpan.diagram', {
     //Draw rink
     this._drawRink();
 
-    //Draw path
-    for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
+    //Draw pattern
+    for (positionIndex = 0; positionIndex < this.paths.length; positionIndex++) {
+      paths = this.paths[positionIndex];
+      component = this.components[positionIndex % this.components.length];
 
-      transformMatrix = PathCoordinateUtils.computeTransformMatrix(lapIndex, this.dance.patternsPerLap, this.scaleFactor);
-
-      for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
-        component = this.components[componentIndex];
-
-        ctx.save();
-        if (currentLap === lapIndex) {
-          ctx.lineWidth = 3;
-          if (component === currentComponent) {
-            ctx.lineWidth = 4;
-            if (beat === 1 && fracBeat === 0) {
-              ctx.strokeStyle = 'rgb(0,220,0)';
-            } else if (fracBeat === 0) {
-              ctx.strokeStyle = 'rgb(0,200,0)';
-            } else {
-              ctx.strokeStyle = 'rgb(0,180,0)';
-            }
-          } else if (component.group && component.group === currentComponent.group) {
-            ctx.lineWidth = 4;
-            ctx.strokeStyle = 'rgb(0,120,0)';
+      ctx.save();
+      if (currentLap === Math.floor(positionIndex / this.components.length)) {
+        ctx.lineWidth = 3;
+        if (component === currentComponent) {
+          ctx.lineWidth = 4;
+          if (beat === 1 && fracBeat === 0) {
+            ctx.strokeStyle = 'rgb(0,220,0)';
+          } else if (fracBeat === 0) {
+            ctx.strokeStyle = 'rgb(0,200,0)';
+          } else {
+            ctx.strokeStyle = 'rgb(0,180,0)';
           }
-        } else {
-          ctx.lineWidth = 2;
+        } else if (component.group && component.group === currentComponent.group) {
+          ctx.lineWidth = 4;
+          ctx.strokeStyle = 'rgb(0,120,0)';
         }
-
-        for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
-          path = PathCoordinateUtils.preprocessPath(component.path[pathIndex], rotationMatrix);
-          ctx.beginPath();
-          ctx.moveTo.apply(ctx, path.start);
-          ctx.bezierCurveTo.apply(ctx, path.bezier);
-          ctx.stroke();
-        }
-
-        ctx.fillStyle = 'rgb(0,0,255)';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(component.label, path.labelX - path.rightAlign * ctx.measureText(component.label).width, path.labelY); //assumes at least one path!!
-
-        ctx.restore();
+      } else {
+        ctx.lineWidth = 2;
       }
+
+      for (pathIndex = 0; pathIndex < paths.length; pathIndex++) {
+        path = paths[pathIndex];
+        ctx.beginPath();
+        ctx.moveTo.apply(ctx, path.start);
+        ctx.bezierCurveTo.apply(ctx, path.bezier);
+        ctx.stroke();
+      }
+
+      //TODO currently assumes at least one path
+      ctx.textBaseline = 'middle';
+      //Draw label
+      ctx.fillStyle = 'rgb(0,0,255)';
+      textOffset = path.alignFlag ? ctx.measureText(component.label).width : 0;
+      ctx.fillText(component.label, path.labelX - textOffset, path.labelY);
+      //Draw beats
+      ctx.fillStyle = 'rgb(255,0,0)';
+      textOffset = path.alignFlag ? 0 : ctx.measureText(component.beats).width;
+      ctx.fillText(component.beats, path.beatX - textOffset, path.beatY);
+
+      ctx.restore();
     }
     ctx.restore();
   },
@@ -288,7 +307,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _movePosition: function(amount) {
-    this.position = (this.position + this.positionCount + amount) % this.positionCount;
+    this.position = (this.position + this.paths.length + amount) % this.paths.length;
     this.stepTickCount = 0;
   },
 
@@ -351,8 +370,11 @@ PathCoordinateUtils.preprocessPath = function(path, matrix) {
       bezier = PathCoordinateUtils.transformCoordinates(path.bezier, matrix),
       normal = PathCoordinateUtils.transformCoordinates(path.normal, matrix),
       mid = PathCoordinateUtils.transformCoordinates(path.mid, matrix),
-      labelX = mid[0] + normal[0] * 7,
-      labelY = mid[1] + normal[1] * 7,
-      rightAlign = mid[0] > labelX ? 1 : 0;
-  return {'start': start, 'bezier': bezier, 'labelX': labelX, 'labelY': labelY, 'rightAlign': rightAlign};
+      offset = 7,
+      labelX = mid[0] + normal[0] * offset,
+      labelY = mid[1] + normal[1] * offset,
+      beatX = mid[0] - normal[0] * offset,
+      beatY = mid[1] - normal[1] * offset,
+      alignFlag = mid[0] > labelX;
+  return {'start': start, 'bezier': bezier, 'labelX': labelX, 'labelY': labelY, 'beatX': beatX, 'beatY': beatY, 'alignFlag': alignFlag};
 };
