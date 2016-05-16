@@ -2,7 +2,7 @@
 'use strict';
 
 $(document).ready(function() {
-  $('#danceSelect').selectmenu();
+  $('#danceSelect').selectmenu({position: {collision: 'flip'}});
   $('#partButtons').buttonset();
   $('#optButtons').buttonset();
 
@@ -64,6 +64,7 @@ $.widget('shawnpan.diagram', {
       controls.startPause = elem.find('#startPauseButton');
       controls.speed = elem.find('#speedSlider');
       controls.speedValue = elem.find('#speedValue');
+      controls.controlContainer = elem.find('#controls');
 
       //bind events
       controls.dance.on('selectmenuchange', this._loadDance.bind(this));
@@ -76,6 +77,9 @@ $.widget('shawnpan.diagram', {
       controls.startPause.click(this.toggleStartPause.bind(this));
       controls.speed.on('slidechange', this._updateSpeed.bind(this));
 
+      $(window).resize(this._onCanvasResize.bind(this));
+
+
       //initialize
       this.canvasContext = this.canvas.getContext('2d');
       this._onCanvasResize();
@@ -83,8 +87,32 @@ $.widget('shawnpan.diagram', {
   },
 
   _onCanvasResize: function() {
-    this.centerX = this.canvas.width / 2;
-    this.centerY = this.canvas.height / 2;
+    var width, height,
+        aspectRatio = window.innerWidth / window.innerHeight;
+    if (aspectRatio > 1.8) {
+      //height limited
+      height = 0.9 * window.innerHeight;
+      width = 1.8 * height;
+    } else {
+      //width limited
+      width = 0.98 * window.innerWidth;
+      height = width / 1.8;
+    }
+    if (width < 1024) {
+      width = 1024;
+      height = 1024 / 1.8;
+    }
+
+    this.canvas.width = width;
+    this.canvas.height = height;
+    this.centerX = width / 2;
+    this.centerY = height / 2;
+    this.scaleFactor = (width - 64) / 1024;
+    this.controls.controlContainer.width(width);
+
+    if (this.dance) {
+      this._drawPattern();
+    }
   },
 
   _loadDance: function() {
@@ -112,12 +140,13 @@ $.widget('shawnpan.diagram', {
       }
     }
     this.positionCount = this.components.length * this.dance.patternsPerLap;
+
     this._updatePlaybackSpeedLabel();
     this.beginning();
   },
 
   _drawPattern: function() {
-    var pattern, component, path, lapIndex, componentIndex, pathIndex, rotationMatrix,
+    var pattern, component, path, lapIndex, componentIndex, pathIndex, transformMatrix,
         ctx = this.canvasContext,
         currentComponent = this._currentComponent(),
         currentLap = Math.floor(this.position / this.components.length),
@@ -139,12 +168,12 @@ $.widget('shawnpan.diagram', {
     ctx.translate(this.centerX, this.centerY);
 
     //Draw rink
-    this._drawRink(ctx, 512);
+    this._drawRink();
 
     //Draw path
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
 
-      rotationMatrix = PathCoordinateUtils.computeRotationMatrix(lapIndex, this.dance.patternsPerLap);
+      transformMatrix = PathCoordinateUtils.computeTransformMatrix(lapIndex, this.dance.patternsPerLap, this.scaleFactor);
 
       for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
         component = this.components[componentIndex];
@@ -187,8 +216,9 @@ $.widget('shawnpan.diagram', {
     ctx.restore();
   },
 
-  _drawRink: function(ctx, targetHeight) {
-    var scale = targetHeight / 30,
+  _drawRink: function() {
+    var ctx = this.canvasContext,
+        scale = this.scaleFactor * 512 / 30,
         halfWidth = 30.5 * scale,
         halfWidthStraight = 22 * scale,
         halfHeight = 15 * scale,
@@ -297,10 +327,10 @@ $.widget('shawnpan.diagram', {
 
 var PathCoordinateUtils = function() {};
 
-PathCoordinateUtils.computeRotationMatrix = function(index, patternsPerLap) {
+PathCoordinateUtils.computeTransformMatrix = function(index, patternsPerLap, scaleFactor) {
   var theta = 2 * Math.PI * index / patternsPerLap,
-      sinTheta = Math.sin(theta),
-      cosTheta = Math.cos(theta);
+      sinTheta = Math.sin(theta) * scaleFactor,
+      cosTheta = Math.cos(theta) * scaleFactor;
   return [cosTheta, -sinTheta, sinTheta, cosTheta];
 };
 
