@@ -8,8 +8,8 @@ import math
 
 NEW_WIDTH = 512
 NEW_HEIGHT = 1024
-INPUT_DIRECTORY = "data"
-OUTPUT_DIRECTORY = "output"
+INPUT_DIRECTORY = "patternData"
+OUTPUT_DIRECTORY = "www/patterns"
 EXT_SVG = ".svg"
 EXT_CSV = ".csv"
 EXT_JSON = ".json"
@@ -152,7 +152,7 @@ class CubicBezierPath:
     }
 
 for file in os.listdir(INPUT_DIRECTORY):
-  if (file.endswith(EXT_CSV)):
+  if (file.endswith(EXT_JSON)):
     patternName = os.path.splitext(file)[0]
     print "Processing " + patternName
 
