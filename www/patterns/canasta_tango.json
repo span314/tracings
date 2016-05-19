@@ -71,7 +71,7 @@
           ]
         }
       ], 
-      "step": "pr"
+      "step": "prx"
     }, 
     {
       "beats": "1", 
@@ -431,7 +431,7 @@
           ]
         }
       ], 
-      "step": "pr"
+      "step": "prx"
     }, 
     {
       "beats": "2", 

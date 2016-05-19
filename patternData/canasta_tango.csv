@@ -1,7 +1,7 @@
 index,duration,pathCount,beats,edge,step,label,desc,group,optional
-1,,,1,LFO,pr,LFO,,pr1,
-2,,,1,RFI,pr,,,pr1,
-3,,,1,LFO,pr,LFO,,pr1,
+1,,,1,LFO,pr,,,pr1,
+2,,,1,RFI,prx,,,pr1,
+3,,,1,LFO,pr,,,pr1,
 4,,,1,RFI,ch,,,,
 5,,,4,LFO,swr,,,,
 6,,,2,RFO,,,,,
@@ -9,8 +9,8 @@ index,duration,pathCount,beats,edge,step,label,desc,group,optional
 8,,,4,RFO,swr,,,,
 9,,,2,LFO,,,,,
 10,,,2,RFI,slch,,,,
-11,,,1,LFO,pr,LFO,,pr2,
-12,,,1,RFI,pr,,,pr2,
-13,,,2,LFO,pr,LFO,,pr2,
+11,,,1,LFO,pr,,,pr2,
+12,,,1,RFI,prx,,,pr2,
+13,,,2,LFO,pr,,,pr2,
 14,,,4,RFO,swr,,,,no
 14,,,4,RFO,cr,,,,yes

@@ -431,7 +431,7 @@
           ]
         }
       ], 
-      "step": "pr"
+      "step": "prx"
     }, 
     {
       "beats": "3", 
@@ -755,7 +755,7 @@
           ]
         }
       ], 
-      "step": "opmo"
+      "step": "opmox"
     }, 
     {
       "beats": "2", 
@@ -764,7 +764,7 @@
       "edge": "RBO", 
       "group": "pr2", 
       "index": "20", 
-      "label": "LBO", 
+      "label": "RBO", 
       "offset": 180, 
       "optional": "", 
       "path": [
@@ -827,7 +827,7 @@
           ]
         }
       ], 
-      "step": "pr"
+      "step": "prx"
     }, 
     {
       "beats": "3", 
@@ -836,7 +836,7 @@
       "edge": "RBO", 
       "group": "pr2", 
       "index": "22", 
-      "label": "LBO", 
+      "label": "RBO", 
       "offset": 192, 
       "optional": "", 
       "path": [
@@ -1079,7 +1079,7 @@
           ]
         }
       ], 
-      "step": "opmo"
+      "step": "opmox"
     }, 
     {
       "beats": "3", 
@@ -1160,7 +1160,7 @@
       "edge": "RFO", 
       "group": "pr1", 
       "index": "9", 
-      "label": "LFO", 
+      "label": "RFO", 
       "offset": 288, 
       "optional": "", 
       "path": [
@@ -1223,7 +1223,7 @@
           ]
         }
       ], 
-      "step": "pr"
+      "step": "prx"
     }, 
     {
       "beats": "3", 
@@ -1232,7 +1232,7 @@
       "edge": "RFO", 
       "group": "pr1", 
       "index": "11", 
-      "label": "LFO", 
+      "label": "RFO", 
       "offset": 300, 
       "optional": "", 
       "path": [
@@ -1691,7 +1691,7 @@
           ]
         }
       ], 
-      "step": "pr"
+      "step": "prx"
     }, 
     {
       "beats": "3", 

@@ -28,23 +28,28 @@ EDGE_DESC = {
 
 STEP_LABEL = {
   "": "#",
-  "cr": "CR-#",
-  "pr": "#-Pr",
   "ch": "#-Ch",
-  "swr": "#-swR",
+  "cr": "CR-#",
+  "e3": "#3",
+  "opmo": "#-opMo",
+  "opmox": "#",
+  "pr": "#",
+  "prx": "#-Pr",
   "slch": "#-slCh",
-  "opmo": "#-opMo"
+  "swr": "#-swR"
 }
 
 STEP_DESC = {
   "": "# Edge",
-  "pr": "Progressive: # Edge",
-  "opmo": "Open Mohawk: #",
-  "e3": "European 3-turn: #",
-  "swr": "# Swing Roll",
   "ch": "# Chasse",
+  "cr": "# Cross Roll",
+  "e3": "European 3-turn: #",
+  "opmo": "Open Mohawk: #",
+  "opmox": "Open Mohawk: #",
+  "pr": "Progressive: # Edge",
+  "prx": "Progressive: # Edge",
   "slch": "# Slide Chasse",
-  "cr": "# Cross Roll"
+  "swr": "# Swing Roll"
 }
 
 class PointF:
