@@ -127,17 +127,14 @@ $.widget('shawnpan.diagram', {
   },
 
   _loadPattern: function() {
-    var i, pattern,
-        widget = this;
+    var i, component,
+        pattern = this.dance.patterns[this.part];
     console.log('loading pattern ' + this.dance.name + ' ' + this.part);
-    for (i = 0; i < this.dance.patterns.length; i++) {
-      pattern = this.dance.patterns[i];
-      if ($.inArray(this.part, pattern.parts) >= 0) {
-        this.components = $.grep(pattern.components,
-          function(component) {
-            return !component.optional || component.optional === widget._optionalStepsEnabled();
-          });
-        break;
+    this.components = [];
+    for (i = pattern.startComponent; i < pattern.endComponent; i++) {
+      component = this.dance.components[i % this.dance.components.length];
+      if (!component.optional || component.optional === this._optionalStepsEnabled()) {
+        this.components.push(component);
       }
     }
     this._computePaths();
