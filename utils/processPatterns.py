@@ -26,31 +26,25 @@ EDGE_DESC = {
   "RBI": "Right Back Inside"
 }
 
-STEP_LABEL_PREFIX = {
-  "cr": "CR"
+STEP_LABEL = {
+  "": "#",
+  "cr": "CR-#",
+  "pr": "#-Pr",
+  "ch": "#-Ch",
+  "swr": "#-swR",
+  "slch": "#-slCh",
+  "opmo": "#-opMo"
 }
 
-STEP_LABEL_SUFFIX = {
-  "pr": "Pr",
-  "ch": "Ch",
-  "swr": "swR",
-  "slch": "slCh",
-  "opmo": "opMo"
-}
-
-STEP_DESC_PREFIX = {
-  "pr": "Progressive",
-  "opmo": "Open Mohawk",
-  "e3": "European 3-turn"
-}
-
-STEP_DESC_SUFFIX = {
-  "": "Edge",
-  "pr": "Edge",
-  "swr": "Swing Roll",
-  "ch": "Chasse",
-  "slch": "Slide Chasse",
-  "cr": "Cross Roll"
+STEP_DESC = {
+  "": "# Edge",
+  "pr": "Progressive: # Edge",
+  "opmo": "Open Mohawk: #",
+  "e3": "European 3-turn: #",
+  "swr": "# Swing Roll",
+  "ch": "# Chasse",
+  "slch": "# Slide Chasse",
+  "cr": "# Cross Roll"
 }
 
 class PointF:
@@ -205,26 +199,10 @@ for file in os.listdir(INPUT_DIRECTORY):
           offset += int(row["duration"])
         #Create labels
         if (not row["label"]):
-          label = ""
-          if (row["step"] in STEP_LABEL_PREFIX):
-            label += STEP_LABEL_PREFIX[row["step"]]
-            label += "-"
-          label += row["edge"]
-          if (row["step"] in STEP_LABEL_SUFFIX):
-            label += "-"
-            label += STEP_LABEL_SUFFIX[row["step"]]
-          row["label"] = label
+          row["label"] = STEP_LABEL[row["step"]].replace("#", row["edge"])
         #Create descriptions
         if (not row["desc"]):
-          desc = ""
-          if (row["step"] in STEP_DESC_PREFIX):
-            desc += STEP_DESC_PREFIX[row["step"]]
-            desc += ": "
-          desc += EDGE_DESC[row["edge"]]
-          if (row["step"] in STEP_DESC_SUFFIX):
-            desc += " "
-            desc += STEP_DESC_SUFFIX[row["step"]]
-          row["desc"] = desc
+          row["desc"] = STEP_DESC[row["step"]].replace("#", EDGE_DESC[row["edge"]])
         #Add paths
         componentPaths = []
         pathCount = row.pop("pathCount")
