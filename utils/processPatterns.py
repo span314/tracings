@@ -8,7 +8,8 @@ import math
 
 NEW_WIDTH = 512
 NEW_HEIGHT = 1024
-DIRECTORY = "data"
+INPUT_DIRECTORY = "data"
+OUTPUT_DIRECTORY = "output"
 EXT_SVG = ".svg"
 EXT_CSV = ".csv"
 EXT_JSON = ".json"
@@ -156,20 +157,17 @@ class CubicBezierPath:
       "normal": [n.x, n.y]
     }
 
-for file in os.listdir(DIRECTORY):
+for file in os.listdir(INPUT_DIRECTORY):
   if (file.endswith(EXT_CSV)):
     patternName = os.path.splitext(file)[0]
     print "Processing " + patternName
-    svgFilename = os.path.join(DIRECTORY, patternName + EXT_SVG)
-    csvFilename = os.path.join(DIRECTORY, patternName + EXT_CSV)
-    jsonFilename = os.path.join(DIRECTORY, patternName + EXT_JSON)
 
     processedPaths = []
     components = []
 
     #Extract path values from svg
     paths = []
-    with open(svgFilename, "r") as svgFile:
+    with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_SVG), "r") as svgFile:
       for line in svgFile:
         match = re.match(PATH_REGEX, line)
         if (match):
@@ -193,7 +191,7 @@ for file in os.listdir(DIRECTORY):
       processedPaths.append(cubic.toObject())
 
     #Extract steps from csv
-    with open(csvFilename, "r") as csvFile:
+    with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_CSV), "r") as csvFile:
       pathIndex = 0
       offset = 0
       reader = csv.DictReader(csvFile)
@@ -240,9 +238,11 @@ for file in os.listdir(DIRECTORY):
         row["path"] = componentPaths
         components.append(row)
 
-    #Output files
-    with open(jsonFilename, "w") as jsonFile:
-      jsonFile.write(json.dumps(components, sort_keys=True, indent=2))
+    #Input other data
+    with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_JSON), "r") as jsonFile:
+      danceData = json.loads(jsonFile.read())
 
-    #Print component array
-    #print json.dumps(components, sort_keys=True, indent=2);
+    #Output files
+    with open(os.path.join(OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
+      danceData["components"] = components
+      jsonFile.write(json.dumps(danceData, sort_keys=True, indent=2))
