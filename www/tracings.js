@@ -23,7 +23,6 @@ $.widget('shawnpan.iconButton', $.ui.button, {
   },
 
   _create: function() {
-    console.log('create');
     this._super();
     this.updateIcon(0);
   },
@@ -110,7 +109,7 @@ $.widget('shawnpan.diagram', {
     this.controls.controlContainer.width(width);
 
     if (this.dance) {
-      this._computePaths();
+      this._computePositions();
       this._drawPattern();
     }
   },
@@ -136,12 +135,12 @@ $.widget('shawnpan.diagram', {
         this.components.push(component);
       }
     }
-    this._computePaths();
+    this._computePositions();
     this._updatePlaybackSpeedLabel();
     this.beginning();
   },
 
-  _computePaths: function() {
+  _computePositions: function() {
     var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths;
     this.patternPositions = [];
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
@@ -190,23 +189,22 @@ $.widget('shawnpan.diagram', {
       component = position.component;
 
       ctx.save();
-      if (position.lapIndex === currentPosition.lapIndex) {
-        ctx.lineWidth = 3;
-        if (component === currentComponent) {
-          ctx.lineWidth = 4;
-          if (beat === 1 && fracBeat === 0) {
-            ctx.strokeStyle = 'rgb(0,220,0)';
-          } else if (fracBeat === 0) {
-            ctx.strokeStyle = 'rgb(0,200,0)';
-          } else {
-            ctx.strokeStyle = 'rgb(0,180,0)';
-          }
-        } else if (component.group && component.group === currentComponent.group) {
-          ctx.lineWidth = 4;
-          ctx.strokeStyle = 'rgb(0,120,0)';
-        }
-      } else {
+      if (position.lapIndex !== currentPosition.lapIndex) {
         ctx.lineWidth = 2;
+      } else if (component === currentComponent) {
+        ctx.lineWidth = 4;
+        if (beat === 1 && fracBeat === 0) {
+          ctx.strokeStyle = 'rgb(0,220,0)';
+        } else if (fracBeat === 0) {
+          ctx.strokeStyle = 'rgb(0,200,0)';
+        } else {
+          ctx.strokeStyle = 'rgb(0,180,0)';
+        }
+      } else if (component.group && component.group === currentComponent.group) {
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'rgb(0,120,0)';
+      } else {
+        ctx.lineWidth = 3;
       }
 
       for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
