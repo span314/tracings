@@ -9,7 +9,8 @@ import math
 NEW_WIDTH = 512
 NEW_HEIGHT = 1024
 INPUT_DIRECTORY = "patternData"
-OUTPUT_DIRECTORY = "www/patterns"
+OUTPUT_DIRECTORY = "patternOutput"
+MIN_OUTPUT_DIRECTORY = "www/patterns"
 EXT_SVG = ".svg"
 EXT_CSV = ".csv"
 EXT_JSON = ".json"
@@ -243,3 +244,8 @@ for file in os.listdir(INPUT_DIRECTORY):
     #Output files
     with open(os.path.join(OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
       jsonFile.write(json.dumps(danceData, sort_keys=True, indent=2))
+
+    #Output minified files
+    with open(os.path.join(MIN_OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
+      jsonFile.write(json.dumps(danceData, sort_keys=True))
+
