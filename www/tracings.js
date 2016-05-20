@@ -143,7 +143,7 @@ $.widget('shawnpan.diagram', {
 
   _computePaths: function() {
     var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths;
-    this.paths = [];
+    this.patternPositions = [];
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       transformMatrix = PathCoordinateUtils.computeTransformMatrix(lapIndex, this.dance.patternsPerLap, this.scaleFactor);
       for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
@@ -152,17 +152,21 @@ $.widget('shawnpan.diagram', {
         for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
           paths.push(PathCoordinateUtils.preprocessPath(component.path[pathIndex], transformMatrix));
         }
-        this.paths.push(paths);
+        this.patternPositions.push({
+          'component': component,
+          'paths': paths,
+          'lapIndex': lapIndex
+        });
       }
     }
   },
 
   _drawPattern: function() {
-    var pattern, component, path, paths, positionIndex, pathIndex,
+    var pattern, component, path, positionIndex, pathIndex, position,
         ctx = this.canvasContext,
-        currentComponent = this._currentComponent(),
-        currentLap = Math.floor(this.position / this.components.length),
-        tickCount = this._currentComponent().offset + this.stepTickCount,
+        currentPosition = this.patternPositions[this.position],
+        currentComponent = currentPosition.component,
+        tickCount = currentComponent.offset + this.stepTickCount,
         fracBeat = tickCount % 4,
         beat = ((tickCount - fracBeat) / 4) % this.dance.timeSignatureTop + 1;
 
@@ -181,12 +185,12 @@ $.widget('shawnpan.diagram', {
     this._drawRink();
 
     //Draw pattern
-    for (positionIndex = 0; positionIndex < this.paths.length; positionIndex++) {
-      paths = this.paths[positionIndex];
-      component = this.components[positionIndex % this.components.length];
+    for (positionIndex = 0; positionIndex < this.patternPositions.length; positionIndex++) {
+      position = this.patternPositions[positionIndex];
+      component = position.component;
 
       ctx.save();
-      if (currentLap === Math.floor(positionIndex / this.components.length)) {
+      if (position.lapIndex === currentPosition.lapIndex) {
         ctx.lineWidth = 3;
         if (component === currentComponent) {
           ctx.lineWidth = 4;
@@ -205,8 +209,8 @@ $.widget('shawnpan.diagram', {
         ctx.lineWidth = 2;
       }
 
-      for (pathIndex = 0; pathIndex < paths.length; pathIndex++) {
-        path = paths[pathIndex];
+      for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
+        path = position.paths[pathIndex];
         ctx.beginPath();
         ctx.moveTo.apply(ctx, path.start);
         ctx.bezierCurveTo.apply(ctx, path.bezier);
@@ -273,10 +277,6 @@ $.widget('shawnpan.diagram', {
     }
   },
 
-  _currentComponent: function() {
-    return this.components[this.position % this.components.length];
-  },
-
   _optionalStepsEnabled: function() {
     return this.controls.optional.prop('checked') ? 'yes' : 'no';
   },
@@ -301,7 +301,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _shiftPosition: function(amount) {
-    this.position = (this.position + this.paths.length + amount) % this.paths.length;
+    this.position = (this.position + this.patternPositions.length + amount) % this.patternPositions.length;
     this.stepTickCount = 0;
   },
 
@@ -329,13 +329,12 @@ $.widget('shawnpan.diagram', {
 
   _tick: function() {
     this.stepTickCount++;
-    if (this.stepTickCount >= this._currentComponent().duration) {
+    if (this.stepTickCount >= this.patternPositions[this.position].component.duration) {
       this._shiftPosition(1);
     }
     this._drawPattern();
   }
 });
-
 
 var PathCoordinateUtils = function() {};
 
