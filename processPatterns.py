@@ -98,12 +98,12 @@ class CubicBezierPath:
     points = [None] * 4
     points[0] = PointF(svgInput[1], svgInput[2])
     #Convert to absolute coordinate floats
-    if path[3] == "c": #relative coordinates cubic
+    if svgInput[3] == "c": #relative coordinates cubic
       offset = points[0]
-    elif path[3] == "C": #absolute coordinates cubic
+    elif svgInput[3] == "C": #absolute coordinates cubic
       offset = PointF(0, 0)
     else:
-      raise Exception("path format code " + path[3] + " is not supported")
+      raise Exception("path format code " + svgInput[3] + " is not supported")
     points[1:4] = [PointF(svgInput[2*i+4], svgInput[2*i+5]) + offset for i in xrange(3)]
     return cls(points)
 
@@ -158,76 +158,88 @@ class CubicBezierPath:
       "normal": [n.x, n.y]
     }
 
+def extractPathsFromSVG(fileHandle):
+  paths = []
+  processedPaths = []
+  for line in fileHandle:
+    match = re.match(PATH_REGEX, line)
+    if (match):
+      tokens = match.group(1).strip().replace(" ",",").split(",")
+      paths.append(tokens)
+
+  #Orient with guide lines
+  oldCenter = PointF(paths[1][1], paths[0][2])
+  oldWidth = float(paths[0][3])
+  oldHeight = float(paths[1][4])
+
+  scaleFactor = min(NEW_WIDTH / oldWidth, NEW_HEIGHT / oldHeight)
+
+  for path in paths[2:]:
+    cubic = CubicBezierPath.fromSvgInput(path)
+    #Normalize centered at (0, 0)
+    cubic = cubic.shift(-oldCenter)
+    cubic = cubic.scale(scaleFactor)
+    #Rotate by 90 degrees
+    cubic = cubic.rotate(math.pi / 2)
+    processedPaths.append(cubic.toObject())
+
+  return processedPaths
+
+def extractStepsFromCSV(fileHandle, processedPaths):
+  components = []
+  pathIndex = 0
+  offset = 0
+  reader = csv.DictReader(csvFile)
+  for row in reader:
+    #Calculate unspecified duration
+    if (not row["duration"]):
+      row["duration"] = 4 * int(row["beats"])
+    #Calculate offset
+    row["offset"] = offset
+    if (not row["optional"]):
+      offset += int(row["duration"])
+    #Create labels
+    if (not row["label"]):
+      row["label"] = STEP_LABEL[row["step"]].replace("#", row["edge"])
+    #Create descriptions
+    if (not row["desc"]):
+      row["desc"] = STEP_DESC[row["step"]].replace("#", EDGE_DESC[row["edge"]])
+    #Add paths
+    componentPaths = []
+    pathCount = row.pop("pathCount")
+    if (pathCount):
+      pathCount = int(pathCount)
+    else:
+      pathCount = 1
+    for i in range(max(pathCount, 1)):
+      componentPaths.append(processedPaths[pathIndex + i])
+    pathIndex += pathCount
+    row["path"] = componentPaths
+    components.append(row)
+  return components
+
+#Main
 for file in os.listdir(INPUT_DIRECTORY):
   if (file.endswith(EXT_JSON)):
     patternName = os.path.splitext(file)[0]
     print "Processing " + patternName
 
-    processedPaths = []
-    components = []
-
-    #Extract path values from svg
-    paths = []
-    with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_SVG), "r") as svgFile:
-      for line in svgFile:
-        match = re.match(PATH_REGEX, line)
-        if (match):
-          tokens = match.group(1).strip().replace(" ",",").split(",")
-          paths.append(tokens)
-
-    oldCenter = PointF(paths[1][1], paths[0][2])
-    oldWidth = float(paths[0][3])
-    oldHeight = float(paths[1][4])
-
-    scaleFactor = min(NEW_WIDTH / oldWidth, NEW_HEIGHT / oldHeight)
-
-    for path in paths[2:]:
-      cubic = CubicBezierPath.fromSvgInput(path)
-      #Normalize centered at (0, 0)
-      cubic = cubic.shift(-oldCenter)
-      cubic = cubic.scale(scaleFactor)
-      #Rotate by 90 degrees
-      cubic = cubic.rotate(math.pi / 2)
-
-      processedPaths.append(cubic.toObject())
-
-    #Extract steps from csv
-    with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_CSV), "r") as csvFile:
-      pathIndex = 0
-      offset = 0
-      reader = csv.DictReader(csvFile)
-      for row in reader:
-        #Calculate unspecified duration
-        if (not row["duration"]):
-          row["duration"] = 4 * int(row["beats"])
-        #Calculate offset
-        row["offset"] = offset
-        if (not row["optional"]):
-          offset += int(row["duration"])
-        #Create labels
-        if (not row["label"]):
-          row["label"] = STEP_LABEL[row["step"]].replace("#", row["edge"])
-        #Create descriptions
-        if (not row["desc"]):
-          row["desc"] = STEP_DESC[row["step"]].replace("#", EDGE_DESC[row["edge"]])
-        #Add paths
-        componentPaths = []
-        pathCount = row.pop("pathCount")
-        if (pathCount):
-          pathCount = int(pathCount)
-        else:
-          pathCount = 1
-        for i in range(max(pathCount, 1)):
-          componentPaths.append(processedPaths[pathIndex + i])
-        pathIndex += pathCount
-        row["path"] = componentPaths
-        components.append(row)
-
-    #Input other data
+    #Input dance data
     with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_JSON), "r") as jsonFile:
       danceData = json.loads(jsonFile.read())
 
+    #Extract path values from svg
+    processedPaths = []
+    for fileSuffix in ["", "_lady", "_man"]:
+      filePath = os.path.join(INPUT_DIRECTORY, patternName + fileSuffix + EXT_SVG)
+      if os.path.isfile(filePath):
+        with open(filePath, "r") as svgFile:
+          processedPaths += extractPathsFromSVG(svgFile)
+
+    #Extract steps from csv
+    with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_CSV), "r") as csvFile:
+      danceData["components"] = extractStepsFromCSV(csvFile, processedPaths)
+
     #Output files
     with open(os.path.join(OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
-      danceData["components"] = components
       jsonFile.write(json.dumps(danceData, sort_keys=True, indent=2))
