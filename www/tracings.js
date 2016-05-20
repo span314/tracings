@@ -159,7 +159,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _drawPattern: function() {
-    var pattern, component, path, paths, positionIndex, pathIndex, transformMatrix, textOffset,
+    var pattern, component, path, paths, positionIndex, pathIndex,
         ctx = this.canvasContext,
         currentComponent = this._currentComponent(),
         currentLap = Math.floor(this.position / this.components.length),
@@ -169,8 +169,6 @@ $.widget('shawnpan.diagram', {
 
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     //ctx.fillRect(0, 0, beat * this.canvas.width / this.dance.timeSignatureTop, 10);
-
-
 
     //Draw text
     ctx.font = '30px Arial';
@@ -220,12 +218,12 @@ $.widget('shawnpan.diagram', {
       ctx.textBaseline = 'middle';
       //Draw label
       ctx.fillStyle = 'rgb(0,0,255)';
-      textOffset = path.alignFlag ? ctx.measureText(component.label).width : 0;
-      ctx.fillText(component.label, path.labelX - textOffset, path.labelY);
+      ctx.textAlign = path.alignFlag ? 'end' : 'start';
+      ctx.fillText(component.index + ' ' + component.label, path.labelX, path.labelY);
       //Draw beats
       ctx.fillStyle = 'rgb(255,0,0)';
-      textOffset = path.alignFlag ? 0 : ctx.measureText(component.beats).width;
-      ctx.fillText(component.beats, path.beatX - textOffset, path.beatY);
+      ctx.textAlign = path.alignFlag ? 'start' : 'end';
+      ctx.fillText(component.beats, path.beatX, path.beatY);
       ctx.restore();
 
     }
