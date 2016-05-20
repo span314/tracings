@@ -37,7 +37,6 @@ $.widget('shawnpan.diagram', {
   playing: false,
   part: 'lady',
   position: 0,
-  positionCount: 0,
   stepTickCount: 0,
   playbackSpeedPercent: 100,
   controls: {},
@@ -291,17 +290,17 @@ $.widget('shawnpan.diagram', {
 
   previous: function() {
     this._pause();
-    this._movePosition(-1);
+    this._shiftPosition(-1);
     this._drawPattern();
   },
 
   next: function() {
     this._pause();
-    this._movePosition(1);
+    this._shiftPosition(1);
     this._drawPattern();
   },
 
-  _movePosition: function(amount) {
+  _shiftPosition: function(amount) {
     this.position = (this.position + this.paths.length + amount) % this.paths.length;
     this.stepTickCount = 0;
   },
@@ -331,12 +330,11 @@ $.widget('shawnpan.diagram', {
   _tick: function() {
     this.stepTickCount++;
     if (this.stepTickCount >= this._currentComponent().duration) {
-      this._movePosition(1);
+      this._shiftPosition(1);
     }
     this._drawPattern();
   }
 });
-
 
 
 var PathCoordinateUtils = function() {};
