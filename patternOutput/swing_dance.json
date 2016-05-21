@@ -9,7 +9,6 @@
       "group": "", 
       "index": "1", 
       "label": "#e", 
-      "offset": 0, 
       "optional": "", 
       "path": [
         {
@@ -45,7 +44,6 @@
       "group": "", 
       "index": "2", 
       "label": "#e-Ch", 
-      "offset": 4, 
       "optional": "", 
       "path": [
         {
@@ -81,7 +79,6 @@
       "group": "", 
       "index": "3", 
       "label": "#e", 
-      "offset": 8, 
       "optional": "", 
       "path": [
         {
@@ -117,7 +114,6 @@
       "group": "", 
       "index": "4", 
       "label": "#e", 
-      "offset": 16, 
       "optional": "", 
       "path": [
         {
@@ -153,7 +149,6 @@
       "group": "", 
       "index": "5", 
       "label": "#e-Ch", 
-      "offset": 20, 
       "optional": "", 
       "path": [
         {
@@ -189,7 +184,6 @@
       "group": "", 
       "index": "6", 
       "label": "#e", 
-      "offset": 24, 
       "optional": "", 
       "path": [
         {
@@ -225,7 +219,6 @@
       "group": "", 
       "index": "7", 
       "label": "#e-swR", 
-      "offset": 32, 
       "optional": "", 
       "path": [
         {
@@ -261,7 +254,6 @@
       "group": "", 
       "index": "8", 
       "label": "#e-swR", 
-      "offset": 48, 
       "optional": "", 
       "path": [
         {
@@ -297,7 +289,6 @@
       "group": "", 
       "index": "9", 
       "label": "#e", 
-      "offset": 64, 
       "optional": "", 
       "path": [
         {
@@ -333,7 +324,6 @@
       "group": "", 
       "index": "10", 
       "label": "#e", 
-      "offset": 72, 
       "optional": "", 
       "path": [
         {
@@ -369,7 +359,6 @@
       "group": "", 
       "index": "11", 
       "label": "#e", 
-      "offset": 80, 
       "optional": "", 
       "path": [
         {
@@ -405,7 +394,6 @@
       "group": "m", 
       "index": "12", 
       "label": "#e-opMo", 
-      "offset": 88, 
       "optional": "", 
       "path": [
         {
@@ -441,7 +429,6 @@
       "group": "m", 
       "index": "13", 
       "label": "#e", 
-      "offset": 96, 
       "optional": "", 
       "path": [
         {
@@ -477,7 +464,6 @@
       "group": "", 
       "index": "14", 
       "label": "#e", 
-      "offset": 104, 
       "optional": "", 
       "path": [
         {
@@ -513,7 +499,6 @@
       "group": "", 
       "index": "15", 
       "label": "#e-swR", 
-      "offset": 112, 
       "optional": "", 
       "path": [
         {
@@ -549,7 +534,6 @@
       "group": "", 
       "index": "16", 
       "label": "#e", 
-      "offset": 128, 
       "optional": "", 
       "path": [
         {
@@ -585,7 +569,6 @@
       "group": "", 
       "index": "17", 
       "label": "#e-Ch", 
-      "offset": 132, 
       "optional": "", 
       "path": [
         {
@@ -621,7 +604,6 @@
       "group": "", 
       "index": "18", 
       "label": "#e", 
-      "offset": 136, 
       "optional": "", 
       "path": [
         {
@@ -657,7 +639,6 @@
       "group": "", 
       "index": "19", 
       "label": "#e", 
-      "offset": 144, 
       "optional": "", 
       "path": [
         {
@@ -693,7 +674,6 @@
       "group": "", 
       "index": "20", 
       "label": "#e-Ch", 
-      "offset": 148, 
       "optional": "", 
       "path": [
         {
@@ -729,7 +709,6 @@
       "group": "", 
       "index": "21", 
       "label": "#e", 
-      "offset": 152, 
       "optional": "", 
       "path": [
         {
@@ -765,7 +744,6 @@
       "group": "", 
       "index": "22", 
       "label": "#e-swR", 
-      "offset": 160, 
       "optional": "", 
       "path": [
         {
@@ -801,7 +779,6 @@
       "group": "", 
       "index": "23", 
       "label": "#e-swR", 
-      "offset": 176, 
       "optional": "", 
       "path": [
         {
@@ -837,7 +814,6 @@
       "group": "", 
       "index": "24", 
       "label": "#e", 
-      "offset": 192, 
       "optional": "", 
       "path": [
         {
@@ -873,7 +849,6 @@
       "group": "", 
       "index": "25", 
       "label": "#e", 
-      "offset": 200, 
       "optional": "", 
       "path": [
         {
@@ -909,7 +884,6 @@
       "group": "", 
       "index": "26", 
       "label": "#e", 
-      "offset": 208, 
       "optional": "", 
       "path": [
         {
@@ -945,7 +919,6 @@
       "group": "", 
       "index": "27", 
       "label": "#e", 
-      "offset": 216, 
       "optional": "", 
       "path": [
         {
@@ -981,7 +954,6 @@
       "group": "", 
       "index": "28", 
       "label": "#e", 
-      "offset": 224, 
       "optional": "no", 
       "path": [
         {
@@ -1017,7 +989,6 @@
       "group": "", 
       "index": "28", 
       "label": "#e-slCh", 
-      "offset": 224, 
       "optional": "yes", 
       "path": [
         {
@@ -1053,7 +1024,6 @@
       "group": "", 
       "index": "29", 
       "label": "#e", 
-      "offset": 224, 
       "optional": "", 
       "path": [
         {
@@ -1089,7 +1059,6 @@
       "group": "", 
       "index": "30", 
       "label": "#e-swR", 
-      "offset": 232, 
       "optional": "", 
       "path": [
         {

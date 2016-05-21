@@ -9,7 +9,6 @@
       "group": "pr1", 
       "index": "1", 
       "label": "#e", 
-      "offset": 0, 
       "optional": "", 
       "path": [
         {
@@ -45,7 +44,6 @@
       "group": "pr1", 
       "index": "2", 
       "label": "#e-Pr", 
-      "offset": 4, 
       "optional": "", 
       "path": [
         {
@@ -81,7 +79,6 @@
       "group": "pr1", 
       "index": "3", 
       "label": "#e", 
-      "offset": 8, 
       "optional": "", 
       "path": [
         {
@@ -117,7 +114,6 @@
       "group": "", 
       "index": "4", 
       "label": "#e-Ch", 
-      "offset": 12, 
       "optional": "", 
       "path": [
         {
@@ -153,7 +149,6 @@
       "group": "", 
       "index": "5", 
       "label": "#e-swR", 
-      "offset": 16, 
       "optional": "", 
       "path": [
         {
@@ -189,7 +184,6 @@
       "group": "", 
       "index": "6", 
       "label": "#e", 
-      "offset": 32, 
       "optional": "", 
       "path": [
         {
@@ -225,7 +219,6 @@
       "group": "", 
       "index": "7", 
       "label": "#e-slCh", 
-      "offset": 40, 
       "optional": "", 
       "path": [
         {
@@ -261,7 +254,6 @@
       "group": "", 
       "index": "8", 
       "label": "#e-swR", 
-      "offset": 48, 
       "optional": "", 
       "path": [
         {
@@ -297,7 +289,6 @@
       "group": "", 
       "index": "9", 
       "label": "#e", 
-      "offset": 64, 
       "optional": "", 
       "path": [
         {
@@ -333,7 +324,6 @@
       "group": "", 
       "index": "10", 
       "label": "#e-slCh", 
-      "offset": 72, 
       "optional": "", 
       "path": [
         {
@@ -369,7 +359,6 @@
       "group": "pr2", 
       "index": "11", 
       "label": "#e", 
-      "offset": 80, 
       "optional": "", 
       "path": [
         {
@@ -405,7 +394,6 @@
       "group": "pr2", 
       "index": "12", 
       "label": "#e-Pr", 
-      "offset": 84, 
       "optional": "", 
       "path": [
         {
@@ -441,7 +429,6 @@
       "group": "pr2", 
       "index": "13", 
       "label": "#e", 
-      "offset": 88, 
       "optional": "", 
       "path": [
         {
@@ -477,7 +464,6 @@
       "group": "", 
       "index": "14", 
       "label": "#e-swR", 
-      "offset": 96, 
       "optional": "no", 
       "path": [
         {
@@ -513,7 +499,6 @@
       "group": "", 
       "index": "14", 
       "label": "CR-#e", 
-      "offset": 96, 
       "optional": "yes", 
       "path": [
         {

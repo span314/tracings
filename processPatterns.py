@@ -218,11 +218,6 @@ def extractStepsFromCSV(fileHandle, processedPaths):
     #Calculate unspecified duration
     if (not row["duration"]):
       row["duration"] = 4 * int(row["beats"])
-    #Calculate offset
-    row["offset"] = offset
-    if (not row["optional"]):
-      offset += int(row["duration"])
-    edge = row["edge"]
     #Create labels
     if (not row["label"]):
       row["label"] = STEP_LABEL[row["step"]]

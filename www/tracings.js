@@ -124,7 +124,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _loadPattern: function() {
-    var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths,
+    var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths, offset,
         components = [],
         pattern = this.dance.patterns[this.part];
     console.log('loading pattern ' + this.dance.name + ' ' + this.part);
@@ -139,6 +139,7 @@ $.widget('shawnpan.diagram', {
     }
 
     //Generate paths and positions
+    offset = 0;
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
       transformMatrix = DiagramUtils.computeTransformMatrix(lapIndex, this.dance.patternsPerLap, this.scaleFactor);
       for (componentIndex = 0; componentIndex < components.length; componentIndex++) {
@@ -151,9 +152,11 @@ $.widget('shawnpan.diagram', {
           'component': component,
           'paths': paths,
           'lapIndex': lapIndex,
+          'offset': offset,
           'label': DiagramUtils.resolveParams(component.edge, component.label),
           'desc': DiagramUtils.resolveParams(component.edge, component.desc)
         });
+        offset += component.duration;
       }
     }
 
@@ -166,7 +169,7 @@ $.widget('shawnpan.diagram', {
         ctx = this.canvasContext,
         currentPosition = this.patternPositions[this.position],
         currentComponent = currentPosition.component,
-        tickCount = currentComponent.offset + this.stepTickCount,
+        tickCount = currentPosition.offset + this.stepTickCount,
         fracBeat = tickCount % 4,
         beat = ((tickCount - fracBeat) / 4) % this.dance.timeSignatureTop + 1;
 
