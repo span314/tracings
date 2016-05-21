@@ -188,18 +188,16 @@ $.widget('shawnpan.diagram', {
       }
 
       //TODO currently assumes at least one path
+      ctx.textBaseline = 'middle';
       if (position.label) {
-        ctx.textBaseline = 'middle';
         //Draw label
         ctx.fillStyle = 'rgb(0,0,255)';
-        ctx.textAlign = path.alignFlag ? 'end' : 'start';
-        ctx.fillText(position.index + ' ' + position.label, path.labelX, path.labelY);
+        DiagramUtils.drawTextOnPath(ctx, position.index + ' ' + position.label, path, 10);
       }
       if (position.beats) {
         //Draw beats
         ctx.fillStyle = 'rgb(255,0,0)';
-        ctx.textAlign = path.alignFlag ? 'start' : 'end';
-        ctx.fillText(position.beats, path.beatX, path.beatY);
+        DiagramUtils.drawTextOnPath(ctx, position.beats, path, -10);
       }
       ctx.restore();
 
@@ -357,21 +355,34 @@ DiagramUtils.cubicNormalAt.derivatives = function(p0, p1, p2, p3, t) {
 };
 
 DiagramUtils.preprocessPath = function(path, matrix) {
-  var cubic = DiagramUtils.transformCoordinates(path, matrix),
-      start = cubic.slice(0, 2),
-      bezier = cubic.slice(2, 8),
-      labelPoints = DiagramUtils.cubicNormalAt(cubic, 0.5),
-      normal = labelPoints.normal,
-      mid = labelPoints.value,
-      offset = 10,
-      labelX = mid[0] + normal[0] * offset,
-      labelY = mid[1] + normal[1] * offset,
-      beatX = mid[0] - normal[0] * offset,
-      beatY = mid[1] - normal[1] * offset,
-      alignFlag = mid[0] > labelX;
-  return {'start': start, 'bezier': bezier, 'labelX': labelX, 'labelY': labelY, 'beatX': beatX, 'beatY': beatY, 'alignFlag': alignFlag};
+  var cubic = DiagramUtils.transformCoordinates(path, matrix);
+  return $.extend(DiagramUtils.cubicNormalAt(cubic, 0.5), {start: cubic.slice(0, 2), bezier: cubic.slice(2, 8)});
 };
 
+DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
+  var x = path.value[0] + path.normal[0] * offset,
+      y = path.value[1] + path.normal[1] * offset;
+      ctx.textAlign = path.value[0] > x ? 'end' : 'start';
+      ctx.fillText(text, x, y);
+};
+
+/**
+  Get a hash map of character codes to the corresponding parameter.
+
+  The following codes consisting of a # and a character represent parameterized edge features in text.
+  A lower case character (e.g. #e) represent the short text version (e.g. RFO) and an upper case
+  character (e.g. #E) represents a long text version (e.g. Right Forward Outside). Examples are given
+  in paratheses for the edge code RFO.
+
+  #e  edge (RFO, Right Forward Outside)
+  #f  skating foot (R, Right)
+  #r  free foot (L, Left)
+  #d  direction (F, Forward)
+  #b  opposite direction (B, Backward)
+  #q  quality (O, Outside)
+  #o  opposite quality (I, Inside)
+  ##  escaped # character (#)
+*/
 DiagramUtils.edgeParams = function(edgeCode) {
   var i, result;
   if (!DiagramUtils.edgeParams.cache[edgeCode]) {
@@ -395,6 +406,7 @@ DiagramUtils.edgeParams.CODES = {
   'O': {q: 'O', o: 'I', Q: 'Outside', O: 'Inside'}
 };
 
+//Resolve edge parameters in text. All text should use edge parameters where appropriate to support features such as mirroring.
 DiagramUtils.resolveParams = function(edgeCode, label) {
   var i, curChar,
       inParam = false,
