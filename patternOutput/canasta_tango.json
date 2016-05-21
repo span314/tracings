@@ -9,7 +9,6 @@
       "group": "pr1", 
       "index": "1", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -44,7 +43,6 @@
       "group": "pr1", 
       "index": "2", 
       "label": "#e-Pr", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -79,7 +77,6 @@
       "group": "pr1", 
       "index": "3", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -111,10 +108,8 @@
       "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFI", 
-      "group": "", 
       "index": "4", 
       "label": "#e-Ch", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -146,10 +141,8 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LFO", 
-      "group": "", 
       "index": "5", 
       "label": "#e-swR", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -181,10 +174,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
-      "group": "", 
       "index": "6", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -216,10 +207,8 @@
       "desc": "#E Slide Chasse", 
       "duration": 8, 
       "edge": "LFI", 
-      "group": "", 
       "index": "7", 
       "label": "#e-slCh", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -251,10 +240,8 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
-      "group": "", 
       "index": "8", 
       "label": "#e-swR", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -286,10 +273,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
-      "group": "", 
       "index": "9", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -321,10 +306,8 @@
       "desc": "#E Slide Chasse", 
       "duration": 8, 
       "edge": "RFI", 
-      "group": "", 
       "index": "10", 
       "label": "#e-slCh", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -359,7 +342,6 @@
       "group": "pr2", 
       "index": "11", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -394,7 +376,6 @@
       "group": "pr2", 
       "index": "12", 
       "label": "#e-Pr", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -429,7 +410,6 @@
       "group": "pr2", 
       "index": "13", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -461,7 +441,6 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
-      "group": "", 
       "index": "14", 
       "label": "#e-swR", 
       "optional": "no", 
@@ -496,7 +475,6 @@
       "desc": "Cross Roll onto #E Edge", 
       "duration": 16, 
       "edge": "RFO", 
-      "group": "", 
       "index": "14", 
       "label": "CR-#e", 
       "optional": "yes", 

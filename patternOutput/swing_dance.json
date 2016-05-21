@@ -6,10 +6,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
-      "group": "", 
       "index": "1", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -41,10 +39,8 @@
       "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFI", 
-      "group": "", 
       "index": "2", 
       "label": "#e-Ch", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -76,10 +72,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
-      "group": "", 
       "index": "3", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -111,10 +105,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
-      "group": "", 
       "index": "4", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -146,10 +138,8 @@
       "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "LFI", 
-      "group": "", 
       "index": "5", 
       "label": "#e-Ch", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -181,10 +171,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
-      "group": "", 
       "index": "6", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -216,10 +204,8 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LFO", 
-      "group": "", 
       "index": "7", 
       "label": "#e-swR", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -251,10 +237,8 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
-      "group": "", 
       "index": "8", 
       "label": "#e-swR", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -286,10 +270,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
-      "group": "", 
       "index": "9", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -321,10 +303,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
-      "group": "", 
       "index": "10", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -356,10 +336,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
-      "group": "", 
       "index": "11", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -394,7 +372,6 @@
       "group": "m", 
       "index": "12", 
       "label": "#e-opMo", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -429,7 +406,6 @@
       "group": "m", 
       "index": "13", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -461,10 +437,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
-      "group": "", 
       "index": "14", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -496,10 +470,8 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LBO", 
-      "group": "", 
       "index": "15", 
       "label": "#e-swR", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -531,10 +503,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
-      "group": "", 
       "index": "16", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -566,10 +536,8 @@
       "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "LBI", 
-      "group": "", 
       "index": "17", 
       "label": "#e-Ch", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -601,10 +569,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
-      "group": "", 
       "index": "18", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -636,10 +602,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LBO", 
-      "group": "", 
       "index": "19", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -671,10 +635,8 @@
       "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RBI", 
-      "group": "", 
       "index": "20", 
       "label": "#e-Ch", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -706,10 +668,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LBO", 
-      "group": "", 
       "index": "21", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -741,10 +701,8 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RBO", 
-      "group": "", 
       "index": "22", 
       "label": "#e-swR", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -776,10 +734,8 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LBO", 
-      "group": "", 
       "index": "23", 
       "label": "#e-swR", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -811,10 +767,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
-      "group": "", 
       "index": "24", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -846,10 +800,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
-      "group": "", 
       "index": "25", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -881,10 +833,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
-      "group": "", 
       "index": "26", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -916,10 +866,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
-      "group": "", 
       "index": "27", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -951,7 +899,6 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
-      "group": "", 
       "index": "28", 
       "label": "#e", 
       "optional": "no", 
@@ -986,7 +933,6 @@
       "desc": "#E Slide Chasse", 
       "duration": 8, 
       "edge": "RFI", 
-      "group": "", 
       "index": "28", 
       "label": "#e-slCh", 
       "optional": "yes", 
@@ -1021,10 +967,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
-      "group": "", 
       "index": "29", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1056,10 +1000,8 @@
       "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
-      "group": "", 
       "index": "30", 
       "label": "#e-swR", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [

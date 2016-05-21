@@ -6,10 +6,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LBO", 
-      "group": "", 
       "index": "1", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -41,10 +39,8 @@
       "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RBI", 
-      "group": "", 
       "index": "2", 
       "label": "#e-Ch", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -76,10 +72,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LBO", 
-      "group": "", 
       "index": "3", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -111,10 +105,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RBO", 
-      "group": "", 
       "index": "4", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -146,10 +138,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LFO", 
-      "group": "", 
       "index": "5", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -181,7 +171,6 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RFI", 
-      "group": "", 
       "index": "6", 
       "label": "#e", 
       "optional": "no", 
@@ -216,7 +205,6 @@
       "desc": "#E Slide Chasse", 
       "duration": 12, 
       "edge": "RFI", 
-      "group": "", 
       "index": "6", 
       "label": "#e-slCh", 
       "optional": "yes", 
@@ -251,10 +239,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LFO", 
-      "group": "", 
       "index": "7", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -289,7 +275,6 @@
       "group": "3", 
       "index": "8", 
       "label": "#e3", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -324,7 +309,6 @@
       "group": "3", 
       "index": "8", 
       "label": "", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -359,7 +343,6 @@
       "group": "pr1", 
       "index": "9", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -394,7 +377,6 @@
       "group": "pr1", 
       "index": "10", 
       "label": "#e-Pr", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -429,7 +411,6 @@
       "group": "pr1", 
       "index": "11", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -461,10 +442,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
-      "group": "", 
       "index": "12", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -496,10 +475,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LBI", 
-      "group": "", 
       "index": "13", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -531,10 +508,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RBO", 
-      "group": "", 
       "index": "14", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -566,10 +541,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LFO", 
-      "group": "", 
       "index": "15", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -601,10 +574,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RFO", 
-      "group": "", 
       "index": "16", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -636,10 +607,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LFI", 
-      "group": "", 
       "index": "17", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -674,7 +643,6 @@
       "group": "m", 
       "index": "18", 
       "label": "#e-opMo", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -709,7 +677,6 @@
       "group": "m", 
       "index": "19", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -744,7 +711,6 @@
       "group": "pr2", 
       "index": "20", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -779,7 +745,6 @@
       "group": "pr2", 
       "index": "21", 
       "label": "#e-Pr", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -814,7 +779,6 @@
       "group": "pr2", 
       "index": "22", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -846,10 +810,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
-      "group": "", 
       "index": "1", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -881,10 +843,8 @@
       "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "LFI", 
-      "group": "", 
       "index": "2", 
       "label": "#e-Ch", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -916,10 +876,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RFO", 
-      "group": "", 
       "index": "3", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -951,10 +909,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LFO", 
-      "group": "", 
       "index": "4", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -989,7 +945,6 @@
       "group": "m", 
       "index": "5", 
       "label": "#e-opMo", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1024,7 +979,6 @@
       "group": "m", 
       "index": "6", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1056,10 +1010,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RBO", 
-      "group": "", 
       "index": "7", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1091,10 +1043,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LBO", 
-      "group": "", 
       "index": "8", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1129,7 +1079,6 @@
       "group": "pr1", 
       "index": "9", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1164,7 +1113,6 @@
       "group": "pr1", 
       "index": "10", 
       "label": "#e-Pr", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1199,7 +1147,6 @@
       "group": "pr1", 
       "index": "11", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1231,10 +1178,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
-      "group": "", 
       "index": "12", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1266,10 +1211,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
-      "group": "", 
       "index": "13", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1304,7 +1247,6 @@
       "group": "3", 
       "index": "14", 
       "label": "#e3", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1339,7 +1281,6 @@
       "group": "3", 
       "index": "14", 
       "label": "", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1371,10 +1312,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RBO", 
-      "group": "", 
       "index": "15", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1406,10 +1345,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LBO", 
-      "group": "", 
       "index": "16", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1441,10 +1378,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RBI", 
-      "group": "", 
       "index": "17", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1476,10 +1411,8 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LFO", 
-      "group": "", 
       "index": "18", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1511,7 +1444,6 @@
       "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "RFI", 
-      "group": "", 
       "index": "19", 
       "label": "#e", 
       "optional": "no", 
@@ -1546,7 +1478,6 @@
       "desc": "#E Slide Chasse", 
       "duration": 12, 
       "edge": "RFI", 
-      "group": "", 
       "index": "19", 
       "label": "#e-slCh", 
       "optional": "yes", 
@@ -1584,7 +1515,6 @@
       "group": "pr2", 
       "index": "20", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1619,7 +1549,6 @@
       "group": "pr2", 
       "index": "21", 
       "label": "#e-Pr", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [
@@ -1654,7 +1583,6 @@
       "group": "pr2", 
       "index": "22", 
       "label": "#e", 
-      "optional": "", 
       "paths": [
         {
           "bezier": [

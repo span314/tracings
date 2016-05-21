@@ -236,6 +236,11 @@ def extractStepsFromCSV(fileHandle, processedPaths):
       componentPaths.append(processedPaths[pathIndex + i])
     pathIndex += pathCount
     row["paths"] = componentPaths
+    #Pop off blank values
+    if (not row["optional"]):
+      row.pop("optional")
+    if (not row["group"]):
+      row.pop("group")
     components.append(row)
   return components
 
