@@ -16,22 +16,11 @@ EXT_CSV = ".csv"
 EXT_JSON = ".json"
 PATH_REGEX = re.compile("^\s*d=\"(.*)\"")
 
-EDGE_DESC = {
-  "LFO": "Left Forward Outside",
-  "LFI": "Left Forward Inside",
-  "LBO": "Left Back Outside",
-  "LBI": "Left Back Inside",
-  "RFO": "Right Forward Outside",
-  "RFI": "Right Forward Inside",
-  "RBO": "Right Back Outside",
-  "RBI": "Right Back Inside"
-}
-
 STEP_LABEL = {
   "": "#",
   "3": "#3",
   "3x": "",
-  "ce": "#",
+  "ce": "#!q",
   "cex": "",
   "ch": "#-Ch",
   "cr": "CR-#",
@@ -52,7 +41,7 @@ STEP_LABEL = {
   "twl1": "Sw-\"Tw1\"",
   "twl1.": "",
   "xb": "XB-#",
-  "xbce": "XB-#",
+  "xbce": "XB-#!q",
   "xbctr": "XB-#-Ctr",
   "xbctrx": "",
   "xf": "XF-#"
@@ -63,7 +52,7 @@ STEP_DESC = {
   "3": "# 3-turn",
   "3x": "Exit 3-turn on # Edge",
   "ce": "Stroke onto # Edge",
-  "cex": "Change to # Edge",
+  "cex": "Change to #q Edge",
   "ch": "# Chasse",
   "cr": "Cross Roll onto # Edge",
   "cr3": "Cross Roll into a # 3-turn",
@@ -75,7 +64,7 @@ STEP_DESC = {
   "opmox": "Exit Open Mohawk on # Edge",
   "pr": "Progressive: Stroke onto # Edge",
   "prx": "Progressive: Cross onto # Edge",
-  "s": "Brief Step on # Edge",
+  "s": "Step Briefly on # Edge",
   "slch": "# Slide Chasse",
   "swopcho": "Swing Open Choctow",
   "swopchox": "Exit Swping Open Choctow",
@@ -83,7 +72,7 @@ STEP_DESC = {
   "twl1": "Twizzle Like Motion",
   "twl1.": "Twizzle Like Motion",
   "xb": "Cross Behind onto # Edge",
-  "xbce": "Cross Behind onto # Edge",
+  "xbce": "Cross Behind onto #q Edge",
   "xbctr": "Cross Behind into a # Counter",
   "xbctrx": "Exit Counter On # Edge",
   "xf": "Cross in Front onto # Edge"
@@ -233,12 +222,13 @@ def extractStepsFromCSV(fileHandle, processedPaths):
     row["offset"] = offset
     if (not row["optional"]):
       offset += int(row["duration"])
+    edge = row["edge"]
     #Create labels
     if (not row["label"]):
-      row["label"] = STEP_LABEL[row["step"]].replace("#", row["edge"])
+      row["label"] = STEP_LABEL[row["step"]]
     #Create descriptions
     if (not row["desc"]):
-      row["desc"] = STEP_DESC[row["step"]].replace("#", EDGE_DESC[row["edge"]])
+      row["desc"] = STEP_DESC[row["step"]]
     #Add paths
     componentPaths = []
     pathCount = row.pop("pathCount")

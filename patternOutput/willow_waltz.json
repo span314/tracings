@@ -3,12 +3,12 @@
   "components": [
     {
       "beats": "2", 
-      "desc": "Stroke onto Left Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "", 
       "index": "1", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 0, 
       "optional": "", 
       "path": [
@@ -39,12 +39,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Right Back Inside Chasse", 
+      "desc": "# Chasse", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "", 
       "index": "2", 
-      "label": "RBI-Ch", 
+      "label": "#-Ch", 
       "offset": 8, 
       "optional": "", 
       "path": [
@@ -75,12 +75,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LBO", 
       "group": "", 
       "index": "3", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 12, 
       "optional": "", 
       "path": [
@@ -111,12 +111,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RBO", 
       "group": "", 
       "index": "4", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 24, 
       "optional": "", 
       "path": [
@@ -147,12 +147,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LFO", 
       "group": "", 
       "index": "5", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 36, 
       "optional": "", 
       "path": [
@@ -183,12 +183,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Forward Inside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RFI", 
       "group": "", 
       "index": "6", 
-      "label": "RFI", 
+      "label": "#", 
       "offset": 48, 
       "optional": "no", 
       "path": [
@@ -219,12 +219,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Right Forward Inside Slide Chasse", 
+      "desc": "# Slide Chasse", 
       "duration": 12, 
       "edge": "RFI", 
       "group": "", 
       "index": "6", 
-      "label": "RFI-slCh", 
+      "label": "#-slCh", 
       "offset": 48, 
       "optional": "yes", 
       "path": [
@@ -255,12 +255,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LFO", 
       "group": "", 
       "index": "7", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 48, 
       "optional": "", 
       "path": [
@@ -291,12 +291,12 @@
     }, 
     {
       "beats": "2+1", 
-      "desc": "European 3-turn: Right Forward Outside", 
+      "desc": "European 3-turn: #", 
       "duration": "8", 
       "edge": "RFO", 
       "group": "3", 
       "index": "8", 
-      "label": "RFO3", 
+      "label": "#3", 
       "offset": 60, 
       "optional": "", 
       "path": [
@@ -327,7 +327,7 @@
     }, 
     {
       "beats": "", 
-      "desc": "European 3-turn (exit): Right Back Inside", 
+      "desc": "European 3-turn (exit): #", 
       "duration": "4", 
       "edge": "RBI", 
       "group": "3", 
@@ -363,12 +363,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto Left Back Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "pr1", 
       "index": "9", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 72, 
       "optional": "", 
       "path": [
@@ -399,12 +399,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Back Outside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "pr1", 
       "index": "10", 
-      "label": "RBO-Pr", 
+      "label": "#-Pr", 
       "offset": 80, 
       "optional": "", 
       "path": [
@@ -435,12 +435,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Progressive: Stroke onto Left Back Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LBO", 
       "group": "pr1", 
       "index": "11", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 84, 
       "optional": "", 
       "path": [
@@ -471,12 +471,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
       "index": "12", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 96, 
       "optional": "", 
       "path": [
@@ -507,12 +507,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto Left Back Inside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "", 
       "index": "13", 
-      "label": "LBI", 
+      "label": "#", 
       "offset": 104, 
       "optional": "", 
       "path": [
@@ -543,12 +543,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RBO", 
       "group": "", 
       "index": "14", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 108, 
       "optional": "", 
       "path": [
@@ -579,12 +579,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LFO", 
       "group": "", 
       "index": "15", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 120, 
       "optional": "", 
       "path": [
@@ -615,12 +615,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RFO", 
       "group": "", 
       "index": "16", 
-      "label": "RFO", 
+      "label": "#", 
       "offset": 132, 
       "optional": "", 
       "path": [
@@ -651,12 +651,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Forward Inside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LFI", 
       "group": "", 
       "index": "17", 
-      "label": "LFI", 
+      "label": "#", 
       "offset": 144, 
       "optional": "", 
       "path": [
@@ -687,12 +687,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Right Forward Inside Open Mohawk", 
+      "desc": "# Open Mohawk", 
       "duration": 12, 
       "edge": "RFI", 
       "group": "m", 
       "index": "18", 
-      "label": "RFI-opMo", 
+      "label": "#-opMo", 
       "offset": 156, 
       "optional": "", 
       "path": [
@@ -723,12 +723,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Exit Open Mohawk on Left Back Inside Edge", 
+      "desc": "Exit Open Mohawk on # Edge", 
       "duration": 12, 
       "edge": "LBI", 
       "group": "m", 
       "index": "19", 
-      "label": "LBI", 
+      "label": "#", 
       "offset": 168, 
       "optional": "", 
       "path": [
@@ -759,12 +759,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto Right Back Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "pr2", 
       "index": "20", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 180, 
       "optional": "", 
       "path": [
@@ -795,12 +795,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Left Back Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "pr2", 
       "index": "21", 
-      "label": "LBI-Pr", 
+      "label": "#-Pr", 
       "offset": 188, 
       "optional": "", 
       "path": [
@@ -831,12 +831,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Progressive: Stroke onto Right Back Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RBO", 
       "group": "pr2", 
       "index": "22", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 192, 
       "optional": "", 
       "path": [
@@ -867,12 +867,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Right Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "", 
       "index": "1", 
-      "label": "RFO", 
+      "label": "#", 
       "offset": 204, 
       "optional": "", 
       "path": [
@@ -903,12 +903,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Left Forward Inside Chasse", 
+      "desc": "# Chasse", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "", 
       "index": "2", 
-      "label": "LFI-Ch", 
+      "label": "#-Ch", 
       "offset": 212, 
       "optional": "", 
       "path": [
@@ -939,12 +939,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RFO", 
       "group": "", 
       "index": "3", 
-      "label": "RFO", 
+      "label": "#", 
       "offset": 216, 
       "optional": "", 
       "path": [
@@ -975,12 +975,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LFO", 
       "group": "", 
       "index": "4", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 228, 
       "optional": "", 
       "path": [
@@ -1011,12 +1011,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Right Forward Inside Open Mohawk", 
+      "desc": "# Open Mohawk", 
       "duration": 12, 
       "edge": "RFI", 
       "group": "m", 
       "index": "5", 
-      "label": "RFI-opMo", 
+      "label": "#-opMo", 
       "offset": 240, 
       "optional": "", 
       "path": [
@@ -1047,12 +1047,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Exit Open Mohawk on Left Back Inside Edge", 
+      "desc": "Exit Open Mohawk on # Edge", 
       "duration": 12, 
       "edge": "LBI", 
       "group": "m", 
       "index": "6", 
-      "label": "LBI", 
+      "label": "#", 
       "offset": 252, 
       "optional": "", 
       "path": [
@@ -1083,12 +1083,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RBO", 
       "group": "", 
       "index": "7", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 264, 
       "optional": "", 
       "path": [
@@ -1119,12 +1119,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LBO", 
       "group": "", 
       "index": "8", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 276, 
       "optional": "", 
       "path": [
@@ -1155,12 +1155,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto Right Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "pr1", 
       "index": "9", 
-      "label": "RFO", 
+      "label": "#", 
       "offset": 288, 
       "optional": "", 
       "path": [
@@ -1191,12 +1191,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Left Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "pr1", 
       "index": "10", 
-      "label": "LFI-Pr", 
+      "label": "#-Pr", 
       "offset": 296, 
       "optional": "", 
       "path": [
@@ -1227,12 +1227,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Progressive: Stroke onto Right Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RFO", 
       "group": "pr1", 
       "index": "11", 
-      "label": "RFO", 
+      "label": "#", 
       "offset": 300, 
       "optional": "", 
       "path": [
@@ -1263,12 +1263,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "12", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 312, 
       "optional": "", 
       "path": [
@@ -1299,12 +1299,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto Right Forward Inside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "13", 
-      "label": "RFI", 
+      "label": "#", 
       "offset": 320, 
       "optional": "", 
       "path": [
@@ -1335,12 +1335,12 @@
     }, 
     {
       "beats": "2+1", 
-      "desc": "European 3-turn: Left Forward Outside", 
+      "desc": "European 3-turn: #", 
       "duration": "8", 
       "edge": "LFO", 
       "group": "3", 
       "index": "14", 
-      "label": "LFO3", 
+      "label": "#3", 
       "offset": 324, 
       "optional": "", 
       "path": [
@@ -1371,7 +1371,7 @@
     }, 
     {
       "beats": "", 
-      "desc": "European 3-turn (exit): Left Back Inside", 
+      "desc": "European 3-turn (exit): #", 
       "duration": "4", 
       "edge": "LBI", 
       "group": "3", 
@@ -1407,12 +1407,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RBO", 
       "group": "", 
       "index": "15", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 336, 
       "optional": "", 
       "path": [
@@ -1443,12 +1443,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LBO", 
       "group": "", 
       "index": "16", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 348, 
       "optional": "", 
       "path": [
@@ -1479,12 +1479,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Back Inside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RBI", 
       "group": "", 
       "index": "17", 
-      "label": "RBI", 
+      "label": "#", 
       "offset": 360, 
       "optional": "", 
       "path": [
@@ -1515,12 +1515,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LFO", 
       "group": "", 
       "index": "18", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 372, 
       "optional": "", 
       "path": [
@@ -1551,12 +1551,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Stroke onto Right Forward Inside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 12, 
       "edge": "RFI", 
       "group": "", 
       "index": "19", 
-      "label": "RFI", 
+      "label": "#", 
       "offset": 384, 
       "optional": "no", 
       "path": [
@@ -1587,12 +1587,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Right Forward Inside Slide Chasse", 
+      "desc": "# Slide Chasse", 
       "duration": 12, 
       "edge": "RFI", 
       "group": "", 
       "index": "19", 
-      "label": "RFI-slCh", 
+      "label": "#-slCh", 
       "offset": 384, 
       "optional": "yes", 
       "path": [
@@ -1623,12 +1623,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
       "index": "20", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 384, 
       "optional": "", 
       "path": [
@@ -1659,12 +1659,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
       "index": "21", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 392, 
       "optional": "", 
       "path": [
@@ -1695,12 +1695,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 12, 
       "edge": "LFO", 
       "group": "pr2", 
       "index": "22", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 396, 
       "optional": "", 
       "path": [

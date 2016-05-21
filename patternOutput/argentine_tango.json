@@ -3,12 +3,12 @@
   "components": [
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "1", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 0, 
       "optional": "", 
       "path": [
@@ -39,12 +39,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "2", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 4, 
       "optional": "", 
       "path": [
@@ -75,12 +75,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "3", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 8, 
       "optional": "", 
       "path": [
@@ -111,12 +111,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Right Forward Inside Chasse", 
+      "desc": "# Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "4", 
-      "label": "RFI-Ch", 
+      "label": "#-Ch", 
       "offset": 12, 
       "optional": "", 
       "path": [
@@ -147,12 +147,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "5", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 16, 
       "optional": "", 
       "path": [
@@ -183,12 +183,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "6", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 20, 
       "optional": "", 
       "path": [
@@ -219,12 +219,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "7", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 24, 
       "optional": "", 
       "path": [
@@ -255,12 +255,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto Right Forward Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "", 
       "index": "8", 
-      "label": "CR-RFO", 
+      "label": "CR-#", 
       "offset": 32, 
       "optional": "", 
       "path": [
@@ -291,12 +291,12 @@
     }, 
     {
       "beats": "", 
-      "desc": "Cross Behind onto Left Forward Inside Edge", 
+      "desc": "Cross Behind onto #q Edge", 
       "duration": "4", 
       "edge": "LFI", 
       "group": "9", 
       "index": "9", 
-      "label": "XB-LFI", 
+      "label": "XB-#!q", 
       "offset": 36, 
       "optional": "", 
       "path": [
@@ -327,7 +327,7 @@
     }, 
     {
       "beats": "1+2", 
-      "desc": "Change to Left Forward Outside Edge", 
+      "desc": "Change to #q Edge", 
       "duration": "8", 
       "edge": "LFO", 
       "group": "9", 
@@ -363,12 +363,12 @@
     }, 
     {
       "beats": "", 
-      "desc": "Cross Behind onto Right Forward Inside Edge", 
+      "desc": "Cross Behind onto #q Edge", 
       "duration": "4", 
       "edge": "RFI", 
       "group": "10", 
       "index": "10", 
-      "label": "XB-RFI", 
+      "label": "XB-#!q", 
       "offset": 48, 
       "optional": "", 
       "path": [
@@ -399,7 +399,7 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "Change to Right Forward Outside Edge", 
+      "desc": "Change to #q Edge", 
       "duration": "4", 
       "edge": "RFO", 
       "group": "10", 
@@ -435,12 +435,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Cross in Front onto Left Forward Inside Edge", 
+      "desc": "Cross in Front onto # Edge", 
       "duration": "6", 
       "edge": "LFI", 
       "group": "", 
       "index": "11", 
-      "label": "XF-LFI", 
+      "label": "XF-#", 
       "offset": 56, 
       "optional": "", 
       "path": [
@@ -471,12 +471,12 @@
     }, 
     {
       "beats": "", 
-      "desc": "Brief Step on Right Forward Inside Edge", 
+      "desc": "Step Briefly on # Edge", 
       "duration": "2", 
       "edge": "RFI", 
       "group": "", 
       "index": "", 
-      "label": "RFI", 
+      "label": "#", 
       "offset": 62, 
       "optional": "", 
       "path": [
@@ -507,12 +507,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "12", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 64, 
       "optional": "", 
       "path": [
@@ -543,12 +543,12 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "Cross Roll into a Right Forward Outside 3-turn", 
+      "desc": "Cross Roll into a # 3-turn", 
       "duration": "4", 
       "edge": "RFO", 
       "group": "13", 
       "index": "13", 
-      "label": "CR-RFO3", 
+      "label": "CR-#3", 
       "offset": 72, 
       "optional": "", 
       "path": [
@@ -579,7 +579,7 @@
     }, 
     {
       "beats": "", 
-      "desc": "Exit 3-turn on Right Back Inside Edge", 
+      "desc": "Exit 3-turn on # Edge", 
       "duration": "4", 
       "edge": "RBI", 
       "group": "13", 
@@ -615,12 +615,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Left Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "", 
       "index": "14", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 80, 
       "optional": "", 
       "path": [
@@ -651,12 +651,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Right Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "", 
       "index": "15", 
-      "label": "RFO", 
+      "label": "#", 
       "offset": 88, 
       "optional": "", 
       "path": [
@@ -687,12 +687,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "16a", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 96, 
       "optional": "", 
       "path": [
@@ -723,12 +723,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Right Forward Inside Chasse", 
+      "desc": "# Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "16b", 
-      "label": "RFI-Ch", 
+      "label": "#-Ch", 
       "offset": 100, 
       "optional": "", 
       "path": [
@@ -759,12 +759,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "17", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 104, 
       "optional": "", 
       "path": [
@@ -795,12 +795,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "18", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 108, 
       "optional": "", 
       "path": [
@@ -831,12 +831,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "19", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 112, 
       "optional": "", 
       "path": [
@@ -867,12 +867,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Cross Roll onto Right Forward Outside Edge, Swing", 
+      "desc": "Cross Roll onto # Edge, Swing", 
       "duration": 16, 
       "edge": "RFO", 
       "group": "", 
       "index": "20", 
-      "label": "CR-RFO-swR", 
+      "label": "CR-#-swR", 
       "offset": 120, 
       "optional": "", 
       "path": [
@@ -903,12 +903,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "21", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 136, 
       "optional": "", 
       "path": [
@@ -939,12 +939,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "22", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 140, 
       "optional": "", 
       "path": [
@@ -975,12 +975,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": "14", 
       "edge": "LFO", 
       "group": "23", 
       "index": "23", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 144, 
       "optional": "", 
       "path": [
@@ -1083,12 +1083,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Stroke onto Right Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 16, 
       "edge": "RFO", 
       "group": "", 
       "index": "24", 
-      "label": "RFO", 
+      "label": "#", 
       "offset": 160, 
       "optional": "", 
       "path": [
@@ -1119,12 +1119,12 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "Cross Roll into a Left Forward Outside 3-turn", 
+      "desc": "Cross Roll into a # 3-turn", 
       "duration": "4", 
       "edge": "LFO", 
       "group": "25", 
       "index": "25", 
-      "label": "CR-LFO3", 
+      "label": "CR-#3", 
       "offset": 176, 
       "optional": "", 
       "path": [
@@ -1155,7 +1155,7 @@
     }, 
     {
       "beats": "", 
-      "desc": "Exit 3-turn on Left Back Outside Edge", 
+      "desc": "Exit 3-turn on # Edge", 
       "duration": "4", 
       "edge": "LBO", 
       "group": "25", 
@@ -1191,12 +1191,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
       "index": "26", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 184, 
       "optional": "", 
       "path": [
@@ -1227,12 +1227,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Cross Roll onto Left Back Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "", 
       "index": "27", 
-      "label": "CR-LBO", 
+      "label": "CR-#", 
       "offset": 192, 
       "optional": "", 
       "path": [
@@ -1263,12 +1263,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto Right Back Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "", 
       "index": "28", 
-      "label": "CR-RBO", 
+      "label": "CR-#", 
       "offset": 200, 
       "optional": "", 
       "path": [
@@ -1299,12 +1299,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto Left Back Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 4, 
       "edge": "LBO", 
       "group": "", 
       "index": "29", 
-      "label": "CR-LBO", 
+      "label": "CR-#", 
       "offset": 204, 
       "optional": "", 
       "path": [
@@ -1335,12 +1335,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto Right Back Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "", 
       "index": "30", 
-      "label": "CR-RBO", 
+      "label": "CR-#", 
       "offset": 208, 
       "optional": "", 
       "path": [
@@ -1371,12 +1371,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Cross Roll onto Left Back Outside Edge, Swing", 
+      "desc": "Cross Roll onto # Edge, Swing", 
       "duration": "10", 
       "edge": "LBO", 
       "group": "31", 
       "index": "31", 
-      "label": "CR-LBO-swR", 
+      "label": "CR-#-swR", 
       "offset": 212, 
       "optional": "", 
       "path": [
@@ -1407,12 +1407,12 @@
     }, 
     {
       "beats": "", 
-      "desc": "Brief Step on Right Forward Inside Edge", 
+      "desc": "Step Briefly on # Edge", 
       "duration": "2", 
       "edge": "RFI", 
       "group": "31", 
       "index": "", 
-      "label": "RFI", 
+      "label": "#", 
       "offset": 222, 
       "optional": "", 
       "path": [
@@ -1443,12 +1443,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "1", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 224, 
       "optional": "", 
       "path": [
@@ -1479,12 +1479,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "2", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 228, 
       "optional": "", 
       "path": [
@@ -1515,12 +1515,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "3", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 232, 
       "optional": "", 
       "path": [
@@ -1551,12 +1551,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Right Forward Inside Chasse", 
+      "desc": "# Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "4", 
-      "label": "RFI-Ch", 
+      "label": "#-Ch", 
       "offset": 236, 
       "optional": "", 
       "path": [
@@ -1587,12 +1587,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "5", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 240, 
       "optional": "", 
       "path": [
@@ -1623,12 +1623,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "6", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 244, 
       "optional": "", 
       "path": [
@@ -1659,12 +1659,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "7", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 248, 
       "optional": "", 
       "path": [
@@ -1695,12 +1695,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto Right Forward Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "", 
       "index": "8", 
-      "label": "CR-RFO", 
+      "label": "CR-#", 
       "offset": 256, 
       "optional": "", 
       "path": [
@@ -1731,12 +1731,12 @@
     }, 
     {
       "beats": "", 
-      "desc": "Cross Behind onto Left Forward Inside Edge", 
+      "desc": "Cross Behind onto #q Edge", 
       "duration": "4", 
       "edge": "LFI", 
       "group": "9", 
       "index": "9", 
-      "label": "XB-LFI", 
+      "label": "XB-#!q", 
       "offset": 260, 
       "optional": "", 
       "path": [
@@ -1767,7 +1767,7 @@
     }, 
     {
       "beats": "1+2", 
-      "desc": "Change to Left Forward Outside Edge", 
+      "desc": "Change to #q Edge", 
       "duration": "8", 
       "edge": "LFO", 
       "group": "9", 
@@ -1803,12 +1803,12 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "Cross Behind into a Right Forward Inside Counter", 
+      "desc": "Cross Behind into a # Counter", 
       "duration": "4", 
       "edge": "RFI", 
       "group": "10", 
       "index": "10", 
-      "label": "XB-RFI-Ctr", 
+      "label": "XB-#-Ctr", 
       "offset": 272, 
       "optional": "", 
       "path": [
@@ -1839,7 +1839,7 @@
     }, 
     {
       "beats": "", 
-      "desc": "Exit Counter On Right Back Inside Edge", 
+      "desc": "Exit Counter On # Edge", 
       "duration": "4", 
       "edge": "RBI", 
       "group": "10", 
@@ -1875,12 +1875,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Left Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "", 
       "index": "11", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 280, 
       "optional": "", 
       "path": [
@@ -1911,12 +1911,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
       "index": "12", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 288, 
       "optional": "", 
       "path": [
@@ -1947,12 +1947,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Cross Roll onto Left Back Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "", 
       "index": "13", 
-      "label": "CR-LBO", 
+      "label": "CR-#", 
       "offset": 296, 
       "optional": "", 
       "path": [
@@ -1983,12 +1983,12 @@
     }, 
     {
       "beats": "", 
-      "desc": "Right Forward Outside 3-turn", 
+      "desc": "# 3-turn", 
       "duration": "4", 
       "edge": "RFO", 
       "group": "14", 
       "index": "14", 
-      "label": "RFO3", 
+      "label": "#3", 
       "offset": 304, 
       "optional": "", 
       "path": [
@@ -2019,7 +2019,7 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "Exit 3-turn on Right Back Inside Edge", 
+      "desc": "Exit 3-turn on # Edge", 
       "duration": "4", 
       "edge": "RBI", 
       "group": "14", 
@@ -2055,12 +2055,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Left Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "", 
       "index": "15", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 312, 
       "optional": "", 
       "path": [
@@ -2091,12 +2091,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
       "index": "16", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 320, 
       "optional": "", 
       "path": [
@@ -2127,12 +2127,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "17", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 328, 
       "optional": "", 
       "path": [
@@ -2163,12 +2163,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "18", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 332, 
       "optional": "", 
       "path": [
@@ -2199,12 +2199,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "19", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 336, 
       "optional": "", 
       "path": [
@@ -2235,12 +2235,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Cross Roll onto Right Forward Outside Edge, Swing", 
+      "desc": "Cross Roll onto # Edge, Swing", 
       "duration": 16, 
       "edge": "RFO", 
       "group": "", 
       "index": "20", 
-      "label": "CR-RFO-swR", 
+      "label": "CR-#-swR", 
       "offset": 344, 
       "optional": "", 
       "path": [
@@ -2271,12 +2271,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "21", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 360, 
       "optional": "", 
       "path": [
@@ -2307,12 +2307,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto # Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "22", 
-      "label": "RFI-Pr", 
+      "label": "#-Pr", 
       "offset": 364, 
       "optional": "", 
       "path": [
@@ -2343,12 +2343,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": "14", 
       "edge": "LFO", 
       "group": "23", 
       "index": "23", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 368, 
       "optional": "", 
       "path": [
@@ -2451,12 +2451,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Stroke onto Left Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 16, 
       "edge": "LBO", 
       "group": "", 
       "index": "24", 
-      "label": "LBO", 
+      "label": "#", 
       "offset": 384, 
       "optional": "", 
       "path": [
@@ -2487,12 +2487,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Right Back Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
       "index": "25", 
-      "label": "RBO", 
+      "label": "#", 
       "offset": 400, 
       "optional": "", 
       "path": [
@@ -2523,12 +2523,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto Left Forward Outside Edge", 
+      "desc": "Stroke onto # Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "26", 
-      "label": "LFO", 
+      "label": "#", 
       "offset": 408, 
       "optional": "", 
       "path": [
@@ -2559,12 +2559,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Cross Roll onto Right Forward Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "", 
       "index": "27", 
-      "label": "CR-RFO", 
+      "label": "CR-#", 
       "offset": 416, 
       "optional": "", 
       "path": [
@@ -2595,12 +2595,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto Left Forward Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "28", 
-      "label": "CR-LFO", 
+      "label": "CR-#", 
       "offset": 424, 
       "optional": "", 
       "path": [
@@ -2631,12 +2631,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto Right Forward Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "", 
       "index": "29", 
-      "label": "CR-RFO", 
+      "label": "CR-#", 
       "offset": 428, 
       "optional": "", 
       "path": [
@@ -2667,12 +2667,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto Left Forward Outside Edge", 
+      "desc": "Cross Roll onto # Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "30", 
-      "label": "CR-LFO", 
+      "label": "CR-#", 
       "offset": 432, 
       "optional": "", 
       "path": [
@@ -2703,12 +2703,12 @@
     }, 
     {
       "beats": "3", 
-      "desc": "Cross Roll onto Right Forward Outside Edge, Swing", 
+      "desc": "Cross Roll onto # Edge, Swing", 
       "duration": 12, 
       "edge": "RFO", 
       "group": "", 
       "index": "31", 
-      "label": "CR-RFO-swR", 
+      "label": "CR-#-swR", 
       "offset": 436, 
       "optional": "", 
       "path": [

@@ -109,8 +109,7 @@ $.widget('shawnpan.diagram', {
     this.controls.controlContainer.width(width);
 
     if (this.dance) {
-      this._computePositions();
-      this._drawPattern();
+      this._loadPattern();
     }
   },
 
@@ -125,39 +124,42 @@ $.widget('shawnpan.diagram', {
   },
 
   _loadPattern: function() {
-    var i, component,
+    var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths, labels,
+        components = [],
         pattern = this.dance.patterns[this.part];
     console.log('loading pattern ' + this.dance.name + ' ' + this.part);
-    this.components = [];
-    for (i = pattern.startComponent; i < pattern.endComponent; i++) {
-      component = this.dance.components[i % this.dance.components.length];
+    this.patternPositions = [];
+
+    //Filter components
+    for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
+      component = this.dance.components[componentIndex % this.dance.components.length];
       if (!component.optional || component.optional === this._optionalStepsEnabled()) {
-        this.components.push(component);
+        components.push(component);
       }
     }
-    this._computePositions();
-    this._updatePlaybackSpeedLabel();
-    this.beginning();
-  },
 
-  _computePositions: function() {
-    var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths;
-    this.patternPositions = [];
+    //Generate paths and positions
     for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
-      transformMatrix = PathCoordinateUtils.computeTransformMatrix(lapIndex, this.dance.patternsPerLap, this.scaleFactor);
-      for (componentIndex = 0; componentIndex < this.components.length; componentIndex++) {
-        component = this.components[componentIndex];
+      transformMatrix = DiagramUtils.computeTransformMatrix(lapIndex, this.dance.patternsPerLap, this.scaleFactor);
+      for (componentIndex = 0; componentIndex < components.length; componentIndex++) {
+        component = components[componentIndex];
         paths = [];
         for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
-          paths.push(PathCoordinateUtils.preprocessPath(component.path[pathIndex], transformMatrix));
+          paths.push(DiagramUtils.preprocessPath(component.path[pathIndex], transformMatrix));
         }
+        labels = DiagramUtils.expandLabels(component.edge, component.label, component.desc);
         this.patternPositions.push({
           'component': component,
           'paths': paths,
-          'lapIndex': lapIndex
+          'lapIndex': lapIndex,
+          'label': labels.label,
+          'desc': labels.desc
         });
       }
     }
+
+    this._updatePlaybackSpeedLabel();
+    this.beginning();
   },
 
   _drawPattern: function() {
@@ -174,7 +176,7 @@ $.widget('shawnpan.diagram', {
 
     //Draw text
     ctx.font = '30px Arial';
-    ctx.fillText(currentComponent.desc, 10, 30);
+    ctx.fillText(currentPosition.desc, 10, 30);
     ctx.font = '16px Arial';
 
     ctx.save();
@@ -216,12 +218,12 @@ $.widget('shawnpan.diagram', {
       }
 
       //TODO currently assumes at least one path
-      if (component.label) {
+      if (position.label) {
         ctx.textBaseline = 'middle';
         //Draw label
         ctx.fillStyle = 'rgb(0,0,255)';
         ctx.textAlign = path.alignFlag ? 'end' : 'start';
-        ctx.fillText(component.index + ' ' + component.label, path.labelX, path.labelY);
+        ctx.fillText(component.index + ' ' + position.label, path.labelX, path.labelY);
       }
       if (component.beats) {
         //Draw beats
@@ -338,16 +340,16 @@ $.widget('shawnpan.diagram', {
   }
 });
 
-var PathCoordinateUtils = function() {};
+var DiagramUtils = function() {};
 
-PathCoordinateUtils.computeTransformMatrix = function(index, patternsPerLap, scaleFactor) {
+DiagramUtils.computeTransformMatrix = function(index, patternsPerLap, scaleFactor) {
   var theta = 2 * Math.PI * index / patternsPerLap,
       sinTheta = Math.sin(theta) * scaleFactor,
       cosTheta = Math.cos(theta) * scaleFactor;
   return [cosTheta, -sinTheta, sinTheta, cosTheta];
 };
 
-PathCoordinateUtils.transformCoordinates = function(coordinates, matrix) {
+DiagramUtils.transformCoordinates = function(coordinates, matrix) {
   var i, x, y,
       result = [];
   for (i = 0; i < coordinates.length; i+=2) {
@@ -359,11 +361,11 @@ PathCoordinateUtils.transformCoordinates = function(coordinates, matrix) {
   return result;
 };
 
-PathCoordinateUtils.preprocessPath = function(path, matrix) {
-  var start = PathCoordinateUtils.transformCoordinates(path.start, matrix),
-      bezier = PathCoordinateUtils.transformCoordinates(path.bezier, matrix),
-      normal = PathCoordinateUtils.transformCoordinates(path.normal, matrix),
-      mid = PathCoordinateUtils.transformCoordinates(path.mid, matrix),
+DiagramUtils.preprocessPath = function(path, matrix) {
+  var start = DiagramUtils.transformCoordinates(path.start, matrix),
+      bezier = DiagramUtils.transformCoordinates(path.bezier, matrix),
+      normal = DiagramUtils.transformCoordinates(path.normal, matrix),
+      mid = DiagramUtils.transformCoordinates(path.mid, matrix),
       offset = 10,
       labelX = mid[0] + normal[0] * offset,
       labelY = mid[1] + normal[1] * offset,
@@ -371,4 +373,53 @@ PathCoordinateUtils.preprocessPath = function(path, matrix) {
       beatY = mid[1] - normal[1] * offset,
       alignFlag = mid[0] > labelX;
   return {'start': start, 'bezier': bezier, 'labelX': labelX, 'labelY': labelY, 'beatX': beatX, 'beatY': beatY, 'alignFlag': alignFlag};
+};
+
+//Generate lookup table of edges
+DiagramUtils.EDGE_CODES = function() {
+  var foot, footIndex, direction, directionIndex, quality, qualityIndex, label, desc,
+      footCodes = [
+        {label: 'R', desc: 'Right', oppLabel: 'L', oppDesc: 'Left'},
+        {label: 'L', desc: 'Left', oppLabel: 'R', oppDesc: 'Right'}
+      ],
+      directionCodes = [
+        {label: 'F', desc: 'Forward', oppLabel: 'B', oppDesc: 'Backward'},
+        {label: 'B', desc: 'Backward', oppLabel: 'F', oppDesc: 'Forward'},
+      ],
+      qualityCodes = [
+        {label: 'I', desc: 'Inside', oppLabel: 'O', oppDesc: 'Outside'},
+        {label: 'O', desc: 'Outside', oppLabel: 'I', oppDesc: 'Inside'},
+        {label: 'F', desc: 'Flat', oppLabel: 'F', oppDesc: 'Flat'}
+      ],
+      codes = {};
+  for (footIndex = 0; footIndex < footCodes.length; footIndex++) {
+    foot = footCodes[footIndex];
+    for (directionIndex = 0; directionIndex < directionCodes.length; directionIndex++) {
+      direction = directionCodes[directionIndex];
+      for (qualityIndex = 0; qualityIndex < qualityCodes.length; qualityIndex++) {
+        quality = qualityCodes[qualityIndex];
+        label = foot.label + direction.label + quality.label;
+        desc = foot.desc + ' ' + direction.desc + ' ' + quality.desc;
+        codes[label] = {
+          'label': label,
+          'desc': desc,
+          'foot': foot,
+          'direction': direction,
+          'quality': quality
+        }
+      }
+    }
+  }
+  return codes;
+}();
+
+//Expand labels with edges
+DiagramUtils.expandLabels = function(edgeCode, label, description) {
+  var edge = DiagramUtils.EDGE_CODES[edgeCode],
+      outputLabel = label.replace('#f', edge.foot.label).replace('#d', edge.direction.label).replace('#q', edge.quality.label).replace('!f', edge.foot.oppLabel).replace('!d', edge.direction.oppLabel).replace('!q', edge.quality.oppLabel).replace('#', edge.label),
+      outputDesc = description.replace('#f', edge.foot.desc).replace('#d', edge.direction.desc).replace('#q', edge.quality.desc).replace('!f', edge.foot.oppDesc).replace('!d', edge.direction.oppDesc).replace('!q', edge.quality.oppDesc).replace('#', edge.desc);
+      return {
+        'label': outputLabel,
+        'desc': outputDesc
+      };
 };
