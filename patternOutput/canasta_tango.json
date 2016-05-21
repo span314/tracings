@@ -3,7 +3,7 @@
   "components": [
     {
       "beats": "1", 
-      "desc": "Progressive: Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
@@ -39,7 +39,7 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
@@ -75,7 +75,7 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
@@ -183,7 +183,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Right Forward Outside Edge", 
+      "desc": "Stroke onto Right Forward Outside Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "", 
@@ -291,7 +291,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Left Forward Outside Edge", 
+      "desc": "Stroke onto Left Forward Outside Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
@@ -363,7 +363,7 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr2", 
@@ -399,7 +399,7 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Right Forward Inside Edge", 
+      "desc": "Progressive: Cross onto Right Forward Inside Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
@@ -435,7 +435,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Left Forward Outside Edge", 
+      "desc": "Progressive: Stroke onto Left Forward Outside Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
@@ -507,7 +507,7 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Right Forward Outside Cross Roll", 
+      "desc": "Cross Roll onto Right Forward Outside Edge", 
       "duration": 16, 
       "edge": "RFO", 
       "group": "", 

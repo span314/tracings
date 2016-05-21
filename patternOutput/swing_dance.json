@@ -3,7 +3,7 @@
   "components": [
     {
       "beats": "1", 
-      "desc": "Left Forward Outside Edge", 
+      "desc": "Stroke onto Left Forward Outside Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
@@ -75,7 +75,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Left Forward Outside Edge", 
+      "desc": "Stroke onto Left Forward Outside Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
@@ -111,7 +111,7 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Right Forward Outside Edge", 
+      "desc": "Stroke onto Right Forward Outside Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "", 
@@ -183,7 +183,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Right Forward Outside Edge", 
+      "desc": "Stroke onto Right Forward Outside Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "", 
@@ -291,7 +291,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Left Forward Outside Edge", 
+      "desc": "Stroke onto Left Forward Outside Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
@@ -327,7 +327,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Right Forward Inside Edge", 
+      "desc": "Stroke onto Right Forward Inside Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "", 
@@ -363,7 +363,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Left Forward Outside Edge", 
+      "desc": "Stroke onto Left Forward Outside Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
@@ -399,7 +399,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Open Mohawk: Right Forward Inside", 
+      "desc": "Right Forward Inside Open Mohawk", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "m", 
@@ -435,7 +435,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Open Mohawk (exit): Left Back Inside", 
+      "desc": "Exit Open Mohawk on Left Back Inside Edge", 
       "duration": 8, 
       "edge": "LBI", 
       "group": "m", 
@@ -471,7 +471,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Right Back Outside Edge", 
+      "desc": "Stroke onto Right Back Outside Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
@@ -543,7 +543,7 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Right Back Outside Edge", 
+      "desc": "Stroke onto Right Back Outside Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "", 
@@ -615,7 +615,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Right Back Outside Edge", 
+      "desc": "Stroke onto Right Back Outside Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
@@ -651,7 +651,7 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Left Back Outside Edge", 
+      "desc": "Stroke onto Left Back Outside Edge", 
       "duration": 4, 
       "edge": "LBO", 
       "group": "", 
@@ -723,7 +723,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Left Back Outside Edge", 
+      "desc": "Stroke onto Left Back Outside Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "", 
@@ -831,7 +831,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Right Back Outside Edge", 
+      "desc": "Stroke onto Right Back Outside Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
@@ -867,7 +867,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Left Forward Outside Edge", 
+      "desc": "Stroke onto Left Forward Outside Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
@@ -903,7 +903,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Right Forward Inside Edge", 
+      "desc": "Stroke onto Right Forward Inside Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "", 
@@ -939,7 +939,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Left Forward Outside Edge", 
+      "desc": "Stroke onto Left Forward Outside Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
@@ -975,7 +975,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Right Forward Inside Edge", 
+      "desc": "Stroke onto Right Forward Inside Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "", 
@@ -1047,7 +1047,7 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Left Forward Outside Edge", 
+      "desc": "Stroke onto Left Forward Outside Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 

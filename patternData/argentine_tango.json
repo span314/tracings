@@ -1,0 +1,12 @@
+{
+  "name": "Argentine Tango",
+  "version": "2016",
+  "timeSignatureTop": 4,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 96,
+  "patternsPerLap": 1,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 40},
+  	"man": {"startComponent": 40, "endComponent": 76}
+  }
+ }

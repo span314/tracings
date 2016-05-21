@@ -216,15 +216,19 @@ $.widget('shawnpan.diagram', {
       }
 
       //TODO currently assumes at least one path
-      ctx.textBaseline = 'middle';
-      //Draw label
-      ctx.fillStyle = 'rgb(0,0,255)';
-      ctx.textAlign = path.alignFlag ? 'end' : 'start';
-      ctx.fillText(component.index + ' ' + component.label, path.labelX, path.labelY);
-      //Draw beats
-      ctx.fillStyle = 'rgb(255,0,0)';
-      ctx.textAlign = path.alignFlag ? 'start' : 'end';
-      ctx.fillText(component.beats, path.beatX, path.beatY);
+      if (component.label) {
+        ctx.textBaseline = 'middle';
+        //Draw label
+        ctx.fillStyle = 'rgb(0,0,255)';
+        ctx.textAlign = path.alignFlag ? 'end' : 'start';
+        ctx.fillText(component.index + ' ' + component.label, path.labelX, path.labelY);
+      }
+      if (component.beats) {
+        //Draw beats
+        ctx.fillStyle = 'rgb(255,0,0)';
+        ctx.textAlign = path.alignFlag ? 'start' : 'end';
+        ctx.fillText(component.beats, path.beatX, path.beatY);
+      }
       ctx.restore();
 
     }
