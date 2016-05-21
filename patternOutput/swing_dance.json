@@ -3,12 +3,12 @@
   "components": [
     {
       "beats": "1", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "", 
       "index": "1", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 0, 
       "optional": "", 
       "path": [
@@ -39,12 +39,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "# Chasse", 
+      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "", 
       "index": "2", 
-      "label": "#-Ch", 
+      "label": "#e-Ch", 
       "offset": 4, 
       "optional": "", 
       "path": [
@@ -75,12 +75,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "3", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 8, 
       "optional": "", 
       "path": [
@@ -111,12 +111,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "", 
       "index": "4", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 16, 
       "optional": "", 
       "path": [
@@ -147,12 +147,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "# Chasse", 
+      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "", 
       "index": "5", 
-      "label": "#-Ch", 
+      "label": "#e-Ch", 
       "offset": 20, 
       "optional": "", 
       "path": [
@@ -183,12 +183,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "", 
       "index": "6", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 24, 
       "optional": "", 
       "path": [
@@ -219,12 +219,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "# Swing Roll", 
+      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LFO", 
       "group": "", 
       "index": "7", 
-      "label": "#-swR", 
+      "label": "#e-swR", 
       "offset": 32, 
       "optional": "", 
       "path": [
@@ -255,12 +255,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "# Swing Roll", 
+      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
       "group": "", 
       "index": "8", 
-      "label": "#-swR", 
+      "label": "#e-swR", 
       "offset": 48, 
       "optional": "", 
       "path": [
@@ -291,12 +291,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "9", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 64, 
       "optional": "", 
       "path": [
@@ -327,12 +327,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "", 
       "index": "10", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 72, 
       "optional": "", 
       "path": [
@@ -363,12 +363,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "11", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 80, 
       "optional": "", 
       "path": [
@@ -399,12 +399,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "# Open Mohawk", 
+      "desc": "#E Open Mohawk", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "m", 
       "index": "12", 
-      "label": "#-opMo", 
+      "label": "#e-opMo", 
       "offset": 88, 
       "optional": "", 
       "path": [
@@ -435,12 +435,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Exit Open Mohawk on # Edge", 
+      "desc": "Exit Open Mohawk on #E Edge", 
       "duration": 8, 
       "edge": "LBI", 
       "group": "m", 
       "index": "13", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 96, 
       "optional": "", 
       "path": [
@@ -471,12 +471,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
       "index": "14", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 104, 
       "optional": "", 
       "path": [
@@ -507,12 +507,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "# Swing Roll", 
+      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LBO", 
       "group": "", 
       "index": "15", 
-      "label": "#-swR", 
+      "label": "#e-swR", 
       "offset": 112, 
       "optional": "", 
       "path": [
@@ -543,12 +543,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "", 
       "index": "16", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 128, 
       "optional": "", 
       "path": [
@@ -579,12 +579,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "# Chasse", 
+      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "", 
       "index": "17", 
-      "label": "#-Ch", 
+      "label": "#e-Ch", 
       "offset": 132, 
       "optional": "", 
       "path": [
@@ -615,12 +615,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
       "index": "18", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 136, 
       "optional": "", 
       "path": [
@@ -651,12 +651,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LBO", 
       "group": "", 
       "index": "19", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 144, 
       "optional": "", 
       "path": [
@@ -687,12 +687,12 @@
     }, 
     {
       "beats": "1", 
-      "desc": "# Chasse", 
+      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "", 
       "index": "20", 
-      "label": "#-Ch", 
+      "label": "#e-Ch", 
       "offset": 148, 
       "optional": "", 
       "path": [
@@ -723,12 +723,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "", 
       "index": "21", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 152, 
       "optional": "", 
       "path": [
@@ -759,12 +759,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "# Swing Roll", 
+      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RBO", 
       "group": "", 
       "index": "22", 
-      "label": "#-swR", 
+      "label": "#e-swR", 
       "offset": 160, 
       "optional": "", 
       "path": [
@@ -795,12 +795,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "# Swing Roll", 
+      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LBO", 
       "group": "", 
       "index": "23", 
-      "label": "#-swR", 
+      "label": "#e-swR", 
       "offset": 176, 
       "optional": "", 
       "path": [
@@ -831,12 +831,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "", 
       "index": "24", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 192, 
       "optional": "", 
       "path": [
@@ -867,12 +867,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "25", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 200, 
       "optional": "", 
       "path": [
@@ -903,12 +903,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "", 
       "index": "26", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 208, 
       "optional": "", 
       "path": [
@@ -939,12 +939,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "27", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 216, 
       "optional": "", 
       "path": [
@@ -975,12 +975,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "", 
       "index": "28", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 224, 
       "optional": "no", 
       "path": [
@@ -1011,12 +1011,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "# Slide Chasse", 
+      "desc": "#E Slide Chasse", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "", 
       "index": "28", 
-      "label": "#-slCh", 
+      "label": "#e-slCh", 
       "offset": 224, 
       "optional": "yes", 
       "path": [
@@ -1047,12 +1047,12 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto # Edge", 
+      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "", 
       "index": "29", 
-      "label": "#", 
+      "label": "#e", 
       "offset": 224, 
       "optional": "", 
       "path": [
@@ -1083,12 +1083,12 @@
     }, 
     {
       "beats": "4", 
-      "desc": "# Swing Roll", 
+      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
       "group": "", 
       "index": "30", 
-      "label": "#-swR", 
+      "label": "#e-swR", 
       "offset": 232, 
       "optional": "", 
       "path": [

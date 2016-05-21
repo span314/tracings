@@ -124,7 +124,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _loadPattern: function() {
-    var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths, labels,
+    var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths,
         components = [],
         pattern = this.dance.patterns[this.part];
     console.log('loading pattern ' + this.dance.name + ' ' + this.part);
@@ -147,13 +147,12 @@ $.widget('shawnpan.diagram', {
         for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
           paths.push(DiagramUtils.preprocessPath(component.path[pathIndex], transformMatrix));
         }
-        labels = DiagramUtils.expandLabels(component.edge, component.label, component.desc);
         this.patternPositions.push({
           'component': component,
           'paths': paths,
           'lapIndex': lapIndex,
-          'label': labels.label,
-          'desc': labels.desc
+          'label': DiagramUtils.resolveParams(component.edge, component.label),
+          'desc': DiagramUtils.resolveParams(component.edge, component.desc)
         });
       }
     }
@@ -375,51 +374,44 @@ DiagramUtils.preprocessPath = function(path, matrix) {
   return {'start': start, 'bezier': bezier, 'labelX': labelX, 'labelY': labelY, 'beatX': beatX, 'beatY': beatY, 'alignFlag': alignFlag};
 };
 
-//Generate lookup table of edges
-DiagramUtils.EDGE_CODES = function() {
-  var foot, footIndex, direction, directionIndex, quality, qualityIndex, label, desc,
-      footCodes = [
-        {label: 'R', desc: 'Right', oppLabel: 'L', oppDesc: 'Left'},
-        {label: 'L', desc: 'Left', oppLabel: 'R', oppDesc: 'Right'}
-      ],
-      directionCodes = [
-        {label: 'F', desc: 'Forward', oppLabel: 'B', oppDesc: 'Backward'},
-        {label: 'B', desc: 'Backward', oppLabel: 'F', oppDesc: 'Forward'},
-      ],
-      qualityCodes = [
-        {label: 'I', desc: 'Inside', oppLabel: 'O', oppDesc: 'Outside'},
-        {label: 'O', desc: 'Outside', oppLabel: 'I', oppDesc: 'Inside'},
-        {label: 'F', desc: 'Flat', oppLabel: 'F', oppDesc: 'Flat'}
-      ],
-      codes = {};
-  for (footIndex = 0; footIndex < footCodes.length; footIndex++) {
-    foot = footCodes[footIndex];
-    for (directionIndex = 0; directionIndex < directionCodes.length; directionIndex++) {
-      direction = directionCodes[directionIndex];
-      for (qualityIndex = 0; qualityIndex < qualityCodes.length; qualityIndex++) {
-        quality = qualityCodes[qualityIndex];
-        label = foot.label + direction.label + quality.label;
-        desc = foot.desc + ' ' + direction.desc + ' ' + quality.desc;
-        codes[label] = {
-          'label': label,
-          'desc': desc,
-          'foot': foot,
-          'direction': direction,
-          'quality': quality
+DiagramUtils.edgeParams = function(edgeCode) {
+  var i, result;
+  if (!DiagramUtils.edgeParams.cache[edgeCode]) {
+    result = {'#': '#'};
+    for (i = 0; i < edgeCode.length; i++) {
+      $.extend(result, DiagramUtils.edgeParams.CODES[edgeCode.charAt(i)]);
+    }
+    result.e = $.grep([result.f, result.d, result.q], Boolean).join('');
+    result.E = $.grep([result.F, result.D, result.Q], Boolean).join(' ');
+    DiagramUtils.edgeParams.cache[edgeCode] = result;
+  }
+  return DiagramUtils.edgeParams.cache[edgeCode];
+};
+DiagramUtils.edgeParams.cache = {};
+DiagramUtils.edgeParams.CODES = {
+  'R': {f: 'R', r: 'L', F: 'Right', R: 'Left'},
+  'L': {f: 'L', r: 'R', F: 'Left', R: 'Right'},
+  'F': {d: 'F', b: 'B', D: 'Forward', B: 'Backward'},
+  'B': {d: 'B', b: 'F', D: 'Backward', B: 'Forward'},
+  'I': {q: 'I', o: 'O', Q: 'Inside', O: 'Outside'},
+  'O': {q: 'O', o: 'I', Q: 'Outside', O: 'Inside'}
+};
+
+DiagramUtils.resolveParams = function(edgeCode, label) {
+  var i, curChar,
+      inParam = false,
+      result = '',
+      edgeParams = DiagramUtils.edgeParams(edgeCode);
+      for (i = 0; i < label.length; i++) {
+        curChar = label.charAt(i);
+        if (inParam) {
+          result += edgeParams[curChar];
+          inParam = false;
+        } else if (curChar === '#') {
+          inParam = true;
+        } else {
+          result += curChar;
         }
       }
-    }
-  }
-  return codes;
-}();
-
-//Expand labels with edges
-DiagramUtils.expandLabels = function(edgeCode, label, description) {
-  var edge = DiagramUtils.EDGE_CODES[edgeCode],
-      outputLabel = label.replace('#f', edge.foot.label).replace('#d', edge.direction.label).replace('#q', edge.quality.label).replace('!f', edge.foot.oppLabel).replace('!d', edge.direction.oppLabel).replace('!q', edge.quality.oppLabel).replace('#', edge.label),
-      outputDesc = description.replace('#f', edge.foot.desc).replace('#d', edge.direction.desc).replace('#q', edge.quality.desc).replace('!f', edge.foot.oppDesc).replace('!d', edge.direction.oppDesc).replace('!q', edge.quality.oppDesc).replace('#', edge.desc);
-      return {
-        'label': outputLabel,
-        'desc': outputDesc
-      };
+  return result;
 };
