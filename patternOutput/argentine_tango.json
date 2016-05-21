@@ -10,7 +10,7 @@
       "index": "1", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             420.91253524569754, 
@@ -45,7 +45,7 @@
       "index": "2", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             461.86333116508445, 
@@ -80,7 +80,7 @@
       "index": "3", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             480.14817144412376, 
@@ -115,7 +115,7 @@
       "index": "4", 
       "label": "#e-Ch", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             492.7953618371836, 
@@ -150,7 +150,7 @@
       "index": "5", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             481.5978312256573, 
@@ -185,7 +185,7 @@
       "index": "6", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             471.75989005617834, 
@@ -220,7 +220,7 @@
       "index": "7", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             428.0451200861164, 
@@ -255,7 +255,7 @@
       "index": "8", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             339.5071316405908, 
@@ -284,13 +284,13 @@
     {
       "beats": "", 
       "desc": "Cross Behind onto #O Edge", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "LFI", 
       "group": "9", 
       "index": "9", 
       "label": "XB-#e#o", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             286.4086936060895, 
@@ -319,13 +319,13 @@
     {
       "beats": "1+2", 
       "desc": "Change to #O Edge", 
-      "duration": "8", 
+      "duration": 8, 
       "edge": "LFO", 
       "group": "9", 
       "index": "9", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             239.87928857876057, 
@@ -354,13 +354,13 @@
     {
       "beats": "", 
       "desc": "Cross Behind onto #O Edge", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RFI", 
       "group": "10", 
       "index": "10", 
       "label": "XB-#e#o", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             147.29938653005138, 
@@ -389,13 +389,13 @@
     {
       "beats": "1+1", 
       "desc": "Change to #O Edge", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RFO", 
       "group": "10", 
       "index": "10", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             99.00702403324044, 
@@ -424,13 +424,13 @@
     {
       "beats": "2", 
       "desc": "Cross in Front onto #E Edge", 
-      "duration": "6", 
+      "duration": 6, 
       "edge": "LFI", 
       "group": "", 
       "index": "11", 
       "label": "XF-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             19.979327693682727, 
@@ -459,13 +459,13 @@
     {
       "beats": "", 
       "desc": "Step Briefly on #E Edge", 
-      "duration": "2", 
+      "duration": 2, 
       "edge": "RFI", 
       "group": "", 
       "index": "", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             11.967867542661294, 
@@ -500,7 +500,7 @@
       "index": "12", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -1.7098882955618016, 
@@ -529,13 +529,13 @@
     {
       "beats": "1+1", 
       "desc": "Cross Roll into a #E 3-turn", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RFO", 
       "group": "13", 
       "index": "13", 
       "label": "CR-#e3", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -96.00250172788299, 
@@ -564,13 +564,13 @@
     {
       "beats": "", 
       "desc": "Exit 3-turn on #E Edge", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RBI", 
       "group": "13", 
       "index": "13", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -124.09053559985473, 
@@ -605,7 +605,7 @@
       "index": "14", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -170.61196764076, 
@@ -640,7 +640,7 @@
       "index": "15", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -303.9929524495006, 
@@ -675,7 +675,7 @@
       "index": "16a", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -315.16562849620607, 
@@ -710,7 +710,7 @@
       "index": "16b", 
       "label": "#e-Ch", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -337.1986510500204, 
@@ -745,7 +745,7 @@
       "index": "17", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -383.2533054143213, 
@@ -780,7 +780,7 @@
       "index": "18", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -445.13417511561283, 
@@ -815,7 +815,7 @@
       "index": "19", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -485.69690626007815, 
@@ -850,7 +850,7 @@
       "index": "20", 
       "label": "CR-#e-swR", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -332.67324904154475, 
@@ -885,7 +885,7 @@
       "index": "21", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -456.8171222934336, 
@@ -920,7 +920,7 @@
       "index": "22", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -486.8586842818141, 
@@ -949,13 +949,13 @@
     {
       "beats": "4", 
       "desc": "Stroke onto #E Edge", 
-      "duration": "14", 
+      "duration": 14, 
       "edge": "LFO", 
       "group": "23", 
       "index": "23", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -460.9961875345052, 
@@ -984,13 +984,13 @@
     {
       "beats": "", 
       "desc": "Twizzle Like Motion", 
-      "duration": "1", 
+      "duration": 1, 
       "edge": "LFI", 
       "group": "23", 
       "index": "23", 
       "label": "Sw-\"Tw1\"", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -345.0337373513693, 
@@ -1019,13 +1019,13 @@
     {
       "beats": "", 
       "desc": "Twizzle Like Motion", 
-      "duration": "1", 
+      "duration": 1, 
       "edge": "LBO", 
       "group": "23", 
       "index": "23", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -342.1361262853932, 
@@ -1060,7 +1060,7 @@
       "index": "24", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -321.52921066036083, 
@@ -1089,13 +1089,13 @@
     {
       "beats": "1+1", 
       "desc": "Cross Roll into a #E 3-turn", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "LFO", 
       "group": "25", 
       "index": "25", 
       "label": "CR-#e3", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -171.224341812301, 
@@ -1124,13 +1124,13 @@
     {
       "beats": "", 
       "desc": "Exit 3-turn on #E Edge", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "LBO", 
       "group": "25", 
       "index": "25", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -128.81208934575372, 
@@ -1165,7 +1165,7 @@
       "index": "26", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -40.33768953480701, 
@@ -1200,7 +1200,7 @@
       "index": "27", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -21.781962974173123, 
@@ -1235,7 +1235,7 @@
       "index": "28", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             84.67236733501021, 
@@ -1270,7 +1270,7 @@
       "index": "29", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             139.26200603745244, 
@@ -1305,7 +1305,7 @@
       "index": "30", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             211.2983939745986, 
@@ -1334,13 +1334,13 @@
     {
       "beats": "3", 
       "desc": "Cross Roll onto #E Edge, Swing", 
-      "duration": "10", 
+      "duration": 10, 
       "edge": "LBO", 
       "group": "31", 
       "index": "31", 
       "label": "CR-#e-swR", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             318.80981211235456, 
@@ -1369,13 +1369,13 @@
     {
       "beats": "", 
       "desc": "Step Briefly on #E Edge", 
-      "duration": "2", 
+      "duration": 2, 
       "edge": "RFI", 
       "group": "31", 
       "index": "", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             395.2498268939053, 
@@ -1410,7 +1410,7 @@
       "index": "1", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             419.3234690039042, 
@@ -1445,7 +1445,7 @@
       "index": "2", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             456.68813670766014, 
@@ -1480,7 +1480,7 @@
       "index": "3", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             473.976442197012, 
@@ -1515,7 +1515,7 @@
       "index": "4", 
       "label": "#e-Ch", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             490.1127254360393, 
@@ -1550,7 +1550,7 @@
       "index": "5", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             480.1618602456581, 
@@ -1585,7 +1585,7 @@
       "index": "6", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             468.78044597912645, 
@@ -1620,7 +1620,7 @@
       "index": "7", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             403.9572208699568, 
@@ -1655,7 +1655,7 @@
       "index": "8", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             339.8176212007541, 
@@ -1684,13 +1684,13 @@
     {
       "beats": "", 
       "desc": "Cross Behind onto #O Edge", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "LFI", 
       "group": "9", 
       "index": "9", 
       "label": "XB-#e#o", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             294.4600102658123, 
@@ -1719,13 +1719,13 @@
     {
       "beats": "1+2", 
       "desc": "Change to #O Edge", 
-      "duration": "8", 
+      "duration": 8, 
       "edge": "LFO", 
       "group": "9", 
       "index": "9", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             240.52017105244698, 
@@ -1754,13 +1754,13 @@
     {
       "beats": "1+1", 
       "desc": "Cross Behind into a #E Counter", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RFI", 
       "group": "10", 
       "index": "10", 
       "label": "XB-#e-Ctr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             114.80541800635771, 
@@ -1789,13 +1789,13 @@
     {
       "beats": "", 
       "desc": "Exit Counter On #E Edge", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RBI", 
       "group": "10", 
       "index": "10", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             110.72846631827493, 
@@ -1830,7 +1830,7 @@
       "index": "11", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             15.552927784412532, 
@@ -1865,7 +1865,7 @@
       "index": "12", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -2.9245439732307354, 
@@ -1900,7 +1900,7 @@
       "index": "13", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -99.42445660938719, 
@@ -1929,13 +1929,13 @@
     {
       "beats": "", 
       "desc": "#E 3-turn", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RFO", 
       "group": "14", 
       "index": "14", 
       "label": "#e3", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -166.88245478368466, 
@@ -1964,13 +1964,13 @@
     {
       "beats": "1+1", 
       "desc": "Exit 3-turn on #E Edge", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RBI", 
       "group": "14", 
       "index": "14", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -233.25952840952377, 
@@ -2005,7 +2005,7 @@
       "index": "15", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -301.47567789953615, 
@@ -2040,7 +2040,7 @@
       "index": "16", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -319.3598377358367, 
@@ -2075,7 +2075,7 @@
       "index": "17", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -383.4807956843863, 
@@ -2110,7 +2110,7 @@
       "index": "18", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -440.41234811521883, 
@@ -2145,7 +2145,7 @@
       "index": "19", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -484.3524337542113, 
@@ -2180,7 +2180,7 @@
       "index": "20", 
       "label": "CR-#e-swR", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -333.4069852502793, 
@@ -2215,7 +2215,7 @@
       "index": "21", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -451.7158903458499, 
@@ -2250,7 +2250,7 @@
       "index": "22", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -486.2274316317857, 
@@ -2279,13 +2279,13 @@
     {
       "beats": "4", 
       "desc": "Stroke onto #E Edge", 
-      "duration": "14", 
+      "duration": 14, 
       "edge": "LFO", 
       "group": "23", 
       "index": "23", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -468.3089080429389, 
@@ -2314,13 +2314,13 @@
     {
       "beats": "", 
       "desc": "Swing Open Choctow", 
-      "duration": "1", 
+      "duration": 1, 
       "edge": "LFO", 
       "group": "23", 
       "index": "23", 
       "label": "Sw-opCho", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -338.88550236260414, 
@@ -2349,13 +2349,13 @@
     {
       "beats": "", 
       "desc": "Exit Swping Open Choctow", 
-      "duration": "1", 
+      "duration": 1, 
       "edge": "RBI", 
       "group": "23", 
       "index": "23", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -332.9569759180141, 
@@ -2390,7 +2390,7 @@
       "index": "24", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -321.74996384668236, 
@@ -2425,7 +2425,7 @@
       "index": "25", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -157.72168525655204, 
@@ -2460,7 +2460,7 @@
       "index": "26", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -25.019510105084553, 
@@ -2495,7 +2495,7 @@
       "index": "27", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -26.110136877710367, 
@@ -2530,7 +2530,7 @@
       "index": "28", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             88.4615666044709, 
@@ -2565,7 +2565,7 @@
       "index": "29", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             139.1807020669959, 
@@ -2600,7 +2600,7 @@
       "index": "30", 
       "label": "CR-#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             213.2526892333851, 
@@ -2635,7 +2635,7 @@
       "index": "31", 
       "label": "CR-#e-swR", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             336.8399651364764, 

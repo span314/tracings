@@ -10,7 +10,7 @@
       "index": "1", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -270.94174579374027, 
@@ -45,7 +45,7 @@
       "index": "2", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -298.4555139446873, 
@@ -80,7 +80,7 @@
       "index": "3", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -282.49775684876823, 
@@ -115,7 +115,7 @@
       "index": "4", 
       "label": "#e-Ch", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -261.2179536194046, 
@@ -150,7 +150,7 @@
       "index": "5", 
       "label": "#e-swR", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -181.10443367857965, 
@@ -185,7 +185,7 @@
       "index": "6", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -103.11890227765602, 
@@ -220,7 +220,7 @@
       "index": "7", 
       "label": "#e-slCh", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -52.77257100011532, 
@@ -255,7 +255,7 @@
       "index": "8", 
       "label": "#e-swR", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             80.60181309261058, 
@@ -290,7 +290,7 @@
       "index": "9", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             116.9473150344302, 
@@ -325,7 +325,7 @@
       "index": "10", 
       "label": "#e-slCh", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             176.98731509220588, 
@@ -360,7 +360,7 @@
       "index": "11", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             251.13515402235686, 
@@ -395,7 +395,7 @@
       "index": "12", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             287.82071506534015, 
@@ -430,7 +430,7 @@
       "index": "13", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             287.4430633487889, 
@@ -465,7 +465,7 @@
       "index": "14", 
       "label": "#e-swR", 
       "optional": "no", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             207.08571318522792, 
@@ -500,7 +500,7 @@
       "index": "14", 
       "label": "CR-#e", 
       "optional": "yes", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             183.62963031199916, 

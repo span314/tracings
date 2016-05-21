@@ -117,6 +117,7 @@ $.widget('shawnpan.diagram', {
     var widget = this;
     console.log(this.controls.dance.val());
     $.getJSON('patterns/' + this.controls.dance.val(), function(data) {
+      DiagramUtils.processComponentParams(data);
       console.log(data);
       widget.dance = data;
       widget._loadPattern();
@@ -128,38 +129,7 @@ $.widget('shawnpan.diagram', {
         components = [],
         pattern = this.dance.patterns[this.part];
     console.log('loading pattern ' + this.dance.name + ' ' + this.part);
-    this.patternPositions = [];
-
-    //Filter components
-    for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
-      component = this.dance.components[componentIndex % this.dance.components.length];
-      if (!component.optional || component.optional === this._optionalStepsEnabled()) {
-        components.push(component);
-      }
-    }
-
-    //Generate paths and positions
-    offset = 0;
-    for (lapIndex = 0; lapIndex < this.dance.patternsPerLap; lapIndex++) {
-      transformMatrix = DiagramUtils.computeTransformMatrix(lapIndex, this.dance.patternsPerLap, this.scaleFactor);
-      for (componentIndex = 0; componentIndex < components.length; componentIndex++) {
-        component = components[componentIndex];
-        paths = [];
-        for (pathIndex = 0; pathIndex < component.path.length; pathIndex++) {
-          paths.push(DiagramUtils.preprocessPath(component.path[pathIndex], transformMatrix));
-        }
-        this.patternPositions.push({
-          'component': component,
-          'paths': paths,
-          'lapIndex': lapIndex,
-          'offset': offset,
-          'label': DiagramUtils.resolveParams(component.edge, component.label),
-          'desc': DiagramUtils.resolveParams(component.edge, component.desc)
-        });
-        offset += component.duration;
-      }
-    }
-
+    this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, this._optionalStepsEnabled(), this.scaleFactor);
     this._updatePlaybackSpeedLabel();
     this.beginning();
   },
@@ -168,7 +138,6 @@ $.widget('shawnpan.diagram', {
     var pattern, component, path, positionIndex, pathIndex, position,
         ctx = this.canvasContext,
         currentPosition = this.patternPositions[this.position],
-        currentComponent = currentPosition.component,
         tickCount = currentPosition.offset + this.stepTickCount,
         fracBeat = tickCount % 4,
         beat = ((tickCount - fracBeat) / 4) % this.dance.timeSignatureTop + 1;
@@ -190,12 +159,11 @@ $.widget('shawnpan.diagram', {
     //Draw pattern
     for (positionIndex = 0; positionIndex < this.patternPositions.length; positionIndex++) {
       position = this.patternPositions[positionIndex];
-      component = position.component;
 
       ctx.save();
       if (position.lapIndex !== currentPosition.lapIndex) {
         ctx.lineWidth = 2;
-      } else if (component === currentComponent) {
+      } else if (position === currentPosition) {
         ctx.lineWidth = 4;
         if (beat === 1 && fracBeat === 0) {
           ctx.strokeStyle = 'rgb(0,220,0)';
@@ -204,7 +172,7 @@ $.widget('shawnpan.diagram', {
         } else {
           ctx.strokeStyle = 'rgb(0,180,0)';
         }
-      } else if (component.group && component.group === currentComponent.group) {
+      } else if (position.group && position.group === currentPosition.group) {
         ctx.lineWidth = 4;
         ctx.strokeStyle = 'rgb(0,120,0)';
       } else {
@@ -225,13 +193,13 @@ $.widget('shawnpan.diagram', {
         //Draw label
         ctx.fillStyle = 'rgb(0,0,255)';
         ctx.textAlign = path.alignFlag ? 'end' : 'start';
-        ctx.fillText(component.index + ' ' + position.label, path.labelX, path.labelY);
+        ctx.fillText(position.index + ' ' + position.label, path.labelX, path.labelY);
       }
-      if (component.beats) {
+      if (position.beats) {
         //Draw beats
         ctx.fillStyle = 'rgb(255,0,0)';
         ctx.textAlign = path.alignFlag ? 'start' : 'end';
-        ctx.fillText(component.beats, path.beatX, path.beatY);
+        ctx.fillText(position.beats, path.beatX, path.beatY);
       }
       ctx.restore();
 
@@ -417,4 +385,36 @@ DiagramUtils.resolveParams = function(edgeCode, label) {
         }
       }
   return result;
+};
+
+DiagramUtils.processComponentParams = function(dance) {
+  var i, component;
+  for (i = 0; i < dance.components.length; i++) {
+    component = dance.components[i];
+    component.label = DiagramUtils.resolveParams(component.edge, component.label);
+    component.desc = DiagramUtils.resolveParams(component.edge, component.desc);
+  }
+};
+
+DiagramUtils.generatePositions = function(dance, part, optional, scaleFactor) {
+  var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths, offset,
+      positions = [],
+      pattern = dance.patterns[part];
+
+  offset = 0;
+  for (lapIndex = 0; lapIndex < dance.patternsPerLap; lapIndex++) {
+    transformMatrix = DiagramUtils.computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor);
+    for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
+      component = dance.components[componentIndex % dance.components.length];
+      if (!component.optional || component.optional === optional) {
+        paths = [];
+        for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
+          paths.push(DiagramUtils.preprocessPath(component.paths[pathIndex], transformMatrix));
+        }
+        positions.push($.extend({}, component, {'paths': paths, 'lapIndex': lapIndex, 'offset': offset}));
+        offset += component.duration;
+      }
+    }
+  }
+  return positions;
 };

@@ -10,7 +10,7 @@
       "index": "1", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             436.8525935946941, 
@@ -45,7 +45,7 @@
       "index": "2", 
       "label": "#e-Ch", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             411.7621571873395, 
@@ -80,7 +80,7 @@
       "index": "3", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             421.5029803167768, 
@@ -115,7 +115,7 @@
       "index": "4", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             470.86101644791216, 
@@ -150,7 +150,7 @@
       "index": "5", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             481.52707507758186, 
@@ -185,7 +185,7 @@
       "index": "6", 
       "label": "#e", 
       "optional": "no", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             422.0116348578573, 
@@ -220,7 +220,7 @@
       "index": "6", 
       "label": "#e-slCh", 
       "optional": "yes", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             422.0116348578573, 
@@ -255,7 +255,7 @@
       "index": "7", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             322.0271249111081, 
@@ -284,13 +284,13 @@
     {
       "beats": "2+1", 
       "desc": "European 3-turn: #E", 
-      "duration": "8", 
+      "duration": 8, 
       "edge": "RFO", 
       "group": "3", 
       "index": "8", 
       "label": "#e3", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             279.3210176708486, 
@@ -319,13 +319,13 @@
     {
       "beats": "", 
       "desc": "European 3-turn (exit): #E", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "RBI", 
       "group": "3", 
       "index": "8", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             247.24285850285716, 
@@ -360,7 +360,7 @@
       "index": "9", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             203.5617043771639, 
@@ -395,7 +395,7 @@
       "index": "10", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             149.64762113131846, 
@@ -430,7 +430,7 @@
       "index": "11", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             98.41456877879565, 
@@ -465,7 +465,7 @@
       "index": "12", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             57.176633679429486, 
@@ -500,7 +500,7 @@
       "index": "13", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             28.488084996476594, 
@@ -535,7 +535,7 @@
       "index": "14", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -16.82640359226083, 
@@ -570,7 +570,7 @@
       "index": "15", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -114.61604706874476, 
@@ -605,7 +605,7 @@
       "index": "16", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -160.91328089208454, 
@@ -640,7 +640,7 @@
       "index": "17", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -261.55307862914714, 
@@ -675,7 +675,7 @@
       "index": "18", 
       "label": "#e-opMo", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -287.3945059856394, 
@@ -710,7 +710,7 @@
       "index": "19", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -361.77207747409045, 
@@ -745,7 +745,7 @@
       "index": "20", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -458.5312111469653, 
@@ -780,7 +780,7 @@
       "index": "21", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -490.0435623678316, 
@@ -815,7 +815,7 @@
       "index": "22", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -480.1860292817851, 
@@ -850,7 +850,7 @@
       "index": "1", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -440.93522123900686, 
@@ -885,7 +885,7 @@
       "index": "2", 
       "label": "#e-Ch", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -416.7213856588273, 
@@ -920,7 +920,7 @@
       "index": "3", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -422.3730843670433, 
@@ -955,7 +955,7 @@
       "index": "4", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -475.3147724731319, 
@@ -990,7 +990,7 @@
       "index": "5", 
       "label": "#e-opMo", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -485.39977561803386, 
@@ -1025,7 +1025,7 @@
       "index": "6", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -438.68347482396985, 
@@ -1060,7 +1060,7 @@
       "index": "7", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -333.5021482797788, 
@@ -1095,7 +1095,7 @@
       "index": "8", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -272.1830983777253, 
@@ -1130,7 +1130,7 @@
       "index": "9", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -212.94914924831988, 
@@ -1165,7 +1165,7 @@
       "index": "10", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -152.01294512838368, 
@@ -1200,7 +1200,7 @@
       "index": "11", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -97.21761221372311, 
@@ -1235,7 +1235,7 @@
       "index": "12", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -47.461839091152996, 
@@ -1270,7 +1270,7 @@
       "index": "13", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             -23.080222589966368, 
@@ -1299,13 +1299,13 @@
     {
       "beats": "2+1", 
       "desc": "European 3-turn: #E", 
-      "duration": "8", 
+      "duration": 8, 
       "edge": "LFO", 
       "group": "3", 
       "index": "14", 
       "label": "#e3", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             36.45740113968741, 
@@ -1334,13 +1334,13 @@
     {
       "beats": "", 
       "desc": "European 3-turn (exit): #E", 
-      "duration": "4", 
+      "duration": 4, 
       "edge": "LBI", 
       "group": "3", 
       "index": "14", 
       "label": "", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             64.04016358862508, 
@@ -1375,7 +1375,7 @@
       "index": "15", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             115.754482921408, 
@@ -1410,7 +1410,7 @@
       "index": "16", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             169.38876556480352, 
@@ -1445,7 +1445,7 @@
       "index": "17", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             304.678642315277, 
@@ -1480,7 +1480,7 @@
       "index": "18", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             303.8975789128212, 
@@ -1515,7 +1515,7 @@
       "index": "19", 
       "label": "#e", 
       "optional": "no", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             363.96844383800436, 
@@ -1550,7 +1550,7 @@
       "index": "19", 
       "label": "#e-slCh", 
       "optional": "yes", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             363.96844383800436, 
@@ -1585,7 +1585,7 @@
       "index": "20", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             448.61635063406413, 
@@ -1620,7 +1620,7 @@
       "index": "21", 
       "label": "#e-Pr", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             477.5458684187093, 
@@ -1655,7 +1655,7 @@
       "index": "22", 
       "label": "#e", 
       "optional": "", 
-      "path": [
+      "paths": [
         {
           "bezier": [
             479.52764226371164, 

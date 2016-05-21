@@ -212,12 +212,13 @@ def extractPathsFromSVG(fileHandle):
 def extractStepsFromCSV(fileHandle, processedPaths):
   components = []
   pathIndex = 0
-  offset = 0
   reader = csv.DictReader(csvFile)
   for row in reader:
     #Calculate unspecified duration
     if (not row["duration"]):
       row["duration"] = 4 * int(row["beats"])
+    else:
+      row["duration"] = int(row["duration"])
     #Create labels
     if (not row["label"]):
       row["label"] = STEP_LABEL[row["step"]]
@@ -234,7 +235,7 @@ def extractStepsFromCSV(fileHandle, processedPaths):
     for i in range(max(pathCount, 1)):
       componentPaths.append(processedPaths[pathIndex + i])
     pathIndex += pathCount
-    row["path"] = componentPaths
+    row["paths"] = componentPaths
     components.append(row)
   return components
 
