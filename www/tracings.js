@@ -331,11 +331,38 @@ DiagramUtils.transformCoordinates = function(coordinates, matrix) {
   return result;
 };
 
+DiagramUtils.cubicNormalAt = function(cubic, t) {
+  var dx = DiagramUtils.cubicNormalAt.derivatives(cubic[0], cubic[2], cubic[4], cubic[6], t),
+      dy = DiagramUtils.cubicNormalAt.derivatives(cubic[1], cubic[3], cubic[5], cubic[7], t),
+      //Calcuate normal vector by rotating first derivative by 90 degrees and normalize to unit length
+      length1d = Math.sqrt(dx[1] * dx[1] + dy[1] * dy[1]),
+      normX = -dy[1] / length1d,
+      normY = dx[1] / length1d;
+      //Point normal vector outward
+      if (normX * dx[2] + normY * dy[2] > 0) {
+        normX *= -1;
+        normY *= -1;
+      }
+  return {
+    value: [dx[0], dy[0]],
+    normal: [normX, normY]
+  }
+};
+//Calculate array of value, first derivative, and second derivative
+DiagramUtils.cubicNormalAt.derivatives = function(p0, p1, p2, p3, t) {
+  var ti = 1 - t;
+  return [ti * ti * ti * p0 + 3 * ti * ti * t * p1 + 3 * ti * t * t * p2 + t * t * t * p3,
+          3 * ti * ti * (p1 - p0) + 6 * ti * t * (p2 - p1) + 3 * t * t * (p3 - p2),
+          6 * ti * (p2 - 2 * p1 + p0) + 6 * t * (p3 - 2 * p2 + p1)];
+};
+
 DiagramUtils.preprocessPath = function(path, matrix) {
-  var start = DiagramUtils.transformCoordinates(path.start, matrix),
-      bezier = DiagramUtils.transformCoordinates(path.bezier, matrix),
-      normal = DiagramUtils.transformCoordinates(path.normal, matrix),
-      mid = DiagramUtils.transformCoordinates(path.mid, matrix),
+  var cubic = DiagramUtils.transformCoordinates(path, matrix),
+      start = cubic.slice(0, 2),
+      bezier = cubic.slice(2, 8),
+      labelPoints = DiagramUtils.cubicNormalAt(cubic, 0.5),
+      normal = labelPoints.normal,
+      mid = labelPoints.value,
       offset = 10,
       labelX = mid[0] + normal[0] * offset,
       labelY = mid[1] + normal[1] * offset,

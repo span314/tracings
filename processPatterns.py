@@ -113,6 +113,9 @@ class PointF:
     cosTheta = math.cos(theta)
     return PointF(self.x * cosTheta - self.y * sinTheta, self.x * sinTheta + self.y * cosTheta)
 
+  def toArray(self):
+    return [self.x, self.y]
+
 class CubicBezierPath:
   """Represents a cubic bezier path"""
 
@@ -170,17 +173,9 @@ class CubicBezierPath:
       normVector = -normVector
     return normVector
 
-  def toObject(self):
-    """Convert to object hash"""
-    p0, p1, p2, p3 = self.points
-    mid = self.value(0.5)
-    n = self.normalOut()
-    return {
-      "start": [p0.x, p0.y],
-      "bezier": [p1.x, p1.y, p2.x, p2.y, p3.x, p3.y],
-      "mid": [mid.x, mid.y],
-      "normal": [n.x, n.y]
-    }
+  def toArray(self):
+    """Convert to array of coordinates, rounding to 3 digits"""
+    return [round(c, 3) for p in self.points for c in p.toArray()]
 
 def extractPathsFromSVG(fileHandle):
   paths = []
@@ -205,7 +200,7 @@ def extractPathsFromSVG(fileHandle):
     cubic = cubic.scale(scaleFactor)
     #Rotate by 90 degrees
     cubic = cubic.rotate(math.pi / 2)
-    processedPaths.append(cubic.toObject())
+    processedPaths.append(cubic.toArray())
 
   return processedPaths
 
