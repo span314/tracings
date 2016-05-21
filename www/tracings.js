@@ -303,7 +303,7 @@ $.widget('shawnpan.diagram', {
 
   _tick: function() {
     this.stepTickCount++;
-    if (this.stepTickCount >= this.patternPositions[this.position].component.duration) {
+    if (this.stepTickCount >= this.patternPositions[this.position].duration) {
       this._shiftPosition(1);
     }
     this._drawPattern();
