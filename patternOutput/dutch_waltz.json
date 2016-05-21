@@ -1,0 +1,365 @@
+{
+  "beatsPerMinute": 138, 
+  "components": [
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFO", 
+      "group": "pr1", 
+      "index": "1", 
+      "label": "#e", 
+      "paths": [
+        [
+          -438.031, 
+          225.214, 
+          -424.868, 
+          234.862, 
+          -408.749, 
+          242.757, 
+          -374.806, 
+          240.09
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "pr1", 
+      "index": "2", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          -371.5, 
+          245.049, 
+          -359.934, 
+          243.923, 
+          -348.814, 
+          240.565, 
+          -338.027, 
+          235.545
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "3", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 12, 
+      "edge": "LFO", 
+      "group": "pr1", 
+      "index": "3", 
+      "label": "#e", 
+      "paths": [
+        [
+          -338.441, 
+          230.586, 
+          -304.896, 
+          212.111, 
+          -291.944, 
+          180.122, 
+          -283.067, 
+          145.459
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "6", 
+      "desc": "#E Swing Roll", 
+      "duration": 24, 
+      "edge": "RFO", 
+      "index": "4", 
+      "label": "#e-swR", 
+      "paths": [
+        [
+          -277.04, 
+          145.822, 
+          -252.5, 
+          50.613, 
+          -126.044, 
+          53.561, 
+          -91.325, 
+          133.062
+        ]
+      ], 
+      "step": "swr"
+    }, 
+    {
+      "beats": "6", 
+      "desc": "#E Swing Roll", 
+      "duration": 24, 
+      "edge": "LFO", 
+      "index": "5", 
+      "label": "#e-swR", 
+      "paths": [
+        [
+          -79.412, 
+          128.103, 
+          -65.445, 
+          257.809, 
+          95.981, 
+          270.88, 
+          115.948, 
+          124.969
+        ]
+      ], 
+      "step": "swr"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "RFO", 
+      "group": "pr2", 
+      "index": "6", 
+      "label": "#e", 
+      "paths": [
+        [
+          122.731, 
+          127.69, 
+          132.832, 
+          112.276, 
+          150.082, 
+          91.851, 
+          177.278, 
+          84.713
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFI", 
+      "group": "pr2", 
+      "index": "7", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          175.212, 
+          76.036, 
+          188.374, 
+          73.874, 
+          201.771, 
+          73.126, 
+          215.709, 
+          75.622
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "3", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 12, 
+      "edge": "RFO", 
+      "group": "pr2", 
+      "index": "8", 
+      "label": "#e", 
+      "paths": [
+        [
+          215.709, 
+          84.3, 
+          246.743, 
+          92.809, 
+          274.307, 
+          113.481, 
+          284.962, 
+          158.123
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "3", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 12, 
+      "edge": "LFO", 
+      "index": "9", 
+      "label": "#e", 
+      "paths": [
+        [
+          295.877, 
+          157.856, 
+          304.39, 
+          201.249, 
+          328.164, 
+          225.325, 
+          361.582, 
+          237.198
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "3", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 12, 
+      "edge": "RFI", 
+      "index": "10", 
+      "label": "#e", 
+      "paths": [
+        [
+          362.822, 
+          244.223, 
+          389.955, 
+          250.259, 
+          415.691, 
+          243.722, 
+          440.097, 
+          225.214
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFO", 
+      "group": "pr3", 
+      "index": "11", 
+      "label": "#e", 
+      "paths": [
+        [
+          437.058, 
+          218.285, 
+          447.795, 
+          208.523, 
+          458.279, 
+          196.694, 
+          463.067, 
+          176.039
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "pr3", 
+      "index": "12", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          469.023, 
+          176.452, 
+          471.755, 
+          164.72, 
+          471.696, 
+          155.793, 
+          471.332, 
+          147.187
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "3", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 12, 
+      "edge": "LFO", 
+      "group": "pr3", 
+      "index": "13", 
+      "label": "#e", 
+      "paths": [
+        [
+          466.131, 
+          146.699, 
+          463.682, 
+          116.603, 
+          446.616, 
+          97.616, 
+          424.807, 
+          82.234
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "6", 
+      "desc": "#E Swing Roll", 
+      "duration": 24, 
+      "edge": "RFO", 
+      "index": "14", 
+      "label": "#e-swR", 
+      "paths": [
+        [
+          431.006, 
+          79.341, 
+          370.158, 
+          50.511, 
+          378.322, 
+          -55.34, 
+          429.766, 
+          -79.341
+        ]
+      ], 
+      "step": "swr"
+    }, 
+    {
+      "beats": "3", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 12, 
+      "edge": "LFO", 
+      "index": "15", 
+      "label": "#e", 
+      "paths": [
+        [
+          426.873, 
+          -85.54, 
+          451.82, 
+          -100.62, 
+          462.175, 
+          -124.118, 
+          466.957, 
+          -150.831
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "3", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 12, 
+      "edge": "RFI", 
+      "index": "16", 
+      "label": "#e", 
+      "paths": [
+        [
+          472.743, 
+          -148.765, 
+          472.111, 
+          -170.157, 
+          475.648, 
+          -196.128, 
+          442.163, 
+          -228.107
+        ]
+      ], 
+      "step": ""
+    }
+  ], 
+  "name": "Dutch Waltz", 
+  "patterns": {
+    "lady": {
+      "endComponent": 16, 
+      "startComponent": 0
+    }, 
+    "man": {
+      "endComponent": 16, 
+      "startComponent": 0
+    }
+  }, 
+  "patternsPerLap": 2, 
+  "timeSignatureBottom": 4, 
+  "timeSignatureTop": 3, 
+  "version": "2016"
+}
