@@ -1,9 +1,9 @@
 {
-  "name": "Rhythm Blues",
+  "name": "Cha Cha",
   "version": "2016",
   "timeSignatureTop": 4,
   "timeSignatureBottom": 4,
-  "beatsPerMinute": 88,
+  "beatsPerMinute": 100,
   "patternsPerLap": 2,
   "patterns": {
   	"lady": {"startComponent": 0, "endComponent": 17},

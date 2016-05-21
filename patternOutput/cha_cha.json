@@ -1,0 +1,425 @@
+{
+  "beatsPerMinute": 100, 
+  "components": [
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFO", 
+      "group": "pr1", 
+      "index": "1", 
+      "label": "#e", 
+      "paths": [
+        [
+          -395.835, 
+          236.019, 
+          -370.51, 
+          247.625, 
+          -348.682, 
+          248.307, 
+          -315.206, 
+          237.178
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 8, 
+      "edge": "RFI", 
+      "group": "pr1", 
+      "index": "2", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          -319.632, 
+          230.687, 
+          -292.255, 
+          224.485, 
+          -271.871, 
+          209.542, 
+          -257.08, 
+          187.608
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFI", 
+      "index": "3", 
+      "label": "#e", 
+      "paths": [
+        [
+          -266.521, 
+          190.559, 
+          -265.53, 
+          175.812, 
+          -261.762, 
+          163.147, 
+          -257.67, 
+          150.726
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "1", 
+      "desc": "#E Chasse", 
+      "duration": 4, 
+      "edge": "RFO", 
+      "index": "4", 
+      "label": "#e-Ch", 
+      "paths": [
+        [
+          -250.883, 
+          153.676, 
+          -245.811, 
+          136.31, 
+          -238.252, 
+          122.26, 
+          -228.459, 
+          111.188
+        ]
+      ], 
+      "step": "ch"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Wide Step onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFI", 
+      "index": "5", 
+      "label": "#e-ws", 
+      "paths": [
+        [
+          -232.295, 
+          106.467, 
+          -211.573, 
+          77.054, 
+          -181.971, 
+          65.923, 
+          -147.907, 
+          63.978
+        ]
+      ], 
+      "step": "ws"
+    }, 
+    {
+      "beats": "4", 
+      "desc": "Stroke onto #E Edge, Rise and Fall with Free Leg Back", 
+      "duration": 16, 
+      "edge": "RFO", 
+      "index": "6", 
+      "label": "#e-bk", 
+      "paths": [
+        [
+          -148.202, 
+          71.945, 
+          -95.006, 
+          72.709, 
+          -56.035, 
+          83.339, 
+          -15.72, 
+          162.823
+        ]
+      ], 
+      "step": "bk"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "#E / #R #D #O Slalom", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "s", 
+      "index": "7", 
+      "label": "#e/#r#d#o-slm", 
+      "paths": [
+        [
+          -16.163, 
+          162.233, 
+          11.876, 
+          209.732, 
+          59.384, 
+          205.235, 
+          79.584, 
+          182.15
+        ], 
+        [
+          -2.148, 
+          156.922, 
+          9.315, 
+          182.304, 
+          47.416, 
+          198.049, 
+          71.47, 
+          169.02
+        ]
+      ], 
+      "step": "slm"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "#E / #R #D #O Slalom", 
+      "duration": 4, 
+      "edge": "RFO", 
+      "group": "s", 
+      "index": "", 
+      "label": "#e/#r#d#o-slm", 
+      "paths": [
+        [
+          71.027, 
+          169.61, 
+          93.27, 
+          139.862, 
+          135.17, 
+          131.281, 
+          172.823, 
+          157.217
+        ], 
+        [
+          79.289, 
+          183.035, 
+          97.68, 
+          152.533, 
+          141.538, 
+          143.88, 
+          174.298, 
+          178.166
+        ]
+      ], 
+      "step": "slm"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "#E / #R #D #O Slalom", 
+      "duration": 8, 
+      "edge": "RFI", 
+      "group": "s", 
+      "index": "", 
+      "label": "#e/#r#d#o-slm", 
+      "paths": [
+        [
+          174.298, 
+          178.166, 
+          177.51, 
+          189.972, 
+          223.304, 
+          217.404, 
+          251.309, 
+          182.887
+        ], 
+        [
+          171.643, 
+          156.922, 
+          185.889, 
+          173.075, 
+          218.495, 
+          208.202, 
+          250.719, 
+          162.233
+        ]
+      ], 
+      "step": "slm"
+    }, 
+    {
+      "beats": "1.5", 
+      "desc": "#E / #R #D #O Slalom, Push onto #E Edge ", 
+      "duration": 6, 
+      "edge": "RFO", 
+      "group": "s", 
+      "index": "8", 
+      "label": "#e/#r#d#o-slm-#e", 
+      "paths": [
+        [
+          250.424, 
+          162.233, 
+          271.963, 
+          145.339, 
+          293.503, 
+          146.64, 
+          315.042, 
+          157.217
+        ], 
+        [
+          251.309, 
+          182.887, 
+          264.322, 
+          160.208, 
+          301.12, 
+          153.003, 
+          325.959, 
+          186.428
+        ]
+      ], 
+      "step": "slme"
+    }, 
+    {
+      "beats": "0.5", 
+      "desc": "#E Chasse", 
+      "duration": 2, 
+      "edge": "LFI", 
+      "index": "9", 
+      "label": "#e-Ch", 
+      "paths": [
+        [
+          332.155, 
+          182.887, 
+          335.295, 
+          185.32, 
+          338.136, 
+          186.708, 
+          342.778, 
+          194.395
+        ]
+      ], 
+      "step": "ch"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "RFI", 
+      "index": "10", 
+      "label": "#e", 
+      "paths": [
+        [
+          336.286, 
+          199.116, 
+          362.348, 
+          233.47, 
+          390.287, 
+          239.665, 
+          419.493, 
+          226.851
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "4", 
+      "desc": "#E Swing Roll", 
+      "duration": 16, 
+      "edge": "LFO", 
+      "index": "11", 
+      "label": "#e-swR", 
+      "paths": [
+        [
+          417.133, 
+          220.065, 
+          465.9, 
+          191.41, 
+          474.479, 
+          124.162, 
+          433.656, 
+          73.125
+        ]
+      ], 
+      "step": "swr"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "RFO", 
+      "index": "12", 
+      "label": "#e", 
+      "optional": "no", 
+      "paths": [
+        [
+          440.442, 
+          66.634, 
+          417.971, 
+          53.157, 
+          401.702, 
+          33.726, 
+          398.839, 
+          1.425
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Cross in Front onto #E Edge", 
+      "duration": 8, 
+      "edge": "RFO", 
+      "index": "12", 
+      "label": "XF-#e", 
+      "optional": "yes", 
+      "paths": [
+        [
+          422.149, 
+          77.551, 
+          402.599, 
+          55.249, 
+          398.039, 
+          28.911, 
+          398.839, 
+          1.13
+        ]
+      ], 
+      "step": "xf"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Cross Behind onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFI", 
+      "index": "13", 
+      "label": "XB-#e", 
+      "paths": [
+        [
+          404.15, 
+          0.245, 
+          406.566, 
+          -33.93, 
+          426.389, 
+          -60.956, 
+          448.114, 
+          -79.126
+        ]
+      ], 
+      "step": "xb"
+    }, 
+    {
+      "beats": "4", 
+      "desc": "#E Swing Roll", 
+      "duration": 16, 
+      "edge": "RFI", 
+      "index": "14", 
+      "label": "#e-swR", 
+      "paths": [
+        [
+          442.213, 
+          -82.077, 
+          483.625, 
+          -162.979, 
+          443.874, 
+          -210.927, 
+          404.648, 
+          -233.523
+        ]
+      ], 
+      "step": "swr"
+    }
+  ], 
+  "name": "Cha Cha", 
+  "patterns": {
+    "lady": {
+      "endComponent": 17, 
+      "startComponent": 0
+    }, 
+    "man": {
+      "endComponent": 17, 
+      "startComponent": 0
+    }
+  }, 
+  "patternsPerLap": 2, 
+  "timeSignatureBottom": 4, 
+  "timeSignatureTop": 4, 
+  "version": "2016"
+}

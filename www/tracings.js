@@ -187,18 +187,20 @@ $.widget('shawnpan.diagram', {
         ctx.stroke();
       }
 
-      //TODO currently assumes at least one path
-      ctx.textBaseline = 'middle';
-      if (position.label) {
-        //Draw label
-        ctx.fillStyle = 'rgb(0,0,255)';
-        DiagramUtils.drawTextOnPath(ctx, position.index + ' ' + position.label, path, 10);
+      if (position.paths.length) {
+        ctx.textBaseline = 'middle';
+        if (position.label) {
+          //Draw label
+          ctx.fillStyle = 'rgb(0,0,255)';
+          DiagramUtils.drawTextOnPath(ctx, position.index + ' ' + position.label, position.paths[0], 10);
+        }
+        if (position.beats) {
+          //Draw beats
+          ctx.fillStyle = 'rgb(255,0,0)';
+          DiagramUtils.drawTextOnPath(ctx, position.beats, position.paths[position.paths.length - 1], -10);
+        }
       }
-      if (position.beats) {
-        //Draw beats
-        ctx.fillStyle = 'rgb(255,0,0)';
-        DiagramUtils.drawTextOnPath(ctx, position.beats, path, -10);
-      }
+
       ctx.restore();
 
     }
