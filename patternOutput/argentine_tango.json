@@ -603,7 +603,7 @@
       "edge": "LFI", 
       "group": "23", 
       "index": "23", 
-      "label": "Sw-\"Tw1\"", 
+      "label": "Sw-\u201cTw1\u201d", 
       "paths": [
         [
           -335.753, 
@@ -1431,7 +1431,7 @@
     }, 
     {
       "beats": "", 
-      "desc": "Exit Swping Open Choctow", 
+      "desc": "Exit Swing Open Choctow", 
       "duration": 1, 
       "edge": "RBI", 
       "group": "23", 

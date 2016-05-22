@@ -16,77 +16,14 @@ EXT_CSV = ".csv"
 EXT_JSON = ".json"
 PATH_REGEX = re.compile("^\s*d=\"(.*)\"")
 
-STEP_LABEL = {
-  "": "#e",
-  "3": "#e3",
-  "3x": "",
-  "bk": "#e-bk",
-  "ce": "#e#o",
-  "cesw": "#e#o-sw",
-  "cex": "",
-  "ch": "#e-Ch",
-  "cr": "CR-#e",
-  "cr3": "CR-#e3",
-  "cr3x": "",
-  "crswr": "CR-#e-swR",
-  "e3": "#e3",
-  "e3x": "",
-  "opmo": "#e-opMo",
-  "opmox": "#e",
-  "pr": "#e",
-  "prx": "#e-Pr",
-  "s": "#e",
-  "slch": "#e-slCh",
-  "slm": "#e/#r#d#o-slm",
-  "slme": "#e/#r#d#o-slm-#e",
-  "swopcho": "Sw-opCho",
-  "swopchox": "",
-  "swr": "#e-swR",
-  "twl1": "Sw-\"Tw1\"",
-  "twl1.": "",
-  "ws": "#e-ws",
-  "xb": "XB-#e",
-  "xbce": "XB-#e#o",
-  "xbctr": "XB-#e-Ctr",
-  "xbctrx": "",
-  "xf": "XF-#e"
-}
-
-STEP_DESC = {
-  "": "Stroke onto #E Edge",
-  "3": "#E 3-turn",
-  "3x": "Exit 3-turn on #E Edge",
-  "bk": "Stroke onto #E Edge, Rise and Fall with Free Leg Back",
-  "ce": "Stroke onto #E Edge",
-  "cesw": "Stroke onto #E Edge, Swing",
-  "cex": "Change to #O Edge",
-  "ch": "#E Chasse",
-  "cr": "Cross Roll onto #E Edge",
-  "cr3": "Cross Roll into a #E 3-turn",
-  "cr3x": "Exit 3-turn on #E Edge",
-  "crswr": "Cross Roll onto #E Edge, Swing",
-  "e3": "European 3-turn: #E",
-  "e3x": "European 3-turn (exit): #E",
-  "opmo": "#E Open Mohawk",
-  "opmox": "Exit Open Mohawk on #E Edge",
-  "pr": "Progressive: Stroke onto #E Edge",
-  "prx": "Progressive: Cross onto #E Edge",
-  "s": "Step Briefly on #E Edge",
-  "slch": "#E Slide Chasse",
-  "slm": "#E / #R #D #O Slalom",
-  "slme": "#E / #R #D #O Slalom, Push onto #E Edge ",
-  "swopcho": "Swing Open Choctow",
-  "swopchox": "Exit Swping Open Choctow",
-  "swr": "#E Swing Roll",
-  "twl1": "Twizzle Like Motion",
-  "twl1.": "Twizzle Like Motion",
-  "ws": "Wide Step onto #E Edge",
-  "xb": "Cross Behind onto #E Edge",
-  "xbce": "Cross Behind onto #O Edge",
-  "xbctr": "Cross Behind into a #E Counter",
-  "xbctrx": "Exit Counter On #E Edge",
-  "xf": "Cross in Front onto #E Edge"
-}
+#Load step label and descriptions
+stepLabel = {}
+stepDesc = {}
+with open(os.path.join(INPUT_DIRECTORY, "0_steps.csv"), "r") as stepsFile:
+  reader = csv.DictReader(stepsFile)
+  for row in reader:
+    stepLabel[row["code"]] = row["label"]
+    stepDesc[row["code"]] = row["desc"]
 
 class PointF:
   """Ordered pair of floats. May represent a point or a vector"""
@@ -226,10 +163,10 @@ def extractStepsFromCSV(fileHandle, processedPaths):
       row["duration"] = int(row["duration"])
     #Create labels
     if (not row["label"]):
-      row["label"] = STEP_LABEL[row["step"]]
+      row["label"] = stepLabel[row["step"]]
     #Create descriptions
     if (not row["desc"]):
-      row["desc"] = STEP_DESC[row["step"]]
+      row["desc"] = stepDesc[row["step"]]
     #Add paths
     componentPaths = []
     pathCount = row.pop("pathCount")
