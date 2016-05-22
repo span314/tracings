@@ -1,0 +1,12 @@
+{
+  "name": "Finnstep",
+  "version": "2016",
+  "timeSignatureTop": 2,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 104,
+  "patternsPerLap": 1,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 5},
+  	"man": {"startComponent": 0, "endComponent": 98}
+  }
+}
