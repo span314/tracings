@@ -3,11 +3,9 @@
   "components": [
     {
       "beats": "1", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "1", 
-      "label": "#e", 
       "paths": [
         [
           -429.426, 
@@ -24,11 +22,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "2", 
-      "label": "#e-Ch", 
       "paths": [
         [
           -384.665, 
@@ -45,11 +41,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "index": "3", 
-      "label": "#e", 
       "paths": [
         [
           -333.199, 
@@ -66,11 +60,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "4", 
-      "label": "#e", 
       "paths": [
         [
           -273.451, 
@@ -87,11 +79,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "5", 
-      "label": "#e-Ch", 
       "paths": [
         [
           -247.476, 
@@ -108,11 +98,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "index": "6", 
-      "label": "#e", 
       "paths": [
         [
           -193.146, 
@@ -129,12 +117,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "7", 
-      "label": "#e", 
       "paths": [
         [
           -120.975, 
@@ -151,12 +137,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
       "index": "8", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -89.031, 
@@ -173,12 +157,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "9", 
-      "label": "#e", 
       "paths": [
         [
           -40.67, 
@@ -195,11 +177,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "10", 
-      "label": "CR-#e", 
       "paths": [
         [
           22.332, 
@@ -216,11 +196,9 @@
     }, 
     {
       "beats": "3", 
-      "desc": "#E Slide Chasse", 
       "duration": 12, 
       "edge": "LFI", 
       "index": "11", 
-      "label": "#e-slCh", 
       "paths": [
         [
           31.649, 
@@ -237,12 +215,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "pr2", 
       "index": "12", 
-      "label": "#e", 
       "paths": [
         [
           145.673, 
@@ -259,12 +235,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "pr2", 
       "index": "13", 
-      "label": "#e-Pr", 
       "paths": [
         [
           193.442, 
@@ -281,12 +255,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "pr2", 
       "index": "14", 
-      "label": "#e", 
       "paths": [
         [
           231.598, 
@@ -303,11 +275,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "15", 
-      "label": "CR-#e", 
       "paths": [
         [
           274.634, 
@@ -324,11 +294,9 @@
     }, 
     {
       "beats": "3", 
-      "desc": "#E Slide Chasse", 
       "duration": 12, 
       "edge": "RFI", 
       "index": "16", 
-      "label": "#e-slCh", 
       "paths": [
         [
           297.114, 
@@ -345,12 +313,10 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "#E 3-turn", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "3", 
       "index": "17", 
-      "label": "#e3", 
       "paths": [
         [
           395.314, 
@@ -367,12 +333,10 @@
     }, 
     {
       "beats": "", 
-      "desc": "Exit 3-turn on #E Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "3", 
       "index": "", 
-      "label": "", 
       "paths": [
         [
           430.728, 
@@ -389,11 +353,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RBO", 
       "index": "18", 
-      "label": "#e-swR", 
       "paths": [
         [
           451.66, 
@@ -410,11 +372,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "index": "19", 
-      "label": "#e", 
       "paths": [
         [
           381.56, 
@@ -431,11 +391,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
       "index": "20", 
-      "label": "#e-swR", 
       "paths": [
         [
           329.946, 
@@ -452,11 +410,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "21a", 
-      "label": "#e", 
       "paths": [
         [
           402.856, 
@@ -473,11 +429,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "21b", 
-      "label": "#e-Ch", 
       "paths": [
         [
           443.97, 
@@ -494,12 +448,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr3", 
       "index": "22", 
-      "label": "#e", 
       "paths": [
         [
           454.174, 
@@ -516,12 +468,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr3", 
       "index": "23", 
-      "label": "#e-Pr", 
       "paths": [
         [
           459.942, 
@@ -538,11 +488,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "1", 
-      "label": "#e", 
       "paths": [
         [
           427.11, 
@@ -559,11 +507,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "2", 
-      "label": "#e-Ch", 
       "paths": [
         [
           386.884, 
@@ -580,11 +526,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "index": "3", 
-      "label": "#e", 
       "paths": [
         [
           333.791, 
@@ -601,11 +545,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "4", 
-      "label": "#e", 
       "paths": [
         [
           271.824, 
@@ -622,11 +564,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "5", 
-      "label": "#e-Ch", 
       "paths": [
         [
           245.795, 
@@ -643,11 +583,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "index": "6", 
-      "label": "#e", 
       "paths": [
         [
           191.815, 
@@ -664,12 +602,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "7", 
-      "label": "#e", 
       "paths": [
         [
           119.053, 
@@ -686,12 +622,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
       "index": "8", 
-      "label": "#e-Pr", 
       "paths": [
         [
           87.7, 
@@ -708,12 +642,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "9", 
-      "label": "#e", 
       "paths": [
         [
           38.895, 
@@ -730,11 +662,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "10", 
-      "label": "CR-#e", 
       "paths": [
         [
           -25.881, 
@@ -751,11 +681,9 @@
     }, 
     {
       "beats": "3", 
-      "desc": "#E Slide Chasse", 
       "duration": 12, 
       "edge": "LFI", 
       "index": "11", 
-      "label": "#e-slCh", 
       "paths": [
         [
           -39.599, 
@@ -772,12 +700,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "pr2", 
       "index": "12", 
-      "label": "#e", 
       "paths": [
         [
           -147.596, 
@@ -794,12 +720,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "pr2", 
       "index": "13", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -194.034, 
@@ -816,12 +740,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "pr2", 
       "index": "14", 
-      "label": "#e", 
       "paths": [
         [
           -232.485, 
@@ -838,11 +760,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross Roll onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "15", 
-      "label": "CR-#e", 
       "paths": [
         [
           -275.67, 
@@ -859,11 +779,9 @@
     }, 
     {
       "beats": "3", 
-      "desc": "#E Slide Chasse", 
       "duration": 12, 
       "edge": "RFI", 
       "index": "16", 
-      "label": "#e-slCh", 
       "paths": [
         [
           -298.445, 
@@ -880,11 +798,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "17a", 
-      "label": "#e", 
       "paths": [
         [
           -395.314, 
@@ -901,11 +817,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "17b", 
-      "label": "#e-Ch", 
       "paths": [
         [
           -438.794, 
@@ -922,11 +836,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LFO", 
       "index": "18", 
-      "label": "#e-swR", 
       "paths": [
         [
           -450.625, 
@@ -943,12 +855,10 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "#E 3-turn", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "3", 
       "index": "19", 
-      "label": "#e3", 
       "paths": [
         [
           -370.764, 
@@ -965,12 +875,10 @@
     }, 
     {
       "beats": "", 
-      "desc": "Exit 3-turn on #E Edge", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "3", 
       "index": "", 
-      "label": "", 
       "paths": [
         [
           -344.049, 
@@ -987,11 +895,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LBO", 
       "index": "20", 
-      "label": "#e-swR", 
       "paths": [
         [
           -321.96, 
@@ -1008,11 +914,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "index": "21", 
-      "label": "#e", 
       "paths": [
         [
           -397.532, 
@@ -1029,12 +933,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr3", 
       "index": "22", 
-      "label": "#e", 
       "paths": [
         [
           -455.949, 
@@ -1051,12 +953,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr3", 
       "index": "23", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -458.02, 
@@ -1084,6 +984,44 @@
     }
   }, 
   "patternsPerLap": 2, 
+  "steps": {
+    "": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "3": {
+      "desc": "#E 3-turn", 
+      "label": "#e3"
+    }, 
+    "3x": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
+    }, 
+    "ch": {
+      "desc": "#E Chasse", 
+      "label": "#e-Ch"
+    }, 
+    "cr": {
+      "desc": "Cross Roll onto #E Edge", 
+      "label": "CR-#e"
+    }, 
+    "pr": {
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "prx": {
+      "desc": "Progressive: Cross onto #E Edge", 
+      "label": "#e-Pr"
+    }, 
+    "slch": {
+      "desc": "#E Slide Chasse", 
+      "label": "#e-slCh"
+    }, 
+    "swr": {
+      "desc": "#E Swing Roll", 
+      "label": "#e-swR"
+    }
+  }, 
   "timeSignatureBottom": 4, 
   "timeSignatureTop": 4, 
   "version": "2016"

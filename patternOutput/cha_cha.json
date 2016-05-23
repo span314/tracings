@@ -3,12 +3,10 @@
   "components": [
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "1", 
-      "label": "#e", 
       "paths": [
         [
           -395.835, 
@@ -25,12 +23,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "pr1", 
       "index": "2", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -319.632, 
@@ -47,11 +43,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "3", 
-      "label": "#e", 
       "paths": [
         [
           -266.521, 
@@ -68,11 +62,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "4", 
-      "label": "#e-Ch", 
       "paths": [
         [
           -250.883, 
@@ -89,11 +81,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Wide Step onto #E Edge", 
       "duration": 8, 
       "edge": "LFI", 
       "index": "5", 
-      "label": "#e-ws", 
       "paths": [
         [
           -232.295, 
@@ -110,11 +100,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Stroke onto #E Edge, Rise and Fall with Free Leg Back", 
       "duration": 16, 
       "edge": "RFO", 
       "index": "6", 
-      "label": "#e-bk", 
       "paths": [
         [
           -148.202, 
@@ -131,12 +119,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E / #R #D #O Slalom", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "s", 
       "index": "7", 
-      "label": "#e/#r#d#o-slm", 
       "paths": [
         [
           -16.163, 
@@ -163,12 +149,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E / #R #D #O Slalom", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "s", 
       "index": "", 
-      "label": "#e/#r#d#o-slm", 
       "paths": [
         [
           71.027, 
@@ -195,12 +179,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "#E / #R #D #O Slalom", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "s", 
       "index": "", 
-      "label": "#e/#r#d#o-slm", 
       "paths": [
         [
           174.298, 
@@ -227,12 +209,10 @@
     }, 
     {
       "beats": "1.5", 
-      "desc": "#E / #R #D #O Slalom, Push onto #E Edge", 
       "duration": 6, 
       "edge": "RFO", 
       "group": "s", 
       "index": "8", 
-      "label": "#e/#r#d#o-slm-#e", 
       "paths": [
         [
           250.424, 
@@ -259,11 +239,9 @@
     }, 
     {
       "beats": "0.5", 
-      "desc": "#E Chasse", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "9", 
-      "label": "#e-Ch", 
       "paths": [
         [
           332.155, 
@@ -280,11 +258,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "index": "10", 
-      "label": "#e", 
       "paths": [
         [
           336.286, 
@@ -301,11 +277,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LFO", 
       "index": "11", 
-      "label": "#e-swR", 
       "paths": [
         [
           417.133, 
@@ -322,11 +296,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "index": "12", 
-      "label": "#e", 
       "optional": "no", 
       "paths": [
         [
@@ -344,11 +316,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Cross in Front onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "index": "12", 
-      "label": "XF-#e", 
       "optional": "yes", 
       "paths": [
         [
@@ -366,11 +336,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Cross Behind onto #E Edge", 
       "duration": 8, 
       "edge": "LFI", 
       "index": "13", 
-      "label": "XB-#e", 
       "paths": [
         [
           404.15, 
@@ -387,11 +355,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFI", 
       "index": "14", 
-      "label": "#e-swR", 
       "paths": [
         [
           442.213, 
@@ -419,6 +385,52 @@
     }
   }, 
   "patternsPerLap": 2, 
+  "steps": {
+    "": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "bk": {
+      "desc": "Stroke onto #E Edge, Rise and Fall with Free Leg Back", 
+      "label": "#e-bk"
+    }, 
+    "ch": {
+      "desc": "#E Chasse", 
+      "label": "#e-Ch"
+    }, 
+    "pr": {
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "prx": {
+      "desc": "Progressive: Cross onto #E Edge", 
+      "label": "#e-Pr"
+    }, 
+    "slm": {
+      "desc": "#E / #R #D #O Slalom", 
+      "label": "#e/#r#d#o-slm"
+    }, 
+    "slme": {
+      "desc": "#E / #R #D #O Slalom, Push onto #E Edge", 
+      "label": "#e/#r#d#o-slm-#e"
+    }, 
+    "swr": {
+      "desc": "#E Swing Roll", 
+      "label": "#e-swR"
+    }, 
+    "ws": {
+      "desc": "Wide Step onto #E Edge", 
+      "label": "#e-ws"
+    }, 
+    "xb": {
+      "desc": "Cross Behind onto #E Edge", 
+      "label": "XB-#e"
+    }, 
+    "xf": {
+      "desc": "Cross in Front onto #E Edge", 
+      "label": "XF-#e"
+    }
+  }, 
   "timeSignatureBottom": 4, 
   "timeSignatureTop": 4, 
   "version": "2016"

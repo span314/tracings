@@ -429,11 +429,12 @@ DiagramUtils.resolveParams = function(edgeCode, label) {
 };
 
 DiagramUtils.processComponentParams = function(dance) {
-  var i, component;
+  var i, component, step;
   for (i = 0; i < dance.components.length; i++) {
     component = dance.components[i];
-    component.label = DiagramUtils.resolveParams(component.edge, component.label);
-    component.desc = DiagramUtils.resolveParams(component.edge, component.desc);
+    step = dance.steps[component.step];
+    component.label = DiagramUtils.resolveParams(component.edge, step.label);
+    component.desc = DiagramUtils.resolveParams(component.edge, step.desc);
   }
 };
 

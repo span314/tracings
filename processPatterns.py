@@ -161,12 +161,14 @@ def extractStepsFromCSV(fileHandle, processedPaths):
       row["duration"] = 4 * int(row["beats"])
     else:
       row["duration"] = int(row["duration"])
-    #Create labels
-    if (not row["label"]):
-      row["label"] = stepLabel[row["step"]]
-    #Create descriptions
-    if (not row["desc"]):
-      row["desc"] = stepDesc[row["step"]]
+    # #Create labels
+    # if (not row["label"]):
+    #   row["label"] = stepLabel[row["step"]]
+    # #Create descriptions
+    # if (not row["desc"]):
+    #   row["desc"] = stepDesc[row["step"]]
+    row.pop("label")
+    row.pop("desc")
     #Add paths
     componentPaths = []
     pathCount = row.pop("pathCount")
@@ -185,6 +187,14 @@ def extractStepsFromCSV(fileHandle, processedPaths):
       row.pop("group")
     components.append(row)
   return components
+
+def createStepList(components):
+  steps = {}
+  for component in components:
+    step = component["step"]
+    if step not in steps:
+      steps[step] = {"label": stepLabel[step], "desc": stepDesc[step]}
+  return steps
 
 #Main
 for file in os.listdir(INPUT_DIRECTORY):
@@ -206,7 +216,9 @@ for file in os.listdir(INPUT_DIRECTORY):
 
     #Extract steps from csv
     with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_CSV), "r") as csvFile:
-      danceData["components"] = extractStepsFromCSV(csvFile, processedPaths)
+      components = extractStepsFromCSV(csvFile, processedPaths)
+      danceData["components"] = components
+      danceData["steps"] = createStepList(components)
 
     #Output files
     with open(os.path.join(OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:

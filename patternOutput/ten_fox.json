@@ -3,12 +3,10 @@
   "components": [
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "pr1", 
       "index": "1", 
-      "label": "#e", 
       "paths": [
         [
           442.876, 
@@ -25,12 +23,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "pr1", 
       "index": "2", 
-      "label": "#e-Pr", 
       "paths": [
         [
           406.069, 
@@ -47,12 +43,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "pr1", 
       "index": "3", 
-      "label": "#e", 
       "paths": [
         [
           367.467, 
@@ -69,11 +63,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LBO", 
       "index": "4a", 
-      "label": "#e-swR", 
       "paths": [
         [
           290.861, 
@@ -90,11 +82,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "index": "4b", 
-      "label": "#e", 
       "paths": [
         [
           136.753, 
@@ -111,12 +101,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr2", 
       "index": "5", 
-      "label": "#e", 
       "paths": [
         [
           86.48, 
@@ -133,12 +121,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
       "index": "6", 
-      "label": "#e-Pr", 
       "paths": [
         [
           50.572, 
@@ -155,12 +141,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
       "index": "7", 
-      "label": "#e", 
       "paths": [
         [
           14.364, 
@@ -177,11 +161,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Stroke onto #E Edge, Rise and Fall with Free Leg Back", 
       "duration": 16, 
       "edge": "RFO", 
       "index": "8", 
-      "label": "#e-bk", 
       "paths": [
         [
           -35.011, 
@@ -198,12 +180,10 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "#E 3-turn", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "3", 
       "index": "9", 
-      "label": "#e3", 
       "paths": [
         [
           -199.294, 
@@ -220,12 +200,10 @@
     }, 
     {
       "beats": "", 
-      "desc": "Exit 3-turn on #E Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "3", 
       "index": "", 
-      "label": "", 
       "paths": [
         [
           -234.305, 
@@ -242,12 +220,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "pr3", 
       "index": "10", 
-      "label": "#e", 
       "paths": [
         [
           -267.222, 
@@ -264,12 +240,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "pr3", 
       "index": "11", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -304.327, 
@@ -286,12 +260,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "pr3", 
       "index": "12", 
-      "label": "#e", 
       "paths": [
         [
           -344.126, 
@@ -308,12 +280,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr4", 
       "index": "13", 
-      "label": "#e", 
       "paths": [
         [
           -409.361, 
@@ -330,12 +300,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr4", 
       "index": "14", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -434.497, 
@@ -352,12 +320,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr5", 
       "index": "15", 
-      "label": "#e", 
       "paths": [
         [
           -449.459, 
@@ -374,12 +340,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr5", 
       "index": "16", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -468.61, 
@@ -396,12 +360,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Open Mohawk", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "m", 
       "index": "17", 
-      "label": "#e-opMo", 
       "paths": [
         [
           -467.712, 
@@ -418,12 +380,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Exit Open Mohawk on #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "m", 
       "index": "18", 
-      "label": "#e", 
       "paths": [
         [
           -479.682, 
@@ -440,11 +400,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LBI", 
       "index": "19", 
-      "label": "#e", 
       "paths": [
         [
           -469.807, 
@@ -461,12 +419,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "1", 
-      "label": "#e", 
       "paths": [
         [
           -447.065, 
@@ -483,12 +439,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
       "index": "2", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -409.959, 
@@ -505,12 +459,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "3", 
-      "label": "#e", 
       "paths": [
         [
           -370.459, 
@@ -527,11 +479,9 @@
     }, 
     {
       "beats": "4+2", 
-      "desc": "Stroke onto #E Edge, Swing", 
       "duration": 16, 
       "edge": "RFO", 
       "index": "4", 
-      "label": "#e#o-sw", 
       "paths": [
         [
           -295.799, 
@@ -548,11 +498,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Change to #O Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "index": "", 
-      "label": "", 
       "paths": [
         [
           -140.044, 
@@ -569,12 +517,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr2", 
       "index": "5", 
-      "label": "#e", 
       "paths": [
         [
           -90.371, 
@@ -591,12 +537,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
       "index": "6", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -53.863, 
@@ -613,12 +557,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
       "index": "7", 
-      "label": "#e", 
       "paths": [
         [
           -17.954, 
@@ -635,12 +577,10 @@
     }, 
     {
       "beats": "1+1", 
-      "desc": "#E 3-turn", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "3", 
       "index": "8a", 
-      "label": "#e3", 
       "paths": [
         [
           31.121, 
@@ -657,12 +597,10 @@
     }, 
     {
       "beats": "", 
-      "desc": "Exit 3-turn on #E Edge", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "3", 
       "index": "", 
-      "label": "", 
       "paths": [
         [
           64.935, 
@@ -679,11 +617,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "index": "8b", 
-      "label": "#e", 
       "paths": [
         [
           106.23, 
@@ -700,11 +636,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBO", 
       "index": "9", 
-      "label": "#e", 
       "paths": [
         [
           191.214, 
@@ -721,12 +655,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr3", 
       "index": "10", 
-      "label": "#e", 
       "paths": [
         [
           263.032, 
@@ -743,12 +675,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr3", 
       "index": "11", 
-      "label": "#e-Pr", 
       "paths": [
         [
           299.839, 
@@ -765,12 +695,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr3", 
       "index": "12", 
-      "label": "#e", 
       "paths": [
         [
           339.937, 
@@ -787,12 +715,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Open Mohawk", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "m", 
       "index": "13", 
-      "label": "#e-opMo", 
       "paths": [
         [
           404.872, 
@@ -809,12 +735,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Exit Open Mohawk on #E Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "m", 
       "index": "14", 
-      "label": "#e", 
       "paths": [
         [
           416.243, 
@@ -831,12 +755,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "pr4", 
       "index": "15", 
-      "label": "#e", 
       "paths": [
         [
           444.671, 
@@ -853,12 +775,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "pr4", 
       "index": "16", 
-      "label": "#e-Pr", 
       "paths": [
         [
           463.822, 
@@ -875,11 +795,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "index": "17", 
-      "label": "#e", 
       "paths": [
         [
           465.618, 
@@ -896,11 +814,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Cross in Front onto #E Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "index": "18", 
-      "label": "XF-#e", 
       "paths": [
         [
           462.925, 
@@ -917,11 +833,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "index": "19", 
-      "label": "#e", 
       "paths": [
         [
           465.019, 
@@ -949,6 +863,56 @@
     }
   }, 
   "patternsPerLap": 2, 
+  "steps": {
+    "": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "3": {
+      "desc": "#E 3-turn", 
+      "label": "#e3"
+    }, 
+    "3x": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
+    }, 
+    "bk": {
+      "desc": "Stroke onto #E Edge, Rise and Fall with Free Leg Back", 
+      "label": "#e-bk"
+    }, 
+    "cesw": {
+      "desc": "Stroke onto #E Edge, Swing", 
+      "label": "#e#o-sw"
+    }, 
+    "cex": {
+      "desc": "Change to #O Edge", 
+      "label": ""
+    }, 
+    "opmo": {
+      "desc": "#E Open Mohawk", 
+      "label": "#e-opMo"
+    }, 
+    "opmox": {
+      "desc": "Exit Open Mohawk on #E Edge", 
+      "label": "#e"
+    }, 
+    "pr": {
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "prx": {
+      "desc": "Progressive: Cross onto #E Edge", 
+      "label": "#e-Pr"
+    }, 
+    "swr": {
+      "desc": "#E Swing Roll", 
+      "label": "#e-swR"
+    }, 
+    "xf": {
+      "desc": "Cross in Front onto #E Edge", 
+      "label": "XF-#e"
+    }
+  }, 
   "timeSignatureBottom": 4, 
   "timeSignatureTop": 4, 
   "version": "2016"

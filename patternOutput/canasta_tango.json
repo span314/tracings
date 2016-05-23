@@ -3,12 +3,10 @@
   "components": [
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "1", 
-      "label": "#e", 
       "paths": [
         [
           -256.515, 
@@ -25,12 +23,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
       "index": "2", 
-      "label": "#e-Pr", 
       "paths": [
         [
           -293.498, 
@@ -47,12 +43,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
       "index": "3", 
-      "label": "#e", 
       "paths": [
         [
           -287.304, 
@@ -69,11 +63,9 @@
     }, 
     {
       "beats": "1", 
-      "desc": "#E Chasse", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "4", 
-      "label": "#e-Ch", 
       "paths": [
         [
           -271.379, 
@@ -90,11 +82,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "LFO", 
       "index": "5", 
-      "label": "#e-swR", 
       "paths": [
         [
           -236.166, 
@@ -111,11 +101,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFO", 
       "index": "6", 
-      "label": "#e", 
       "paths": [
         [
           -103.985, 
@@ -132,11 +120,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "#E Slide Chasse", 
       "duration": 8, 
       "edge": "LFI", 
       "index": "7", 
-      "label": "#e-slCh", 
       "paths": [
         [
           -74.257, 
@@ -153,11 +139,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
       "index": "8", 
-      "label": "#e-swR", 
       "paths": [
         [
           0.239, 
@@ -174,11 +158,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "index": "9", 
-      "label": "#e", 
       "paths": [
         [
           115.433, 
@@ -195,11 +177,9 @@
     }, 
     {
       "beats": "2", 
-      "desc": "#E Slide Chasse", 
       "duration": 8, 
       "edge": "RFI", 
       "index": "10", 
-      "label": "#e-slCh", 
       "paths": [
         [
           152.592, 
@@ -216,12 +196,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr2", 
       "index": "11", 
-      "label": "#e", 
       "paths": [
         [
           236.289, 
@@ -238,12 +216,10 @@
     }, 
     {
       "beats": "1", 
-      "desc": "Progressive: Cross onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
       "index": "12", 
-      "label": "#e-Pr", 
       "paths": [
         [
           276.457, 
@@ -260,12 +236,10 @@
     }, 
     {
       "beats": "2", 
-      "desc": "Progressive: Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
       "index": "13", 
-      "label": "#e", 
       "paths": [
         [
           292.028, 
@@ -282,11 +256,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "#E Swing Roll", 
       "duration": 16, 
       "edge": "RFO", 
       "index": "14", 
-      "label": "#e-swR", 
       "optional": "no", 
       "paths": [
         [
@@ -304,11 +276,9 @@
     }, 
     {
       "beats": "4", 
-      "desc": "Cross Roll onto #E Edge", 
       "duration": 16, 
       "edge": "RFO", 
       "index": "14", 
-      "label": "CR-#e", 
       "optional": "yes", 
       "paths": [
         [
@@ -337,6 +307,36 @@
     }
   }, 
   "patternsPerLap": 2, 
+  "steps": {
+    "": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "ch": {
+      "desc": "#E Chasse", 
+      "label": "#e-Ch"
+    }, 
+    "cr": {
+      "desc": "Cross Roll onto #E Edge", 
+      "label": "CR-#e"
+    }, 
+    "pr": {
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "prx": {
+      "desc": "Progressive: Cross onto #E Edge", 
+      "label": "#e-Pr"
+    }, 
+    "slch": {
+      "desc": "#E Slide Chasse", 
+      "label": "#e-slCh"
+    }, 
+    "swr": {
+      "desc": "#E Swing Roll", 
+      "label": "#e-swR"
+    }
+  }, 
   "timeSignatureBottom": 4, 
   "timeSignatureTop": 4, 
   "version": "2016"

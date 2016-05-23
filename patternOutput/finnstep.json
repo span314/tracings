@@ -3,11 +3,9 @@
   "components": [
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "1", 
-      "label": "#e", 
       "paths": [
         [
           451.435, 
@@ -24,11 +22,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "2", 
-      "label": "#e", 
       "paths": [
         [
           443.339, 
@@ -45,11 +41,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "3", 
-      "label": "#e", 
       "paths": [
         [
           446.868, 
@@ -66,11 +60,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "4", 
-      "label": "#e", 
       "paths": [
         [
           448.944, 
@@ -87,11 +79,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "5", 
-      "label": "#e", 
       "paths": [
         [
           441.678, 
@@ -108,11 +98,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "6", 
-      "label": "#e", 
       "paths": [
         [
           426.732, 
@@ -129,11 +117,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "7", 
-      "label": "#e", 
       "paths": [
         [
           433.582, 
@@ -150,11 +136,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           421.957, 
@@ -171,11 +155,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "8", 
-      "label": "#e", 
       "paths": [
         [
           407.218, 
@@ -192,11 +174,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           389.158, 
@@ -213,11 +193,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "9", 
-      "label": "#e", 
       "paths": [
         [
           377.74, 
@@ -234,11 +212,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           354.905, 
@@ -255,11 +231,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "10", 
-      "label": "#e", 
       "paths": [
         [
           333.523, 
@@ -276,11 +250,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "11", 
-      "label": "#e", 
       "paths": [
         [
           315.774, 
@@ -297,11 +269,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "12", 
-      "label": "#e", 
       "paths": [
         [
           292.939, 
@@ -318,11 +288,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           269.585, 
@@ -359,11 +327,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "13", 
-      "label": "#e", 
       "paths": [
         [
           242.183, 
@@ -380,11 +346,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBI", 
       "index": "14", 
-      "label": "#e", 
       "paths": [
         [
           216.65, 
@@ -401,11 +365,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "15", 
-      "label": "#e", 
       "paths": [
         [
           193.607, 
@@ -422,11 +384,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           169.63, 
@@ -443,11 +403,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "16", 
-      "label": "#e", 
       "paths": [
         [
           149.39, 
@@ -464,11 +422,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "17", 
-      "label": "#e", 
       "paths": [
         [
           129.98, 
@@ -485,11 +441,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "18", 
-      "label": "#e", 
       "paths": [
         [
           118.563, 
@@ -506,11 +460,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           111.712, 
@@ -527,11 +479,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "19", 
-      "label": "#e", 
       "paths": [
         [
           102.371, 
@@ -548,11 +498,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 6, 
       "edge": "RFO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           74.865, 
@@ -569,11 +517,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           24.317, 
@@ -590,11 +536,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           7.813, 
@@ -611,11 +555,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LBO", 
       "index": "20", 
-      "label": "#e", 
       "paths": [
         [
           -1.425, 
@@ -632,11 +574,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBI", 
       "index": "21", 
-      "label": "#e", 
       "paths": [
         [
           -56.229, 
@@ -653,11 +593,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -117.364, 
@@ -674,11 +612,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -131.273, 
@@ -695,11 +631,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -146.012, 
@@ -716,11 +650,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "22", 
-      "label": "#e", 
       "paths": [
         [
           -205.798, 
@@ -737,11 +669,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "23", 
-      "label": "#e", 
       "paths": [
         [
           -242.438, 
@@ -758,11 +688,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "24", 
-      "label": "#e", 
       "paths": [
         [
           -280.012, 
@@ -779,11 +707,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "25", 
-      "label": "#e", 
       "paths": [
         [
           -303.573, 
@@ -800,11 +726,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "26", 
-      "label": "#e", 
       "paths": [
         [
           -318.001, 
@@ -821,11 +745,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "27", 
-      "label": "#e", 
       "paths": [
         [
           -322.983, 
@@ -842,11 +764,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "28", 
-      "label": "#e", 
       "paths": [
         [
           -371.352, 
@@ -863,11 +783,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "29", 
-      "label": "#e", 
       "paths": [
         [
           -391.903, 
@@ -884,11 +802,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "30", 
-      "label": "#e", 
       "paths": [
         [
           -410.69, 
@@ -905,11 +821,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "31", 
-      "label": "#e", 
       "paths": [
         [
           -461.55, 
@@ -926,11 +840,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LFO", 
       "index": "32", 
-      "label": "#e", 
       "paths": [
         [
           -482.413, 
@@ -957,11 +869,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RBI", 
       "index": "33", 
-      "label": "#e", 
       "paths": [
         [
           -396.782, 
@@ -978,11 +888,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -323.796, 
@@ -999,11 +907,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -305.674, 
@@ -1020,11 +926,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -302.156, 
@@ -1041,11 +945,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -299.082, 
@@ -1062,11 +964,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "L", 
       "index": "34", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1083,11 +983,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "R", 
       "index": "35", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1104,11 +1002,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "L", 
       "index": "36", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1125,11 +1021,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "37a", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1146,11 +1040,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "37b", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1167,11 +1059,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "37c", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1188,11 +1078,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "L", 
       "index": "38", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1209,11 +1097,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "39", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1230,11 +1116,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "L", 
       "index": "40", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1251,11 +1135,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "41", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1272,11 +1154,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R+L", 
       "index": "42", 
-      "label": "#e", 
       "paths": [
         [
           -270.151, 
@@ -1293,11 +1173,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "L", 
       "index": "43", 
-      "label": "#e", 
       "paths": [
         [
           -265.999, 
@@ -1314,11 +1192,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "44", 
-      "label": "#e", 
       "paths": [
         [
           -250.845, 
@@ -1335,11 +1211,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "45", 
-      "label": "#e", 
       "paths": [
         [
           -245.448, 
@@ -1356,11 +1230,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "46", 
-      "label": "#e", 
       "paths": [
         [
           -229.048, 
@@ -1377,11 +1249,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "47", 
-      "label": "#e", 
       "paths": [
         [
           -204.137, 
@@ -1398,11 +1268,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "48", 
-      "label": "#e", 
       "paths": [
         [
           -169.885, 
@@ -1419,11 +1287,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "49", 
-      "label": "#e", 
       "paths": [
         [
           -152.655, 
@@ -1440,11 +1306,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "50", 
-      "label": "#e", 
       "paths": [
         [
           -134.387, 
@@ -1461,11 +1325,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "51", 
-      "label": "#e", 
       "paths": [
         [
           -115.185, 
@@ -1482,11 +1344,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "52", 
-      "label": "#e", 
       "paths": [
         [
           -95.671, 
@@ -1503,11 +1363,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBI", 
       "index": "53", 
-      "label": "#e", 
       "paths": [
         [
           -76.469, 
@@ -1524,11 +1382,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "54", 
-      "label": "#e", 
       "paths": [
         [
           -48.859, 
@@ -1555,11 +1411,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBO", 
       "index": "55", 
-      "label": "#e", 
       "paths": [
         [
           -27.27, 
@@ -1576,11 +1430,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "56", 
-      "label": "#e", 
       "paths": [
         [
           -8.379, 
@@ -1597,11 +1449,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           13.003, 
@@ -1618,11 +1468,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "57", 
-      "label": "#e", 
       "paths": [
         [
           27.119, 
@@ -1639,11 +1487,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "58", 
-      "label": "#e", 
       "paths": [
         [
           44.141, 
@@ -1660,11 +1506,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LFI", 
       "index": "59", 
-      "label": "#e", 
       "paths": [
         [
           59.607, 
@@ -1681,11 +1525,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           73.642, 
@@ -1702,11 +1544,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "RBI", 
       "index": "60", 
-      "label": "#e", 
       "paths": [
         [
           68.014, 
@@ -1723,11 +1563,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "RBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           78.459, 
@@ -1744,11 +1582,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "61", 
-      "label": "#e", 
       "paths": [
         [
           89.5, 
@@ -1775,11 +1611,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "62", 
-      "label": "#e", 
       "paths": [
         [
           110.363, 
@@ -1796,11 +1630,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LBI", 
       "index": "63", 
-      "label": "#e", 
       "paths": [
         [
           128.008, 
@@ -1817,11 +1649,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           140.879, 
@@ -1838,11 +1668,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           217.442, 
@@ -1859,11 +1687,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFI", 
       "index": "64", 
-      "label": "#e", 
       "paths": [
         [
           236.371, 
@@ -1890,11 +1716,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "index": "65", 
-      "label": "#e", 
       "paths": [
         [
           288.061, 
@@ -1911,11 +1735,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           320.84, 
@@ -1932,11 +1754,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           364.832, 
@@ -1953,11 +1773,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           373.282, 
@@ -1974,11 +1792,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           382.123, 
@@ -1995,11 +1811,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LFO", 
       "index": "66", 
-      "label": "#e", 
       "paths": [
         [
           393.206, 
@@ -2016,11 +1830,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "RFI", 
       "index": "67", 
-      "label": "#e", 
       "paths": [
         [
           406.284, 
@@ -2037,11 +1849,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "68", 
-      "label": "#e", 
       "paths": [
         [
           412.304, 
@@ -2058,11 +1868,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "69", 
-      "label": "#e", 
       "paths": [
         [
           433.894, 
@@ -2079,11 +1887,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "70", 
-      "label": "#e", 
       "paths": [
         [
           445.83, 
@@ -2100,11 +1906,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "1", 
-      "label": "#e", 
       "paths": [
         [
           455.63, 
@@ -2121,11 +1925,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "2", 
-      "label": "#e", 
       "paths": [
         [
           446.888, 
@@ -2142,11 +1944,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "3", 
-      "label": "#e", 
       "paths": [
         [
           451.036, 
@@ -2163,11 +1963,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "4", 
-      "label": "#e", 
       "paths": [
         [
           452.963, 
@@ -2184,11 +1982,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "5", 
-      "label": "#e", 
       "paths": [
         [
           446.591, 
@@ -2205,11 +2001,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "6", 
-      "label": "#e", 
       "paths": [
         [
           431.294, 
@@ -2226,11 +2020,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "7", 
-      "label": "#e", 
       "paths": [
         [
           437.256, 
@@ -2247,11 +2039,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           425.55, 
@@ -2268,11 +2058,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "8", 
-      "label": "#e", 
       "paths": [
         [
           410.437, 
@@ -2289,11 +2077,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           392.507, 
@@ -2310,11 +2096,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "9", 
-      "label": "#e", 
       "paths": [
         [
           381.098, 
@@ -2331,11 +2115,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           359.02, 
@@ -2352,11 +2134,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "10", 
-      "label": "#e", 
       "paths": [
         [
           336.497, 
@@ -2373,11 +2153,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "11", 
-      "label": "#e", 
       "paths": [
         [
           317.975, 
@@ -2394,11 +2172,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "12a", 
-      "label": "#e", 
       "paths": [
         [
           292.341, 
@@ -2415,11 +2191,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "12b", 
-      "label": "#e", 
       "paths": [
         [
           267.744, 
@@ -2436,11 +2210,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "13", 
-      "label": "#e", 
       "paths": [
         [
           243.888, 
@@ -2457,11 +2229,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "14", 
-      "label": "#e", 
       "paths": [
         [
           217.809, 
@@ -2478,11 +2248,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "15", 
-      "label": "#e", 
       "paths": [
         [
           194.842, 
@@ -2499,11 +2267,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           183.285, 
@@ -2520,11 +2286,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           169.06, 
@@ -2541,11 +2305,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "16", 
-      "label": "#e", 
       "paths": [
         [
           159.428, 
@@ -2562,11 +2324,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "17", 
-      "label": "#e", 
       "paths": [
         [
           138.091, 
@@ -2583,11 +2343,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "18", 
-      "label": "#e", 
       "paths": [
         [
           120.607, 
@@ -2604,11 +2362,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           106.382, 
@@ -2625,11 +2381,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "19a", 
-      "label": "#e", 
       "paths": [
         [
           99.566, 
@@ -2646,11 +2400,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "index": "19b", 
-      "label": "#e", 
       "paths": [
         [
           74.821, 
@@ -2667,11 +2419,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFI", 
       "index": "20", 
-      "label": "#e", 
       "paths": [
         [
           46.964, 
@@ -2688,11 +2438,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "21", 
-      "label": "#e", 
       "paths": [
         [
           -46.831, 
@@ -2709,11 +2457,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -96.469, 
@@ -2730,11 +2476,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -142.848, 
@@ -2751,11 +2495,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -154.258, 
@@ -2772,11 +2514,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBO", 
       "index": "22", 
-      "label": "#e", 
       "paths": [
         [
           -209.082, 
@@ -2793,11 +2533,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -221.084, 
@@ -2814,11 +2552,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "23", 
-      "label": "#e", 
       "paths": [
         [
           -246.274, 
@@ -2835,11 +2571,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "24", 
-      "label": "#e", 
       "paths": [
         [
           -285.689, 
@@ -2856,11 +2590,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RF", 
       "index": "25", 
-      "label": "#e", 
       "paths": [
         [
           -307.878, 
@@ -2877,11 +2609,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LF", 
       "index": "26", 
-      "label": "#e", 
       "paths": [
         [
           -323.066, 
@@ -2898,11 +2628,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "27", 
-      "label": "#e", 
       "paths": [
         [
           -328.659, 
@@ -2919,11 +2647,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "28", 
-      "label": "#e", 
       "paths": [
         [
           -376.964, 
@@ -2940,11 +2666,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "29", 
-      "label": "#e", 
       "paths": [
         [
           -397.857, 
@@ -2961,11 +2685,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "30", 
-      "label": "#e", 
       "paths": [
         [
           -417.564, 
@@ -2982,11 +2704,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "31", 
-      "label": "#e", 
       "paths": [
         [
           -468.981, 
@@ -3003,11 +2723,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 12, 
       "edge": "LFO", 
       "index": "32", 
-      "label": "#e", 
       "paths": [
         [
           -490.022, 
@@ -3034,11 +2752,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBI", 
       "index": "33a", 
-      "label": "#e", 
       "paths": [
         [
           -404.377, 
@@ -3055,11 +2771,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "33b", 
-      "label": "#e", 
       "paths": [
         [
           -362.739, 
@@ -3076,11 +2790,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "33c", 
-      "label": "#e", 
       "paths": [
         [
           -320.065, 
@@ -3097,11 +2809,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -311.175, 
@@ -3118,11 +2828,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "RFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           -309.693, 
@@ -3139,11 +2847,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "L", 
       "index": "34", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3160,11 +2866,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "R", 
       "index": "35", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3181,11 +2885,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "L", 
       "index": "36", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3202,11 +2904,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "37a", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3223,11 +2923,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "37b", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3244,11 +2942,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "37c", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3265,11 +2961,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "L", 
       "index": "38", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3286,11 +2980,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "39", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3307,11 +2999,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "L", 
       "index": "40", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3328,11 +3018,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R", 
       "index": "41", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3349,11 +3037,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "R+L", 
       "index": "42", 
-      "label": "#e", 
       "paths": [
         [
           -275.131, 
@@ -3370,11 +3056,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "L", 
       "index": "43", 
-      "label": "#e", 
       "paths": [
         [
           -270.723, 
@@ -3391,11 +3075,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "44", 
-      "label": "#e", 
       "paths": [
         [
           -255.165, 
@@ -3412,11 +3094,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "45", 
-      "label": "#e", 
       "paths": [
         [
           -249.386, 
@@ -3433,11 +3113,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFO", 
       "index": "46", 
-      "label": "#e", 
       "paths": [
         [
           -233.679, 
@@ -3454,11 +3132,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFI", 
       "index": "47", 
-      "label": "#e", 
       "paths": [
         [
           -206.86, 
@@ -3475,11 +3151,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "48", 
-      "label": "#e", 
       "paths": [
         [
           -173.52, 
@@ -3496,11 +3170,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBO", 
       "index": "49", 
-      "label": "#e", 
       "paths": [
         [
           -149.96, 
@@ -3517,11 +3189,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "50", 
-      "label": "#e", 
       "paths": [
         [
           -130.55, 
@@ -3538,11 +3208,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LFO", 
       "index": "51a", 
-      "label": "#e", 
       "paths": [
         [
           -112.176, 
@@ -3559,11 +3227,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "RBI", 
       "index": "51b", 
-      "label": "#e", 
       "paths": [
         [
           -100.322, 
@@ -3580,11 +3246,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "52", 
-      "label": "#e", 
       "paths": [
         [
           -97.951, 
@@ -3601,11 +3265,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBI", 
       "index": "53", 
-      "label": "#e", 
       "paths": [
         [
           -79.577, 
@@ -3622,11 +3284,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "54", 
-      "label": "#e", 
       "paths": [
         [
           -49.053, 
@@ -3653,11 +3313,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "55", 
-      "label": "#e", 
       "paths": [
         [
           -28.457, 
@@ -3674,11 +3332,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBI", 
       "index": "56", 
-      "label": "#e", 
       "paths": [
         [
           -9.046, 
@@ -3695,11 +3351,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           10.068, 
@@ -3716,11 +3370,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "57", 
-      "label": "#e", 
       "paths": [
         [
           33.035, 
@@ -3737,11 +3389,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFI", 
       "index": "58", 
-      "label": "#e", 
       "paths": [
         [
           50.52, 
@@ -3758,11 +3408,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "RFI", 
       "index": "59", 
-      "label": "#e", 
       "paths": [
         [
           56.892, 
@@ -3779,11 +3427,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "RFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           63.856, 
@@ -3800,11 +3446,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LBI", 
       "index": "60", 
-      "label": "#e", 
       "paths": [
         [
           68.745, 
@@ -3821,11 +3465,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LBI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           69.486, 
@@ -3842,11 +3484,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "61", 
-      "label": "#e", 
       "paths": [
         [
           88.897, 
@@ -3873,11 +3513,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LBO", 
       "index": "62", 
-      "label": "#e", 
       "paths": [
         [
           110.827, 
@@ -3894,11 +3532,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBI", 
       "index": "63", 
-      "label": "#e", 
       "paths": [
         [
           133.35, 
@@ -3915,11 +3551,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           201.658, 
@@ -3936,11 +3570,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           218.698, 
@@ -3957,11 +3589,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 8, 
       "edge": "LFI", 
       "index": "64", 
-      "label": "#e", 
       "paths": [
         [
           237.665, 
@@ -3988,11 +3618,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RBO", 
       "index": "65", 
-      "label": "#e", 
       "paths": [
         [
           290.711, 
@@ -4009,11 +3637,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "RFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           323.013, 
@@ -4030,11 +3656,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           368.651, 
@@ -4051,11 +3675,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           376.505, 
@@ -4072,11 +3694,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RBO", 
       "index": "", 
-      "label": "#e", 
       "paths": [
         [
           385.099, 
@@ -4093,11 +3713,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "LFO", 
       "index": "66", 
-      "label": "#e", 
       "paths": [
         [
           397.249, 
@@ -4114,11 +3732,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 1, 
       "edge": "RFI", 
       "index": "67", 
-      "label": "#e", 
       "paths": [
         [
           409.844, 
@@ -4135,11 +3751,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "LFO", 
       "index": "68", 
-      "label": "#e", 
       "paths": [
         [
           416.364, 
@@ -4156,11 +3770,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 2, 
       "edge": "RFI", 
       "index": "69", 
-      "label": "#e", 
       "paths": [
         [
           438.145, 
@@ -4177,11 +3789,9 @@
     }, 
     {
       "beats": "", 
-      "desc": "Stroke onto #E Edge", 
       "duration": 4, 
       "edge": "LFO", 
       "index": "70", 
-      "label": "#e", 
       "paths": [
         [
           449.851, 
@@ -4209,6 +3819,12 @@
     }
   }, 
   "patternsPerLap": 1, 
+  "steps": {
+    "": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e"
+    }
+  }, 
   "timeSignatureBottom": 4, 
   "timeSignatureTop": 2, 
   "version": "2016"
