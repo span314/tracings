@@ -161,14 +161,6 @@ def extractStepsFromCSV(fileHandle, processedPaths):
       row["duration"] = 4 * int(row["beats"])
     else:
       row["duration"] = int(row["duration"])
-    # #Create labels
-    # if (not row["label"]):
-    #   row["label"] = stepLabel[row["step"]]
-    # #Create descriptions
-    # if (not row["desc"]):
-    #   row["desc"] = stepDesc[row["step"]]
-    row.pop("label")
-    row.pop("desc")
     #Add paths
     componentPaths = []
     pathCount = row.pop("pathCount")
