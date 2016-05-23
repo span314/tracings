@@ -1,0 +1,12 @@
+{
+  "name": "Hickory Hoedown",
+  "version": "2016",
+  "timeSignatureTop": 4,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 104,
+  "patternsPerLap": 2,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 25},
+  	"man": {"startComponent": 25, "endComponent": 50}
+  }
+}

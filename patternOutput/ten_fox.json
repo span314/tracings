@@ -1,0 +1,955 @@
+{
+  "beatsPerMinute": 100, 
+  "components": [
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "RBO", 
+      "group": "pr1", 
+      "index": "1", 
+      "label": "#e", 
+      "paths": [
+        [
+          442.876, 
+          -205.279, 
+          431.96, 
+          -217.032, 
+          418.28, 
+          -224.745, 
+          402.179, 
+          -228.919
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "LBI", 
+      "group": "pr1", 
+      "index": "2", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          406.069, 
+          -233.407, 
+          394.639, 
+          -241.168, 
+          379.261, 
+          -241.944, 
+          362.679, 
+          -240.589
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "RBO", 
+      "group": "pr1", 
+      "index": "3", 
+      "label": "#e", 
+      "paths": [
+        [
+          367.467, 
+          -236.4, 
+          333.509, 
+          -235.558, 
+          314.524, 
+          -208.995, 
+          295.949, 
+          -165.181
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "4", 
+      "desc": "#E Swing Roll", 
+      "duration": 16, 
+      "edge": "LBO", 
+      "index": "4a", 
+      "label": "#e-swR", 
+      "paths": [
+        [
+          290.861, 
+          -168.771, 
+          266.861, 
+          -98.687, 
+          159.706, 
+          -106.884, 
+          142.438, 
+          -169.819
+        ]
+      ], 
+      "step": "swr"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "RFI", 
+      "index": "4b", 
+      "label": "#e", 
+      "paths": [
+        [
+          136.753, 
+          -169.669, 
+          127.069, 
+          -195.885, 
+          110.322, 
+          -215.265, 
+          88.276, 
+          -229.517
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "pr2", 
+      "index": "5", 
+      "label": "#e", 
+      "paths": [
+        [
+          86.48, 
+          -224.43, 
+          74.729, 
+          -233.447, 
+          60.972, 
+          -234.037, 
+          47.28, 
+          -234.904
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "pr2", 
+      "index": "6", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          50.572, 
+          -241.188, 
+          34.455, 
+          -240.839, 
+          20.033, 
+          -238.007, 
+          9.875, 
+          -228.919
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFO", 
+      "group": "pr2", 
+      "index": "7", 
+      "label": "#e", 
+      "paths": [
+        [
+          14.364, 
+          -224.131, 
+          -3.031, 
+          -210.064, 
+          -19.072, 
+          -187.286, 
+          -29.924, 
+          -163.984
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "4", 
+      "desc": "Stroke onto #E Edge, Rise and Fall with Free Leg Back", 
+      "duration": 16, 
+      "edge": "RFO", 
+      "index": "8", 
+      "label": "#e-bk", 
+      "paths": [
+        [
+          -35.011, 
+          -169.37, 
+          -58.258, 
+          -117.639, 
+          -168.284, 
+          -94.199, 
+          -194.805, 
+          -179.245
+        ]
+      ], 
+      "step": "bk"
+    }, 
+    {
+      "beats": "1+1", 
+      "desc": "#E 3-turn", 
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "3", 
+      "index": "9", 
+      "label": "#e3", 
+      "paths": [
+        [
+          -199.294, 
+          -173.26, 
+          -207.717, 
+          -185.524, 
+          -219.823, 
+          -194.366, 
+          -234.604, 
+          -195.105
+        ]
+      ], 
+      "step": "3"
+    }, 
+    {
+      "beats": "", 
+      "desc": "Exit 3-turn on #E Edge", 
+      "duration": 4, 
+      "edge": "LBI", 
+      "group": "3", 
+      "index": "", 
+      "label": "", 
+      "paths": [
+        [
+          -234.305, 
+          -194.506, 
+          -236.323, 
+          -207.064, 
+          -256.407, 
+          -214.763, 
+          -262.134, 
+          -214.256
+        ]
+      ], 
+      "step": "3x"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "RBO", 
+      "group": "pr3", 
+      "index": "10", 
+      "label": "#e", 
+      "paths": [
+        [
+          -267.222, 
+          -208.57, 
+          -279.544, 
+          -220.657, 
+          -292.406, 
+          -227.882, 
+          -305.524, 
+          -232.809
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "LBI", 
+      "group": "pr3", 
+      "index": "11", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          -304.327, 
+          -237.597, 
+          -316.282, 
+          -242.528, 
+          -328.783, 
+          -245.821, 
+          -342.331, 
+          -245.975
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "RBO", 
+      "group": "pr3", 
+      "index": "12", 
+      "label": "#e", 
+      "paths": [
+        [
+          -344.126, 
+          -241.188, 
+          -375.908, 
+          -241.376, 
+          -401.729, 
+          -235.893, 
+          -404.124, 
+          -205.877
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "pr4", 
+      "index": "13", 
+      "label": "#e", 
+      "paths": [
+        [
+          -409.361, 
+          -213.658, 
+          -418.391, 
+          -205.512, 
+          -426.164, 
+          -195.569, 
+          -432.402, 
+          -183.434
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "pr4", 
+      "index": "14", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          -434.497, 
+          -187.025, 
+          -443.597, 
+          -173.936, 
+          -451.011, 
+          -159.401, 
+          -454.546, 
+          -141.541
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "pr5", 
+      "index": "15", 
+      "label": "#e", 
+      "paths": [
+        [
+          -449.459, 
+          -140.044, 
+          -454.756, 
+          -126.265, 
+          -459.105, 
+          -110.8, 
+          -460.83, 
+          -90.67
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "pr5", 
+      "index": "16", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          -468.61, 
+          -91.568, 
+          -472.651, 
+          -72.467, 
+          -475.608, 
+          -52.283, 
+          -474.894, 
+          -28.428
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "#E Open Mohawk", 
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "m", 
+      "index": "17", 
+      "label": "#e-opMo", 
+      "paths": [
+        [
+          -467.712, 
+          -27.53, 
+          -479.847, 
+          -13.983, 
+          -464.356, 
+          34.88, 
+          -479.682, 
+          43.091
+        ]
+      ], 
+      "step": "opmo"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Exit Open Mohawk on #E Edge", 
+      "duration": 4, 
+      "edge": "RBO", 
+      "group": "m", 
+      "index": "18", 
+      "label": "#e", 
+      "paths": [
+        [
+          -479.682, 
+          22.144, 
+          -467.974, 
+          22.455, 
+          -479.337, 
+          75.313, 
+          -459.932, 
+          90.969
+        ]
+      ], 
+      "step": "opmox"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LBI", 
+      "index": "19", 
+      "label": "#e", 
+      "paths": [
+        [
+          -469.807, 
+          92.465, 
+          -467.755, 
+          126.441, 
+          -462.481, 
+          160.328, 
+          -446.167, 
+          193.908
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "pr1", 
+      "index": "1", 
+      "label": "#e", 
+      "paths": [
+        [
+          -447.065, 
+          206.177, 
+          -436.147, 
+          216.805, 
+          -424.285, 
+          226.267, 
+          -406.667, 
+          228.62
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "pr1", 
+      "index": "2", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          -409.959, 
+          233.707, 
+          -397.876, 
+          240.352, 
+          -383.925, 
+          243.795, 
+          -366.27, 
+          240.888
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFO", 
+      "group": "pr1", 
+      "index": "3", 
+      "label": "#e", 
+      "paths": [
+        [
+          -370.459, 
+          236.4, 
+          -333.183, 
+          235.554, 
+          -315.99, 
+          201.236, 
+          -299.839, 
+          165.181
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "4+2", 
+      "desc": "Stroke onto #E Edge, Swing", 
+      "duration": 16, 
+      "edge": "RFO", 
+      "index": "4", 
+      "label": "#e#o-sw", 
+      "paths": [
+        [
+          -295.799, 
+          169.071, 
+          -271.342, 
+          100.087, 
+          -155.006, 
+          104.882, 
+          -139.745, 
+          171.913
+        ]
+      ], 
+      "step": "cesw"
+    }, 
+    {
+      "beats": "", 
+      "desc": "Change to #O Edge", 
+      "duration": 8, 
+      "edge": "RFI", 
+      "index": "", 
+      "label": "", 
+      "paths": [
+        [
+          -140.044, 
+          171.465, 
+          -135.536, 
+          194.468, 
+          -118.918, 
+          214.992, 
+          -92.465, 
+          229.218
+        ]
+      ], 
+      "step": "cex"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "pr2", 
+      "index": "5", 
+      "label": "#e", 
+      "paths": [
+        [
+          -90.371, 
+          224.131, 
+          -80.555, 
+          230.197, 
+          -71.722, 
+          237.034, 
+          -51.469, 
+          234.904
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "pr2", 
+      "index": "6", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          -53.863, 
+          240.888, 
+          -38.846, 
+          241.987, 
+          -25.696, 
+          239.815, 
+          -13.466, 
+          229.368
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFO", 
+      "group": "pr2", 
+      "index": "7", 
+      "label": "#e", 
+      "paths": [
+        [
+          -17.954, 
+          224.43, 
+          -6.652, 
+          219.085, 
+          8.656, 
+          196.718, 
+          26.333, 
+          164.283
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1+1", 
+      "desc": "#E 3-turn", 
+      "duration": 4, 
+      "edge": "RFO", 
+      "group": "3", 
+      "index": "8a", 
+      "label": "#e3", 
+      "paths": [
+        [
+          31.121, 
+          172.063, 
+          38.249, 
+          158.705, 
+          49.277, 
+          149.471, 
+          65.534, 
+          147.226
+        ]
+      ], 
+      "step": "3"
+    }, 
+    {
+      "beats": "", 
+      "desc": "Exit 3-turn on #E Edge", 
+      "duration": 4, 
+      "edge": "RBI", 
+      "group": "3", 
+      "index": "", 
+      "label": "", 
+      "paths": [
+        [
+          64.935, 
+          147.675, 
+          68.235, 
+          133.495, 
+          81.291, 
+          122.507, 
+          106.53, 
+          115.507
+        ]
+      ], 
+      "step": "3x"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LBO", 
+      "index": "8b", 
+      "label": "#e", 
+      "paths": [
+        [
+          106.23, 
+          123.287, 
+          154.24, 
+          122.644, 
+          178.709, 
+          141.689, 
+          182.836, 
+          177.749
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "RBO", 
+      "index": "9", 
+      "label": "#e", 
+      "paths": [
+        [
+          191.214, 
+          173.559, 
+          203.919, 
+          194.486, 
+          219.388, 
+          213.285, 
+          257.646, 
+          214.555
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "pr3", 
+      "index": "10", 
+      "label": "#e", 
+      "paths": [
+        [
+          263.032, 
+          208.87, 
+          273.959, 
+          217.891, 
+          284.165, 
+          227.337, 
+          301.634, 
+          232.51
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "pr3", 
+      "index": "11", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          299.839, 
+          237.297, 
+          308.589, 
+          243.257, 
+          329.663, 
+          246.963, 
+          338.74, 
+          245.676
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "LFO", 
+      "group": "pr3", 
+      "index": "12", 
+      "label": "#e", 
+      "paths": [
+        [
+          339.937, 
+          242.385, 
+          367.466, 
+          240.443, 
+          388.496, 
+          230.024, 
+          400.084, 
+          206.177
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "#E Open Mohawk", 
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "m", 
+      "index": "13", 
+      "label": "#e-opMo", 
+      "paths": [
+        [
+          404.872, 
+          214.256, 
+          420.364, 
+          206.808, 
+          428.281, 
+          191.979, 
+          428.213, 
+          169.37
+        ]
+      ], 
+      "step": "opmo"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Exit Open Mohawk on #E Edge", 
+      "duration": 4, 
+      "edge": "LBI", 
+      "group": "m", 
+      "index": "14", 
+      "label": "#e", 
+      "paths": [
+        [
+          416.243, 
+          188.222, 
+          441.406, 
+          178.716, 
+          447.944, 
+          160.587, 
+          451.853, 
+          141.241
+        ]
+      ], 
+      "step": "opmox"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "RBO", 
+      "group": "pr4", 
+      "index": "15", 
+      "label": "#e", 
+      "paths": [
+        [
+          444.671, 
+          140.942, 
+          451.626, 
+          124.596, 
+          455.267, 
+          108.013, 
+          456.641, 
+          91.268
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Progressive: Cross onto #E Edge", 
+      "duration": 4, 
+      "edge": "LFI", 
+      "group": "pr4", 
+      "index": "16", 
+      "label": "#e-Pr", 
+      "paths": [
+        [
+          463.822, 
+          92.166, 
+          469.04, 
+          72.538, 
+          471.571, 
+          51.049, 
+          471.603, 
+          27.829
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 4, 
+      "edge": "RBO", 
+      "index": "17", 
+      "label": "#e", 
+      "paths": [
+        [
+          465.618, 
+          28.129, 
+          470.622, 
+          9.675, 
+          471.496, 
+          -8.778, 
+          472.201, 
+          -27.231
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "1", 
+      "desc": "Cross in Front onto #E Edge", 
+      "duration": 4, 
+      "edge": "LBI", 
+      "index": "18", 
+      "label": "XF-#e", 
+      "paths": [
+        [
+          462.925, 
+          -28.129, 
+          474.002, 
+          -43.475, 
+          460.897, 
+          -79.396, 
+          473.697, 
+          -92.166
+        ]
+      ], 
+      "step": "xf"
+    }, 
+    {
+      "beats": "2", 
+      "desc": "Stroke onto #E Edge", 
+      "duration": 8, 
+      "edge": "RFI", 
+      "index": "19", 
+      "label": "#e", 
+      "paths": [
+        [
+          465.019, 
+          -92.465, 
+          463.274, 
+          -131.195, 
+          455.492, 
+          -164.752, 
+          442.576, 
+          -193.908
+        ]
+      ], 
+      "step": ""
+    }
+  ], 
+  "name": "Ten-Fox", 
+  "patterns": {
+    "lady": {
+      "endComponent": 21, 
+      "startComponent": 0
+    }, 
+    "man": {
+      "endComponent": 43, 
+      "startComponent": 21
+    }
+  }, 
+  "patternsPerLap": 2, 
+  "timeSignatureBottom": 4, 
+  "timeSignatureTop": 4, 
+  "version": "2016"
+}
