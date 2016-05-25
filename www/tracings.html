@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" href="lib/jquery-ui.css">
 <!--  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="style.css">
 
   <script src="lib/jquery.min.js"></script>
@@ -44,14 +45,21 @@
       </span>
 
       <span id="buttons">
-        <button id="beginningButton">beginning</button>
-        <button id="previousButton">previous</button>
-        <button id="startPauseButton">start</button>
-        <button id="nextButton">next</button>
+        <button id="beginningButton"><i class="material-icons">&#xE5DC;</i></button>
+        <button id="previousButton"><i class="material-icons">&#xE5CB;</i></button>
+        <button id="startPauseButton"><i class="material-icons">&#xE037;</i></button>
+        <button id="nextButton"><i class="material-icons">&#xE5CC;</i></button>
       </span>
 
       <span id="speedSlider"></span>
       <span id="speedValue">100%</span>
+
+      <span id="labelButtons">
+        <input type="checkbox" id="stepButton" name="step" checked="true"><label for="stepButton"><i class="material-icons">&#xE241;</i></label>
+        <input type="checkbox" id="numberButton" name="number" checked="true"><label for="numberButton"><i class="material-icons">&#xE242;</i></label>
+        <input type="checkbox" id="beatsButton" name="beats" checked="true"><label for="beatsButton"><i class="material-icons">&#xE8B5;</i></label>
+        <input type="checkbox" id="holdButton" name="hold" checked="true"><label for="holdButton"><i class="material-icons">&#xE63D;</i></label>
+      </span>
     </div>
   </div>
 </body>

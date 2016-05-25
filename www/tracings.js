@@ -5,31 +5,10 @@ $(document).ready(function() {
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
   $('#partButtons').buttonset();
   $('#optButtons').buttonset();
-
-  $('#beginningButton').iconButton({iconList: ['ui-icon-seek-start']});
-  $('#previousButton').iconButton({iconList: ['ui-icon-carat-1-w']});
-  $('#startPauseButton').iconButton({iconList: ['ui-icon-play', 'ui-icon-pause']});
-  $('#nextButton').iconButton({iconList: ['ui-icon-carat-1-e']});
-
+  $('#buttons').buttonset();
   $('#speedSlider').slider({min: 20, max: 100, step: 5, value: 100});
-
+  $('#labelButtons').buttonset();
   $('#diagramContainer').diagram();
-});
-
-$.widget('shawnpan.iconButton', $.ui.button, {
-  options: {
-    text: false,
-    iconList: ['ui-icon-blank']
-  },
-
-  _create: function() {
-    this._super();
-    this.updateIcon(0);
-  },
-
-  updateIcon: function(index) {
-    this._setOption('icons', {primary: this.options.iconList[index]});
-  }
 });
 
 $.widget('shawnpan.diagram', {
@@ -60,6 +39,7 @@ $.widget('shawnpan.diagram', {
       controls.previous = elem.find('#previousButton');
       controls.next = elem.find('#nextButton');
       controls.startPause = elem.find('#startPauseButton');
+      controls.startPauseIcon = controls.startPause.find('.material-icons');
       controls.speed = elem.find('#speedSlider');
       controls.speedValue = elem.find('#speedValue');
       controls.controlContainer = elem.find('#controls');
@@ -283,13 +263,13 @@ $.widget('shawnpan.diagram', {
     console.log('start');
     this.playing = true;
     this.timer = setInterval(this._tick.bind(this), this._playbackInterval());
-    this.controls.startPause.iconButton('updateIcon', 1);
+    this.controls.startPauseIcon.html('&#xE034;');
   },
 
   _pause: function() {
     console.log('pause');
     clearInterval(this.timer);
-    this.controls.startPause.iconButton('updateIcon', 0);
+    this.controls.startPauseIcon.html('&#xE037;');
     this.playing = false;
   },
 
