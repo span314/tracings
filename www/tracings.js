@@ -42,7 +42,13 @@ $.widget('shawnpan.diagram', {
       controls.startPauseIcon = controls.startPause.find('.material-icons');
       controls.speed = elem.find('#speedSlider');
       controls.speedValue = elem.find('#speedValue');
+      controls.step = elem.find('#stepButton');
+      controls.number = elem.find('#numberButton');
+      controls.count = elem.find('#countButton');
+      controls.hold = elem.find('#holdButton');
+
       controls.controlContainer = elem.find('#controls');
+
 
       //bind events
       controls.dance.on('selectmenuchange', this._loadDance.bind(this));
@@ -54,6 +60,10 @@ $.widget('shawnpan.diagram', {
       controls.next.click(this.next.bind(this));
       controls.startPause.click(this.toggleStartPause.bind(this));
       controls.speed.on('slidechange', this._updateSpeed.bind(this));
+      controls.step.click(this._drawPattern.bind(this));
+      controls.number.click(this._drawPattern.bind(this));
+      controls.count.click(this._drawPattern.bind(this));
+      controls.hold.click(this._drawPattern.bind(this));
 
       $(window).resize(this._onCanvasResize.bind(this));
 
@@ -107,15 +117,20 @@ $.widget('shawnpan.diagram', {
   _loadPattern: function() {
     var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths, offset,
         components = [],
-        pattern = this.dance.patterns[this.part];
+        pattern = this.dance.patterns[this.part],
+        optionalFlag = this.controls.optional.is(':checked') ? 'yes' : 'no';
     console.log('loading pattern ' + this.dance.name + ' ' + this.part);
-    this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, this._optionalStepsEnabled(), this.scaleFactor);
+    this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, optionalFlag, this.scaleFactor);
     this._updatePlaybackSpeedLabel();
     this.beginning();
   },
 
   _drawPattern: function() {
-    var pattern, component, path, positionIndex, pathIndex, position,
+    var pattern, component, path, positionIndex, pathIndex, position, labelList, labelText,
+        showStep = this.controls.step.is(':checked'),
+        showNumber = this.controls.number.is(':checked'),
+        showCount = this.controls.count.is(':checked'),
+        showHold = this.controls.hold.is(':checked'),
         ctx = this.canvasContext,
         currentPosition = this.patternPositions[this.position],
         tickCount = currentPosition.offset + this.stepTickCount,
@@ -169,15 +184,32 @@ $.widget('shawnpan.diagram', {
 
       if (position.paths.length) {
         ctx.textBaseline = 'middle';
-        if (position.label) {
-          //Draw label
-          ctx.fillStyle = 'rgb(0,0,255)';
-          DiagramUtils.drawTextOnPath(ctx, position.index + ' ' + position.label, position.paths[0], 10);
+        //Draw index and label
+        labelList = [];
+        if (showNumber && position.index) {
+          labelList.push(position.index);
         }
-        if (position.beats) {
-          //Draw beats
+        if (showStep && position.label) {
+          labelList.push(position.label);
+        }
+        labelText = labelList.join(' ');
+        if (labelText) {
+
+          ctx.fillStyle = 'rgb(0,0,255)';
+          DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[0], 10);
+        }
+        //Draw hold and count
+        labelList = [];
+        if (showHold && position.hold) {
+          labelList.push(position.hold);
+        }
+        if (showCount && position.beats) {
+          labelList.push(position.beats);
+        }
+        labelText = labelList.join(' ');
+        if (labelText) {
           ctx.fillStyle = 'rgb(255,0,0)';
-          DiagramUtils.drawTextOnPath(ctx, position.beats, position.paths[position.paths.length - 1], -10);
+          DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -10);
         }
       }
 
