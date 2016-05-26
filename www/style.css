@@ -7,7 +7,7 @@ canvas {
 }
 
 #controls select {
-  width: 28%;
+  width: 256px;
 }
 
 #controls .ui-selectmenu-button {
@@ -16,8 +16,12 @@ canvas {
 
 #speedSlider {
   display: inline-block;
-  width: 12%;
+  width: 128px;
   margin-left: 0.5em;
   margin-right: 0.5em;
   vertical-align: middle;
+}
+
+#speedContainer {
+  white-space: nowrap;
 }
