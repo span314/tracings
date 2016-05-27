@@ -3,11 +3,8 @@
 
 $(document).ready(function() {
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
-  $('#partButtons').buttonset();
-  $('#optButtons').buttonset();
-  $('#buttons').buttonset();
+  $('.button-set').buttonset();
   $('#speedSlider').slider({min: 20, max: 100, step: 5, value: 100});
-  $('#labelButtons').buttonset();
   $('#diagramContainer').diagram();
 });
 
