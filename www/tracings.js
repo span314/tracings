@@ -39,7 +39,7 @@ $.widget('shawnpan.diagram', {
       controls.previous = elem.find('#previousButton');
       controls.next = elem.find('#nextButton');
       controls.startPause = elem.find('#startPauseButton');
-      controls.startPauseIcon = controls.startPause.find('.material-icons');
+      controls.startPauseIcon = controls.startPause.find('.mdi');
       controls.speed = elem.find('#speedSlider');
       controls.speedValue = elem.find('#speedValue');
       controls.step = elem.find('#stepButton');
@@ -194,7 +194,6 @@ $.widget('shawnpan.diagram', {
         }
         labelText = labelList.join(' ');
         if (labelText) {
-
           ctx.fillStyle = 'rgb(0,0,255)';
           DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[0], 10);
         }
@@ -295,13 +294,13 @@ $.widget('shawnpan.diagram', {
     console.log('start');
     this.playing = true;
     this.timer = setInterval(this._tick.bind(this), this._playbackInterval());
-    this.controls.startPauseIcon.html('&#xE034;');
+    this.controls.startPauseIcon.removeClass('mdi-play').addClass('mdi-pause');
   },
 
   _pause: function() {
     console.log('pause');
     clearInterval(this.timer);
-    this.controls.startPauseIcon.html('&#xE037;');
+    this.controls.startPauseIcon.removeClass('mdi-pause').addClass('mdi-play');
     this.playing = false;
   },
 
