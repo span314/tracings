@@ -6,6 +6,7 @@
       "duration": 4, 
       "edge": "RBO", 
       "group": "pr1", 
+      "hold": "cl", 
       "index": "1", 
       "paths": [
         [
@@ -26,6 +27,7 @@
       "duration": 4, 
       "edge": "LBI", 
       "group": "pr1", 
+      "hold": "cl", 
       "index": "2", 
       "paths": [
         [
@@ -46,6 +48,7 @@
       "duration": 8, 
       "edge": "RBO", 
       "group": "pr1", 
+      "hold": "cl", 
       "index": "3", 
       "paths": [
         [
@@ -65,6 +68,7 @@
       "beats": "4", 
       "duration": 16, 
       "edge": "LBO", 
+      "hold": "cl", 
       "index": "4a", 
       "paths": [
         [
@@ -84,6 +88,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
+      "hold": "cl", 
       "index": "4b", 
       "paths": [
         [
@@ -104,6 +109,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr2", 
+      "hold": "f", 
       "index": "5", 
       "paths": [
         [
@@ -124,6 +130,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
+      "hold": "f", 
       "index": "6", 
       "paths": [
         [
@@ -144,6 +151,7 @@
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
+      "hold": "f", 
       "index": "7", 
       "paths": [
         [
@@ -163,6 +171,7 @@
       "beats": "4", 
       "duration": 16, 
       "edge": "RFO", 
+      "hold": "cl", 
       "index": "8", 
       "paths": [
         [
@@ -183,6 +192,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "3", 
+      "hold": "cl", 
       "index": "9", 
       "paths": [
         [
@@ -203,6 +213,7 @@
       "duration": 4, 
       "edge": "LBI", 
       "group": "3", 
+      "hold": "cl", 
       "index": "", 
       "paths": [
         [
@@ -223,6 +234,7 @@
       "duration": 4, 
       "edge": "RBO", 
       "group": "pr3", 
+      "hold": "cl", 
       "index": "10", 
       "paths": [
         [
@@ -243,6 +255,7 @@
       "duration": 4, 
       "edge": "LBI", 
       "group": "pr3", 
+      "hold": "cl", 
       "index": "11", 
       "paths": [
         [
@@ -263,6 +276,7 @@
       "duration": 8, 
       "edge": "RBO", 
       "group": "pr3", 
+      "hold": "cl", 
       "index": "12", 
       "paths": [
         [
@@ -283,6 +297,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr4", 
+      "hold": "oc", 
       "index": "13", 
       "paths": [
         [
@@ -303,6 +318,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr4", 
+      "hold": "oc", 
       "index": "14", 
       "paths": [
         [
@@ -323,6 +339,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr5", 
+      "hold": "oc", 
       "index": "15", 
       "paths": [
         [
@@ -343,6 +360,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr5", 
+      "hold": "oc", 
       "index": "16", 
       "paths": [
         [
@@ -363,6 +381,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "m", 
+      "hold": "oc", 
       "index": "17", 
       "paths": [
         [
@@ -383,6 +402,7 @@
       "duration": 4, 
       "edge": "RBO", 
       "group": "m", 
+      "hold": "oc", 
       "index": "18", 
       "paths": [
         [
@@ -402,6 +422,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LBI", 
+      "hold": "oc", 
       "index": "19", 
       "paths": [
         [
@@ -422,6 +443,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
+      "hold": "cl", 
       "index": "1", 
       "paths": [
         [
@@ -442,6 +464,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
+      "hold": "cl", 
       "index": "2", 
       "paths": [
         [
@@ -462,6 +485,7 @@
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr1", 
+      "hold": "cl", 
       "index": "3", 
       "paths": [
         [
@@ -481,6 +505,7 @@
       "beats": "4+2", 
       "duration": 16, 
       "edge": "RFO", 
+      "hold": "cl", 
       "index": "4", 
       "paths": [
         [
@@ -500,6 +525,7 @@
       "beats": "", 
       "duration": 8, 
       "edge": "RFI", 
+      "hold": "cl", 
       "index": "", 
       "paths": [
         [
@@ -520,6 +546,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr2", 
+      "hold": "f", 
       "index": "5", 
       "paths": [
         [
@@ -540,6 +567,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
+      "hold": "f", 
       "index": "6", 
       "paths": [
         [
@@ -560,6 +588,7 @@
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
+      "hold": "f", 
       "index": "7", 
       "paths": [
         [
@@ -580,6 +609,7 @@
       "duration": 4, 
       "edge": "RFO", 
       "group": "3", 
+      "hold": "cl", 
       "index": "8a", 
       "paths": [
         [
@@ -600,6 +630,7 @@
       "duration": 4, 
       "edge": "RBI", 
       "group": "3", 
+      "hold": "cl", 
       "index": "", 
       "paths": [
         [
@@ -619,6 +650,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LBO", 
+      "hold": "cl", 
       "index": "8b", 
       "paths": [
         [
@@ -638,6 +670,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
+      "hold": "cl", 
       "index": "9", 
       "paths": [
         [
@@ -658,6 +691,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr3", 
+      "hold": "cl", 
       "index": "10", 
       "paths": [
         [
@@ -678,6 +712,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr3", 
+      "hold": "cl", 
       "index": "11", 
       "paths": [
         [
@@ -698,6 +733,7 @@
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr3", 
+      "hold": "cl", 
       "index": "12", 
       "paths": [
         [
@@ -718,6 +754,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "m", 
+      "hold": "oc", 
       "index": "13", 
       "paths": [
         [
@@ -738,6 +775,7 @@
       "duration": 4, 
       "edge": "LBI", 
       "group": "m", 
+      "hold": "oc", 
       "index": "14", 
       "paths": [
         [
@@ -758,6 +796,7 @@
       "duration": 4, 
       "edge": "RBO", 
       "group": "pr4", 
+      "hold": "oc", 
       "index": "15", 
       "paths": [
         [
@@ -778,6 +817,7 @@
       "duration": 4, 
       "edge": "LFI", 
       "group": "pr4", 
+      "hold": "oc", 
       "index": "16", 
       "paths": [
         [
@@ -797,6 +837,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "RBO", 
+      "hold": "oc", 
       "index": "17", 
       "paths": [
         [
@@ -816,6 +857,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "LBI", 
+      "hold": "oc", 
       "index": "18", 
       "paths": [
         [
@@ -835,6 +877,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
+      "hold": "oc", 
       "index": "19", 
       "paths": [
         [

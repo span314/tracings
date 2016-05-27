@@ -5,6 +5,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
+      "hold": "rk", 
       "index": "1", 
       "paths": [
         [
@@ -24,6 +25,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFO", 
+      "hold": "rk", 
       "index": "2", 
       "paths": [
         [
@@ -44,6 +46,7 @@
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
+      "hold": "rk", 
       "index": "3", 
       "paths": [
         [
@@ -64,6 +67,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
+      "hold": "rk", 
       "index": "4", 
       "paths": [
         [
@@ -84,6 +88,7 @@
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr1", 
+      "hold": "rk", 
       "index": "5", 
       "paths": [
         [
@@ -103,6 +108,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFO", 
+      "hold": "rk", 
       "index": "6", 
       "paths": [
         [
@@ -122,6 +128,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFI", 
+      "hold": "rk", 
       "index": "7", 
       "paths": [
         [
@@ -142,6 +149,7 @@
       "duration": 16, 
       "edge": "RFO", 
       "group": "c", 
+      "hold": "rk", 
       "index": "8", 
       "paths": [
         [
@@ -162,6 +170,7 @@
       "duration": 8, 
       "edge": "RFI", 
       "group": "c", 
+      "hold": "rk", 
       "index": "", 
       "paths": [
         [
@@ -181,6 +190,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
+      "hold": "rk", 
       "index": "9", 
       "paths": [
         [
@@ -201,6 +211,7 @@
       "duration": 4, 
       "edge": "RFI", 
       "group": "m", 
+      "hold": "rk", 
       "index": "10", 
       "paths": [
         [
@@ -221,6 +232,7 @@
       "duration": 4, 
       "edge": "LBI", 
       "group": "m", 
+      "hold": "rk", 
       "index": "11", 
       "paths": [
         [
@@ -240,6 +252,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
+      "hold": "rk", 
       "index": "12", 
       "paths": [
         [
@@ -259,6 +272,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LBI", 
+      "hold": "rk", 
       "index": "13", 
       "paths": [
         [
@@ -278,6 +292,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
+      "hold": "rk", 
       "index": "14", 
       "paths": [
         [
@@ -297,6 +312,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LBI", 
+      "hold": "rk", 
       "index": "15", 
       "paths": [
         [
@@ -316,6 +332,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
+      "hold": "rk", 
       "index": "16", 
       "paths": [
         [

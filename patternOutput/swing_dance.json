@@ -5,6 +5,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "LFO", 
+      "hold": "cl", 
       "index": "1", 
       "paths": [
         [
@@ -24,6 +25,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "RFI", 
+      "hold": "cl", 
       "index": "2", 
       "paths": [
         [
@@ -43,6 +45,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
+      "hold": "cl", 
       "index": "3", 
       "paths": [
         [
@@ -62,6 +65,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "RFO", 
+      "hold": "cl", 
       "index": "4", 
       "paths": [
         [
@@ -81,6 +85,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "LFI", 
+      "hold": "cl", 
       "index": "5", 
       "paths": [
         [
@@ -100,6 +105,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFO", 
+      "hold": "cl", 
       "index": "6", 
       "paths": [
         [
@@ -119,6 +125,7 @@
       "beats": "4", 
       "duration": 16, 
       "edge": "LFO", 
+      "hold": "cl", 
       "index": "7", 
       "paths": [
         [
@@ -138,6 +145,7 @@
       "beats": "4", 
       "duration": 16, 
       "edge": "RFO", 
+      "hold": "cl", 
       "index": "8", 
       "paths": [
         [
@@ -157,6 +165,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
+      "hold": "hh", 
       "index": "9", 
       "paths": [
         [
@@ -176,6 +185,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
+      "hold": "hh", 
       "index": "10", 
       "paths": [
         [
@@ -195,6 +205,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
+      "hold": "hh", 
       "index": "11", 
       "paths": [
         [
@@ -215,6 +226,7 @@
       "duration": 8, 
       "edge": "RFI", 
       "group": "m", 
+      "hold": "hh", 
       "index": "12", 
       "paths": [
         [
@@ -235,6 +247,7 @@
       "duration": 8, 
       "edge": "LBI", 
       "group": "m", 
+      "hold": "hh", 
       "index": "13", 
       "paths": [
         [
@@ -254,6 +267,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
+      "hold": "cl", 
       "index": "14", 
       "paths": [
         [
@@ -273,6 +287,7 @@
       "beats": "4", 
       "duration": 16, 
       "edge": "LBO", 
+      "hold": "cl", 
       "index": "15", 
       "paths": [
         [
@@ -292,6 +307,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "RBO", 
+      "hold": "cl", 
       "index": "16", 
       "paths": [
         [
@@ -311,6 +327,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "LBI", 
+      "hold": "cl", 
       "index": "17", 
       "paths": [
         [
@@ -330,6 +347,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
+      "hold": "cl", 
       "index": "18", 
       "paths": [
         [
@@ -349,6 +367,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "LBO", 
+      "hold": "cl", 
       "index": "19", 
       "paths": [
         [
@@ -368,6 +387,7 @@
       "beats": "1", 
       "duration": 4, 
       "edge": "RBI", 
+      "hold": "cl", 
       "index": "20", 
       "paths": [
         [
@@ -387,6 +407,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LBO", 
+      "hold": "cl", 
       "index": "21", 
       "paths": [
         [
@@ -406,6 +427,7 @@
       "beats": "4", 
       "duration": 16, 
       "edge": "RBO", 
+      "hold": "cl", 
       "index": "22", 
       "paths": [
         [
@@ -425,6 +447,7 @@
       "beats": "4", 
       "duration": 16, 
       "edge": "LBO", 
+      "hold": "cl", 
       "index": "23", 
       "paths": [
         [
@@ -444,6 +467,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
+      "hold": "hh", 
       "index": "24", 
       "paths": [
         [
@@ -463,6 +487,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
+      "hold": "hh", 
       "index": "25", 
       "paths": [
         [
@@ -482,6 +507,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
+      "hold": "hh", 
       "index": "26", 
       "paths": [
         [
@@ -501,6 +527,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
+      "hold": "hh", 
       "index": "27", 
       "paths": [
         [
@@ -520,6 +547,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
+      "hold": "hh", 
       "index": "28", 
       "optional": "no", 
       "paths": [
@@ -540,6 +568,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
+      "hold": "hh", 
       "index": "28", 
       "optional": "yes", 
       "paths": [
@@ -560,6 +589,7 @@
       "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
+      "hold": "cl", 
       "index": "29", 
       "paths": [
         [
@@ -579,6 +609,7 @@
       "beats": "4", 
       "duration": 16, 
       "edge": "RFO", 
+      "hold": "cl", 
       "index": "30", 
       "paths": [
         [
