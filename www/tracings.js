@@ -65,8 +65,8 @@ $.widget('shawnpan.diagram', {
       controls.count.click(this._drawPattern.bind(this));
       controls.hold.click(this._drawPattern.bind(this));
 
+      $(this.canvas).click(this._onClick.bind(this));
       $(window).resize(this._onCanvasResize.bind(this));
-
 
       //initialize
       this.canvasContext = this.canvas.getContext('2d');
@@ -121,6 +121,7 @@ $.widget('shawnpan.diagram', {
         mirrorFlag = this.controls.mirror.is(':checked');
     console.log('loading pattern ' + this.dance.name + ' part: ' + this.part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
     this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, optionalFlag, mirrorFlag, this.scaleFactor);
+    this.positionTree = DiagramUtils.positionTree(this.patternPositions);
     this._updatePlaybackSpeedLabel();
     this.beginning();
   },
@@ -286,6 +287,13 @@ $.widget('shawnpan.diagram', {
     this.stepTickCount = 0;
   },
 
+  _movePosition: function(index) {
+    this._pause();
+    this.position = index;
+    this.stepTickCount = 0;
+    this._drawPattern();
+  },
+
   _start: function() {
     console.log('start');
     this.playing = true;
@@ -314,6 +322,25 @@ $.widget('shawnpan.diagram', {
       this._shiftPosition(1);
     }
     this._drawPattern();
+  },
+
+  _onClick: function(e) {
+    var x = e.offsetX - this.centerX,
+        y = e.offsetY - this.centerY,
+        point = DiagramUtils.nearestNeighbor([x, y], this.positionTree),
+        ctx = this.canvasContext;
+    this._movePosition(point[2]);
+    ctx.save();
+    ctx.translate(this.centerX, this.centerY);
+    ctx.fillStyle = 'rgb(0, 255, 255)';
+    for (var i = 0; i < this.positionTree.length; i++) {
+      ctx.fillRect(this.positionTree[i][0]-1, this.positionTree[i][1]-1, 3, 3);
+    }
+    ctx.fillStyle = 'rgb(255, 0, 255)';
+
+    ctx.fillRect(x-2, y-2, 5, 5);
+    ctx.fillRect(point[0]-2, point[1]-2, 5, 5);
+    ctx.restore();
   }
 });
 
@@ -366,7 +393,7 @@ DiagramUtils.cubicNormalAt.derivatives = function(p0, p1, p2, p3, t) {
 
 DiagramUtils.preprocessPath = function(path, matrix) {
   var cubic = DiagramUtils.transformCoordinates(path, matrix);
-  return $.extend(DiagramUtils.cubicNormalAt(cubic, 0.5), {start: cubic.slice(0, 2), bezier: cubic.slice(2, 8)});
+  return $.extend(DiagramUtils.cubicNormalAt(cubic, 0.5), {start: cubic.slice(0, 2), bezier: cubic.slice(2, 8), 'cubic': cubic});
 };
 
 DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
@@ -471,4 +498,149 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
     }
   }
   return positions;
+};
+
+DiagramUtils.nearestNeighbor = function(point, kdTree) {
+  console.log('---');
+  var best = DiagramUtils.nearestNeighbor.helper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: Infinity});
+  if (best.index === -1) {
+    return [0, 0, 0];
+  }
+  return kdTree[best.index];
+};
+DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, best) {
+  var child,
+      mid = (start + end) >> 1,
+      midValue = kdTree[mid],
+      dist = Math.sqrt(Math.pow(point[0] - midValue[0], 2) + Math.pow(point[1] - midValue[1], 2)),
+      kNext = (k + 1) % 2,
+      matchLeft = point[k] < midValue[k];
+  console.log('Checking subtree ' + start + ' to ' + end);
+  console.log(point);
+  console.log(midValue);
+  //Check current node
+  if (dist < best.score) {
+    best = {index: mid, score: dist};
+  }
+  //Base case
+  if (start === mid) {
+    return best;
+  }
+  //Check matching side recursively
+  if (matchLeft) {
+    child = DiagramUtils.nearestNeighbor.helper(point, kdTree, start, mid, kNext, best);
+  } else {
+    child = DiagramUtils.nearestNeighbor.helper(point, kdTree, mid + 1, end, kNext, best);
+  }
+  if (child.score < best.score) {
+    best = child;
+  }
+  //If not close to boundary, return
+  if (matchLeft && point[k] + best.score < midValue[k] || !matchLeft && point[k] - best.score > midValue[k]) {
+    return best;
+  }
+  //Check other side
+  if (matchLeft) {
+    child = DiagramUtils.nearestNeighbor.helper(point, kdTree, mid + 1, end, kNext, best);
+  } else {
+    child = DiagramUtils.nearestNeighbor.helper(point, kdTree, start, mid, kNext, best);
+  }
+  if (child.score < best.score) {
+    best = child;
+  }
+  return best;
+};
+
+DiagramUtils.positionTree = function(positions) {
+  var posIndex, paths, pathIndex,
+      points = [];
+  for (posIndex = 0; posIndex < positions.length; posIndex++) {
+    paths = positions[posIndex].paths;
+    for (pathIndex = 0; pathIndex < paths.length; pathIndex++) {
+      var i, x, y,
+          c = paths[pathIndex].cubic,
+          cf = DiagramUtils.positionTree.cubicCoeffs;
+      for (i = 0; i < cf.length; i = i + 4) {
+        x = c[0] * cf[i] + c[2] * cf[i+1] + c[4] * cf[i+2] + c[6] * cf[i+3];
+        y = c[1] * cf[i] + c[3] * cf[i+1] + c[5] * cf[i+2] + c[7] * cf[i+3];
+        points.push([x, y, posIndex]);
+      }
+    }
+  }
+  DiagramUtils.kdTree(points);
+  return points;
+};
+DiagramUtils.positionTree.cubicCoeffs = function() {
+  var i, t, ti,
+      coeffs = [];
+  for (i = 0; i <= 8; i++) {
+    t = i / 8;
+    ti = 1 - t;
+    coeffs.push(ti * ti * ti);
+    coeffs.push(3 * ti * ti * t);
+    coeffs.push(3 * ti * t * t);
+    coeffs.push(t * t * t);
+  }
+  return coeffs;
+}();
+
+DiagramUtils.kdTree = function(points) {
+  DiagramUtils.kdTree.helper(points, 0, points.length, 0);
+  console.log(JSON.stringify(points));
+};
+DiagramUtils.kdTree.helper = function(points, start, end, k) {
+  var mid, kNext;
+  if (end - start <= 1) {
+    return;
+  }
+  mid = (start + end) >> 1;
+  kNext = (k + 1) % 2;
+  DiagramUtils.kdTree.quickSelect(points, start, end, mid, k);
+  DiagramUtils.kdTree.helper(points, start, mid, kNext);
+  DiagramUtils.kdTree.helper(points, mid + 1, end, kNext);
+};
+DiagramUtils.kdTree.quickSelect = function(points, start, end, n, k) {
+  var pivot, pivotIndex, i, swap,
+      size = end - start,
+      last = end - 1,
+      partition = start;
+  //Base case
+  if (size <= 1) {
+    return;
+  }
+  //Pick random pivot. Remove by replacing with last element. Effective array size shrinks by 1.
+  pivotIndex = Math.floor(Math.random() * size + start);
+  pivot = points[pivotIndex];
+  points[pivotIndex] = points[last];
+  for (i = start; i < last; i++) {
+    //Swap lesser elements towards front
+    if (points[i][k] < pivot[k]) {
+      swap = points[i]
+      points[i] = points[partition]
+      points[partition] = swap
+      partition++;
+    }
+  }
+  //Restore pivot. Effective array size grows by 1 back to original size.
+  points[last] = points[partition]
+  points[partition] = pivot;
+  //Recursive call on appropriate half if necessary
+  if (partition < n) {
+    DiagramUtils.kdTree.quickSelect(points, partition + 1, end, n, k);
+  } else if (partition > n) {
+    DiagramUtils.kdTree.quickSelect(points, start, partition, n, k);
+  }
+};
+
+//TODO unit tests
+var quickSelectTest = function() {
+  var trial, i, pts,
+      points = [9, 0, 1, 8, 5, 6, 7, 2, 4, 3];
+  for (trial = 0; trial < 25; trial++) {
+    for (i = 0; i < 10; i++) {
+      pts = points.slice();
+      quickSelect(pts, 0, pts.length, i, 0);
+      console.log(pts[i] === i);
+    }
+  }
 };
