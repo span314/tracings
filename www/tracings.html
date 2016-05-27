@@ -37,27 +37,34 @@
       </select>
 
       <span class="button-set">
-        <input type="radio" id="partLady" name="part" checked="true"><label for="partLady"><i class="mdi mdi-human-female"></i></label>
-        <input type="radio" id="partMan" name="part"><label for="partMan"><i class="mdi mdi-human-male"></i></label>
+        <input type="radio" id="partLady" name="part" checked="true">
+        <label for="partLady" title="Lady's Part"><i class="mdi mdi-human-female"></i></label>
+        <input type="radio" id="partMan" name="part">
+        <label for="partMan" title="Man's Part"><i class="mdi mdi-human-male"></i></label>
       </span>
 
       <span class="button-set">
-        <input type="checkbox" id="optional" name="opt" checked="true"><label for="optional"><i class="mdi mdi-stairs"></i></label>
+        <input type="checkbox" id="optional" name="opt" checked="true">
+        <label for="optional" title="Optional Steps"><i class="mdi mdi-stairs"></i></label>
 <!--         <input type="checkbox" id="mirror" name="mirror"><label for="mirror"><i class="mdi mdi-swap-horizontal"></i></label> -->
       </span>
 
       <span class="button-set">
-        <button id="beginningButton"><i class="mdi mdi-page-first"></i></button>
-        <button id="previousButton"><i class="mdi mdi-chevron-left"></i></button>
-        <button id="startPauseButton"><i class="mdi mdi-play"></i></button>
-        <button id="nextButton"><i class="mdi mdi-chevron-right"></i></button>
+        <button id="beginningButton" title="Start of Pattern"><i class="mdi mdi-page-first"></i></button>
+        <button id="previousButton" title="Previous Step"><i class="mdi mdi-chevron-left"></i></button>
+        <button id="startPauseButton" title="Play / Pause"><i class="mdi mdi-play"></i></button>
+        <button id="nextButton" title="Next Step"><i class="mdi mdi-chevron-right"></i></button>
       </span>
 
       <span class="button-set">
-        <input type="checkbox" id="stepButton" name="step" checked="true"><label for="stepButton"><i class="mdi mdi-format-list-bulleted"></i></label>
-        <input type="checkbox" id="numberButton" name="number"><label for="numberButton"><i class="mdi mdi-format-list-numbers"></i></label>
-        <input type="checkbox" id="countButton" name="count" checked="true"><label for="countButton"><i class="mdi mdi-clock"></i></label>
-        <input type="checkbox" id="holdButton" name="hold"><label for="holdButton"><i class="mdi mdi-human-male-female"></i></label>
+        <input type="checkbox" id="stepButton" name="step" checked="true">
+        <label for="stepButton" title="Step Labels"><i class="mdi mdi-format-list-bulleted"></i></label>
+        <input type="checkbox" id="numberButton" name="number">
+        <label for="numberButton" title="Step Numbers"><i class="mdi mdi-format-list-numbers"></i></label>
+        <input type="checkbox" id="countButton" name="count" checked="true">
+        <label for="countButton" title="Beat Counts"><i class="mdi mdi-clock"></i></label>
+        <input type="checkbox" id="holdButton" name="hold">
+        <label for="holdButton" title="Hold Labels"><i class="mdi mdi-human-male-female"></i></label>
       </span>
 
 <!--       <span class="button-set">
@@ -70,7 +77,7 @@
       </span> -->
 
       <span id="speedContainer">
-        <span id="speedSlider"></span>
+        <span id="speedSlider" title="Speed"></span>
         <span id="speedValue">100%</span>
       </span>
     </div>

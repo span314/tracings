@@ -6,6 +6,7 @@ $(document).ready(function() {
   $('.button-set').buttonset();
   $('#speedSlider').slider({min: 20, max: 100, step: 5, value: 100});
   $('#diagramContainer').diagram();
+  $(document).tooltip();
 });
 
 $.widget('shawnpan.diagram', {
