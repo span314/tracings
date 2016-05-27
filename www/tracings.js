@@ -33,6 +33,7 @@ $.widget('shawnpan.diagram', {
       controls.partLady = elem.find('#partLady');
       controls.partMan = elem.find('#partMan');
       controls.optional = elem.find('#optional');
+      controls.mirror = elem.find('#mirror');
       controls.beginning = elem.find('#beginningButton');
       controls.previous = elem.find('#previousButton');
       controls.next = elem.find('#nextButton');
@@ -53,6 +54,7 @@ $.widget('shawnpan.diagram', {
       controls.partLady.click(this._updatePart.bind(this, 'lady'));
       controls.partMan.click(this._updatePart.bind(this, 'man'));
       controls.optional.click(this._loadPattern.bind(this));
+      controls.mirror.click(this._loadPattern.bind(this));
       controls.beginning.click(this.beginning.bind(this));
       controls.previous.click(this.previous.bind(this));
       controls.next.click(this.next.bind(this));
@@ -105,7 +107,6 @@ $.widget('shawnpan.diagram', {
     var widget = this;
     console.log(this.controls.dance.val());
     $.getJSON('patterns/' + this.controls.dance.val(), function(data) {
-      DiagramUtils.processComponentParams(data);
       console.log(data);
       widget.dance = data;
       widget._loadPattern();
@@ -116,9 +117,10 @@ $.widget('shawnpan.diagram', {
     var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths, offset,
         components = [],
         pattern = this.dance.patterns[this.part],
-        optionalFlag = this.controls.optional.is(':checked') ? 'yes' : 'no';
-    console.log('loading pattern ' + this.dance.name + ' ' + this.part);
-    this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, optionalFlag, this.scaleFactor);
+        optionalFlag = this.controls.optional.is(':checked') ? 'yes' : 'no',
+        mirrorFlag = this.controls.mirror.is(':checked');
+    console.log('loading pattern ' + this.dance.name + ' part: ' + this.part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
+    this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, optionalFlag, mirrorFlag, this.scaleFactor);
     this._updatePlaybackSpeedLabel();
     this.beginning();
   },
@@ -260,10 +262,6 @@ $.widget('shawnpan.diagram', {
     }
   },
 
-  _optionalStepsEnabled: function() {
-    return this.controls.optional.prop('checked') ? 'yes' : 'no';
-  },
-
   beginning: function() {
     this._pause();
     this.position = 0;
@@ -321,11 +319,12 @@ $.widget('shawnpan.diagram', {
 
 var DiagramUtils = function() {};
 
-DiagramUtils.computeTransformMatrix = function(index, patternsPerLap, scaleFactor) {
+DiagramUtils.computeTransformMatrix = function(index, patternsPerLap, scaleFactor, mirror) {
   var theta = 2 * Math.PI * index / patternsPerLap,
+      flipX = mirror ? -1 : 1,
       sinTheta = Math.sin(theta) * scaleFactor,
       cosTheta = Math.cos(theta) * scaleFactor;
-  return [cosTheta, -sinTheta, sinTheta, cosTheta];
+  return [flipX * cosTheta, -sinTheta, flipX * sinTheta, cosTheta];
 };
 
 DiagramUtils.transformCoordinates = function(coordinates, matrix) {
@@ -386,6 +385,7 @@ DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
   in paratheses for the edge code RFO.
 
   #e  edge (RFO, Right Forward Outside)
+  #m  mirrored edge (LFO, Left Forward Outside)
   #f  skating foot (R, Right)
   #r  free foot (L, Left)
   #d  direction (F, Forward)
@@ -403,6 +403,8 @@ DiagramUtils.edgeParams = function(edgeCode) {
     }
     result.e = $.grep([result.f, result.d, result.q], Boolean).join('');
     result.E = $.grep([result.F, result.D, result.Q], Boolean).join(' ');
+    result.m = $.grep([result.r, result.d, result.q], Boolean).join('');
+    result.M = $.grep([result.R, result.D, result.Q], Boolean).join(' ');
     DiagramUtils.edgeParams.cache[edgeCode] = result;
   }
   return DiagramUtils.edgeParams.cache[edgeCode];
@@ -437,33 +439,34 @@ DiagramUtils.resolveParams = function(edgeCode, label) {
   return result;
 };
 
-DiagramUtils.processComponentParams = function(dance) {
-  var i, component, step;
-  for (i = 0; i < dance.components.length; i++) {
-    component = dance.components[i];
-    step = dance.steps[component.step];
-    component.label = DiagramUtils.resolveParams(component.edge, step.label);
-    component.desc = DiagramUtils.resolveParams(component.edge, step.desc);
-  }
-};
-
-DiagramUtils.generatePositions = function(dance, part, optional, scaleFactor) {
-  var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths, offset,
+DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFactor) {
+  var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position,
       positions = [],
       pattern = dance.patterns[part];
 
   offset = 0;
   for (lapIndex = 0; lapIndex < dance.patternsPerLap; lapIndex++) {
-    transformMatrix = DiagramUtils.computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor);
+    transformMatrix = DiagramUtils.computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor, mirror);
     for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
       component = dance.components[componentIndex % dance.components.length];
       if (!component.optional || component.optional === optional) {
-        paths = [];
+        //Copy component
+        position = $.extend({}, component);
+        //Generate paths
+        position.paths = [];
         for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
-          paths.push(DiagramUtils.preprocessPath(component.paths[pathIndex], transformMatrix));
+          position.paths.push(DiagramUtils.preprocessPath(component.paths[pathIndex], transformMatrix));
         }
-        positions.push($.extend({}, component, {'paths': paths, 'lapIndex': lapIndex, 'offset': offset}));
+        //Check mirroring
+        position.edge = mirror ? DiagramUtils.edgeParams(component.edge).m : component.edge;
+        //Generate text
+        position.label = DiagramUtils.resolveParams(position.edge, dance.steps[component.step].label);
+        position.desc = DiagramUtils.resolveParams(position.edge, dance.steps[component.step].desc);
+        //Add lap index and offset
+        position.lapIndex = lapIndex;
+        position.offset = offset;
         offset += component.duration;
+        positions.push(position);
       }
     }
   }
