@@ -507,19 +507,18 @@ DiagramUtils.nearestNeighbor = function(point, kdTree) {
   return kdTree[best.index];
 };
 DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, best) {
-  var child, childMatchStart, childMatchEnd, childOtherStart, childOtherEnd,
+  var childMatchStart, childMatchEnd, childOtherStart, childOtherEnd,
       mid = (start + end) >> 1,
       midValue = kdTree[mid],
-      kDist = point[k] - midValue[k],
-      dist = Math.sqrt(Math.pow(point[0] - midValue[0], 2) + Math.pow(point[1] - midValue[1], 2)),
       kNext = (k + 1) % 2,
-      matchLeft = point[k] < midValue[k];
+      kDist = point[k] - midValue[k],
+      kNextDist = point[kNext] - midValue[kNext],
+      dist2 = kDist * kDist + kNextDist * kNextDist;
   console.log('Checking subtree ' + start + ' to ' + end);
-  console.log(point);
-  console.log(midValue);
   //Check current node
-  if (dist < best.score) {
-    best = {index: mid, score: dist};
+  if (dist2 < best.score) {
+    best = {index: mid, score: dist2};
+    console.log('Better');
   }
   //Base case
   if (start === mid) {
@@ -537,19 +536,13 @@ DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, bes
     childMatchStart = mid + 1;
     childMatchEnd = end;
   }
-  //Check matching side recursively
-  child = DiagramUtils.nearestNeighbor.helper(point, kdTree, childMatchStart, childMatchEnd, kNext, best);
-  if (child.score < best.score) { //not needed?
-    best = child;
-  }
-  //If not close to boundary, return
-  if (kDist < 0 && kDist + best.score < 0 || kDist > 0 && kDist - best.score > 0) {
-    return best;
-  }
-  //Check other side
-  child = DiagramUtils.nearestNeighbor.helper(point, kdTree, childOtherStart, childOtherEnd, kNext, best);
-  if (child.score < best.score) {
-    best = child;
+  //Recursively check matching side
+  best = DiagramUtils.nearestNeighbor.helper(point, kdTree, childMatchStart, childMatchEnd, kNext, best);
+  //Recursively check other side only if point is near the pivot
+  if (kDist * kDist < best.score) {
+    best = DiagramUtils.nearestNeighbor.helper(point, kdTree, childOtherStart, childOtherEnd, kNext, best);
+  } else {
+    console.log('Prune');
   }
   return best;
 };
