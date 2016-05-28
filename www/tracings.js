@@ -546,19 +546,19 @@ DiagramUtils.nearestNeighbor = function(point, kdTree, maxDist) {
 };
 //Recursive helper function
 DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, best) {
-  var childMatchStart, childMatchEnd, childOtherStart, childOtherEnd,
-      mid = (start + end) >> 1,
-      kNext = (k + 1) % 2,
-      kDist = point[k] - kdTree[mid][k],
-      kNextDist = point[kNext] - kdTree[mid][kNext],
-      dist2 = kDist * kDist + kNextDist * kNextDist;
+  var childMatchStart, childMatchEnd, childOtherStart, childOtherEnd, mid, kNext, kDist, kNextDist, dist2;
+  //Base case
+  if (start >= end) {
+    return best;
+  }
+  mid = (start + end) >> 1;
+  kNext = (k + 1) % 2;
+  kDist = point[k] - kdTree[mid][k];
+  kNextDist = point[kNext] - kdTree[mid][kNext];
+  dist2 = kDist * kDist + kNextDist * kNextDist;
   //Check current node
   if (dist2 < best.score) {
     best = {index: mid, score: dist2};
-  }
-  //Base case
-  if (start === mid) {
-    return best;
   }
   //Find the child tree containing the candidate point and the one not containing the point
   if (kDist < 0) {
@@ -590,7 +590,7 @@ DiagramUtils.positionTree = function(positions) {
     for (pathIndex = 0; pathIndex < paths.length; pathIndex++) {
       var i, x, y,
           c = paths[pathIndex].cubic,
-          cf = DiagramUtils.positionTree.cubicCoeffs;
+          cf = DiagramUtils.positionTree.CUBIC_COEFFS;
       for (i = 0; i < cf.length; i = i + 4) {
         x = c[0] * cf[i] + c[2] * cf[i+1] + c[4] * cf[i+2] + c[6] * cf[i+3];
         y = c[1] * cf[i] + c[3] * cf[i+1] + c[5] * cf[i+2] + c[7] * cf[i+3];
@@ -602,7 +602,7 @@ DiagramUtils.positionTree = function(positions) {
   return points;
 };
 //Cubic bezier coefficients for t=0 to t=8 in 1/8 increments
-DiagramUtils.positionTree.cubicCoeffs = function() {
+DiagramUtils.positionTree.CUBIC_COEFFS = function() {
   var i, t, ti,
       coeffs = [];
   for (i = 0; i <= 8; i++) {
