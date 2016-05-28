@@ -45,8 +45,8 @@ $.widget('shawnpan.diagram', {
       controls.number = elem.find('#numberButton');
       controls.count = elem.find('#countButton');
       controls.hold = elem.find('#holdButton');
-
       controls.controlContainer = elem.find('#controls');
+      controls.canvas = $(this.canvas);
 
 
       //bind events
@@ -65,7 +65,7 @@ $.widget('shawnpan.diagram', {
       controls.count.click(this._drawPattern.bind(this));
       controls.hold.click(this._drawPattern.bind(this));
 
-      $(this.canvas).click(this._onClick.bind(this));
+      controls.canvas.click(this._onClick.bind(this));
       $(window).resize(this._onCanvasResize.bind(this));
 
       //initialize
@@ -97,6 +97,9 @@ $.widget('shawnpan.diagram', {
     this.centerY = height / 2;
     this.scaleFactor = (width - 96) / 1024;
     this.controls.controlContainer.width(width);
+    //Using page offsets, because Firefox does not have offsetX/offsetY in click events
+    this.diagramPageOffsetX = this.controls.canvas.offset().left + this.centerX;
+    this.diagramPageOffsetY = this.controls.canvas.offset().top + this.centerY;
 
     if (this.dance) {
       this._loadPattern();
@@ -324,7 +327,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _onClick: function(e) {
-    var point = [e.offsetX - this.centerX, e.offsetY - this.centerY],
+    var point = [e.pageX - this.diagramPageOffsetX, e.pageY - this.diagramPageOffsetY],
         nearest = DiagramUtils.nearestNeighbor(point, this.positionTree, 32 * this.scaleFactor)[2];
     if (nearest) {
       this._movePosition(nearest);
