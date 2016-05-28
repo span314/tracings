@@ -178,8 +178,8 @@ $.widget('shawnpan.diagram', {
       for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
         path = position.paths[pathIndex];
         ctx.beginPath();
-        ctx.moveTo.apply(ctx, path.start);
-        ctx.bezierCurveTo.apply(ctx, path.bezier);
+        ctx.moveTo.apply(ctx, path.cubic.slice(0, 2));
+        ctx.bezierCurveTo.apply(ctx, path.cubic.slice(2, 8));
         ctx.stroke();
       }
 
@@ -479,8 +479,6 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
         for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
           cubic = DiagramUtils.transformCoordinates(component.paths[pathIndex], transformMatrix);
           path = DiagramUtils.cubicNormalAt(cubic, 0.5);
-          path.start = cubic.slice(0, 2);
-          path.bezier = cubic.slice(2, 8);
           path.cubic = cubic;
           position.paths.push(path);
         }
@@ -509,9 +507,10 @@ DiagramUtils.nearestNeighbor = function(point, kdTree) {
   return kdTree[best.index];
 };
 DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, best) {
-  var child,
+  var child, childMatchStart, childMatchEnd, childOtherStart, childOtherEnd,
       mid = (start + end) >> 1,
       midValue = kdTree[mid],
+      kDist = point[k] - midValue[k],
       dist = Math.sqrt(Math.pow(point[0] - midValue[0], 2) + Math.pow(point[1] - midValue[1], 2)),
       kNext = (k + 1) % 2,
       matchLeft = point[k] < midValue[k];
@@ -526,25 +525,29 @@ DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, bes
   if (start === mid) {
     return best;
   }
-  //Check matching side recursively
-  if (matchLeft) {
-    child = DiagramUtils.nearestNeighbor.helper(point, kdTree, start, mid, kNext, best);
+  //Find the child tree containing the candidate point and the one not containing the point
+  if (kDist < 0) {
+    childMatchStart = start;
+    childMatchEnd = mid;
+    childOtherStart = mid + 1;
+    childOtherEnd = end;
   } else {
-    child = DiagramUtils.nearestNeighbor.helper(point, kdTree, mid + 1, end, kNext, best);
+    childOtherStart = start;
+    childOtherEnd = mid;
+    childMatchStart = mid + 1;
+    childMatchEnd = end;
   }
-  if (child.score < best.score) {
+  //Check matching side recursively
+  child = DiagramUtils.nearestNeighbor.helper(point, kdTree, childMatchStart, childMatchEnd, kNext, best);
+  if (child.score < best.score) { //not needed?
     best = child;
   }
   //If not close to boundary, return
-  if (matchLeft && point[k] + best.score < midValue[k] || !matchLeft && point[k] - best.score > midValue[k]) {
+  if (kDist < 0 && kDist + best.score < 0 || kDist > 0 && kDist - best.score > 0) {
     return best;
   }
   //Check other side
-  if (matchLeft) {
-    child = DiagramUtils.nearestNeighbor.helper(point, kdTree, mid + 1, end, kNext, best);
-  } else {
-    child = DiagramUtils.nearestNeighbor.helper(point, kdTree, start, mid, kNext, best);
-  }
+  child = DiagramUtils.nearestNeighbor.helper(point, kdTree, childOtherStart, childOtherEnd, kNext, best);
   if (child.score < best.score) {
     best = child;
   }
