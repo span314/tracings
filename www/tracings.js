@@ -325,22 +325,10 @@ $.widget('shawnpan.diagram', {
 
   _onClick: function(e) {
     var point = [e.offsetX - this.centerX, e.offsetY - this.centerY],
-        nearest = DiagramUtils.nearestNeighbor(point, this.positionTree, 32 * this.scaleFactor),
-        ctx = this.canvasContext;
-    if (nearest[2]) {
-      this._movePosition(nearest[2]);
+        nearest = DiagramUtils.nearestNeighbor(point, this.positionTree, 32 * this.scaleFactor)[2];
+    if (nearest) {
+      this._movePosition(nearest);
     }
-    ctx.save();
-    ctx.translate(this.centerX, this.centerY);
-    ctx.fillStyle = 'rgb(0, 255, 255)';
-    for (var i = 0; i < this.positionTree.length; i++) {
-      ctx.fillRect(this.positionTree[i][0]-1, this.positionTree[i][1]-1, 3, 3);
-    }
-    ctx.fillStyle = 'rgb(255, 0, 255)';
-
-    ctx.fillRect(nearest[0]-2, nearest[1]-2, 5, 5);
-    ctx.fillRect(point[0]-2, point[1]-2, 5, 5);
-    ctx.restore();
   }
 });
 
@@ -498,6 +486,55 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
   return positions;
 };
 
+//Creates a 2D tree in-place for an array of points
+DiagramUtils.kdTree = function(points) {
+  DiagramUtils.kdTree.helper(points, 0, points.length, 0);
+};
+//Recursive helper function for segment of points array between start inclusive and end exclusive and diminsion k=0 or k=1
+DiagramUtils.kdTree.helper = function(points, start, end, k) {
+  var mid, kNext;
+  if (end - start <= 1) {
+    return;
+  }
+  mid = (start + end) >> 1;
+  kNext = (k + 1) % 2;
+  DiagramUtils.kdTree.quickSelect(points, start, end, mid, k);
+  DiagramUtils.kdTree.helper(points, start, mid, kNext);
+  DiagramUtils.kdTree.helper(points, mid + 1, end, kNext);
+};
+//In-place quick select for segment of points array between start inclusive and end exclusive and diminsion k=0 or k=1.
+//The point at index n will be in the correct position afterwards
+DiagramUtils.kdTree.quickSelect = function(points, start, end, n, k) {
+  var pivot, pivotIndex, i, swap, partition;
+  while (end - start > 1) {
+    partition = start;
+    //Pick random pivot. Remove by replacing with last element. Working array size shrinks by 1.
+    pivotIndex = Math.floor(Math.random() * (end - start) + start);
+    pivot = points[pivotIndex];
+    points[pivotIndex] = points[end - 1];
+    for (i = start; i < end - 1; i++) {
+      //Swap lesser elements towards front
+      if (points[i][k] < pivot[k]) {
+        swap = points[i]
+        points[i] = points[partition]
+        points[partition] = swap
+        partition++;
+      }
+    }
+    //Restore pivot. Working array size grows by 1 back to original size.
+    points[end - 1] = points[partition]
+    points[partition] = pivot;
+    //Continue on with approriate half
+    if (partition < n) {
+      start = partition + 1;
+    } else if (partition > n) {
+      end = partition;
+    } else {
+      break;
+    }
+  }
+};
+
 //Find the nearest neighbor to a point given a kd search tree and a maximum allowed distance
 //Returns entry in search tree or false if no point within max distance
 DiagramUtils.nearestNeighbor = function(point, kdTree, maxDist) {
@@ -578,66 +615,3 @@ DiagramUtils.positionTree.cubicCoeffs = function() {
   }
   return coeffs;
 }();
-
-
-//Creates a 2D tree in-place for an array of points
-DiagramUtils.kdTree = function(points) {
-  DiagramUtils.kdTree.helper(points, 0, points.length, 0);
-};
-//Recursive helper function for segment of points array between start inclusive and end exclusive and diminsion k=0 or k=1
-DiagramUtils.kdTree.helper = function(points, start, end, k) {
-  var mid, kNext;
-  if (end - start <= 1) {
-    return;
-  }
-  mid = (start + end) >> 1;
-  kNext = (k + 1) % 2;
-  DiagramUtils.kdTree.quickSelect(points, start, end, mid, k);
-  DiagramUtils.kdTree.helper(points, start, mid, kNext);
-  DiagramUtils.kdTree.helper(points, mid + 1, end, kNext);
-};
-//In-place quick select for segment of points array between start inclusive and end exclusive and diminsion k=0 or k=1.
-//The point at index n will be in the correct position afterwards
-DiagramUtils.kdTree.quickSelect = function(points, start, end, n, k) {
-  var pivot, pivotIndex, i, swap, partition;
-  while (end - start > 1) {
-    partition = start;
-    //Pick random pivot. Remove by replacing with last element. Working array size shrinks by 1.
-    pivotIndex = Math.floor(Math.random() * (end - start) + start);
-    pivot = points[pivotIndex];
-    points[pivotIndex] = points[end - 1];
-    for (i = start; i < end - 1; i++) {
-      //Swap lesser elements towards front
-      if (points[i][k] < pivot[k]) {
-        swap = points[i]
-        points[i] = points[partition]
-        points[partition] = swap
-        partition++;
-      }
-    }
-    //Restore pivot. Working array size grows by 1 back to original size.
-    points[end - 1] = points[partition]
-    points[partition] = pivot;
-    //Continue on with approriate half
-    if (partition < n) {
-      start = partition + 1;
-    } else if (partition > n) {
-      end = partition;
-    } else {
-      break;
-    }
-  }
-};
-
-//TODO unit tests
-var quickSelectTest = function() {
-  var trial, i, pts,
-      points = [9, 0, 1, 8, 5, 6, 7, 2, 4, 3];
-  for (trial = 0; trial < 25; trial++) {
-    for (i = 0; i < 10; i++) {
-      pts = points.slice();
-      quickSelect(pts, 0, pts.length, i, 0);
-      console.log(pts[i] === i);
-    }
-  }
-};
