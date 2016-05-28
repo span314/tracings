@@ -509,10 +509,9 @@ DiagramUtils.nearestNeighbor = function(point, kdTree) {
 DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, best) {
   var childMatchStart, childMatchEnd, childOtherStart, childOtherEnd,
       mid = (start + end) >> 1,
-      midValue = kdTree[mid],
       kNext = (k + 1) % 2,
-      kDist = point[k] - midValue[k],
-      kNextDist = point[kNext] - midValue[kNext],
+      kDist = point[k] - kdTree[mid][k],
+      kNextDist = point[kNext] - kdTree[mid][kNext],
       dist2 = kDist * kDist + kNextDist * kNextDist;
   console.log('Checking subtree ' + start + ' to ' + end);
   //Check current node
@@ -538,7 +537,7 @@ DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, bes
   }
   //Recursively check matching side
   best = DiagramUtils.nearestNeighbor.helper(point, kdTree, childMatchStart, childMatchEnd, kNext, best);
-  //Recursively check other side only if point is near the pivot
+  //Recursively check other side only if point is near the pivot, otherwise branch can be pruned
   if (kDist * kDist < best.score) {
     best = DiagramUtils.nearestNeighbor.helper(point, kdTree, childOtherStart, childOtherEnd, kNext, best);
   } else {
@@ -596,37 +595,37 @@ DiagramUtils.kdTree.helper = function(points, start, end, k) {
   DiagramUtils.kdTree.helper(points, mid + 1, end, kNext);
 };
 DiagramUtils.kdTree.quickSelect = function(points, start, end, n, k) {
-  var pivot, pivotIndex, i, swap,
-      size = end - start,
-      last = end - 1,
-      partition = start;
-  //Base case
-  if (size <= 1) {
-    return;
-  }
-  //Pick random pivot. Remove by replacing with last element. Effective array size shrinks by 1.
-  pivotIndex = Math.floor(Math.random() * size + start);
-  pivot = points[pivotIndex];
-  points[pivotIndex] = points[last];
-  for (i = start; i < last; i++) {
-    //Swap lesser elements towards front
-    if (points[i][k] < pivot[k]) {
-      swap = points[i]
-      points[i] = points[partition]
-      points[partition] = swap
-      partition++;
+  var pivot, pivotIndex, i, swap, partition;
+  while (end - start > 1) {
+    partition = start;
+    //Pick random pivot. Remove by replacing with last element. Working array size shrinks by 1.
+    pivotIndex = Math.floor(Math.random() * (end - start) + start);
+    pivot = points[pivotIndex];
+    points[pivotIndex] = points[end - 1];
+    for (i = start; i < end - 1; i++) {
+      //Swap lesser elements towards front
+      if (points[i][k] < pivot[k]) {
+        swap = points[i]
+        points[i] = points[partition]
+        points[partition] = swap
+        partition++;
+      }
+    }
+    //Restore pivot. Working array size grows by 1 back to original size.
+    points[end - 1] = points[partition]
+    points[partition] = pivot;
+    //Continue on with approriate half
+    if (partition < n) {
+      start = partition + 1;
+    } else if (partition > n) {
+      end = partition;
+    } else {
+      break;
     }
   }
-  //Restore pivot. Effective array size grows by 1 back to original size.
-  points[last] = points[partition]
-  points[partition] = pivot;
-  //Recursive call on appropriate half if necessary
-  if (partition < n) {
-    DiagramUtils.kdTree.quickSelect(points, partition + 1, end, n, k);
-  } else if (partition > n) {
-    DiagramUtils.kdTree.quickSelect(points, start, partition, n, k);
-  }
 };
+
+
 
 //TODO unit tests
 var quickSelectTest = function() {
