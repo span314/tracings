@@ -23,8 +23,8 @@ index,duration,pathCount,beats,edge,step,group,optional,hold
 1,,,1,LFO,pr,pr1,,cl
 2,,,1,RFI,prx,pr1,,cl
 3,,,2,LFO,pr,pr1,,cl
-4,16,,4+2,RFO,cesw,,,cl
-,8,,,RFI,cex,,,cl
+4,16,,4+2,RFO,cesw,ce,,cl
+,8,,,RFI,cex,ce,,cl
 5,,,1,LFO,pr,pr2,,f
 6,,,1,RFI,prx,pr2,,f
 7,,,2,LFO,pr,pr2,,f

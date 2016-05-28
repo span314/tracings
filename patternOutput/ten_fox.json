@@ -505,6 +505,7 @@
       "beats": "4+2", 
       "duration": 16, 
       "edge": "RFO", 
+      "group": "ce", 
       "hold": "cl", 
       "index": "4", 
       "paths": [
@@ -525,6 +526,7 @@
       "beats": "", 
       "duration": 8, 
       "edge": "RFI", 
+      "group": "ce", 
       "hold": "cl", 
       "index": "", 
       "paths": [
