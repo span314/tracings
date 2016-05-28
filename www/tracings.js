@@ -391,11 +391,6 @@ DiagramUtils.cubicNormalAt.derivatives = function(p0, p1, p2, p3, t) {
           6 * ti * (p2 - 2 * p1 + p0) + 6 * t * (p3 - 2 * p2 + p1)];
 };
 
-DiagramUtils.preprocessPath = function(path, matrix) {
-  var cubic = DiagramUtils.transformCoordinates(path, matrix);
-  return $.extend(DiagramUtils.cubicNormalAt(cubic, 0.5), {start: cubic.slice(0, 2), bezier: cubic.slice(2, 8), 'cubic': cubic});
-};
-
 DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
   var x = path.value[0] + path.normal[0] * offset,
       y = path.value[1] + path.normal[1] * offset;
@@ -467,7 +462,7 @@ DiagramUtils.resolveParams = function(edgeCode, label) {
 };
 
 DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFactor) {
-  var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position,
+  var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path,
       positions = [],
       pattern = dance.patterns[part];
 
@@ -482,7 +477,12 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
         //Generate paths
         position.paths = [];
         for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
-          position.paths.push(DiagramUtils.preprocessPath(component.paths[pathIndex], transformMatrix));
+          cubic = DiagramUtils.transformCoordinates(component.paths[pathIndex], transformMatrix);
+          path = DiagramUtils.cubicNormalAt(cubic, 0.5);
+          path.start = cubic.slice(0, 2);
+          path.bezier = cubic.slice(2, 8);
+          path.cubic = cubic;
+          position.paths.push(path);
         }
         //Check mirroring
         position.edge = mirror ? DiagramUtils.edgeParams(component.edge).m : component.edge;
