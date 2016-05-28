@@ -325,11 +325,12 @@ $.widget('shawnpan.diagram', {
   },
 
   _onClick: function(e) {
-    var x = e.offsetX - this.centerX,
-        y = e.offsetY - this.centerY,
-        point = DiagramUtils.nearestNeighbor([x, y], this.positionTree),
+    var point = [e.offsetX - this.centerX, e.offsetY - this.centerY],
+        nearest = DiagramUtils.nearestNeighbor(point, this.positionTree, 32 * this.scaleFactor),
         ctx = this.canvasContext;
-    this._movePosition(point[2]);
+    if (nearest[2]) {
+      this._movePosition(nearest[2]);
+    }
     ctx.save();
     ctx.translate(this.centerX, this.centerY);
     ctx.fillStyle = 'rgb(0, 255, 255)';
@@ -338,7 +339,7 @@ $.widget('shawnpan.diagram', {
     }
     ctx.fillStyle = 'rgb(255, 0, 255)';
 
-    ctx.fillRect(x-2, y-2, 5, 5);
+    ctx.fillRect(nearest[0]-2, nearest[1]-2, 5, 5);
     ctx.fillRect(point[0]-2, point[1]-2, 5, 5);
     ctx.restore();
   }
@@ -498,14 +499,17 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
   return positions;
 };
 
-DiagramUtils.nearestNeighbor = function(point, kdTree) {
+//Find the nearest neighbor to a point given a kd search tree and a maximum allowed distance
+//Returns entry in search tree or false if no point within max distance
+DiagramUtils.nearestNeighbor = function(point, kdTree, maxDist) {
   console.log('---');
-  var best = DiagramUtils.nearestNeighbor.helper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: Infinity});
+  var best = DiagramUtils.nearestNeighbor.helper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: maxDist * maxDist});
   if (best.index === -1) {
-    return [0, 0, 0];
+    return false;
   }
   return kdTree[best.index];
 };
+//Recursive helper function
 DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, best) {
   var childMatchStart, childMatchEnd, childOtherStart, childOtherEnd,
       mid = (start + end) >> 1,
@@ -546,6 +550,7 @@ DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, bes
   return best;
 };
 
+//Creates a kd search tree of the paths in the list of positions
 DiagramUtils.positionTree = function(positions) {
   var posIndex, paths, pathIndex,
       points = [];
@@ -565,6 +570,7 @@ DiagramUtils.positionTree = function(positions) {
   DiagramUtils.kdTree(points);
   return points;
 };
+//Cubic bezier coefficients for t=0 to t=8 in 1/8 increments
 DiagramUtils.positionTree.cubicCoeffs = function() {
   var i, t, ti,
       coeffs = [];
@@ -579,10 +585,12 @@ DiagramUtils.positionTree.cubicCoeffs = function() {
   return coeffs;
 }();
 
+
+//Creates a 2D tree in-place for an array of points
 DiagramUtils.kdTree = function(points) {
   DiagramUtils.kdTree.helper(points, 0, points.length, 0);
-  console.log(JSON.stringify(points));
 };
+//Recursive helper function for segment of points array between start inclusive and end exclusive and diminsion k=0 or k=1
 DiagramUtils.kdTree.helper = function(points, start, end, k) {
   var mid, kNext;
   if (end - start <= 1) {
@@ -594,6 +602,8 @@ DiagramUtils.kdTree.helper = function(points, start, end, k) {
   DiagramUtils.kdTree.helper(points, start, mid, kNext);
   DiagramUtils.kdTree.helper(points, mid + 1, end, kNext);
 };
+//In-place quick select for segment of points array between start inclusive and end exclusive and diminsion k=0 or k=1.
+//The point at index n will be in the correct position afterwards
 DiagramUtils.kdTree.quickSelect = function(points, start, end, n, k) {
   var pivot, pivotIndex, i, swap, partition;
   while (end - start > 1) {
@@ -624,8 +634,6 @@ DiagramUtils.kdTree.quickSelect = function(points, start, end, n, k) {
     }
   }
 };
-
-
 
 //TODO unit tests
 var quickSelectTest = function() {
