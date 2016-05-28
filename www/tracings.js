@@ -105,7 +105,6 @@ $.widget('shawnpan.diagram', {
 
   _loadDance: function() {
     var widget = this;
-    console.log(this.controls.dance.val());
     $.getJSON('patterns/' + this.controls.dance.val(), function(data) {
       console.log(data);
       widget.dance = data;
@@ -502,7 +501,6 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
 //Find the nearest neighbor to a point given a kd search tree and a maximum allowed distance
 //Returns entry in search tree or false if no point within max distance
 DiagramUtils.nearestNeighbor = function(point, kdTree, maxDist) {
-  console.log('---');
   var best = DiagramUtils.nearestNeighbor.helper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: maxDist * maxDist});
   if (best.index === -1) {
     return false;
@@ -517,11 +515,9 @@ DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, bes
       kDist = point[k] - kdTree[mid][k],
       kNextDist = point[kNext] - kdTree[mid][kNext],
       dist2 = kDist * kDist + kNextDist * kNextDist;
-  console.log('Checking subtree ' + start + ' to ' + end);
   //Check current node
   if (dist2 < best.score) {
     best = {index: mid, score: dist2};
-    console.log('Better');
   }
   //Base case
   if (start === mid) {
@@ -544,8 +540,6 @@ DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, bes
   //Recursively check other side only if point is near the pivot, otherwise branch can be pruned
   if (kDist * kDist < best.score) {
     best = DiagramUtils.nearestNeighbor.helper(point, kdTree, childOtherStart, childOtherEnd, kNext, best);
-  } else {
-    console.log('Prune');
   }
   return best;
 };
