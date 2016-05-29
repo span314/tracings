@@ -230,6 +230,8 @@ $.widget('shawnpan.diagram', {
         halfHeightStraight = 6.5 * scale,
         cornerRadius = 8.5 * scale;
 
+      ctx.save();
+
       ctx.beginPath();
       ctx.moveTo(-halfWidthStraight, -halfHeight);
       ctx.arcTo(halfWidth, -halfHeight, halfWidth, halfHeightStraight, cornerRadius);
@@ -237,6 +239,16 @@ $.widget('shawnpan.diagram', {
       ctx.arcTo(-halfWidth, halfHeight, -halfWidth, halfHeightStraight, cornerRadius);
       ctx.arcTo(-halfWidth, -halfHeight, -halfWidthStraight, -halfHeight, cornerRadius);
       ctx.stroke();
+
+      ctx.strokeStyle = 'rgb(200,200,200)';
+      ctx.beginPath();
+      ctx.moveTo(0, -halfHeight);
+      ctx.lineTo(0, halfHeight);
+      ctx.moveTo(-halfWidth, 0);
+      ctx.lineTo(halfWidth, 0);
+      ctx.stroke();
+
+      ctx.restore();
   },
 
   _updateSpeed: function(event, ui) {
