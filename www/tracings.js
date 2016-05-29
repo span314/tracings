@@ -80,19 +80,29 @@ $.widget('shawnpan.diagram', {
 
   _onCanvasResize: function() {
     var width, height,
-        aspectRatio = window.innerWidth / window.innerHeight;
+        availableWidth = Math.max(window.innerWidth - 16, 0),
+        availableHeight = Math.max(window.innerHeight - 108, 0),
+        aspectRatio = availableWidth / availableHeight;
     if (aspectRatio > 1.8) {
       //height limited
-      height = 0.9 * window.innerHeight;
+      height = availableHeight;
       width = 1.8 * height;
     } else {
       //width limited
-      width = 0.98 * window.innerWidth;
+      width = availableWidth;
       height = width / 1.8;
     }
-    if (width < 1024) {
-      width = 1024;
-      height = 1024 / 1.8;
+    if (width < 800) {
+      width = 800;
+      height = 800 / 1.8;
+      this.labelFont = '12pt Arial';
+      this.titleFont = '18pt Arial';
+    } else if (width < 1200) {
+      this.labelFont = '14pt Arial';
+      this.titleFont = '21pt Arial';
+    } else {
+      this.labelFont = '16pt Arial';
+      this.titleFont = '24pt Arial';
     }
 
     this.canvas.width = width;
@@ -148,9 +158,9 @@ $.widget('shawnpan.diagram', {
     //ctx.fillRect(0, 0, beat * this.canvas.width / this.dance.timeSignatureTop, 10);
 
     //Draw text
-    ctx.font = '30px Arial';
+    ctx.font = this.titleFont;
     ctx.fillText(currentPosition.desc, 10, 30);
-    ctx.font = '16px Arial';
+    ctx.font = this.labelFont;
 
     ctx.save();
     ctx.translate(this.centerX, this.centerY);

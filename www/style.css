@@ -22,7 +22,7 @@ canvas {
   vertical-align: middle;
 }
 
-#speedContainer {
+#speedContainer, .button-set {
   white-space: nowrap;
 }
 
