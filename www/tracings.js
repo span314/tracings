@@ -4,10 +4,61 @@
 $(document).ready(function() {
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
   $('.button-set').buttonset();
-  $('#speedSlider').slider({min: 20, max: 100, step: 5, value: 100});
+  $('.ts-container').toggleslider();
   $('#diagramContainer').diagram();
   $('#infoDialog').dialog({autoOpen: false});
   $('#controls').tooltip();
+});
+
+$.widget('shawnpan.toggleslider', $.ui.buttonset, {
+  _create: function() {
+    //Find elements
+    this.button = this.element.children('button');
+    this.popup = this.element.children('div');
+    this.slider = this.popup.find('.ts-slider');
+    this.percentText = this.popup.find('.ts-percent');
+    this.valueText = this.popup.find('.ts-value');
+
+    //Create slider
+    this.slider.slider({orientation: 'vertical', min: 20, max: 100, step: 5, value: 100});
+
+    //Bind events
+    this.slider.on('slidechange', this._onChange.bind(this));
+    this.button.click(this._onClick.bind(this));
+
+    //Initialize
+    this.percentValue = 100;
+    this.updateScale(100);
+  },
+
+  updateScale: function(value) {
+    this.scale = value;
+    this._refreshText();
+  },
+
+  scaleValue: function() {
+    return this.percentValue * this.scale / 100;
+  },
+
+  _refreshText: function() {
+    this.percentText.text(this.percentValue + '%');
+    this.valueText.text(Math.round(this.scaleValue()) + 'bpm');
+  },
+
+  _onClick: function() {
+    this.popup.toggle();
+  },
+
+  _onChange: function(e, ui) {
+    this.percentValue = ui.value;
+    if (ui.value === 100) {
+      this.button.removeClass('ts-state-active');
+    } else {
+      this.button.addClass('ts-state-active');
+    }
+    this._refreshText();
+    this._trigger('change');
+  }
 });
 
 $.widget('shawnpan.diagram', {
@@ -15,7 +66,6 @@ $.widget('shawnpan.diagram', {
   part: 'lady',
   position: 0,
   stepTickCount: 0,
-  playbackSpeedPercent: 100,
   controls: {},
 
   _create: function() {
@@ -40,8 +90,7 @@ $.widget('shawnpan.diagram', {
       controls.next = elem.find('#nextButton');
       controls.startPause = elem.find('#startPauseButton');
       controls.startPauseIcon = controls.startPause.find('.mdi');
-      controls.speed = elem.find('#speedSlider');
-      controls.speedValue = elem.find('#speedValue');
+      controls.speedSelector = elem.find('#speedSelector');
       controls.step = elem.find('#stepButton');
       controls.number = elem.find('#numberButton');
       controls.count = elem.find('#countButton');
@@ -62,7 +111,7 @@ $.widget('shawnpan.diagram', {
       controls.previous.click(this.previous.bind(this));
       controls.next.click(this.next.bind(this));
       controls.startPause.click(this.toggleStartPause.bind(this));
-      controls.speed.on('slidechange', this._updateSpeed.bind(this));
+      controls.speedSelector.on('togglesliderchange', this._adjustSpeed.bind(this));
       controls.step.click(this._drawPattern.bind(this));
       controls.number.click(this._drawPattern.bind(this));
       controls.count.click(this._drawPattern.bind(this));
@@ -138,7 +187,7 @@ $.widget('shawnpan.diagram', {
     console.log('loading pattern ' + this.dance.name + ' part: ' + this.part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
     this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, optionalFlag, mirrorFlag, this.scaleFactor);
     this.positionTree = DiagramUtils.positionTree(this.patternPositions);
-    this._updatePlaybackSpeedLabel();
+    this.controls.speedSelector.toggleslider('updateScale', this.dance.beatsPerMinute);
     this.beginning();
   },
 
@@ -265,25 +314,6 @@ $.widget('shawnpan.diagram', {
       ctx.restore();
   },
 
-  _updateSpeed: function(event, ui) {
-    console.log('update speed');
-    this.playbackSpeedPercent = ui.value;
-    this._updatePlaybackSpeedLabel();
-    if (this.playing) {
-      this._pause();
-      this._start();
-    }
-  },
-
-  _updatePlaybackSpeedLabel: function() {
-    var desc = this.playbackSpeedPercent + '% (' + Math.round(this.playbackSpeedPercent * this.dance.beatsPerMinute / 100) + ' bpm)';
-    this.controls.speedValue.text(desc);
-  },
-
-  _playbackInterval: function() {
-    return 1500000 / (this.playbackSpeedPercent * this.dance.beatsPerMinute) //60000 ms / 4 ticks per beat * 100 percent
-  },
-
   _updatePart: function(part) {
     if (this.part !== part) {
       this.part = part;
@@ -322,10 +352,19 @@ $.widget('shawnpan.diagram', {
     this._drawPattern();
   },
 
+  _adjustSpeed: function() {
+    console.log('adjust speed');
+    if (this.playing) {
+      this._pause();
+      this._start();
+    }
+  },
+
   _start: function() {
     console.log('start');
+    var playbackInterval = 15000 / this.controls.speedSelector.toggleslider('scaleValue'); //60000 ms / 4 ticks per beat
     this.playing = true;
-    this.timer = setInterval(this._tick.bind(this), this._playbackInterval());
+    this.timer = setInterval(this._tick.bind(this), playbackInterval);
     this.controls.startPauseIcon.removeClass('mdi-play').addClass('mdi-pause');
   },
 

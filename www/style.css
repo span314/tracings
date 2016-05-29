@@ -14,20 +14,8 @@ canvas {
   vertical-align: middle;
 }
 
-#speedSlider {
-  display: inline-block;
-  width: 128px;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  vertical-align: middle;
-}
-
-#speedContainer, .button-set {
+.button-set {
   white-space: nowrap;
-}
-
-#infoDialog {
-  display: none;
 }
 
 .mdi {
@@ -36,4 +24,41 @@ canvas {
 
 .ui-dialog-titlebar-close:focus {
   outline: none;
+}
+
+.default-hidden {
+  display: none;
+}
+
+/*Toggle Slider*/
+.ts-container {
+  position: relative;
+}
+
+.ts-popup {
+  display: none;
+  height: 240px;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: center;
+  position: absolute;
+  top: -256px;
+  left: 0;
+  background: #ccc;
+}
+
+.ts-slider {
+  display: inline-block;
+  height: 144px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.ts-container .ts-state-active {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
 }

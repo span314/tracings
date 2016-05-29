@@ -64,6 +64,19 @@
         <button id="nextButton" title="Next Step"><i class="mdi mdi-chevron-right"></i></button>
       </span>
 
+      <span id="speedSelector" class="ts-container">
+        <button title="Speed"><i class="mdi mdi-clock-fast"></i></button>
+        <div class="ts-popup ui-widget-header ui-corner-all">
+          <div class="ts-slider"></div>
+          <div class="ts-percent"></div>
+          <div class="ts-value"></div>
+        </div>
+      </span>
+
+      <span class="button-set">
+        <button id="infoButton" title="Info"><i class="mdi mdi-information-outline"></i></button>
+      </span>
+
       <span class="button-set">
         <input type="checkbox" id="stepButton" name="step" checked="true">
         <label for="stepButton" title="Step Labels"><i class="mdi mdi-format-list-bulleted"></i></label>
@@ -75,22 +88,17 @@
         <label for="holdButton" title="Hold Labels"><i class="mdi mdi-human-male-female"></i></label>
       </span>
 
-      <span class="button-set">
-        <button id="infoButton" title="Info"><i class="mdi mdi-information-outline"></i></button>
-      </span>
-
 <!--       <span class="button-set">
         <button id="volumeOnButton"><i class="mdi mdi-volume-high"></i></button>
         <button id="volumeOffButton"><i class="mdi mdi-volume-off"></i></button>
       </span> -->
 
-      <span id="speedContainer">
-        <span id="speedSlider" title="Speed"></span>
-        <span id="speedValue">100%</span>
-      </span>
+
     </div>
 
-    <div id="infoDialog" title="Info">
+
+
+    <div id="infoDialog" class="default-hidden" title="Info">
       <p>Version 0.1-RC1 Work in Progress</p>
       <p>Diagrams adapted from <a href="http://www.usfsa.org/story?id=84114" target="_blank">USFSA rulebook</a></p>
     </div>
