@@ -6,7 +6,8 @@ $(document).ready(function() {
   $('.button-set').buttonset();
   $('#speedSlider').slider({min: 20, max: 100, step: 5, value: 100});
   $('#diagramContainer').diagram();
-  $(document).tooltip();
+  $('#infoDialog').dialog({autoOpen: false});
+  $('#controls').tooltip();
 });
 
 $.widget('shawnpan.diagram', {
@@ -45,6 +46,8 @@ $.widget('shawnpan.diagram', {
       controls.number = elem.find('#numberButton');
       controls.count = elem.find('#countButton');
       controls.hold = elem.find('#holdButton');
+      controls.infoButton = elem.find('#infoButton');
+      controls.infoDialog = elem.find('#infoDialog');
       controls.controlContainer = elem.find('#controls');
       controls.canvas = $(this.canvas);
 
@@ -64,6 +67,7 @@ $.widget('shawnpan.diagram', {
       controls.number.click(this._drawPattern.bind(this));
       controls.count.click(this._drawPattern.bind(this));
       controls.hold.click(this._drawPattern.bind(this));
+      controls.infoButton.click(this._showInfo.bind(this));
 
       controls.canvas.click(this._onClick.bind(this));
       $(window).resize(this._onCanvasResize.bind(this));
@@ -344,6 +348,11 @@ $.widget('shawnpan.diagram', {
     if (nearest) {
       this._movePosition(nearest);
     }
+  },
+
+  _showInfo: function() {
+    this._pause();
+    this.controls.infoDialog.dialog('open');
   }
 });
 

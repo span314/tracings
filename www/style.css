@@ -26,6 +26,14 @@ canvas {
   white-space: nowrap;
 }
 
+#infoDialog {
+  display: none;
+}
+
 .mdi {
   font-size: 24px;
+}
+
+.ui-dialog-titlebar-close:focus {
+  outline: none;
 }
