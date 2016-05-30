@@ -182,7 +182,7 @@
           -104.467
         ]
       ], 
-      "step": "3"
+      "step": "tt"
     }, 
     {
       "beats": "", 
@@ -203,7 +203,7 @@
           -75.442
         ]
       ], 
-      "step": "3x"
+      "step": "tx"
     }, 
     {
       "beats": "2", 
@@ -428,7 +428,7 @@
           -230.543
         ]
       ], 
-      "step": "opmox"
+      "step": "mox"
     }, 
     {
       "beats": "2", 
@@ -613,7 +613,7 @@
           236.62
         ]
       ], 
-      "step": "opmox"
+      "step": "mox"
     }, 
     {
       "beats": "3", 
@@ -777,7 +777,7 @@
           232.329
         ]
       ], 
-      "step": "3"
+      "step": "tt"
     }, 
     {
       "beats": "", 
@@ -798,7 +798,7 @@
           228.995
         ]
       ], 
-      "step": "3x"
+      "step": "tx"
     }, 
     {
       "beats": "3", 
@@ -1003,25 +1003,17 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "3": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }, 
-    "3x": {
-      "desc": "Exit 3-turn on #E Edge", 
-      "label": ""
-    }, 
     "ch": {
-      "desc": "#E Chasse", 
+      "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
+    }, 
+    "mox": {
+      "desc": "Exit Mohawk on #E Edge", 
+      "label": "#e"
     }, 
     "opmo": {
       "desc": "#E Open Mohawk", 
       "label": "#e-opMo"
-    }, 
-    "opmox": {
-      "desc": "Exit Open Mohawk on #E Edge", 
-      "label": "#e"
     }, 
     "pr": {
       "desc": "Progressive: Stroke onto #E Edge", 
@@ -1032,8 +1024,16 @@
       "label": "#e-Pr"
     }, 
     "slch": {
-      "desc": "#E Slide Chasse", 
+      "desc": "#E Slide Chass\u00e9", 
       "label": "#e-slCh"
+    }, 
+    "tt": {
+      "desc": "#E 3-turn", 
+      "label": "#e3"
+    }, 
+    "tx": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
     }
   }, 
   "timeSignatureBottom": 4, 

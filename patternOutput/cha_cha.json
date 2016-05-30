@@ -408,11 +408,11 @@
       "label": "#e"
     }, 
     "bk": {
-      "desc": "Stroke onto #E Edge, Rise and Fall with Free Leg Back", 
+      "desc": "Stroke onto #E Edge, Double Lift Free Leg Back", 
       "label": "#e-bk"
     }, 
     "ch": {
-      "desc": "#E Chasse", 
+      "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
     }, 
     "pr": {
@@ -432,7 +432,7 @@
       "label": "#e/#r#d#o-slm-#e"
     }, 
     "swr": {
-      "desc": "#E Swing Roll", 
+      "desc": "Stroke onto #E Edge, Swing Roll", 
       "label": "#e-swR"
     }, 
     "ws": {

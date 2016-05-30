@@ -346,7 +346,7 @@
           208.613
         ]
       ], 
-      "step": "3"
+      "step": "tt"
     }, 
     {
       "beats": "", 
@@ -367,7 +367,7 @@
           177.765
         ]
       ], 
-      "step": "3x"
+      "step": "tx"
     }, 
     {
       "beats": "4", 
@@ -916,7 +916,7 @@
           -37.86
         ]
       ], 
-      "step": "3"
+      "step": "tt"
     }, 
     {
       "beats": "", 
@@ -937,7 +937,7 @@
           -19.226
         ]
       ], 
-      "step": "3x"
+      "step": "tx"
     }, 
     {
       "beats": "4", 
@@ -1039,16 +1039,8 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "3": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }, 
-    "3x": {
-      "desc": "Exit 3-turn on #E Edge", 
-      "label": ""
-    }, 
     "ch": {
-      "desc": "#E Chasse", 
+      "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
     }, 
     "cr": {
@@ -1064,12 +1056,20 @@
       "label": "#e-Pr"
     }, 
     "slchk": {
-      "desc": "#E Slide Chasse Kick", 
+      "desc": "#E Slide Chass\u00e9, Fold #R Leg and Kick", 
       "label": "#e-slCh"
     }, 
     "swr": {
-      "desc": "#E Swing Roll", 
+      "desc": "Stroke onto #E Edge, Swing Roll", 
       "label": "#e-swR"
+    }, 
+    "tt": {
+      "desc": "#E 3-turn", 
+      "label": "#e3"
+    }, 
+    "tx": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
     }
   }, 
   "timeSignatureBottom": 4, 

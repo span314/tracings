@@ -9,8 +9,8 @@ cr,CR-#e,Cross Roll onto #E Edge
 crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
 crtt,CR-#e3,Cross Roll into a #E 3-turn
 ctrx,,Exit Counter On #E Edge
+mox,#e,Exit Mohawk on #E Edge
 opmo,#e-opMo,#E Open Mohawk
-opmox,#e,Exit Open Mohawk on #E Edge
 pr,#e,Progressive: Stroke onto #E Edge
 prx,#e-Pr,Progressive: Cross onto #E Edge
 s,#e,Step Briefly on #E Edge

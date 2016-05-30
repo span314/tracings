@@ -206,7 +206,7 @@
           -195.105
         ]
       ], 
-      "step": "3"
+      "step": "tt"
     }, 
     {
       "beats": "", 
@@ -227,7 +227,7 @@
           -214.256
         ]
       ], 
-      "step": "3x"
+      "step": "tx"
     }, 
     {
       "beats": "1", 
@@ -416,7 +416,7 @@
           90.969
         ]
       ], 
-      "step": "opmox"
+      "step": "mox"
     }, 
     {
       "beats": "2", 
@@ -625,7 +625,7 @@
           147.226
         ]
       ], 
-      "step": "3"
+      "step": "tt"
     }, 
     {
       "beats": "", 
@@ -646,7 +646,7 @@
           115.507
         ]
       ], 
-      "step": "3x"
+      "step": "tx"
     }, 
     {
       "beats": "2", 
@@ -791,7 +791,7 @@
           141.241
         ]
       ], 
-      "step": "opmox"
+      "step": "mox"
     }, 
     {
       "beats": "1", 
@@ -913,16 +913,8 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "3": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }, 
-    "3x": {
-      "desc": "Exit 3-turn on #E Edge", 
-      "label": ""
-    }, 
     "bk": {
-      "desc": "Stroke onto #E Edge, Rise and Fall with Free Leg Back", 
+      "desc": "Stroke onto #E Edge, Double Lift Free Leg Back", 
       "label": "#e-bk"
     }, 
     "cesw": {
@@ -933,13 +925,13 @@
       "desc": "Change to #O Edge", 
       "label": ""
     }, 
+    "mox": {
+      "desc": "Exit Mohawk on #E Edge", 
+      "label": "#e"
+    }, 
     "opmo": {
       "desc": "#E Open Mohawk", 
       "label": "#e-opMo"
-    }, 
-    "opmox": {
-      "desc": "Exit Open Mohawk on #E Edge", 
-      "label": "#e"
     }, 
     "pr": {
       "desc": "Progressive: Stroke onto #E Edge", 
@@ -950,8 +942,16 @@
       "label": "#e-Pr"
     }, 
     "swr": {
-      "desc": "#E Swing Roll", 
+      "desc": "Stroke onto #E Edge, Swing Roll", 
       "label": "#e-swR"
+    }, 
+    "tt": {
+      "desc": "#E 3-turn", 
+      "label": "#e3"
+    }, 
+    "tx": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
     }, 
     "xf": {
       "desc": "Cross in Front onto #E Edge", 

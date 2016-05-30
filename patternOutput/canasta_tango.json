@@ -328,7 +328,7 @@
       "label": "#e"
     }, 
     "ch": {
-      "desc": "#E Chasse", 
+      "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
     }, 
     "cr": {
@@ -344,11 +344,11 @@
       "label": "#e-Pr"
     }, 
     "slch": {
-      "desc": "#E Slide Chasse", 
+      "desc": "#E Slide Chass\u00e9", 
       "label": "#e-slCh"
     }, 
     "swr": {
-      "desc": "#E Swing Roll", 
+      "desc": "Stroke onto #E Edge, Swing Roll", 
       "label": "#e-swR"
     }
   }, 

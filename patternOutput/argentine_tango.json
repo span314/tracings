@@ -324,7 +324,7 @@
           -98.401
         ]
       ], 
-      "step": "cr3"
+      "step": "crtt"
     }, 
     {
       "beats": "", 
@@ -345,7 +345,7 @@
           -54.091
         ]
       ], 
-      "step": "cr3x"
+      "step": "tx"
     }, 
     {
       "beats": "2", 
@@ -649,7 +649,7 @@
           220.25
         ]
       ], 
-      "step": "cr3"
+      "step": "crtt"
     }, 
     {
       "beats": "", 
@@ -670,7 +670,7 @@
           239.769
         ]
       ], 
-      "step": "cr3x"
+      "step": "tx"
     }, 
     {
       "beats": "2", 
@@ -1056,7 +1056,7 @@
           -42.178
         ]
       ], 
-      "step": "xbctrx"
+      "step": "ctrx"
     }, 
     {
       "beats": "2", 
@@ -1137,7 +1137,7 @@
           -44.961
         ]
       ], 
-      "step": "3"
+      "step": "tt"
     }, 
     {
       "beats": "1+1", 
@@ -1158,7 +1158,7 @@
           -51.991
         ]
       ], 
-      "step": "3x"
+      "step": "tx"
     }, 
     {
       "beats": "2", 
@@ -1381,7 +1381,7 @@
           141.474
         ]
       ], 
-      "step": "swopchox"
+      "step": "chox"
     }, 
     {
       "beats": "4", 
@@ -1561,37 +1561,33 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "3": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }, 
-    "3x": {
-      "desc": "Exit 3-turn on #E Edge", 
-      "label": ""
-    }, 
     "cex": {
       "desc": "Change to #O Edge", 
       "label": ""
     }, 
     "ch": {
-      "desc": "#E Chasse", 
+      "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
+    }, 
+    "chox": {
+      "desc": "Exit Choctow", 
+      "label": ""
     }, 
     "cr": {
       "desc": "Cross Roll onto #E Edge", 
       "label": "CR-#e"
     }, 
-    "cr3": {
-      "desc": "Cross Roll into a #E 3-turn", 
-      "label": "CR-#e3"
-    }, 
-    "cr3x": {
-      "desc": "Exit 3-turn on #E Edge", 
-      "label": ""
-    }, 
     "crswr": {
       "desc": "Cross Roll onto #E Edge, Swing", 
       "label": "CR-#e-swR"
+    }, 
+    "crtt": {
+      "desc": "Cross Roll into a #E 3-turn", 
+      "label": "CR-#e3"
+    }, 
+    "ctrx": {
+      "desc": "Exit Counter On #E Edge", 
+      "label": ""
     }, 
     "pr": {
       "desc": "Progressive: Stroke onto #E Edge", 
@@ -1609,9 +1605,9 @@
       "desc": "Swing Open Choctow", 
       "label": "Sw-opCho"
     }, 
-    "swopchox": {
-      "desc": "Exit Swing Open Choctow", 
-      "label": ""
+    "tt": {
+      "desc": "#E 3-turn", 
+      "label": "#e3"
     }, 
     "twl1": {
       "desc": "Twizzle Like Motion", 
@@ -1621,6 +1617,10 @@
       "desc": "Twizzle Like Motion", 
       "label": ""
     }, 
+    "tx": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
+    }, 
     "xbce": {
       "desc": "Cross Behind onto #O Edge", 
       "label": "XB-#e#o"
@@ -1628,10 +1628,6 @@
     "xbctr": {
       "desc": "Cross Behind into a #E Counter", 
       "label": "XB-#e-Ctr"
-    }, 
-    "xbctrx": {
-      "desc": "Exit Counter On #E Edge", 
-      "label": ""
     }, 
     "xf": {
       "desc": "Cross in Front onto #E Edge", 

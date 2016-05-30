@@ -246,7 +246,7 @@
           147.885
         ]
       ], 
-      "step": "opmox"
+      "step": "mox"
     }, 
     {
       "beats": "2", 
@@ -378,13 +378,13 @@
       "desc": "Cross Roll onto #E Edge", 
       "label": "CR-#e"
     }, 
+    "mox": {
+      "desc": "Exit Mohawk on #E Edge", 
+      "label": "#e"
+    }, 
     "opmo": {
       "desc": "#E Open Mohawk", 
       "label": "#e-opMo"
-    }, 
-    "opmox": {
-      "desc": "Exit Open Mohawk on #E Edge", 
-      "label": "#e"
     }, 
     "pr": {
       "desc": "Progressive: Stroke onto #E Edge", 

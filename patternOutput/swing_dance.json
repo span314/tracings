@@ -261,7 +261,7 @@
           -13.911
         ]
       ], 
-      "step": "opmox"
+      "step": "mox"
     }, 
     {
       "beats": "2", 
@@ -644,23 +644,23 @@
       "label": "#e"
     }, 
     "ch": {
-      "desc": "#E Chasse", 
+      "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
+    }, 
+    "mox": {
+      "desc": "Exit Mohawk on #E Edge", 
+      "label": "#e"
     }, 
     "opmo": {
       "desc": "#E Open Mohawk", 
       "label": "#e-opMo"
     }, 
-    "opmox": {
-      "desc": "Exit Open Mohawk on #E Edge", 
-      "label": "#e"
-    }, 
     "slch": {
-      "desc": "#E Slide Chasse", 
+      "desc": "#E Slide Chass\u00e9", 
       "label": "#e-slCh"
     }, 
     "swr": {
-      "desc": "#E Swing Roll", 
+      "desc": "Stroke onto #E Edge, Swing Roll", 
       "label": "#e-swR"
     }
   }, 
