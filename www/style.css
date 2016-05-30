@@ -37,19 +37,19 @@ canvas {
 
 .ts-popup {
   display: none;
-  height: 240px;
+  height: 256px;
   padding-left: 2px;
   padding-right: 2px;
   text-align: center;
   position: absolute;
-  top: -256px;
+  bottom: 32px;
   left: 0;
   background: #ccc;
 }
 
 .ts-slider {
   display: inline-block;
-  height: 144px;
+  height: 70%;
   margin-top: 16px;
   margin-bottom: 16px;
   margin-right: 20px;
@@ -58,7 +58,7 @@ canvas {
 
 .ts-container .ts-state-active {
   border: 1px solid #aaaaaa;
-  background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+  background: #ffffff;
   font-weight: normal;
   color: #212121;
 }

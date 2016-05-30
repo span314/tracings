@@ -12,6 +12,8 @@ $(document).ready(function() {
 
 $.widget('shawnpan.toggleslider', $.ui.buttonset, {
   _create: function() {
+    this._super();
+
     //Find elements
     this.button = this.element.children('button');
     this.popup = this.element.children('div');
@@ -25,8 +27,10 @@ $.widget('shawnpan.toggleslider', $.ui.buttonset, {
     //Bind events
     this.slider.on('slidechange', this._onChange.bind(this));
     this.button.click(this._onClick.bind(this));
+  },
 
-    //Initialize
+  _init: function() {
+    this._super();
     this.percentValue = 100;
     this.updateScale(100);
   },
@@ -43,19 +47,15 @@ $.widget('shawnpan.toggleslider', $.ui.buttonset, {
   _refreshText: function() {
     this.percentText.text(this.percentValue + '%');
     this.valueText.text(Math.round(this.scaleValue()) + 'bpm');
+    this.button.toggleClass('ts-state-active', this.percentValue !== 100);
   },
 
   _onClick: function() {
-    this.popup.toggle();
+    this.popup.slideToggle();
   },
 
   _onChange: function(e, ui) {
     this.percentValue = ui.value;
-    if (ui.value === 100) {
-      this.button.removeClass('ts-state-active');
-    } else {
-      this.button.addClass('ts-state-active');
-    }
     this._refreshText();
     this._trigger('change');
   }
