@@ -77,48 +77,28 @@ $.widget('shawnpan.diagram', {
         return;
       }
 
-      //find control ui
+      //find control ui and bind events
       elem = this.element;
       controls = this.controls;
-      controls.dance = elem.find('#danceSelect');
-      controls.partLady = elem.find('#partLady');
-      controls.partMan = elem.find('#partMan');
-      controls.optional = elem.find('#optional');
-      controls.mirror = elem.find('#mirror');
-      controls.beginning = elem.find('#beginningButton');
-      controls.previous = elem.find('#previousButton');
-      controls.next = elem.find('#nextButton');
-      controls.startPause = elem.find('#startPauseButton');
+      controls.dance = elem.find('#danceSelect').on('selectmenuchange', this._loadDance.bind(this));
+      controls.partLady = elem.find('#partLady').click(this._updatePart.bind(this, 'lady'));
+      controls.partMan = elem.find('#partMan').click(this._updatePart.bind(this, 'man'));
+      controls.optional = elem.find('#optional').click(this._loadPattern.bind(this));
+      controls.mirror = elem.find('#mirror').click(this._loadPattern.bind(this));
+      controls.beginning = elem.find('#beginningButton').click(this.beginning.bind(this));
+      controls.previous = elem.find('#previousButton').click(this.previous.bind(this));
+      controls.next = elem.find('#nextButton').click(this.next.bind(this));
+      controls.startPause = elem.find('#startPauseButton').click(this.toggleStartPause.bind(this));
       controls.startPauseIcon = controls.startPause.find('.mdi');
-      controls.speedSelector = elem.find('#speedSelector');
-      controls.step = elem.find('#stepButton');
-      controls.number = elem.find('#numberButton');
-      controls.count = elem.find('#countButton');
-      controls.hold = elem.find('#holdButton');
-      controls.infoButton = elem.find('#infoButton');
+      controls.speedSelector = elem.find('#speedSelector').on('togglesliderchange', this._adjustSpeed.bind(this));
+      controls.step = elem.find('#stepButton').click(this._drawPattern.bind(this));
+      controls.number = elem.find('#numberButton').click(this._drawPattern.bind(this));
+      controls.count = elem.find('#countButton').click(this._drawPattern.bind(this));
+      controls.hold = elem.find('#holdButton').click(this._drawPattern.bind(this));
+      controls.infoButton = elem.find('#infoButton').click(this._showInfo.bind(this));
       controls.infoDialog = elem.find('#infoDialog');
       controls.controlContainer = elem.find('#controls');
-      controls.canvas = $(this.canvas);
-
-
-      //bind events
-      controls.dance.on('selectmenuchange', this._loadDance.bind(this));
-      controls.partLady.click(this._updatePart.bind(this, 'lady'));
-      controls.partMan.click(this._updatePart.bind(this, 'man'));
-      controls.optional.click(this._loadPattern.bind(this));
-      controls.mirror.click(this._loadPattern.bind(this));
-      controls.beginning.click(this.beginning.bind(this));
-      controls.previous.click(this.previous.bind(this));
-      controls.next.click(this.next.bind(this));
-      controls.startPause.click(this.toggleStartPause.bind(this));
-      controls.speedSelector.on('togglesliderchange', this._adjustSpeed.bind(this));
-      controls.step.click(this._drawPattern.bind(this));
-      controls.number.click(this._drawPattern.bind(this));
-      controls.count.click(this._drawPattern.bind(this));
-      controls.hold.click(this._drawPattern.bind(this));
-      controls.infoButton.click(this._showInfo.bind(this));
-
-      controls.canvas.click(this._onClick.bind(this));
+      controls.canvas = $(this.canvas).click(this._onClick.bind(this));
       $(window).resize(this._onCanvasResize.bind(this));
 
       //initialize
