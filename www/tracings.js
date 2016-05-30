@@ -174,10 +174,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _loadPattern: function() {
-    var lapIndex, componentIndex, pathIndex, transformMatrix, component, paths, offset,
-        components = [],
-        pattern = this.dance.patterns[this.part],
-        optionalFlag = this.controls.optional.is(':checked') ? 'yes' : 'no',
+    var optionalFlag = this.controls.optional.is(':checked') ? 'yes' : 'no',
         mirrorFlag = this.controls.mirror.is(':checked');
     console.log('loading pattern ' + this.dance.name + ' part: ' + this.part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
     this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, optionalFlag, mirrorFlag, this.scaleFactor);
@@ -187,7 +184,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _drawPattern: function() {
-    var pattern, component, path, positionIndex, pathIndex, position, labelList, labelText,
+    var path, positionIndex, pathIndex, position, labelList, labelText,
         showStep = this.controls.step.is(':checked'),
         showNumber = this.controls.number.is(':checked'),
         showCount = this.controls.count.is(':checked'),
