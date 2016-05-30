@@ -1,6 +1,8 @@
-//Requires IE9 or later - uses HTML5 and ECMAScript5
 'use strict';
+//Version 0.1-RC1 | (c) Shawn Pan
+//Note: uses HTML5 and ECMAScript5 features requiring IE9 or later
 
+//Create jQuery UI widgets
 $(document).ready(function() {
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
   $('.button-set').buttonset();
@@ -10,6 +12,7 @@ $(document).ready(function() {
   $('#controls').tooltip();
 });
 
+//Hideable slider containing a button and slider, used for selecting speeds
 $.widget('shawnpan.toggleslider', $.ui.buttonset, {
   _create: function() {
     this._super();
@@ -62,9 +65,9 @@ $.widget('shawnpan.toggleslider', $.ui.buttonset, {
 });
 
 $.widget('shawnpan.diagram', {
-  playing: false,
-  position: 0,
-  stepTickCount: 0,
+  _playing: false,
+  _position: 0,
+  _stepTickCount: 0,
 
   _create: function() {
       var elem = this.element;
@@ -75,7 +78,7 @@ $.widget('shawnpan.diagram', {
         return;
       }
 
-      //find control ui and bind events, naming convention is _$
+      //find control ui and bind events, naming convention is prefix _$ for cached selectors used elsewhere
       this._$dance = elem.find('#danceSelect').on('selectmenuchange', this._loadDance.bind(this));
       this._$part = elem.find('#part');
       this._$part.find('input').click(this._loadPattern.bind(this));
@@ -98,7 +101,7 @@ $.widget('shawnpan.diagram', {
       $(window).resize(this._onCanvasResize.bind(this));
 
       //initialize
-      this.canvasContext = this.canvas.getContext('2d');
+      this._canvasContext = this.canvas.getContext('2d');
       this._onCanvasResize();
       this._loadDance();
   },
@@ -124,16 +127,16 @@ $.widget('shawnpan.diagram', {
 
     this.canvas.width = width;
     this.canvas.height = height;
-    this.centerX = width / 2;
-    this.centerY = height / 2;
-    this.scaleFactor = (width - 96) / 1024;
+    this._centerX = width / 2;
+    this._centerY = height / 2;
+    this._scaleFactor = (width - 96) / 1024;
     this._$controlContainer.width(width);
-    this.labelFont =  Math.floor(14 * this.scaleFactor) + 'px Arial';
-    this.titleFont = Math.floor(21 * this.scaleFactor) + 'px Arial';
+    this._labelFont =  Math.floor(14 * this._scaleFactor) + 'px Arial';
+    this._titleFont = Math.floor(21 * this._scaleFactor) + 'px Arial';
 
     //Using page offsets, because Firefox does not have offsetX/offsetY in click events
-    this.diagramPageOffsetX = this._$canvas.offset().left + this.centerX;
-    this.diagramPageOffsetY = this._$canvas.offset().top + this.centerY;
+    this._diagramPageOffsetX = this._$canvas.offset().left + this._centerX;
+    this._diagramPageOffsetY = this._$canvas.offset().top + this._centerY;
 
     if (this.dance) {
       this._loadPattern();
@@ -154,8 +157,8 @@ $.widget('shawnpan.diagram', {
         mirrorFlag = this._$mirror.is(':checked'),
         part = this._$part.find(':checked').val();
     console.log('loading pattern ' + this.dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
-    this.patternPositions = DiagramUtils.generatePositions(this.dance, part, optionalFlag, mirrorFlag, this.scaleFactor);
-    this.positionTree = DiagramUtils.positionTree(this.patternPositions);
+    this._patternPositions = DiagramUtils.generatePositions(this.dance, part, optionalFlag, mirrorFlag, this._scaleFactor);
+    this._positionSearchTree = DiagramUtils.positionTree(this._patternPositions);
     this._$speedSelector.toggleslider('updateScale', this.dance.beatsPerMinute);
     this.beginning();
   },
@@ -166,30 +169,29 @@ $.widget('shawnpan.diagram', {
         showNumber = this._$number.is(':checked'),
         showCount = this._$count.is(':checked'),
         showHold = this._$hold.is(':checked'),
-        ctx = this.canvasContext,
-        currentPosition = this.patternPositions[this.position],
-        tickCount = currentPosition.offset + this.stepTickCount,
+        ctx = this._canvasContext,
+        currentPosition = this._patternPositions[this._position],
+        tickCount = currentPosition.offset + this._stepTickCount,
         fracBeat = tickCount % 4,
         beat = ((tickCount - fracBeat) / 4) % this.dance.timeSignatureTop + 1;
 
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    //ctx.fillRect(0, 0, beat * this.canvas.width / this.dance.timeSignatureTop, 10);
 
     //Draw text
-    ctx.font = this.titleFont;
+    ctx.font = this._titleFont;
     ctx.textBaseline = 'top';
     ctx.fillText(currentPosition.desc, 10, 10);
-    ctx.font = this.labelFont;
+    ctx.font = this._labelFont;
 
     ctx.save();
-    ctx.translate(this.centerX, this.centerY);
+    ctx.translate(this._centerX, this._centerY);
 
     //Draw rink
     this._drawRink();
 
     //Draw pattern
-    for (positionIndex = 0; positionIndex < this.patternPositions.length; positionIndex++) {
-      position = this.patternPositions[positionIndex];
+    for (positionIndex = 0; positionIndex < this._patternPositions.length; positionIndex++) {
+      position = this._patternPositions[positionIndex];
 
       ctx.save();
       if (position.lapIndex !== currentPosition.lapIndex) {
@@ -255,8 +257,8 @@ $.widget('shawnpan.diagram', {
   },
 
   _drawRink: function() {
-    var ctx = this.canvasContext,
-        scale = this.scaleFactor * 512 / 30,
+    var ctx = this._canvasContext,
+        scale = this._scaleFactor * 512 / 30,
         halfWidth = 30.5 * scale,
         halfWidthStraight = 22 * scale,
         halfHeight = 15 * scale,
@@ -286,8 +288,8 @@ $.widget('shawnpan.diagram', {
 
   beginning: function() {
     this._pause();
-    this.position = 0;
-    this.stepTickCount = 0;
+    this._position = 0;
+    this._stepTickCount = 0;
     this._drawPattern();
   },
 
@@ -304,20 +306,20 @@ $.widget('shawnpan.diagram', {
   },
 
   _shiftPosition: function(amount) {
-    this.position = (this.position + this.patternPositions.length + amount) % this.patternPositions.length;
-    this.stepTickCount = 0;
+    this._position = (this._position + this._patternPositions.length + amount) % this._patternPositions.length;
+    this._stepTickCount = 0;
   },
 
   _movePosition: function(index) {
     this._pause();
-    this.position = index;
-    this.stepTickCount = 0;
+    this._position = index;
+    this._stepTickCount = 0;
     this._drawPattern();
   },
 
   _adjustSpeed: function() {
     console.log('adjust speed');
-    if (this.playing) {
+    if (this._playing) {
       this._pause();
       this._start();
     }
@@ -326,7 +328,7 @@ $.widget('shawnpan.diagram', {
   _start: function() {
     console.log('start');
     var playbackInterval = 15000 / this._$speedSelector.toggleslider('scaleValue'); //60000 ms / 4 ticks per beat
-    this.playing = true;
+    this._playing = true;
     this.timer = setInterval(this._tick.bind(this), playbackInterval);
     this._$startPauseIcon.removeClass('mdi-play').addClass('mdi-pause');
   },
@@ -335,11 +337,11 @@ $.widget('shawnpan.diagram', {
     console.log('pause');
     clearInterval(this.timer);
     this._$startPauseIcon.removeClass('mdi-pause').addClass('mdi-play');
-    this.playing = false;
+    this._playing = false;
   },
 
   toggleStartPause: function() {
-    if (this.playing) {
+    if (this._playing) {
       this._pause();
     } else {
       this._start();
@@ -347,16 +349,16 @@ $.widget('shawnpan.diagram', {
   },
 
   _tick: function() {
-    this.stepTickCount++;
-    if (this.stepTickCount >= this.patternPositions[this.position].duration) {
+    this._stepTickCount++;
+    if (this._stepTickCount >= this._patternPositions[this._position].duration) {
       this._shiftPosition(1);
     }
     this._drawPattern();
   },
 
   _onClick: function(e) {
-    var point = [e.pageX - this.diagramPageOffsetX, e.pageY - this.diagramPageOffsetY],
-        nearest = DiagramUtils.nearestNeighbor(point, this.positionTree, 32 * this.scaleFactor)[2];
+    var point = [e.pageX - this._diagramPageOffsetX, e.pageY - this._diagramPageOffsetY],
+        nearest = DiagramUtils.nearestNeighbor(point, this._positionSearchTree, 32 * this._scaleFactor)[2];
     if (nearest) {
       this._movePosition(nearest);
     }
