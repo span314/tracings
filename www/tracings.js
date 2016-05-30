@@ -367,6 +367,52 @@ $.widget('shawnpan.diagram', {
 
 var DiagramUtils = function() {};
 
+//Draw text next to a cubic path
+DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
+  var x = path.value[0] + path.normal[0] * offset,
+      y = path.value[1] + path.normal[1] * offset;
+      ctx.textAlign = path.value[0] > x ? 'end' : 'start';
+      ctx.fillText(text, x, y);
+};
+
+//Generate individual positions for a dance
+DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFactor) {
+  var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path,
+      positions = [],
+      pattern = dance.patterns[part];
+
+  offset = 0;
+  for (lapIndex = 0; lapIndex < dance.patternsPerLap; lapIndex++) {
+    transformMatrix = DiagramUtils._computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor, mirror);
+    for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
+      component = dance.components[componentIndex % dance.components.length];
+      if (!component.optional || component.optional === optional) {
+        //Copy component
+        position = $.extend({}, component);
+        //Generate paths
+        position.paths = [];
+        for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
+          cubic = DiagramUtils._transformCoordinates(component.paths[pathIndex], transformMatrix);
+          path = DiagramUtils._cubicNormalAt(cubic, 0.5);
+          path.cubic = cubic;
+          position.paths.push(path);
+        }
+        //Check mirroring
+        position.edge = mirror ? DiagramUtils._edgeParams(component.edge).m : component.edge;
+        //Generate text
+        position.label = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].label);
+        position.desc = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].desc);
+        //Add lap index and offset
+        position.lapIndex = lapIndex;
+        position.offset = offset;
+        offset += component.duration;
+        positions.push(position);
+      }
+    }
+  }
+  return positions;
+};
+
 DiagramUtils._computeTransformMatrix = function(index, patternsPerLap, scaleFactor, mirror) {
   var theta = 2 * Math.PI * index / patternsPerLap,
       flipX = mirror ? -1 : 1,
@@ -374,6 +420,7 @@ DiagramUtils._computeTransformMatrix = function(index, patternsPerLap, scaleFact
       cosTheta = Math.cos(theta) * scaleFactor;
   return [flipX * cosTheta, -sinTheta, flipX * sinTheta, cosTheta];
 };
+
 
 DiagramUtils._transformCoordinates = function(coordinates, matrix) {
   var i, x, y,
@@ -387,6 +434,7 @@ DiagramUtils._transformCoordinates = function(coordinates, matrix) {
   return result;
 };
 
+//Calculate normal vector of a cubic for parameter t
 DiagramUtils._cubicNormalAt = function(cubic, t) {
   var dx = DiagramUtils._cubicDerivatives(cubic[0], cubic[2], cubic[4], cubic[6], t),
       dy = DiagramUtils._cubicDerivatives(cubic[1], cubic[3], cubic[5], cubic[7], t),
@@ -410,13 +458,6 @@ DiagramUtils._cubicDerivatives = function(p0, p1, p2, p3, t) {
   return [ti * ti * ti * p0 + 3 * ti * ti * t * p1 + 3 * ti * t * t * p2 + t * t * t * p3,
           3 * ti * ti * (p1 - p0) + 6 * ti * t * (p2 - p1) + 3 * t * t * (p3 - p2),
           6 * ti * (p2 - 2 * p1 + p0) + 6 * t * (p3 - 2 * p2 + p1)];
-};
-
-DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
-  var x = path.value[0] + path.normal[0] * offset,
-      y = path.value[1] + path.normal[1] * offset;
-      ctx.textAlign = path.value[0] > x ? 'end' : 'start';
-      ctx.fillText(text, x, y);
 };
 
 /**
@@ -482,43 +523,40 @@ DiagramUtils._resolveParams = function(edgeCode, label) {
   return result;
 };
 
-DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFactor) {
-  var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path,
-      positions = [],
-      pattern = dance.patterns[part];
-
-  offset = 0;
-  for (lapIndex = 0; lapIndex < dance.patternsPerLap; lapIndex++) {
-    transformMatrix = DiagramUtils._computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor, mirror);
-    for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
-      component = dance.components[componentIndex % dance.components.length];
-      if (!component.optional || component.optional === optional) {
-        //Copy component
-        position = $.extend({}, component);
-        //Generate paths
-        position.paths = [];
-        for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
-          cubic = DiagramUtils._transformCoordinates(component.paths[pathIndex], transformMatrix);
-          path = DiagramUtils._cubicNormalAt(cubic, 0.5);
-          path.cubic = cubic;
-          position.paths.push(path);
-        }
-        //Check mirroring
-        position.edge = mirror ? DiagramUtils._edgeParams(component.edge).m : component.edge;
-        //Generate text
-        position.label = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].label);
-        position.desc = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].desc);
-        //Add lap index and offset
-        position.lapIndex = lapIndex;
-        position.offset = offset;
-        offset += component.duration;
-        positions.push(position);
+//Creates a kd search tree of the paths in the list of positions
+DiagramUtils.positionTree = function(positions) {
+  var posIndex, paths, pathIndex,
+      points = [];
+  for (posIndex = 0; posIndex < positions.length; posIndex++) {
+    paths = positions[posIndex].paths;
+    for (pathIndex = 0; pathIndex < paths.length; pathIndex++) {
+      var i, x, y,
+          c = paths[pathIndex].cubic,
+          cf = DiagramUtils._CUBIC_COEFFS_8;
+      for (i = 0; i < cf.length; i = i + 4) {
+        x = c[0] * cf[i] + c[2] * cf[i+1] + c[4] * cf[i+2] + c[6] * cf[i+3];
+        y = c[1] * cf[i] + c[3] * cf[i+1] + c[5] * cf[i+2] + c[7] * cf[i+3];
+        points.push([x, y, posIndex]);
       }
     }
   }
-  return positions;
+  DiagramUtils._kdTree(points);
+  return points;
 };
-
+//Cubic bezier coefficients for t=0 to t=8 in 1/8 increments
+DiagramUtils._CUBIC_COEFFS_8 = function() {
+  var i, t, ti,
+      coeffs = [];
+  for (i = 0; i <= 8; i++) {
+    t = i / 8;
+    ti = 1 - t;
+    coeffs.push(ti * ti * ti);
+    coeffs.push(3 * ti * ti * t);
+    coeffs.push(3 * ti * t * t);
+    coeffs.push(t * t * t);
+  }
+  return coeffs;
+}();
 //Creates a 2D tree in-place for an array of points
 DiagramUtils._kdTree = function(points) {
   DiagramUtils._kdTreeHelper(points, 0, points.length, 0);
@@ -613,38 +651,3 @@ DiagramUtils._nearestNeighborHelper = function(point, kdTree, start, end, k, bes
   }
   return best;
 };
-
-//Creates a kd search tree of the paths in the list of positions
-DiagramUtils.positionTree = function(positions) {
-  var posIndex, paths, pathIndex,
-      points = [];
-  for (posIndex = 0; posIndex < positions.length; posIndex++) {
-    paths = positions[posIndex].paths;
-    for (pathIndex = 0; pathIndex < paths.length; pathIndex++) {
-      var i, x, y,
-          c = paths[pathIndex].cubic,
-          cf = DiagramUtils._CUBIC_COEFFS_8;
-      for (i = 0; i < cf.length; i = i + 4) {
-        x = c[0] * cf[i] + c[2] * cf[i+1] + c[4] * cf[i+2] + c[6] * cf[i+3];
-        y = c[1] * cf[i] + c[3] * cf[i+1] + c[5] * cf[i+2] + c[7] * cf[i+3];
-        points.push([x, y, posIndex]);
-      }
-    }
-  }
-  DiagramUtils._kdTree(points);
-  return points;
-};
-//Cubic bezier coefficients for t=0 to t=8 in 1/8 increments
-DiagramUtils._CUBIC_COEFFS_8 = function() {
-  var i, t, ti,
-      coeffs = [];
-  for (i = 0; i <= 8; i++) {
-    t = i / 8;
-    ti = 1 - t;
-    coeffs.push(ti * ti * ti);
-    coeffs.push(3 * ti * ti * t);
-    coeffs.push(3 * ti * t * t);
-    coeffs.push(t * t * t);
-  }
-  return coeffs;
-}();
