@@ -1,0 +1,2 @@
+#!/bin/sh
+uglifyjs www/tracings.js --output www/tracings.min.js --compress drop-console --mangle --screw-ie8 --verbose --source-map www/tracings.min.js.map --prefix relative --mangle-props --mangle-regex="/^_/" --reserve-domprops --reserved-file jquery-ui-widget-reserved.json

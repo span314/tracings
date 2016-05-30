@@ -1,2 +1,4 @@
 www/patterns
 .~lock*
+*min.js
+*js.map
