@@ -244,9 +244,7 @@ $.widget('shawnpan.diagram', {
           DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -10);
         }
       }
-
       ctx.restore();
-
     }
     ctx.restore();
   },
@@ -353,9 +351,9 @@ $.widget('shawnpan.diagram', {
 
   _onClick: function(e) {
     var point = [e.pageX - this._diagramPageOffsetX, e.pageY - this._diagramPageOffsetY],
-        nearest = DiagramUtils.nearestNeighbor(point, this._positionSearchTree, 32 * this._scaleFactor)[2];
-    if (nearest) {
-      this._movePosition(nearest);
+        nearest = DiagramUtils.nearestNeighbor(point, this._positionSearchTree, 32 * this._scaleFactor);
+    if (nearest >= 0) {
+      this._movePosition(this._positionSearchTree[nearest][2]);
     }
   },
 
@@ -607,13 +605,9 @@ DiagramUtils._kdQuickSelect = function(points, start, end, n, k) {
 };
 
 //Find the nearest neighbor to a point given a kd search tree and a maximum allowed distance
-//Returns entry in search tree or false if no point within max distance
+//Returns index into search tree of nearest point or -1 if no point within max distance
 DiagramUtils.nearestNeighbor = function(point, kdTree, maxDist) {
-  var best = DiagramUtils._nearestNeighborHelper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: maxDist * maxDist});
-  if (best.index === -1) {
-    return false;
-  }
-  return kdTree[best.index];
+  return DiagramUtils._nearestNeighborHelper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: maxDist * maxDist}).index;
 };
 //Recursive helper function
 DiagramUtils._nearestNeighborHelper = function(point, kdTree, start, end, k, best) {
