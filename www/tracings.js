@@ -15,47 +15,47 @@ $.widget('shawnpan.toggleslider', $.ui.buttonset, {
     this._super();
 
     //Find elements
-    this.button = this.element.children('button');
-    this.popup = this.element.children('div');
-    this.slider = this.popup.find('.ts-slider');
-    this.percentText = this.popup.find('.ts-percent');
-    this.valueText = this.popup.find('.ts-value');
+    this._button = this.element.children('button');
+    this._popup = this.element.children('div');
+    this._slider = this._popup.find('.ts-slider');
+    this._percentText = this._popup.find('.ts-percent');
+    this._valueText = this._popup.find('.ts-value');
 
     //Create slider
-    this.slider.slider({orientation: 'vertical', min: 20, max: 100, step: 5, value: 100});
+    this._slider.slider({orientation: 'vertical', min: 20, max: 100, step: 5, value: 100});
 
     //Bind events
-    this.slider.on('slidechange', this._onChange.bind(this));
-    this.button.click(this._onClick.bind(this));
+    this._slider.on('slidechange', this._onChange.bind(this));
+    this._button.click(this._onClick.bind(this));
   },
 
   _init: function() {
     this._super();
-    this.percentValue = 100;
+    this._percentValue = 100;
     this.updateScale(100);
   },
 
   updateScale: function(value) {
-    this.scale = value;
+    this._scale = value;
     this._refreshText();
   },
 
   scaleValue: function() {
-    return this.percentValue * this.scale / 100;
+    return this._percentValue * this._scale / 100;
   },
 
   _refreshText: function() {
-    this.percentText.text(this.percentValue + '%');
-    this.valueText.text(Math.round(this.scaleValue()) + 'bpm');
-    this.button.toggleClass('ts-state-active', this.percentValue !== 100);
+    this._percentText.text(this._percentValue + '%');
+    this._valueText.text(Math.round(this.scaleValue()) + 'bpm');
+    this._button.toggleClass('ts-state-active', this._percentValue !== 100);
   },
 
   _onClick: function() {
-    this.popup.slideToggle();
+    this._popup.slideToggle();
   },
 
   _onChange: function(e, ui) {
-    this.percentValue = ui.value;
+    this._percentValue = ui.value;
     this._refreshText();
     this._trigger('change');
   }
@@ -400,7 +400,7 @@ $.widget('shawnpan.diagram', {
 
 var DiagramUtils = function() {};
 
-DiagramUtils.computeTransformMatrix = function(index, patternsPerLap, scaleFactor, mirror) {
+DiagramUtils._computeTransformMatrix = function(index, patternsPerLap, scaleFactor, mirror) {
   var theta = 2 * Math.PI * index / patternsPerLap,
       flipX = mirror ? -1 : 1,
       sinTheta = Math.sin(theta) * scaleFactor,
@@ -408,7 +408,7 @@ DiagramUtils.computeTransformMatrix = function(index, patternsPerLap, scaleFacto
   return [flipX * cosTheta, -sinTheta, flipX * sinTheta, cosTheta];
 };
 
-DiagramUtils.transformCoordinates = function(coordinates, matrix) {
+DiagramUtils._transformCoordinates = function(coordinates, matrix) {
   var i, x, y,
       result = [];
   for (i = 0; i < coordinates.length; i+=2) {
@@ -420,9 +420,9 @@ DiagramUtils.transformCoordinates = function(coordinates, matrix) {
   return result;
 };
 
-DiagramUtils.cubicNormalAt = function(cubic, t) {
-  var dx = DiagramUtils.cubicNormalAt.derivatives(cubic[0], cubic[2], cubic[4], cubic[6], t),
-      dy = DiagramUtils.cubicNormalAt.derivatives(cubic[1], cubic[3], cubic[5], cubic[7], t),
+DiagramUtils._cubicNormalAt = function(cubic, t) {
+  var dx = DiagramUtils._cubicDerivatives(cubic[0], cubic[2], cubic[4], cubic[6], t),
+      dy = DiagramUtils._cubicDerivatives(cubic[1], cubic[3], cubic[5], cubic[7], t),
       //Calcuate normal vector by rotating first derivative by 90 degrees and normalize to unit length
       length1d = Math.sqrt(dx[1] * dx[1] + dy[1] * dy[1]),
       normX = -dy[1] / length1d,
@@ -438,7 +438,7 @@ DiagramUtils.cubicNormalAt = function(cubic, t) {
   }
 };
 //Calculate array of value, first derivative, and second derivative
-DiagramUtils.cubicNormalAt.derivatives = function(p0, p1, p2, p3, t) {
+DiagramUtils._cubicDerivatives = function(p0, p1, p2, p3, t) {
   var ti = 1 - t;
   return [ti * ti * ti * p0 + 3 * ti * ti * t * p1 + 3 * ti * t * t * p2 + t * t * t * p3,
           3 * ti * ti * (p1 - p0) + 6 * ti * t * (p2 - p1) + 3 * t * t * (p3 - p2),
@@ -470,23 +470,23 @@ DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
   #o  opposite quality (I, Inside)
   ##  escaped # character (#)
 */
-DiagramUtils.edgeParams = function(edgeCode) {
+DiagramUtils._edgeParams = function(edgeCode) {
   var i, result;
-  if (!DiagramUtils.edgeParams.cache[edgeCode]) {
+  if (!DiagramUtils._edgeParamsCache[edgeCode]) {
     result = {'#': '#'};
     for (i = 0; i < edgeCode.length; i++) {
-      $.extend(result, DiagramUtils.edgeParams.CODES[edgeCode.charAt(i)]);
+      $.extend(result, DiagramUtils._EDGE_PARAMS_CODES[edgeCode.charAt(i)]);
     }
     result.e = $.grep([result.f, result.d, result.q], Boolean).join('');
     result.E = $.grep([result.F, result.D, result.Q], Boolean).join(' ');
     result.m = $.grep([result.r, result.d, result.q], Boolean).join('');
     result.M = $.grep([result.R, result.D, result.Q], Boolean).join(' ');
-    DiagramUtils.edgeParams.cache[edgeCode] = result;
+    DiagramUtils._edgeParamsCache[edgeCode] = result;
   }
-  return DiagramUtils.edgeParams.cache[edgeCode];
+  return DiagramUtils._edgeParamsCache[edgeCode];
 };
-DiagramUtils.edgeParams.cache = {};
-DiagramUtils.edgeParams.CODES = {
+DiagramUtils._edgeParamsCache = {};
+DiagramUtils._EDGE_PARAMS_CODES = {
   'R': {f: 'R', r: 'L', F: 'Right', R: 'Left'},
   'L': {f: 'L', r: 'R', F: 'Left', R: 'Right'},
   'F': {d: 'F', b: 'B', D: 'Forward', B: 'Backward'},
@@ -496,11 +496,11 @@ DiagramUtils.edgeParams.CODES = {
 };
 
 //Resolve edge parameters in text. All text should use edge parameters where appropriate to support features such as mirroring.
-DiagramUtils.resolveParams = function(edgeCode, label) {
+DiagramUtils._resolveParams = function(edgeCode, label) {
   var i, curChar,
       inParam = false,
       result = '',
-      edgeParams = DiagramUtils.edgeParams(edgeCode);
+      edgeParams = DiagramUtils._edgeParams(edgeCode);
       for (i = 0; i < label.length; i++) {
         curChar = label.charAt(i);
         if (inParam) {
@@ -522,7 +522,7 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
 
   offset = 0;
   for (lapIndex = 0; lapIndex < dance.patternsPerLap; lapIndex++) {
-    transformMatrix = DiagramUtils.computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor, mirror);
+    transformMatrix = DiagramUtils._computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor, mirror);
     for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
       component = dance.components[componentIndex % dance.components.length];
       if (!component.optional || component.optional === optional) {
@@ -531,16 +531,16 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
         //Generate paths
         position.paths = [];
         for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
-          cubic = DiagramUtils.transformCoordinates(component.paths[pathIndex], transformMatrix);
-          path = DiagramUtils.cubicNormalAt(cubic, 0.5);
+          cubic = DiagramUtils._transformCoordinates(component.paths[pathIndex], transformMatrix);
+          path = DiagramUtils._cubicNormalAt(cubic, 0.5);
           path.cubic = cubic;
           position.paths.push(path);
         }
         //Check mirroring
-        position.edge = mirror ? DiagramUtils.edgeParams(component.edge).m : component.edge;
+        position.edge = mirror ? DiagramUtils._edgeParams(component.edge).m : component.edge;
         //Generate text
-        position.label = DiagramUtils.resolveParams(position.edge, dance.steps[component.step].label);
-        position.desc = DiagramUtils.resolveParams(position.edge, dance.steps[component.step].desc);
+        position.label = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].label);
+        position.desc = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].desc);
         //Add lap index and offset
         position.lapIndex = lapIndex;
         position.offset = offset;
@@ -553,24 +553,24 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
 };
 
 //Creates a 2D tree in-place for an array of points
-DiagramUtils.kdTree = function(points) {
-  DiagramUtils.kdTree.helper(points, 0, points.length, 0);
+DiagramUtils._kdTree = function(points) {
+  DiagramUtils._kdTreeHelper(points, 0, points.length, 0);
 };
 //Recursive helper function for segment of points array between start inclusive and end exclusive and diminsion k=0 or k=1
-DiagramUtils.kdTree.helper = function(points, start, end, k) {
+DiagramUtils._kdTreeHelper = function(points, start, end, k) {
   var mid, kNext;
   if (end - start <= 1) {
     return;
   }
   mid = (start + end) >> 1;
   kNext = (k + 1) % 2;
-  DiagramUtils.kdTree.quickSelect(points, start, end, mid, k);
-  DiagramUtils.kdTree.helper(points, start, mid, kNext);
-  DiagramUtils.kdTree.helper(points, mid + 1, end, kNext);
+  DiagramUtils._kdQuickSelect(points, start, end, mid, k);
+  DiagramUtils._kdTreeHelper(points, start, mid, kNext);
+  DiagramUtils._kdTreeHelper(points, mid + 1, end, kNext);
 };
 //In-place quick select for segment of points array between start inclusive and end exclusive and diminsion k=0 or k=1.
 //The point at index n will be in the correct position afterwards
-DiagramUtils.kdTree.quickSelect = function(points, start, end, n, k) {
+DiagramUtils._kdQuickSelect = function(points, start, end, n, k) {
   var pivot, pivotIndex, i, swap, partition;
   while (end - start > 1) {
     partition = start;
@@ -604,14 +604,14 @@ DiagramUtils.kdTree.quickSelect = function(points, start, end, n, k) {
 //Find the nearest neighbor to a point given a kd search tree and a maximum allowed distance
 //Returns entry in search tree or false if no point within max distance
 DiagramUtils.nearestNeighbor = function(point, kdTree, maxDist) {
-  var best = DiagramUtils.nearestNeighbor.helper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: maxDist * maxDist});
+  var best = DiagramUtils._nearestNeighborHelper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: maxDist * maxDist});
   if (best.index === -1) {
     return false;
   }
   return kdTree[best.index];
 };
 //Recursive helper function
-DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, best) {
+DiagramUtils._nearestNeighborHelper = function(point, kdTree, start, end, k, best) {
   var childMatchStart, childMatchEnd, childOtherStart, childOtherEnd, mid, kNext, kDist, kNextDist, dist2;
   //Base case
   if (start >= end) {
@@ -639,10 +639,10 @@ DiagramUtils.nearestNeighbor.helper = function(point, kdTree, start, end, k, bes
     childMatchEnd = end;
   }
   //Recursively check matching side
-  best = DiagramUtils.nearestNeighbor.helper(point, kdTree, childMatchStart, childMatchEnd, kNext, best);
+  best = DiagramUtils._nearestNeighborHelper(point, kdTree, childMatchStart, childMatchEnd, kNext, best);
   //Recursively check other side only if point is near the pivot, otherwise branch can be pruned
   if (kDist * kDist < best.score) {
-    best = DiagramUtils.nearestNeighbor.helper(point, kdTree, childOtherStart, childOtherEnd, kNext, best);
+    best = DiagramUtils._nearestNeighborHelper(point, kdTree, childOtherStart, childOtherEnd, kNext, best);
   }
   return best;
 };
@@ -656,7 +656,7 @@ DiagramUtils.positionTree = function(positions) {
     for (pathIndex = 0; pathIndex < paths.length; pathIndex++) {
       var i, x, y,
           c = paths[pathIndex].cubic,
-          cf = DiagramUtils.positionTree.CUBIC_COEFFS;
+          cf = DiagramUtils._CUBIC_COEFFS_8;
       for (i = 0; i < cf.length; i = i + 4) {
         x = c[0] * cf[i] + c[2] * cf[i+1] + c[4] * cf[i+2] + c[6] * cf[i+3];
         y = c[1] * cf[i] + c[3] * cf[i+1] + c[5] * cf[i+2] + c[7] * cf[i+3];
@@ -664,11 +664,11 @@ DiagramUtils.positionTree = function(positions) {
       }
     }
   }
-  DiagramUtils.kdTree(points);
+  DiagramUtils._kdTree(points);
   return points;
 };
 //Cubic bezier coefficients for t=0 to t=8 in 1/8 increments
-DiagramUtils.positionTree.CUBIC_COEFFS = function() {
+DiagramUtils._CUBIC_COEFFS_8 = function() {
   var i, t, ti,
       coeffs = [];
   for (i = 0; i <= 8; i++) {
