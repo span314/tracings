@@ -144,14 +144,6 @@ $.widget('shawnpan.diagram', {
     if (width < 800) {
       width = 800;
       height = 800 / 1.8;
-      this.labelFont = '12pt Arial';
-      this.titleFont = '18pt Arial';
-    } else if (width < 1200) {
-      this.labelFont = '14pt Arial';
-      this.titleFont = '21pt Arial';
-    } else {
-      this.labelFont = '16pt Arial';
-      this.titleFont = '24pt Arial';
     }
 
     this.canvas.width = width;
@@ -160,6 +152,9 @@ $.widget('shawnpan.diagram', {
     this.centerY = height / 2;
     this.scaleFactor = (width - 96) / 1024;
     this.controls.controlContainer.width(width);
+    this.labelFont =  Math.floor(14 * this.scaleFactor) + 'px Arial';
+    this.titleFont = Math.floor(21 * this.scaleFactor) + 'px Arial';
+
     //Using page offsets, because Firefox does not have offsetX/offsetY in click events
     this.diagramPageOffsetX = this.controls.canvas.offset().left + this.centerX;
     this.diagramPageOffsetY = this.controls.canvas.offset().top + this.centerY;
@@ -208,7 +203,8 @@ $.widget('shawnpan.diagram', {
 
     //Draw text
     ctx.font = this.titleFont;
-    ctx.fillText(currentPosition.desc, 10, 30);
+    ctx.textBaseline = 'top';
+    ctx.fillText(currentPosition.desc, 10, 10);
     ctx.font = this.labelFont;
 
     ctx.save();
