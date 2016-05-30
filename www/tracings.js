@@ -65,40 +65,36 @@ $.widget('shawnpan.diagram', {
   playing: false,
   position: 0,
   stepTickCount: 0,
-  controls: {},
 
   _create: function() {
-      var elem, controls;
+      var elem = this.element;
       //check canvas compatibility
-      this.canvas = this.element.find('canvas').get(0);
+      this.canvas = elem.find('canvas').get(0);
       if (!this.canvas.getContext) {
         console.log('Canvas not supported');
         return;
       }
 
-      //find control ui and bind events
-      elem = this.element;
-      controls = this.controls;
-      controls.dance = elem.find('#danceSelect').on('selectmenuchange', this._loadDance.bind(this));
-      controls.part = elem.find('#part');
-      controls.part.find('input').click(this._loadPattern.bind(this));
-      controls.optional = elem.find('#optional').click(this._loadPattern.bind(this));
-      controls.mirror = elem.find('#mirror').click(this._loadPattern.bind(this));
-      controls.beginning = elem.find('#beginningButton').click(this.beginning.bind(this));
-      controls.previous = elem.find('#previousButton').click(this.previous.bind(this));
-      controls.next = elem.find('#nextButton').click(this.next.bind(this));
-      controls.startPause = elem.find('#startPauseButton').click(this.toggleStartPause.bind(this));
-      controls.startPauseIcon = controls.startPause.find('.mdi');
-      controls.speedSelector = elem.find('#speedSelector').on('togglesliderchange', this._adjustSpeed.bind(this));
-      controls.step = elem.find('#stepButton').click(this._drawPattern.bind(this));
-      controls.number = elem.find('#numberButton').click(this._drawPattern.bind(this));
-      controls.count = elem.find('#countButton').click(this._drawPattern.bind(this));
-      controls.hold = elem.find('#holdButton').click(this._drawPattern.bind(this));
-      controls.infoButton = elem.find('#infoButton').click(this._showInfo.bind(this));
-      controls.infoDialog = elem.find('#infoDialog');
-      controls.controlContainer = elem.find('#controls');
-      controls.canvas = $(this.canvas).click(this._onClick.bind(this));
-
+      //find control ui and bind events, naming convention is _$
+      this._$dance = elem.find('#danceSelect').on('selectmenuchange', this._loadDance.bind(this));
+      this._$part = elem.find('#part');
+      this._$part.find('input').click(this._loadPattern.bind(this));
+      this._$optional = elem.find('#optional').click(this._loadPattern.bind(this));
+      this._$mirror = elem.find('#mirror').click(this._loadPattern.bind(this));
+      elem.find('#beginningButton').click(this.beginning.bind(this));
+      elem.find('#previousButton').click(this.previous.bind(this));
+      elem.find('#nextButton').click(this.next.bind(this));
+      this._$startPause = elem.find('#startPauseButton').click(this.toggleStartPause.bind(this));
+      this._$startPauseIcon = this._$startPause.find('.mdi');
+      this._$speedSelector = elem.find('#speedSelector').on('togglesliderchange', this._adjustSpeed.bind(this));
+      this._$step = elem.find('#stepButton').click(this._drawPattern.bind(this));
+      this._$number = elem.find('#numberButton').click(this._drawPattern.bind(this));
+      this._$count = elem.find('#countButton').click(this._drawPattern.bind(this));
+      this._$hold = elem.find('#holdButton').click(this._drawPattern.bind(this));
+      elem.find('#infoButton').click(this._showInfo.bind(this));
+      this._$infoDialog = elem.find('#infoDialog');
+      this._$controlContainer = elem.find('#controls');
+      this._$canvas = $(this.canvas).click(this._onClick.bind(this));
       $(window).resize(this._onCanvasResize.bind(this));
 
       //initialize
@@ -131,13 +127,13 @@ $.widget('shawnpan.diagram', {
     this.centerX = width / 2;
     this.centerY = height / 2;
     this.scaleFactor = (width - 96) / 1024;
-    this.controls.controlContainer.width(width);
+    this._$controlContainer.width(width);
     this.labelFont =  Math.floor(14 * this.scaleFactor) + 'px Arial';
     this.titleFont = Math.floor(21 * this.scaleFactor) + 'px Arial';
 
     //Using page offsets, because Firefox does not have offsetX/offsetY in click events
-    this.diagramPageOffsetX = this.controls.canvas.offset().left + this.centerX;
-    this.diagramPageOffsetY = this.controls.canvas.offset().top + this.centerY;
+    this.diagramPageOffsetX = this._$canvas.offset().left + this.centerX;
+    this.diagramPageOffsetY = this._$canvas.offset().top + this.centerY;
 
     if (this.dance) {
       this._loadPattern();
@@ -146,7 +142,7 @@ $.widget('shawnpan.diagram', {
 
   _loadDance: function() {
     var widget = this;
-    $.getJSON('patterns/' + this.controls.dance.val(), function(data) {
+    $.getJSON('patterns/' + this._$dance.val(), function(data) {
       console.log(data);
       widget.dance = data;
       widget._loadPattern();
@@ -154,22 +150,22 @@ $.widget('shawnpan.diagram', {
   },
 
   _loadPattern: function() {
-    var optionalFlag = this.controls.optional.is(':checked') ? 'yes' : 'no',
-        mirrorFlag = this.controls.mirror.is(':checked'),
-        part = this.controls.part.find(':checked').val();
+    var optionalFlag = this._$optional.is(':checked') ? 'yes' : 'no',
+        mirrorFlag = this._$mirror.is(':checked'),
+        part = this._$part.find(':checked').val();
     console.log('loading pattern ' + this.dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
     this.patternPositions = DiagramUtils.generatePositions(this.dance, part, optionalFlag, mirrorFlag, this.scaleFactor);
     this.positionTree = DiagramUtils.positionTree(this.patternPositions);
-    this.controls.speedSelector.toggleslider('updateScale', this.dance.beatsPerMinute);
+    this._$speedSelector.toggleslider('updateScale', this.dance.beatsPerMinute);
     this.beginning();
   },
 
   _drawPattern: function() {
     var path, positionIndex, pathIndex, position, labelList, labelText,
-        showStep = this.controls.step.is(':checked'),
-        showNumber = this.controls.number.is(':checked'),
-        showCount = this.controls.count.is(':checked'),
-        showHold = this.controls.hold.is(':checked'),
+        showStep = this._$step.is(':checked'),
+        showNumber = this._$number.is(':checked'),
+        showCount = this._$count.is(':checked'),
+        showHold = this._$hold.is(':checked'),
         ctx = this.canvasContext,
         currentPosition = this.patternPositions[this.position],
         tickCount = currentPosition.offset + this.stepTickCount,
@@ -329,16 +325,16 @@ $.widget('shawnpan.diagram', {
 
   _start: function() {
     console.log('start');
-    var playbackInterval = 15000 / this.controls.speedSelector.toggleslider('scaleValue'); //60000 ms / 4 ticks per beat
+    var playbackInterval = 15000 / this._$speedSelector.toggleslider('scaleValue'); //60000 ms / 4 ticks per beat
     this.playing = true;
     this.timer = setInterval(this._tick.bind(this), playbackInterval);
-    this.controls.startPauseIcon.removeClass('mdi-play').addClass('mdi-pause');
+    this._$startPauseIcon.removeClass('mdi-play').addClass('mdi-pause');
   },
 
   _pause: function() {
     console.log('pause');
     clearInterval(this.timer);
-    this.controls.startPauseIcon.removeClass('mdi-pause').addClass('mdi-play');
+    this._$startPauseIcon.removeClass('mdi-pause').addClass('mdi-play');
     this.playing = false;
   },
 
@@ -368,7 +364,7 @@ $.widget('shawnpan.diagram', {
 
   _showInfo: function() {
     this._pause();
-    this.controls.infoDialog.dialog('open');
+    this._$infoDialog.dialog('open');
   }
 });
 
