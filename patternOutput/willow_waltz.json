@@ -182,7 +182,7 @@
           -104.467
         ]
       ], 
-      "step": "e3"
+      "step": "3"
     }, 
     {
       "beats": "", 
@@ -203,7 +203,7 @@
           -75.442
         ]
       ], 
-      "step": "e3x"
+      "step": "3x"
     }, 
     {
       "beats": "2", 
@@ -777,7 +777,7 @@
           232.329
         ]
       ], 
-      "step": "e3"
+      "step": "3"
     }, 
     {
       "beats": "", 
@@ -798,7 +798,7 @@
           228.995
         ]
       ], 
-      "step": "e3x"
+      "step": "3x"
     }, 
     {
       "beats": "3", 
@@ -1003,17 +1003,17 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
+    "3": {
+      "desc": "#E 3-turn", 
+      "label": "#e3"
+    }, 
+    "3x": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
+    }, 
     "ch": {
       "desc": "#E Chasse", 
       "label": "#e-Ch"
-    }, 
-    "e3": {
-      "desc": "European 3-turn: #E", 
-      "label": "#e3"
-    }, 
-    "e3x": {
-      "desc": "European 3-turn (exit): #E", 
-      "label": ""
     }, 
     "opmo": {
       "desc": "#E Open Mohawk", 

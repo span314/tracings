@@ -222,7 +222,7 @@
           32.536
         ]
       ], 
-      "step": "slch"
+      "step": "slchk"
     }, 
     {
       "beats": "1", 
@@ -325,7 +325,7 @@
           237.218
         ]
       ], 
-      "step": "slch"
+      "step": "slchk"
     }, 
     {
       "beats": "1+1", 
@@ -732,7 +732,7 @@
           -31.649
         ]
       ], 
-      "step": "slch"
+      "step": "slchk"
     }, 
     {
       "beats": "1", 
@@ -835,7 +835,7 @@
           -241.359
         ]
       ], 
-      "step": "slch"
+      "step": "slchk"
     }, 
     {
       "beats": "1", 
@@ -1063,8 +1063,8 @@
       "desc": "Progressive: Cross onto #E Edge", 
       "label": "#e-Pr"
     }, 
-    "slch": {
-      "desc": "#E Slide Chasse", 
+    "slchk": {
+      "desc": "#E Slide Chasse Kick", 
       "label": "#e-slCh"
     }, 
     "swr": {

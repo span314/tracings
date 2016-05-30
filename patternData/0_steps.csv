@@ -2,33 +2,31 @@ code,label,desc
 ,#e,Stroke onto #E Edge
 3,#e3,#E 3-turn
 3x,,Exit 3-turn on #E Edge
-bk,#e-bk,"Stroke onto #E Edge, Rise and Fall with Free Leg Back"
+bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back"
 ce,#e#o,Stroke onto #E Edge
 cesw,#e#o-sw,"Stroke onto #E Edge, Swing"
 cex,,Change to #O Edge
-ch,#e-Ch,#E Chasse
+ch,#e-Ch,#E Chassé
+chox,,Exit Choctow
 cr,CR-#e,Cross Roll onto #E Edge
 cr3,CR-#e3,Cross Roll into a #E 3-turn
-cr3x,,Exit 3-turn on #E Edge
 crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
-e3,#e3,European 3-turn: #E
-e3x,,European 3-turn (exit): #E
+ctrx,,Exit Counter On #E Edge
 opmo,#e-opMo,#E Open Mohawk
 opmox,#e,Exit Open Mohawk on #E Edge
 pr,#e,Progressive: Stroke onto #E Edge
 prx,#e-Pr,Progressive: Cross onto #E Edge
 s,#e,Step Briefly on #E Edge
-slch,#e-slCh,#E Slide Chasse
+slch,#e-slCh,#E Slide Chassé
+slchk,#e-slCh,"#E Slide Chassé, Fold #R Leg and Kick"
 slm,#e/#r#d#o-slm,#E / #R #D #O Slalom
 slme,#e/#r#d#o-slm-#e,"#E / #R #D #O Slalom, Push onto #E Edge"
 swopcho,Sw-opCho,Swing Open Choctow
-swopchox,,Exit Swing Open Choctow
-swr,#e-swR,#E Swing Roll
+swr,#e-swR,"Stroke onto #E Edge, Swing Roll"
 twl1,Sw-“Tw1”,Twizzle Like Motion
 twl1.,,Twizzle Like Motion
 ws,#e-ws,Wide Step onto #E Edge
 xb,XB-#e,Cross Behind onto #E Edge
 xbce,XB-#e#o,Cross Behind onto #O Edge
 xbctr,XB-#e-Ctr,Cross Behind into a #E Counter
-xbctrx,,Exit Counter On #E Edge
 xf,XF-#e,Cross in Front onto #E Edge
