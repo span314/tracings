@@ -256,7 +256,7 @@ $.widget('shawnpan.diagram', {
         }
         labelText = labelList.join(' ');
         if (labelText) {
-          ctx.fillStyle = 'rgb(0,0,255)';
+          ctx.fillStyle = 'rgb(0,100,255)';
           DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[0], 10);
         }
         //Draw hold and count
@@ -269,7 +269,7 @@ $.widget('shawnpan.diagram', {
         }
         labelText = labelList.join(' ');
         if (labelText) {
-          ctx.fillStyle = 'rgb(255,0,0)';
+          ctx.fillStyle = 'rgb(255,100,0)';
           DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -10);
         }
       }
