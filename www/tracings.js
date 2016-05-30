@@ -63,7 +63,6 @@ $.widget('shawnpan.toggleslider', $.ui.buttonset, {
 
 $.widget('shawnpan.diagram', {
   playing: false,
-  part: 'lady',
   position: 0,
   stepTickCount: 0,
   controls: {},
@@ -81,8 +80,8 @@ $.widget('shawnpan.diagram', {
       elem = this.element;
       controls = this.controls;
       controls.dance = elem.find('#danceSelect').on('selectmenuchange', this._loadDance.bind(this));
-      controls.partLady = elem.find('#partLady').click(this._updatePart.bind(this, 'lady'));
-      controls.partMan = elem.find('#partMan').click(this._updatePart.bind(this, 'man'));
+      controls.part = elem.find('#part');
+      controls.part.find('input').click(this._loadPattern.bind(this));
       controls.optional = elem.find('#optional').click(this._loadPattern.bind(this));
       controls.mirror = elem.find('#mirror').click(this._loadPattern.bind(this));
       controls.beginning = elem.find('#beginningButton').click(this.beginning.bind(this));
@@ -99,6 +98,7 @@ $.widget('shawnpan.diagram', {
       controls.infoDialog = elem.find('#infoDialog');
       controls.controlContainer = elem.find('#controls');
       controls.canvas = $(this.canvas).click(this._onClick.bind(this));
+
       $(window).resize(this._onCanvasResize.bind(this));
 
       //initialize
@@ -155,9 +155,10 @@ $.widget('shawnpan.diagram', {
 
   _loadPattern: function() {
     var optionalFlag = this.controls.optional.is(':checked') ? 'yes' : 'no',
-        mirrorFlag = this.controls.mirror.is(':checked');
-    console.log('loading pattern ' + this.dance.name + ' part: ' + this.part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
-    this.patternPositions = DiagramUtils.generatePositions(this.dance, this.part, optionalFlag, mirrorFlag, this.scaleFactor);
+        mirrorFlag = this.controls.mirror.is(':checked'),
+        part = this.controls.part.find(':checked').val();
+    console.log('loading pattern ' + this.dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
+    this.patternPositions = DiagramUtils.generatePositions(this.dance, part, optionalFlag, mirrorFlag, this.scaleFactor);
     this.positionTree = DiagramUtils.positionTree(this.patternPositions);
     this.controls.speedSelector.toggleslider('updateScale', this.dance.beatsPerMinute);
     this.beginning();
@@ -285,13 +286,6 @@ $.widget('shawnpan.diagram', {
       ctx.stroke();
 
       ctx.restore();
-  },
-
-  _updatePart: function(part) {
-    if (this.part !== part) {
-      this.part = part;
-      this._loadPattern();
-    }
   },
 
   beginning: function() {
