@@ -66,10 +66,8 @@ $.widget('shawnpan.toggleslider', $.ui.buttonset, {
 
 $.widget('shawnpan.diagram', {
   _create: function() {
-    var elem = this.element;
     //check canvas compatibility
-    this._$canvas = elem.find('canvas');
-    this._canvasElement = this._$canvas.get(0);
+    this._canvasElement = $('#diagram').get(0);
     if (!this._canvasElement.getContext) {
       console.log('Canvas not supported');
       return;
@@ -77,25 +75,25 @@ $.widget('shawnpan.diagram', {
     this._canvasContext = this._canvasElement.getContext('2d');
 
     //find control ui and bind events, naming convention is prefix _$ for cached selectors used elsewhere
-    this._$dance = elem.find('#danceSelect').on('selectmenuchange', this._loadDance.bind(this));
-    this._$part = elem.find('#part');
+    this._$canvas = $('#diagram').click(this._onClick.bind(this));
+    this._$dance = $('#danceSelect').on('selectmenuchange', this._loadDance.bind(this));
+    this._$part = $('#part');
     this._$part.find('input').click(this._loadPattern.bind(this));
-    this._$optional = elem.find('#optional').click(this._loadPattern.bind(this));
-    this._$mirror = elem.find('#mirror').click(this._loadPattern.bind(this));
-    elem.find('#beginningButton').click(this.beginning.bind(this));
-    elem.find('#previousButton').click(this.previous.bind(this));
-    elem.find('#nextButton').click(this.next.bind(this));
-    this._$startPause = elem.find('#startPauseButton').click(this.toggleStartPause.bind(this));
+    this._$optional = $('#optional').click(this._loadPattern.bind(this));
+    this._$mirror = $('#mirror').click(this._loadPattern.bind(this));
+    $('#beginningButton').click(this.beginning.bind(this));
+    $('#previousButton').click(this.previous.bind(this));
+    $('#nextButton').click(this.next.bind(this));
+    this._$startPause = $('#startPauseButton').click(this.toggleStartPause.bind(this));
     this._$startPauseIcon = this._$startPause.find('.mdi');
-    this._$speedSelector = elem.find('#speedSelector').on('togglesliderchange', this._adjustSpeed.bind(this));
-    this._$step = elem.find('#stepButton').click(this._drawPattern.bind(this));
-    this._$number = elem.find('#numberButton').click(this._drawPattern.bind(this));
-    this._$count = elem.find('#countButton').click(this._drawPattern.bind(this));
-    this._$hold = elem.find('#holdButton').click(this._drawPattern.bind(this));
-    elem.find('#infoButton').click(this._showInfo.bind(this));
-    this._$infoDialog = elem.find('#infoDialog');
-    this._$controlContainer = elem.find('#controls');
-    this._$canvas.click(this._onClick.bind(this));
+    this._$speedSelector = $('#speedSelector').on('togglesliderchange', this._adjustSpeed.bind(this));
+    this._$step = $('#stepButton').click(this._drawPattern.bind(this));
+    this._$number = $('#numberButton').click(this._drawPattern.bind(this));
+    this._$count = $('#countButton').click(this._drawPattern.bind(this));
+    this._$hold = $('#holdButton').click(this._drawPattern.bind(this));
+    $('#infoButton').click(this._showInfo.bind(this));
+    this._$infoDialog = $('#infoDialog');
+    this._$controlContainer = $('#controls');
     $(window).resize(this._onCanvasResize.bind(this));
 
     //initialize
