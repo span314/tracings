@@ -30,34 +30,7 @@ canvas {
   display: none;
 }
 
-/*Toggle Slider*/
-.ts-container {
-  position: relative;
-}
-
-.ts-popup {
-  display: none;
-  height: 256px;
-  padding-left: 2px;
-  padding-right: 2px;
-  text-align: center;
-  font-size: 10pt;
-  position: absolute;
-  bottom: 32px;
-  left: 0;
-  background: #ccc;
-}
-
-.ts-slider {
-  display: inline-block;
-  height: 70%;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-.ts-container .ts-state-active {
+.button-set .speed-state-active {
   border: 1px solid #aaaaaa;
   background: #ffffff;
   font-weight: normal;

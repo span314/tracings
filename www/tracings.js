@@ -6,62 +6,9 @@
 $(document).ready(function() {
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
   $('.button-set').buttonset();
-  $('.ts-container').toggleslider();
   $('#diagramContainer').diagram();
   $('#infoDialog').dialog({autoOpen: false});
   $('#controls').tooltip();
-});
-
-//Hideable slider containing a button and slider, used for selecting speeds
-$.widget('shawnpan.toggleslider', $.ui.buttonset, {
-  _create: function() {
-    this._super();
-
-    //Find elements
-    this._button = this.element.children('button');
-    this._popup = this.element.children('div');
-    this._slider = this._popup.find('.ts-slider');
-    this._percentText = this._popup.find('.ts-percent');
-    this._valueText = this._popup.find('.ts-value');
-
-    //Create slider
-    this._slider.slider({orientation: 'vertical', min: 20, max: 100, step: 5, value: 100});
-
-    //Bind events
-    this._slider.on('slidechange', this._onChange.bind(this));
-    this._button.click(this._onClick.bind(this));
-  },
-
-  _init: function() {
-    this._super();
-    this._percentValue = 100;
-    this.updateScale(100);
-  },
-
-  updateScale: function(value) {
-    this._scale = value;
-    this._refreshText();
-  },
-
-  scaleValue: function() {
-    return this._percentValue * this._scale / 100;
-  },
-
-  _refreshText: function() {
-    this._percentText.text(this._percentValue + '%');
-    this._valueText.text(Math.round(this.scaleValue()) + 'bpm');
-    this._button.toggleClass('ts-state-active', this._percentValue !== 100);
-  },
-
-  _onClick: function() {
-    this._popup.slideToggle();
-  },
-
-  _onChange: function(e, ui) {
-    this._percentValue = ui.value;
-    this._refreshText();
-    this._trigger('change');
-  }
 });
 
 $.widget('shawnpan.diagram', {
@@ -86,7 +33,7 @@ $.widget('shawnpan.diagram', {
     $('#nextButton').click(this.next.bind(this));
     this._$startPause = $('#startPauseButton').click(this.toggleStartPause.bind(this));
     this._$startPauseIcon = this._$startPause.find('.mdi');
-    this._$speedSelector = $('#speedSelector').on('togglesliderchange', this._adjustSpeed.bind(this));
+    this._$speedButton = $('#speedButton').click(this._adjustSpeed.bind(this));
     this._$step = $('#stepButton').click(this._drawPattern.bind(this));
     this._$number = $('#numberButton').click(this._drawPattern.bind(this));
     this._$count = $('#countButton').click(this._drawPattern.bind(this));
@@ -97,6 +44,7 @@ $.widget('shawnpan.diagram', {
     $(window).resize(this._onCanvasResize.bind(this));
 
     //initialize
+    this._playbackSpeedPercentage = 100;
     this._onCanvasResize();
     this._loadDance();
   },
@@ -143,6 +91,7 @@ $.widget('shawnpan.diagram', {
     $.getJSON('patterns/' + this._$dance.val(), function(data) {
       console.log(data);
       widget.dance = data;
+      widget._computePlaybackInterval();
       widget._loadPattern();
     });
   },
@@ -154,7 +103,6 @@ $.widget('shawnpan.diagram', {
     console.log('loading pattern ' + this.dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
     this._patternPositions = DiagramUtils.generatePositions(this.dance, part, optionalFlag, mirrorFlag, this._scaleFactor);
     this._positionSearchTree = DiagramUtils.positionTree(this._patternPositions);
-    this._$speedSelector.toggleslider('updateScale', this.dance.beatsPerMinute);
     this.beginning();
   },
 
@@ -176,7 +124,10 @@ $.widget('shawnpan.diagram', {
     ctx.font = this._titleFont;
     ctx.textBaseline = 'top';
     ctx.fillText(currentPosition.desc, 10, 10);
+
     ctx.font = this._labelFont;
+    ctx.textBaseline = 'bottom'
+    ctx.fillText(this._playbackSpeedText, 10, this._canvasElement.height - 10);
 
     ctx.save();
     ctx.translate(this._centerX, this._centerY);
@@ -310,23 +261,45 @@ $.widget('shawnpan.diagram', {
 
   _adjustSpeed: function() {
     console.log('adjust speed');
+    //Cycle speeds in 25% increments with a minimum of 50% and update button ui
+    this._playbackSpeedPercentage -= 25;
+    if (this._playbackSpeedPercentage < 50) {
+      this._playbackSpeedPercentage = 100;
+      this._$speedButton.removeClass('speed-state-active');
+    } else {
+      this._$speedButton.addClass('speed-state-active');
+    }
+    this._computePlaybackInterval();
+    //Restart play if necessary
     if (this._playing) {
-      this._pause();
-      this._start();
+      clearInterval(this._timer);
+      this._timer = setInterval(this._tick.bind(this), this._playbackInterval);
+    } else {
+      this._drawPattern();
+    }
+  },
+
+  _computePlaybackInterval: function() {
+    var percentBeatsPerMinute = this._playbackSpeedPercentage * this.dance.beatsPerMinute;
+    //(60000 ms/min * 100%) / (4 ticks/beat)
+    this._playbackInterval = 1500000 / percentBeatsPerMinute;
+    if (this._playbackSpeedPercentage === 100) {
+      this._playbackSpeedText = this.dance.beatsPerMinute + 'bpm'
+    } else {
+      this._playbackSpeedText = this._playbackSpeedPercentage + '% speed (' + Math.round(percentBeatsPerMinute / 100) + 'bpm of ' + this.dance.beatsPerMinute + 'bpm)';
     }
   },
 
   _start: function() {
     console.log('start');
-    var playbackInterval = 15000 / this._$speedSelector.toggleslider('scaleValue'); //60000 ms / 4 ticks per beat
     this._playing = true;
-    this.timer = setInterval(this._tick.bind(this), playbackInterval);
+    this._timer = setInterval(this._tick.bind(this), this._playbackInterval);
     this._$startPauseIcon.removeClass('mdi-play').addClass('mdi-pause');
   },
 
   _pause: function() {
     console.log('pause');
-    clearInterval(this.timer);
+    clearInterval(this._timer);
     this._$startPauseIcon.removeClass('mdi-pause').addClass('mdi-play');
     this._playing = false;
   },
