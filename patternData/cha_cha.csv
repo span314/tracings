@@ -8,8 +8,8 @@ index,duration,pathCount,beats,edge,step,group,optional,hold
 7,,2,1,RFI,slm,s,,k
 ,,2,1,RFO,slm,s,,k
 ,,2,2,RFI,slm,s,,k
-8,6,2,*,RFO,slme,s,,k
-9,2,,*,LFI,ch,,,k
+8,,2,q6,RFO,slme,s,,k
+9,,,q2,LFI,ch,,,k
 10,,,2,RFI,,,,k
 11,,,4,LFO,swr,,,k
 12,,,2,RFO,,,no,k
