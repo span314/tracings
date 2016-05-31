@@ -81,7 +81,7 @@ $.widget('shawnpan.diagram', {
     this._diagramPageOffsetX = this._$canvas.offset().left + this._centerX;
     this._diagramPageOffsetY = this._$canvas.offset().top + this._centerY;
 
-    if (this.dance) {
+    if (this._dance) {
       this._loadPattern();
     }
   },
@@ -90,7 +90,7 @@ $.widget('shawnpan.diagram', {
     var widget = this;
     $.getJSON('patterns/' + this._$dance.val(), function(data) {
       console.log(data);
-      widget.dance = data;
+      widget._dance = data;
       widget._computePlaybackInterval();
       widget._loadPattern();
     });
@@ -100,8 +100,8 @@ $.widget('shawnpan.diagram', {
     var optionalFlag = this._$optional.is(':checked') ? 'yes' : 'no',
         mirrorFlag = this._$mirror.is(':checked'),
         part = this._$part.find(':checked').val();
-    console.log('loading pattern ' + this.dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
-    this._patternPositions = DiagramUtils.generatePositions(this.dance, part, optionalFlag, mirrorFlag, this._scaleFactor);
+    console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
+    this._patternPositions = DiagramUtils.generatePositions(this._dance, part, optionalFlag, mirrorFlag, this._scaleFactor);
     this._positionSearchTree = DiagramUtils.positionTree(this._patternPositions);
     this.beginning();
   },
@@ -116,7 +116,7 @@ $.widget('shawnpan.diagram', {
         currentPosition = this._patternPositions[this._position],
         tickCount = currentPosition.offset + this._stepTickCount,
         fracBeat = tickCount % 4,
-        beat = (tickCount >> 2) % this.dance.timeSignatureTop + 1;
+        beat = (tickCount >> 2) % this._dance.timeSignatureTop + 1;
 
     ctx.clearRect(0, 0, this._canvasElement.width, this._canvasElement.height);
 
@@ -280,13 +280,13 @@ $.widget('shawnpan.diagram', {
   },
 
   _computePlaybackInterval: function() {
-    var percentBeatsPerMinute = this._playbackSpeedPercentage * this.dance.beatsPerMinute;
+    var percentBeatsPerMinute = this._playbackSpeedPercentage * this._dance.beatsPerMinute;
     //(60000 ms/min * 100%) / (4 ticks/beat)
     this._playbackInterval = 1500000 / percentBeatsPerMinute;
     if (this._playbackSpeedPercentage === 100) {
-      this._playbackSpeedText = this.dance.beatsPerMinute + 'bpm'
+      this._playbackSpeedText = this._dance.beatsPerMinute + 'bpm'
     } else {
-      this._playbackSpeedText = this._playbackSpeedPercentage + '% speed (' + Math.round(percentBeatsPerMinute / 100) + 'bpm of ' + this.dance.beatsPerMinute + 'bpm)';
+      this._playbackSpeedText = this._playbackSpeedPercentage + '% speed (' + Math.round(percentBeatsPerMinute / 100) + 'bpm of ' + this._dance.beatsPerMinute + 'bpm)';
     }
   },
 
