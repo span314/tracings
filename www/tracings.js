@@ -168,7 +168,7 @@ $.widget('shawnpan.diagram', {
         currentPosition = this._patternPositions[this._position],
         tickCount = currentPosition.offset + this._stepTickCount,
         fracBeat = tickCount % 4,
-        beat = ((tickCount - fracBeat) / 4) % this.dance.timeSignatureTop + 1;
+        beat = (tickCount >> 2) % this.dance.timeSignatureTop + 1;
 
     ctx.clearRect(0, 0, this._canvasElement.width, this._canvasElement.height);
 
@@ -398,6 +398,10 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
         //Generate text
         position.label = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].label);
         position.desc = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].desc);
+        //Convert quarter beat duration to mixed number of beats
+        if (typeof position.beats === 'undefined') {
+          position.beats = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4);
+        }
         //Add lap index and offset
         position.lapIndex = lapIndex;
         position.offset = offset;

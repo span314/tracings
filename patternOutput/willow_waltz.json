@@ -2,7 +2,6 @@
   "beatsPerMinute": 138, 
   "components": [
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LBO", 
       "hold": "cl", 
@@ -22,7 +21,6 @@
       "step": ""
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RBI", 
       "hold": "cl", 
@@ -42,7 +40,6 @@
       "step": "ch"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LBO", 
       "hold": "cl", 
@@ -62,7 +59,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RBO", 
       "hold": "cl", 
@@ -82,7 +78,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LFO", 
       "hold": "cl", 
@@ -102,7 +97,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFI", 
       "hold": "cl", 
@@ -123,7 +117,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFI", 
       "hold": "cl", 
@@ -144,7 +137,6 @@
       "step": "slch"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LFO", 
       "hold": "cl", 
@@ -206,7 +198,6 @@
       "step": "tx"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LBO", 
       "group": "pr1", 
@@ -227,7 +218,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RBO", 
       "group": "pr1", 
@@ -248,7 +238,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LBO", 
       "group": "pr1", 
@@ -269,7 +258,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
       "hold": "cl", 
@@ -289,7 +277,6 @@
       "step": ""
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LBI", 
       "hold": "cl", 
@@ -309,7 +296,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RBO", 
       "hold": "cl", 
@@ -329,7 +315,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LFO", 
       "hold": "cl", 
@@ -349,7 +334,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFO", 
       "hold": "cl", 
@@ -369,7 +353,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LFI", 
       "hold": "cl", 
@@ -389,7 +372,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFI", 
       "group": "m", 
@@ -410,7 +392,6 @@
       "step": "opmo"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LBI", 
       "group": "m", 
@@ -431,7 +412,6 @@
       "step": "mox"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
       "group": "pr2", 
@@ -452,7 +432,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "pr2", 
@@ -473,7 +452,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RBO", 
       "group": "pr2", 
@@ -494,7 +472,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RFO", 
       "hold": "cl", 
@@ -514,7 +491,6 @@
       "step": ""
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LFI", 
       "hold": "cl", 
@@ -534,7 +510,6 @@
       "step": "ch"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFO", 
       "hold": "cl", 
@@ -554,7 +529,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LFO", 
       "hold": "cl", 
@@ -574,7 +548,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFI", 
       "group": "m", 
@@ -595,7 +568,6 @@
       "step": "opmo"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LBI", 
       "group": "m", 
@@ -616,7 +588,6 @@
       "step": "mox"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RBO", 
       "hold": "cl", 
@@ -636,7 +607,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LBO", 
       "hold": "cl", 
@@ -656,7 +626,6 @@
       "step": ""
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "pr1", 
@@ -677,7 +646,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "pr1", 
@@ -698,7 +666,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFO", 
       "group": "pr1", 
@@ -719,7 +686,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "hold": "cl", 
@@ -739,7 +705,6 @@
       "step": ""
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RFI", 
       "hold": "cl", 
@@ -801,7 +766,6 @@
       "step": "tx"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RBO", 
       "hold": "cl", 
@@ -821,7 +785,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LBO", 
       "hold": "cl", 
@@ -841,7 +804,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RBI", 
       "hold": "cl", 
@@ -861,7 +823,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LFO", 
       "hold": "cl", 
@@ -881,7 +842,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFI", 
       "hold": "cl", 
@@ -902,7 +862,6 @@
       "step": ""
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "RFI", 
       "hold": "cl", 
@@ -923,7 +882,6 @@
       "step": "slch"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
@@ -944,7 +902,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
@@ -965,7 +922,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "3", 
       "duration": 12, 
       "edge": "LFO", 
       "group": "pr2", 

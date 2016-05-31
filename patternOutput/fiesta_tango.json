@@ -2,7 +2,6 @@
   "beatsPerMinute": 108, 
   "components": [
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "hold": "rk", 
@@ -22,7 +21,6 @@
       "step": ""
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RFO", 
       "hold": "rk", 
@@ -42,7 +40,6 @@
       "step": ""
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
@@ -63,7 +60,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
@@ -84,7 +80,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr1", 
@@ -105,7 +100,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RFO", 
       "hold": "rk", 
@@ -125,7 +119,6 @@
       "step": "cr"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFI", 
       "hold": "rk", 
@@ -187,7 +180,6 @@
       "step": "cex"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "hold": "rk", 
@@ -207,7 +199,6 @@
       "step": ""
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "m", 
@@ -228,7 +219,6 @@
       "step": "opmo"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "m", 
@@ -249,7 +239,6 @@
       "step": "mox"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
       "hold": "rk", 
@@ -269,7 +258,6 @@
       "step": ""
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LBI", 
       "hold": "rk", 
@@ -289,7 +277,6 @@
       "step": ""
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RBO", 
       "hold": "rk", 
@@ -309,7 +296,6 @@
       "step": ""
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LBI", 
       "hold": "rk", 
@@ -329,7 +315,6 @@
       "step": "xf"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
       "hold": "rk", 

@@ -2,7 +2,6 @@
   "beatsPerMinute": 88, 
   "components": [
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr1", 
@@ -23,7 +22,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr1", 
@@ -44,7 +42,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr1", 
@@ -65,7 +62,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "4", 
       "duration": 16, 
       "edge": "RFO", 
       "hold": "k", 
@@ -85,7 +81,6 @@
       "step": "swr"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr2", 
@@ -106,7 +101,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr2", 
@@ -127,7 +121,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr2", 
@@ -148,7 +141,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "pr2", 
@@ -169,7 +161,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "4", 
       "duration": 16, 
       "edge": "LFI", 
       "hold": "k", 
@@ -189,7 +180,6 @@
       "step": "swr"
     }, 
     {
-      "beats": "4", 
       "duration": 16, 
       "edge": "RFI", 
       "hold": "k", 
@@ -209,7 +199,6 @@
       "step": "swr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "pr3", 
@@ -230,7 +219,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "pr3", 
@@ -251,7 +239,6 @@
       "step": "prx"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "pr3", 
@@ -272,7 +259,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
       "hold": "k", 
@@ -292,7 +278,6 @@
       "step": "xb"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "hold": "k", 
@@ -313,7 +298,6 @@
       "step": ""
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "LFO", 
       "hold": "k", 
@@ -334,7 +318,6 @@
       "step": "xb"
     }, 
     {
-      "beats": "2", 
       "duration": 8, 
       "edge": "RFI", 
       "hold": "k", 

@@ -158,9 +158,11 @@ def extractStepsFromCSV(fileHandle, processedPaths):
   for row in reader:
     #Calculate unspecified duration
     if (not row["duration"]):
-      row["duration"] = 4 * int(row["beats"])
+      row["duration"] = 4 * int(row.pop("beats"))
     else:
       row["duration"] = int(row["duration"])
+      if (row["beats"] == "*"):
+        row.pop("beats")
     #Add paths
     componentPaths = []
     pathCount = row.pop("pathCount")
