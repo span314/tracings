@@ -260,16 +260,14 @@ $.widget('shawnpan.diagram', {
 
       ctx.save();
 
+      ctx.strokeStyle = 'rgb(210,210,210)';
+
       ctx.beginPath();
       ctx.moveTo(-halfWidthStraight, -halfHeight);
       ctx.arcTo(halfWidth, -halfHeight, halfWidth, halfHeightStraight, cornerRadius);
       ctx.arcTo(halfWidth, halfHeight, -halfWidthStraight, halfHeight, cornerRadius);
       ctx.arcTo(-halfWidth, halfHeight, -halfWidth, halfHeightStraight, cornerRadius);
       ctx.arcTo(-halfWidth, -halfHeight, -halfWidthStraight, -halfHeight, cornerRadius);
-      ctx.stroke();
-
-      ctx.strokeStyle = 'rgb(200,200,200)';
-      ctx.beginPath();
       ctx.moveTo(0, -halfHeight);
       ctx.lineTo(0, halfHeight);
       ctx.moveTo(-halfWidth, 0);
