@@ -154,7 +154,6 @@
       "step": "cr"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "9", 
@@ -175,7 +174,6 @@
       "step": "xbce"
     }, 
     {
-      "beats": "1+2", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "9", 
@@ -196,7 +194,6 @@
       "step": "cex"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "10", 
@@ -217,7 +214,6 @@
       "step": "xbce"
     }, 
     {
-      "beats": "1+1", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "10", 
@@ -297,7 +293,6 @@
       "step": ""
     }, 
     {
-      "beats": "1+1", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "13", 
@@ -318,7 +313,6 @@
       "step": "crtt"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "13", 
@@ -611,7 +605,6 @@
       "step": ""
     }, 
     {
-      "beats": "1+1", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "25", 
@@ -632,7 +625,6 @@
       "step": "crtt"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "LBO", 
       "group": "25", 
@@ -942,7 +934,6 @@
       "step": "cr"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "LFI", 
       "group": "9", 
@@ -963,7 +954,6 @@
       "step": "xbce"
     }, 
     {
-      "beats": "1+2", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "9", 
@@ -984,7 +974,6 @@
       "step": "cex"
     }, 
     {
-      "beats": "1+1", 
       "duration": 4, 
       "edge": "RFI", 
       "group": "10", 
@@ -1005,7 +994,6 @@
       "step": "xbctr"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "10", 
@@ -1083,7 +1071,6 @@
       "step": "cr"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "14", 
@@ -1104,7 +1091,6 @@
       "step": "tt"
     }, 
     {
-      "beats": "1+1", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "14", 

@@ -346,7 +346,7 @@ DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
 
 //Generate individual positions for a dance
 DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFactor) {
-  var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path,
+  var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path, positionIndex, beatsLabel,
       positions = [],
       pattern = dance.patterns[part];
 
@@ -372,14 +372,29 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
         position.label = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].label);
         position.desc = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].desc);
         //Convert quarter beat duration to mixed number of beats
-        if (typeof position.beats === 'undefined') {
-          position.beats = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4);
-        }
+        // if (typeof position.beats === 'undefined') {
+        //   position.beats = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4);
+        // }
         //Add lap index and offset
         position.lapIndex = lapIndex;
         position.offset = offset;
         offset += component.duration;
         positions.push(position);
+      }
+    }
+  }
+
+  beatsLabel = '';
+  for (positionIndex = positions.length - 1; positionIndex >= 0; positionIndex--) {
+    position = positions[positionIndex];
+    if (typeof position.beats === 'undefined') {
+      beatsLabel = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4) + beatsLabel;
+      //Check if step is on same foot and step is an exit
+      if (position.step.charAt(position.step.length - 1) === 'x' && positions[positionIndex - 1].edge.charAt(0) === position.edge.charAt(0)) {
+        beatsLabel = '+' + beatsLabel;
+      } else {
+        position.beats = beatsLabel;
+        beatsLabel = '';
       }
     }
   }

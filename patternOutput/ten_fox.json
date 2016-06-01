@@ -179,7 +179,6 @@
       "step": "bk"
     }, 
     {
-      "beats": "1+1", 
       "duration": 4, 
       "edge": "LFO", 
       "group": "3", 
@@ -200,7 +199,6 @@
       "step": "tt"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "3", 
@@ -480,7 +478,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "4+2", 
       "duration": 16, 
       "edge": "RFO", 
       "group": "ce", 
@@ -501,7 +498,6 @@
       "step": "cesw"
     }, 
     {
-      "beats": "", 
       "duration": 8, 
       "edge": "RFI", 
       "group": "ce", 
@@ -582,7 +578,6 @@
       "step": "pr"
     }, 
     {
-      "beats": "1+1", 
       "duration": 4, 
       "edge": "RFO", 
       "group": "3", 
@@ -603,7 +598,6 @@
       "step": "tt"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "3", 

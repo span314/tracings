@@ -6,8 +6,8 @@ index,duration,pathCount,beats,edge,step,group,optional,hold
 5,,,2,LFO,pr,pr1,,rk
 6,,,2,RFO,cr,,,rk
 7,,,2,LFI,xb,,,rk
-8,16,,4+2,RFO,cesw,c,,rk
-,8,,,RFI,cex,c,,rk
+8,,,4,RFO,cesw,c,,rk
+,,,2,RFI,cex,c,,rk
 9,,,2,LFO,,,,rk
 10,,,1,RFI,opmo,m,,rk
 11,,,1,LBI,mox,m,,rk

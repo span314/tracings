@@ -156,7 +156,6 @@
       "step": ""
     }, 
     {
-      "beats": "2+1", 
       "duration": 8, 
       "edge": "RFO", 
       "group": "3", 
@@ -177,7 +176,6 @@
       "step": "tt"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "RBI", 
       "group": "3", 
@@ -724,7 +722,6 @@
       "step": ""
     }, 
     {
-      "beats": "2+1", 
       "duration": 8, 
       "edge": "LFO", 
       "group": "3", 
@@ -745,7 +742,6 @@
       "step": "tt"
     }, 
     {
-      "beats": "", 
       "duration": 4, 
       "edge": "LBI", 
       "group": "3", 
