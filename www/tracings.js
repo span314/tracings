@@ -179,7 +179,7 @@ $.widget('shawnpan.diagram', {
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = 'rgb(0,100,255)';
-          DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[0], 10);
+          DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[0], 12);
         }
         //Draw hold and count
         labelList = [];
@@ -192,7 +192,7 @@ $.widget('shawnpan.diagram', {
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = 'rgb(255,100,0)';
-          DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -10);
+          DiagramUtils.drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -12);
         }
       }
       ctx.restore();
@@ -371,10 +371,6 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
         //Generate text
         position.label = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].label);
         position.desc = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].desc);
-        //Convert quarter beat duration to mixed number of beats
-        // if (typeof position.beats === 'undefined') {
-        //   position.beats = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4);
-        // }
         //Add lap index and offset
         position.lapIndex = lapIndex;
         position.offset = offset;
@@ -384,13 +380,15 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
     }
   }
 
+  //Iterate backwards through steps to generate beat labels from durations, taking into account combination steps
   beatsLabel = '';
   for (positionIndex = positions.length - 1; positionIndex >= 0; positionIndex--) {
     position = positions[positionIndex];
     if (typeof position.beats === 'undefined') {
+      //Convert quarter beat duration to mixed number of beats and apeend to label
       beatsLabel = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4) + beatsLabel;
-      //Check if step is on same foot and step is an exit
-      if (position.step.charAt(position.step.length - 1) === 'x' && positions[positionIndex - 1].edge.charAt(0) === position.edge.charAt(0)) {
+      //Check if step is a combination to generate beats (e.g. 1+2)
+      if (position.step.charAt(0) === '_') {
         beatsLabel = '+' + beatsLabel;
       } else {
         position.beats = beatsLabel;

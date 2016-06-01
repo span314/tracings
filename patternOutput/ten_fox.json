@@ -216,7 +216,7 @@
           -214.256
         ]
       ], 
-      "step": "tx"
+      "step": "_tt"
     }, 
     {
       "duration": 4, 
@@ -515,7 +515,7 @@
           229.218
         ]
       ], 
-      "step": "cex"
+      "step": "_ce"
     }, 
     {
       "duration": 4, 
@@ -615,7 +615,7 @@
           115.507
         ]
       ], 
-      "step": "tx"
+      "step": "_tt"
     }, 
     {
       "duration": 8, 
@@ -870,6 +870,14 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
+    "_ce": {
+      "desc": "Change to #O Edge", 
+      "label": ""
+    }, 
+    "_tt": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
+    }, 
     "bk": {
       "desc": "Stroke onto #E Edge, Double Lift Free Leg Back", 
       "label": "#e-bk"
@@ -877,10 +885,6 @@
     "cesw": {
       "desc": "Stroke onto #E Edge, Swing", 
       "label": "#e#o-sw"
-    }, 
-    "cex": {
-      "desc": "Change to #O Edge", 
-      "label": ""
     }, 
     "mox": {
       "desc": "Exit Mohawk on #E Edge", 
@@ -905,10 +909,6 @@
     "tt": {
       "desc": "#E 3-turn", 
       "label": "#e3"
-    }, 
-    "tx": {
-      "desc": "Exit 3-turn on #E Edge", 
-      "label": ""
     }, 
     "xf": {
       "desc": "Cross in Front onto #E Edge", 

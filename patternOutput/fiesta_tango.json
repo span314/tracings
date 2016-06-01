@@ -175,7 +175,7 @@
           218.587
         ]
       ], 
-      "step": "cex"
+      "step": "_ce"
     }, 
     {
       "duration": 8, 
@@ -349,13 +349,13 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
+    "_ce": {
+      "desc": "Change to #O Edge", 
+      "label": ""
+    }, 
     "cesw": {
       "desc": "Stroke onto #E Edge, Swing", 
       "label": "#e#o-sw"
-    }, 
-    "cex": {
-      "desc": "Change to #O Edge", 
-      "label": ""
     }, 
     "cr": {
       "desc": "Cross Roll onto #E Edge", 

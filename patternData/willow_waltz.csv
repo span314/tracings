@@ -8,7 +8,7 @@ index,duration,pathCount,beats,edge,step,group,optional,hold
 6,,,3,RFI,slch,,yes,cl
 7,,,3,LFO,,,,cl
 8,,,2,RFO,tt,3,,cl
-,,,1,RBI,tx,3,,cl
+,,,1,RBI,_tt,3,,cl
 9,,,2,LBO,pr,pr1,,cl
 10,,,1,RBO,prx,pr1,,cl
 11,,,3,LBO,pr,pr1,,cl
@@ -37,7 +37,7 @@ index,duration,pathCount,beats,edge,step,group,optional,hold
 12,,,2,LFO,,,,cl
 13,,,1,RFI,,,,cl
 14,,,2,LFO,tt,3,,cl
-,,,1,LBI,tx,3,,cl
+,,,1,LBI,_tt,3,,cl
 15,,,3,RBO,,,,cl
 16,,,3,LBO,,,,cl
 17,,,3,RBI,,,,cl

@@ -191,7 +191,7 @@
           -122.953
         ]
       ], 
-      "step": "cex"
+      "step": "_ce"
     }, 
     {
       "duration": 4, 
@@ -231,7 +231,7 @@
           -42.468
         ]
       ], 
-      "step": "cex"
+      "step": "_ce"
     }, 
     {
       "beats": "2", 
@@ -330,7 +330,7 @@
           -54.091
         ]
       ], 
-      "step": "tx"
+      "step": "_tt"
     }, 
     {
       "duration": 8, 
@@ -642,7 +642,7 @@
           239.769
         ]
       ], 
-      "step": "tx"
+      "step": "_tt"
     }, 
     {
       "duration": 8, 
@@ -971,7 +971,7 @@
           -123.021
         ]
       ], 
-      "step": "cex"
+      "step": "_ce"
     }, 
     {
       "duration": 4, 
@@ -1011,7 +1011,7 @@
           -42.178
         ]
       ], 
-      "step": "ctrx"
+      "step": "_ctr"
     }, 
     {
       "duration": 8, 
@@ -1108,7 +1108,7 @@
           -51.991
         ]
       ], 
-      "step": "tx"
+      "step": "_tt"
     }, 
     {
       "duration": 8, 
@@ -1323,7 +1323,7 @@
           141.474
         ]
       ], 
-      "step": "chox"
+      "step": "_cho"
     }, 
     {
       "duration": 16, 
@@ -1495,17 +1495,25 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "cex": {
+    "_ce": {
       "desc": "Change to #O Edge", 
+      "label": ""
+    }, 
+    "_cho": {
+      "desc": "Exit Choctow", 
+      "label": ""
+    }, 
+    "_ctr": {
+      "desc": "Exit Counter On #E Edge", 
+      "label": ""
+    }, 
+    "_tt": {
+      "desc": "Exit 3-turn on #E Edge", 
       "label": ""
     }, 
     "ch": {
       "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
-    }, 
-    "chox": {
-      "desc": "Exit Choctow", 
-      "label": ""
     }, 
     "cr": {
       "desc": "Cross Roll onto #E Edge", 
@@ -1518,10 +1526,6 @@
     "crtt": {
       "desc": "Cross Roll into a #E 3-turn", 
       "label": "CR-#e3"
-    }, 
-    "ctrx": {
-      "desc": "Exit Counter On #E Edge", 
-      "label": ""
     }, 
     "pr": {
       "desc": "Progressive: Stroke onto #E Edge", 
@@ -1549,10 +1553,6 @@
     }, 
     "twl1.": {
       "desc": "Twizzle Like Motion", 
-      "label": ""
-    }, 
-    "tx": {
-      "desc": "Exit 3-turn on #E Edge", 
       "label": ""
     }, 
     "xbce": {

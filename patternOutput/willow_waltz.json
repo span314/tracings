@@ -193,7 +193,7 @@
           -75.442
         ]
       ], 
-      "step": "tx"
+      "step": "_tt"
     }, 
     {
       "duration": 8, 
@@ -759,7 +759,7 @@
           228.995
         ]
       ], 
-      "step": "tx"
+      "step": "_tt"
     }, 
     {
       "duration": 12, 
@@ -955,6 +955,10 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
+    "_tt": {
+      "desc": "Exit 3-turn on #E Edge", 
+      "label": ""
+    }, 
     "ch": {
       "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
@@ -982,10 +986,6 @@
     "tt": {
       "desc": "#E 3-turn", 
       "label": "#e3"
-    }, 
-    "tx": {
-      "desc": "Exit 3-turn on #E Edge", 
-      "label": ""
     }
   }, 
   "timeSignatureBottom": 4, 
