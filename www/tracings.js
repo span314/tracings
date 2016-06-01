@@ -107,7 +107,7 @@ $.widget('shawnpan.diagram', {
   },
 
   _drawPattern: function() {
-    var path, positionIndex, pathIndex, position, labelList, labelText,
+    var path, positionIndex, pathIndex, position, labelList, labelText, count,
         showStep = this._$step.is(':checked'),
         showNumber = this._$number.is(':checked'),
         showCount = this._$count.is(':checked'),
@@ -186,8 +186,9 @@ $.widget('shawnpan.diagram', {
         if (showHold && position.hold) {
           labelList.push(position.hold);
         }
-        if (showCount && position.beats) {
-          labelList.push(position.beats);
+        count = (typeof position.beats === 'undefined') ? position.count : position.beats;
+        if (showCount && count) {
+          labelList.push(count);
         }
         labelText = labelList.join(' ');
         if (labelText) {
@@ -371,6 +372,8 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
         //Generate text
         position.label = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].label);
         position.desc = DiagramUtils._resolveParams(position.edge, dance.steps[component.step].desc);
+        //Generate count by converting quarter beat duration to mixed number string
+        position.count = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4);
         //Add lap index and offset
         position.lapIndex = lapIndex;
         position.offset = offset;
@@ -380,22 +383,19 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
     }
   }
 
-  //Iterate backwards through steps to generate beat labels from durations, taking into account combination steps
+  //Iterate backwards through steps to generate beat labels, taking into account combination steps
   beatsLabel = '';
   for (positionIndex = positions.length - 1; positionIndex >= 0; positionIndex--) {
     position = positions[positionIndex];
-    if (typeof position.beats === 'undefined') {
-      //Convert quarter beat duration to mixed number of beats and apeend to label
-      beatsLabel = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4) + beatsLabel;
-      //Check if step is a combination to generate beats (e.g. 1+2)
-      if (position.step.charAt(0) === '_') {
-        beatsLabel = '+' + beatsLabel;
-      } else {
-        position.beats = beatsLabel;
-        beatsLabel = '';
-      }
+    if (position.step.charAt(0) === '_') {
+      position.beats = '';
+      beatsLabel = '+' + position.count + beatsLabel;
+    } else if (beatsLabel) {
+      position.beats = position.count + beatsLabel;
+      beatsLabel = '';
     }
   }
+
   return positions;
 };
 

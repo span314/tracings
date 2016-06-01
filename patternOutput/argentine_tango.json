@@ -1323,7 +1323,7 @@
           141.474
         ]
       ], 
-      "step": "_cho"
+      "step": "chox"
     }, 
     {
       "duration": 16, 
@@ -1499,10 +1499,6 @@
       "desc": "Change to #O Edge", 
       "label": ""
     }, 
-    "_cho": {
-      "desc": "Exit Choctow", 
-      "label": ""
-    }, 
     "_ctr": {
       "desc": "Exit Counter On #E Edge", 
       "label": ""
@@ -1514,6 +1510,10 @@
     "ch": {
       "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
+    }, 
+    "chox": {
+      "desc": "Exit Choctow", 
+      "label": ""
     }, 
     "cr": {
       "desc": "Cross Roll onto #E Edge", 

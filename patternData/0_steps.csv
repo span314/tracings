@@ -1,12 +1,12 @@
 code,label,desc
 _ce,,Change to #O Edge
-_cho,,Exit Choctow
 _ctr,,Exit Counter On #E Edge
 _tt,,Exit 3-turn on #E Edge
 bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back"
 ce,#e#o,Stroke onto #E Edge
 cesw,#e#o-sw,"Stroke onto #E Edge, Swing"
 ch,#e-Ch,#E Chassé
+chox,,Exit Choctow
 cr,CR-#e,Cross Roll onto #E Edge
 crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
 crtt,CR-#e3,Cross Roll into a #E 3-turn
