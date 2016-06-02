@@ -7,7 +7,6 @@ $(document).ready(function() {
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
   $('.button-set').buttonset();
   $('#diagramContainer').diagram();
-  $('#infoDialog').dialog({autoOpen: false});
   $('#controls').tooltip();
 });
 
@@ -38,8 +37,6 @@ $.widget('shawnpan.diagram', {
     this._$number = $('#numberButton').click(this._drawPattern.bind(this));
     this._$count = $('#countButton').click(this._drawPattern.bind(this));
     this._$hold = $('#holdButton').click(this._drawPattern.bind(this));
-    $('#infoButton').click(this._showInfo.bind(this));
-    this._$infoDialog = $('#infoDialog');
     this._$controlContainer = $('#controls');
     $(window).resize(this._onCanvasResize.bind(this));
 
@@ -327,11 +324,6 @@ $.widget('shawnpan.diagram', {
     if (nearest >= 0) {
       this._movePosition(this._positionSearchTree[nearest][2]);
     }
-  },
-
-  _showInfo: function() {
-    this._pause();
-    this._$infoDialog.dialog('open');
   }
 });
 
