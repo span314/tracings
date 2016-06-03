@@ -222,4 +222,4 @@ for file in os.listdir(INPUT_DIRECTORY):
 
     #Output minified files
     with open(os.path.join(MIN_OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
-      jsonFile.write(json.dumps(danceData, sort_keys=True))
+      jsonFile.write(json.dumps(danceData, sort_keys=True, separators=(',', ':')))
