@@ -1,0 +1,12 @@
+{
+  "name": "American Waltz",
+  "version": "2016",
+  "timeSignatureTop": 3,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 198,
+  "patternsPerLap": 2,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 21},
+  	"man": {"startComponent": 21, "endComponent": 42}
+  }
+}
