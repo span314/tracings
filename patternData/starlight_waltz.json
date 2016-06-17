@@ -1,0 +1,12 @@
+{
+  "name": "Starlight Waltz",
+  "version": "2016",
+  "timeSignatureTop": 6,
+  "timeSignatureBottom": 8,
+  "beatsPerMinute": 174,
+  "patternsPerLap": 1,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 0},
+  	"man": {"startComponent": 0, "endComponent": 0}
+  }
+}

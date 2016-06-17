@@ -1,0 +1,12 @@
+{
+  "name": "Paso Doble",
+  "version": "2016",
+  "timeSignatureTop": 4,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 112,
+  "patternsPerLap": 1,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 0},
+  	"man": {"startComponent": 0, "endComponent": 0}
+  }
+}

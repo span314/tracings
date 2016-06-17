@@ -201,6 +201,8 @@ for file in os.listdir(INPUT_DIRECTORY):
     #Input dance data
     with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_JSON), "r") as jsonFile:
       danceData = json.loads(jsonFile.read())
+      if danceData["patterns"]["lady"]["endComponent"] == 0:
+        continue
 
     #Extract path values from svg
     processedPaths = []

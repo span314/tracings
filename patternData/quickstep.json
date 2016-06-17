@@ -1,0 +1,12 @@
+{
+  "name": "Quickstep",
+  "version": "2016",
+  "timeSignatureTop": 4,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 112,
+  "patternsPerLap": 2,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 0},
+  	"man": {"startComponent": 0, "endComponent": 0}
+  }
+}
