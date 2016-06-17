@@ -1,0 +1,12 @@
+{
+  "name": "Fourteenstep",
+  "version": "2016",
+  "timeSignatureTop": 4,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 112,
+  "patternsPerLap": 2,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 14},
+  	"man": {"startComponent": 14, "endComponent": 28}
+  }
+}

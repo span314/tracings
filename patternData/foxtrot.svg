@@ -72,7 +72,7 @@
        transform="translate(208.42857,9.3621826)" />
     <path
        style="fill:none;stroke:#800000"
-       d="M 585,211.35714 585,1421"
+       d="m 585,211.35714 0,1209.64286"
        id="path3826"
        inkscape:connector-curvature="0"
        transform="translate(208.42857,9.3621826)" />
@@ -253,8 +253,15 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#800000"
-       d="m 771.25147,485.64185 c -31.87678,2.44112 -63.66766,4.73829 -71.21576,-33.58757 m 0.75762,0.25253 c -11.37917,-0.57061 -17.29824,-4.86496 -23.99112,-24.74874"
+       d="m 771.25147,485.64185 c -31.87678,2.44112 -63.66766,4.73829 -71.21576,-33.58757"
        id="path3878"
+       inkscape:connector-curvature="0"
+       transform="translate(208.42857,9.3621826)"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 700.79333,452.30681 c -11.37917,-0.57061 -17.29824,-4.86496 -23.99112,-24.74874"
+       id="path3879"
        inkscape:connector-curvature="0"
        transform="translate(208.42857,9.3621826)"
        sodipodi:nodetypes="cccc" />

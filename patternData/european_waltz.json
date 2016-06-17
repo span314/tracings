@@ -1,0 +1,12 @@
+{
+  "name": "Dutch Waltz",
+  "version": "2016",
+  "timeSignatureTop": 3,
+  "timeSignatureBottom": 4,
+  "beatsPerMinute": 135,
+  "patternsPerLap": 2,
+  "patterns": {
+  	"lady": {"startComponent": 0, "endComponent": 25},
+  	"man": {"startComponent": 25, "endComponent": 50}
+  }
+}
