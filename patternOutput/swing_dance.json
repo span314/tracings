@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 96, 
+  "beatsPerMinute": "96", 
   "components": [
     {
       "duration": 4, 
@@ -595,18 +595,19 @@
       "step": "swr"
     }
   ], 
+  "level": "PreBronze", 
   "name": "Swing Dance", 
   "patterns": {
     "lady": {
-      "endComponent": 46, 
-      "startComponent": 15
+      "endComponent": "46", 
+      "startComponent": "15"
     }, 
     "man": {
-      "endComponent": 31, 
-      "startComponent": 0
+      "endComponent": "31", 
+      "startComponent": "0"
     }
   }, 
-  "patternsPerLap": 1, 
+  "patternsPerLap": "1", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -633,7 +634,7 @@
       "label": "#e-swR"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

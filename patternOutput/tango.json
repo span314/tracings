@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 108, 
+  "beatsPerMinute": "108", 
   "components": [
     {
       "duration": 4, 
@@ -935,18 +935,19 @@
       "step": ""
     }
   ], 
+  "level": "Silver", 
   "name": "Tango", 
   "patterns": {
     "lady": {
-      "endComponent": 24, 
-      "startComponent": 0
+      "endComponent": "24", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 49, 
-      "startComponent": 24
+      "endComponent": "49", 
+      "startComponent": "24"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -997,7 +998,7 @@
       "label": "XF-#e-Rk"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

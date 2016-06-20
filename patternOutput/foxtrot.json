@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 100, 
+  "beatsPerMinute": "100", 
   "components": [
     {
       "duration": 4, 
@@ -644,18 +644,19 @@
       "step": ""
     }
   ], 
+  "level": "PreSilver", 
   "name": "Foxtrot", 
   "patterns": {
     "lady": {
-      "endComponent": 15, 
-      "startComponent": 0
+      "endComponent": "15", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 33, 
-      "startComponent": 15
+      "endComponent": "33", 
+      "startComponent": "15"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -694,7 +695,7 @@
       "label": "XB-#e"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

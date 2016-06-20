@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 108, 
+  "beatsPerMinute": "108", 
   "components": [
     {
       "duration": 8, 
@@ -332,18 +332,19 @@
       "step": ""
     }
   ], 
+  "level": "PreBronze", 
   "name": "Fiesta Tango", 
   "patterns": {
     "lady": {
-      "endComponent": 17, 
-      "startComponent": 0
+      "endComponent": "17", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 17, 
-      "startComponent": 0
+      "endComponent": "17", 
+      "startComponent": "0"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -386,7 +387,7 @@
       "label": "XF-#e"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

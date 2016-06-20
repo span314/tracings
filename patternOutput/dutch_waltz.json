@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 138, 
+  "beatsPerMinute": "138", 
   "components": [
     {
       "duration": 8, 
@@ -315,18 +315,19 @@
       "step": ""
     }
   ], 
+  "level": "Preliminary", 
   "name": "Dutch Waltz", 
   "patterns": {
     "lady": {
-      "endComponent": 16, 
-      "startComponent": 0
+      "endComponent": "16", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 16, 
-      "startComponent": 0
+      "endComponent": "16", 
+      "startComponent": "0"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -345,7 +346,7 @@
       "label": "#e-swR"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 3, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "3", 
   "version": "2016"
 }

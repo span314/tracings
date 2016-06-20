@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 96, 
+  "beatsPerMinute": "96", 
   "components": [
     {
       "duration": 4, 
@@ -1478,18 +1478,19 @@
       "step": "crswr"
     }
   ], 
+  "level": "Gold", 
   "name": "Argentine Tango", 
   "patterns": {
     "lady": {
-      "endComponent": 40, 
-      "startComponent": 0
+      "endComponent": "40", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 76, 
-      "startComponent": 40
+      "endComponent": "76", 
+      "startComponent": "40"
     }
   }, 
-  "patternsPerLap": 1, 
+  "patternsPerLap": "1", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -1568,7 +1569,7 @@
       "label": "XF-#e"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

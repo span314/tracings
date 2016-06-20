@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 112, 
+  "beatsPerMinute": "112", 
   "components": [
     {
       "duration": 4, 
@@ -555,18 +555,19 @@
       "step": ""
     }
   ], 
+  "level": "PreSilver", 
   "name": "Fourteenstep", 
   "patterns": {
     "lady": {
-      "endComponent": 14, 
-      "startComponent": 0
+      "endComponent": "14", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 28, 
-      "startComponent": 14
+      "endComponent": "28", 
+      "startComponent": "14"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -601,7 +602,7 @@
       "label": "XF-#e"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

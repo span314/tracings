@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 100, 
+  "beatsPerMinute": "100", 
   "components": [
     {
       "duration": 4, 
@@ -853,18 +853,19 @@
       "step": ""
     }
   ], 
+  "level": "Bronze", 
   "name": "Ten-Fox", 
   "patterns": {
     "lady": {
-      "endComponent": 21, 
-      "startComponent": 0
+      "endComponent": "21", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 43, 
-      "startComponent": 21
+      "endComponent": "43", 
+      "startComponent": "21"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -915,7 +916,7 @@
       "label": "XF-#e"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

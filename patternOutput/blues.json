@@ -1,0 +1,21 @@
+{
+  "beatsPerMinute": "88", 
+  "components": [], 
+  "level": "PreGold", 
+  "name": "Blues", 
+  "patterns": {
+    "lady": {
+      "endComponent": "0", 
+      "startComponent": "0"
+    }, 
+    "man": {
+      "endComponent": "0", 
+      "startComponent": "0"
+    }
+  }, 
+  "patternsPerLap": "2", 
+  "steps": {}, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
+  "version": "2016"
+}

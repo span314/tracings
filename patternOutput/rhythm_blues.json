@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 88, 
+  "beatsPerMinute": "88", 
   "components": [
     {
       "duration": 4, 
@@ -337,18 +337,19 @@
       "step": "xb"
     }
   ], 
+  "level": "Preliminary", 
   "name": "Rhythm Blues", 
   "patterns": {
     "lady": {
-      "endComponent": 17, 
-      "startComponent": 0
+      "endComponent": "17", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 17, 
-      "startComponent": 0
+      "endComponent": "17", 
+      "startComponent": "0"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -371,7 +372,7 @@
       "label": "XB-#e"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

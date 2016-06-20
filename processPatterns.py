@@ -16,15 +16,6 @@ EXT_CSV = ".csv"
 EXT_JSON = ".json"
 PATH_REGEX = re.compile("^\s*d=\"(.*)\"")
 
-#Load step label and descriptions
-stepLabel = {}
-stepDesc = {}
-with open(os.path.join(INPUT_DIRECTORY, "0_steps.csv"), "r") as stepsFile:
-  reader = csv.DictReader(stepsFile)
-  for row in reader:
-    stepLabel[row["code"]] = row["label"]
-    stepDesc[row["code"]] = row["desc"]
-
 class PointF:
   """Ordered pair of floats. May represent a point or a vector"""
 
@@ -192,36 +183,49 @@ def createStepList(components):
       steps[step] = {"label": stepLabel[step], "desc": stepDesc[step]}
   return steps
 
+
+#Load step label and descriptions
+stepLabel = {}
+stepDesc = {}
+with open(os.path.join(INPUT_DIRECTORY, "0_steps.csv"), "r") as stepsFile:
+  reader = csv.DictReader(stepsFile)
+  for row in reader:
+    stepLabel[row["code"]] = row["label"]
+    stepDesc[row["code"]] = row["desc"]
+
+#Load dances
+dances = []
+with open(os.path.join(INPUT_DIRECTORY, "0_dances.csv"), "r") as dancesFile:
+  reader = csv.DictReader(dancesFile)
+  for row in reader:
+    dances.append(row)
+
 #Main
-for file in os.listdir(INPUT_DIRECTORY):
-  if (file.endswith(EXT_JSON)):
-    patternName = os.path.splitext(file)[0]
-    print "Processing " + patternName
+for danceData in dances:
+  danceData["patterns"] = {}
+  danceData["patterns"]["lady"] = {"startComponent": danceData.pop("ladyStart"), "endComponent": danceData.pop("ladyEnd")}
+  danceData["patterns"]["man"] = {"startComponent": danceData.pop("manStart"), "endComponent": danceData.pop("manEnd")}
+  patternName = danceData["name"].lower().replace(" ", "_").replace("-", "_")
+  print "Processing " + patternName
 
-    #Input dance data
-    with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_JSON), "r") as jsonFile:
-      danceData = json.loads(jsonFile.read())
-      if danceData["patterns"]["lady"]["endComponent"] == 0:
-        continue
+  #Extract path values from svg
+  processedPaths = []
+  for fileSuffix in ["", "_lady", "_man"]:
+    filePath = os.path.join(INPUT_DIRECTORY, patternName + fileSuffix + EXT_SVG)
+    if os.path.isfile(filePath):
+      with open(filePath, "r") as svgFile:
+        processedPaths += extractPathsFromSVG(svgFile)
 
-    #Extract path values from svg
-    processedPaths = []
-    for fileSuffix in ["", "_lady", "_man"]:
-      filePath = os.path.join(INPUT_DIRECTORY, patternName + fileSuffix + EXT_SVG)
-      if os.path.isfile(filePath):
-        with open(filePath, "r") as svgFile:
-          processedPaths += extractPathsFromSVG(svgFile)
+  #Extract steps from csv
+  with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_CSV), "r") as csvFile:
+    components = extractStepsFromCSV(csvFile, processedPaths)
+    danceData["components"] = components
+    danceData["steps"] = createStepList(components)
 
-    #Extract steps from csv
-    with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_CSV), "r") as csvFile:
-      components = extractStepsFromCSV(csvFile, processedPaths)
-      danceData["components"] = components
-      danceData["steps"] = createStepList(components)
+  #Output files
+  with open(os.path.join(OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
+    jsonFile.write(json.dumps(danceData, sort_keys=True, indent=2))
 
-    #Output files
-    with open(os.path.join(OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
-      jsonFile.write(json.dumps(danceData, sort_keys=True, indent=2))
-
-    #Output minified files
-    with open(os.path.join(MIN_OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
-      jsonFile.write(json.dumps(danceData, sort_keys=True, separators=(',', ':')))
+  #Output minified files
+  with open(os.path.join(MIN_OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:
+    jsonFile.write(json.dumps(danceData, sort_keys=True, separators=(',', ':')))

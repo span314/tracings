@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 100, 
+  "beatsPerMinute": "100", 
   "components": [
     {
       "duration": 8, 
@@ -373,18 +373,19 @@
       "step": "swr"
     }
   ], 
+  "level": "PreBronze", 
   "name": "Cha Cha", 
   "patterns": {
     "lady": {
-      "endComponent": 17, 
-      "startComponent": 0
+      "endComponent": "17", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 17, 
-      "startComponent": 0
+      "endComponent": "17", 
+      "startComponent": "0"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -431,7 +432,7 @@
       "label": "XF-#e"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

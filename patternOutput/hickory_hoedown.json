@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 104, 
+  "beatsPerMinute": "104", 
   "components": [
     {
       "duration": 4, 
@@ -972,18 +972,19 @@
       "step": "prx"
     }
   ], 
+  "level": "Bronze", 
   "name": "Hickory Hoedown", 
   "patterns": {
     "lady": {
-      "endComponent": 25, 
-      "startComponent": 0
+      "endComponent": "25", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 50, 
-      "startComponent": 25
+      "endComponent": "50", 
+      "startComponent": "25"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -1022,7 +1023,7 @@
       "label": "#e3"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

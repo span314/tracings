@@ -1,0 +1,21 @@
+{
+  "beatsPerMinute": "112", 
+  "components": [], 
+  "level": "PreGold", 
+  "name": "Paso Doble", 
+  "patterns": {
+    "lady": {
+      "endComponent": "0", 
+      "startComponent": "0"
+    }, 
+    "man": {
+      "endComponent": "0", 
+      "startComponent": "0"
+    }
+  }, 
+  "patternsPerLap": "1", 
+  "steps": {}, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
+  "version": "2016"
+}

@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 104, 
+  "beatsPerMinute": "104", 
   "components": [
     {
       "duration": 4, 
@@ -295,18 +295,19 @@
       "step": "cr"
     }
   ], 
+  "level": "Preliminary", 
   "name": "Canasta Tango", 
   "patterns": {
     "lady": {
-      "endComponent": 15, 
-      "startComponent": 0
+      "endComponent": "15", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 15, 
-      "startComponent": 0
+      "endComponent": "15", 
+      "startComponent": "0"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -337,7 +338,7 @@
       "label": "#e-swR"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 4, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
   "version": "2016"
 }

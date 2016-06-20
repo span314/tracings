@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 138, 
+  "beatsPerMinute": "138", 
   "components": [
     {
       "duration": 8, 
@@ -938,18 +938,19 @@
       "step": "pr"
     }
   ], 
+  "level": "Bronze", 
   "name": "Willow Waltz", 
   "patterns": {
     "lady": {
-      "endComponent": 24, 
-      "startComponent": 0
+      "endComponent": "24", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 48, 
-      "startComponent": 24
+      "endComponent": "48", 
+      "startComponent": "24"
     }
   }, 
-  "patternsPerLap": 2, 
+  "patternsPerLap": "2", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
@@ -988,7 +989,7 @@
       "label": "#e3"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 3, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "3", 
   "version": "2016"
 }

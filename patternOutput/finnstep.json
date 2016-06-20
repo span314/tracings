@@ -1,5 +1,5 @@
 {
-  "beatsPerMinute": 104, 
+  "beatsPerMinute": "104", 
   "components": [
     {
       "beats": "", 
@@ -4002,25 +4002,26 @@
       "step": ""
     }
   ], 
+  "level": "International", 
   "name": "Finnstep", 
   "patterns": {
     "lady": {
-      "endComponent": 97, 
-      "startComponent": 0
+      "endComponent": "97", 
+      "startComponent": "0"
     }, 
     "man": {
-      "endComponent": 195, 
-      "startComponent": 97
+      "endComponent": "195", 
+      "startComponent": "97"
     }
   }, 
-  "patternsPerLap": 1, 
+  "patternsPerLap": "1", 
   "steps": {
     "": {
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }
   }, 
-  "timeSignatureBottom": 4, 
-  "timeSignatureTop": 2, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "2", 
   "version": "2016"
 }
