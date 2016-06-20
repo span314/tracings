@@ -1,5 +1,5 @@
 code,label,desc
-_ce,,Change to #O Edge
+_ce,,Change to #Q Edge
 _ctr,,Exit Counter on #E Edge
 _rk,,Exit Rocker on #E Edge
 _tt,,Exit 3-turn on #E Edge
@@ -7,14 +7,18 @@ bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back"
 ce,#e#o,Stroke onto #E Edge
 cesw,#e#o-sw,"Stroke onto #E Edge, Swing"
 ch,#e-Ch,#E Chassé
-chox,,Exit Choctow
+chox,#e,Exit Choctow on #E Edge
+choxb,,Exit Choctow on #E Edge
+clcho,#e-ClCho,#E Closed Choctow
 clmo,#e-ClMo,#E Closed Mohawk
 cr,CR-#e,Cross Roll onto #E Edge
 crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
 crtt,CR-#e3,Cross Roll into a #E 3-turn
+ff,#f#d-#rff,#F#D Slip Step
 mox,#e,Exit Mohawk on #E Edge
 opmo,#e-opMo,#E Open Mohawk
 pr,#e,Progressive: Stroke onto #E Edge
+prb,#e-Pr,Progressive: Stroke onto #E Edge
 prx,#e-Pr,Progressive: Cross onto #E Edge
 s,#e,Step Briefly on #E Edge
 slch,#e-slCh,#E Slide Chassé
@@ -24,15 +28,18 @@ slme,#e/#r#d#o-slm-#e,"#E / #R #D #O Slalom, Push onto #E Edge"
 swclmo,#e-SwClMo,#E Swing Closed Mohawk
 swopcho,Sw-opCho,Swing Open Choctow
 swr,#e-swR,"Stroke onto #E Edge, Swing Roll"
-swrk,#e-SwRk,"#E Swing Rocker"
+swrk,#e-SwRk,#E Swing Rocker
 swtt,#e-Sw3,#E Swing 3-turn
 tt,#e3,#E 3-turn
 twl1,Sw-“Tw1”,Twizzle Like Motion
 twl1.,,Twizzle Like Motion
-ws,#e-ws,Wide Step onto #E Edge
+ws,ws-#e,Wide Step onto #E Edge
 xb,XB-#e,Cross Behind onto #E Edge
-xbce,XB-#e#o,Cross Behind onto #O Edge
+xbce,XB-#e#o,Cross Behind onto #E Edge
 xbctr,XB-#e-Ctr,Cross Behind into a #E Counter
+xbopmo,XB-#e-opMo,Cross Behind into a #E Open Mohawk
 xf,XF-#e,Cross in Front onto #E Edge
+xfce,XB-#e#o,Cross in Front onto #E Edge
+xfopcho,XF-OpCho,Crossed in Front Open Choctow
 xfsrk,XF-#e-Rk,Cross in Front into a Shallow #E Rocker
 ,#e,Stroke onto #E Edge

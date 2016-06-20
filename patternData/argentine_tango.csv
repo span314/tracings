@@ -66,7 +66,7 @@ index,duration,pathCount,beats,edge,step,group,optional,hold
 22,,,1,RFI,prx,,,k
 23,14,,4,LFO,,23,,k
 ,1,,,LFO,swopcho,23,,k
-,1,,,RBI,chox,23,,k
+,1,,,RBI,choxb,23,,k
 24,,,4,LBO,,,,cl
 25,,,2,RBO,,,,cl
 26,,,2,LFO,,,,cl

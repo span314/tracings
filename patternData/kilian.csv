@@ -1,1 +1,16 @@
 index,duration,pathCount,beats,edge,step,group,optional,hold
+1,,,1,LFO,pr,1,,k
+2,,,1,RFI,prx,1,,k
+3,,,2,LFO,pr,1,,k
+4,,,2,RFO,,,,k
+5,,,1,LFO,pr,2,,k
+6,,,1,RFI,prx,2,,k
+7,,,1,LFO,pr,2,,k
+8,,,1,RFO,cr,,,k
+9,3,,1,LFI,xb,3,,k
+,1,,,LFI,xfopcho,3,,k
+10,,,1,RBO,chox,3,,k
+11,,,1,LBI,xb,,,k
+12,,,1,RBO,,,,k
+13,,,1,LBI,xf,,,k
+14,,,1,RFI,,,,k

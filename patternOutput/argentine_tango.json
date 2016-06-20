@@ -1323,7 +1323,7 @@
           141.474
         ]
       ], 
-      "step": "chox"
+      "step": "choxb"
     }, 
     {
       "duration": 16, 
@@ -1497,7 +1497,7 @@
       "label": "#e"
     }, 
     "_ce": {
-      "desc": "Change to #O Edge", 
+      "desc": "Change to #Q Edge", 
       "label": ""
     }, 
     "_ctr": {
@@ -1512,8 +1512,8 @@
       "desc": "#E Chass\u00e9", 
       "label": "#e-Ch"
     }, 
-    "chox": {
-      "desc": "Exit Choctow", 
+    "choxb": {
+      "desc": "Exit Choctow on #E Edge", 
       "label": ""
     }, 
     "cr": {
@@ -1557,7 +1557,7 @@
       "label": ""
     }, 
     "xbce": {
-      "desc": "Cross Behind onto #O Edge", 
+      "desc": "Cross Behind onto #E Edge", 
       "label": "XB-#e#o"
     }, 
     "xbctr": {

@@ -1,20 +1,350 @@
 {
   "beatsPerMinute": "116", 
-  "components": [], 
+  "components": [
+    {
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "1", 
+      "hold": "k", 
+      "index": "1", 
+      "paths": [
+        [
+          397.853, 
+          -58.111, 
+          394.663, 
+          -80.452, 
+          385.751, 
+          -100.555, 
+          374.401, 
+          -115.392
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "1", 
+      "hold": "k", 
+      "index": "2", 
+      "paths": [
+        [
+          382.91, 
+          -120.58, 
+          372.234, 
+          -139.505, 
+          358.994, 
+          -152.982, 
+          343.893, 
+          -162.503
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "duration": 8, 
+      "edge": "LFO", 
+      "group": "1", 
+      "hold": "k", 
+      "index": "3", 
+      "paths": [
+        [
+          338.082, 
+          -155.447, 
+          309.674, 
+          -197.769, 
+          228.242, 
+          -191.539, 
+          200.691, 
+          -153.994
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "duration": 8, 
+      "edge": "RFO", 
+      "hold": "k", 
+      "index": "4", 
+      "paths": [
+        [
+          199.861, 
+          -167.484, 
+          134.269, 
+          -144.76, 
+          90.846, 
+          -198.845, 
+          78.865, 
+          -237.01
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "2", 
+      "hold": "k", 
+      "index": "5", 
+      "paths": [
+        [
+          73.261, 
+          -228.916, 
+          56.3, 
+          -244.733, 
+          32.308, 
+          -246.49, 
+          3.736, 
+          -239.086
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "RFI", 
+      "group": "2", 
+      "hold": "k", 
+      "index": "6", 
+      "paths": [
+        [
+          4.151, 
+          -246.349, 
+          -17.283, 
+          -247.877, 
+          -40.124, 
+          -237.007, 
+          -52.715, 
+          -210.03
+        ]
+      ], 
+      "step": "prx"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "LFO", 
+      "group": "2", 
+      "hold": "k", 
+      "index": "7", 
+      "paths": [
+        [
+          -45.866, 
+          -204.219, 
+          -64.404, 
+          -190.223, 
+          -71.655, 
+          -171.58, 
+          -71.394, 
+          -149.844
+        ]
+      ], 
+      "step": "pr"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "RFO", 
+      "hold": "k", 
+      "index": "8", 
+      "paths": [
+        [
+          -63.715, 
+          -146.315, 
+          -77.734, 
+          -121.337, 
+          -96.362, 
+          -113.956, 
+          -116.43, 
+          -112.071
+        ]
+      ], 
+      "step": "cr"
+    }, 
+    {
+      "beats": "1", 
+      "duration": 3, 
+      "edge": "LFI", 
+      "group": "3", 
+      "hold": "k", 
+      "index": "9", 
+      "paths": [
+        [
+          -118.298, 
+          -119.335, 
+          -150.874, 
+          -118.68, 
+          -178.962, 
+          -123.76, 
+          -172.258, 
+          -173.295
+        ]
+      ], 
+      "step": "xb"
+    }, 
+    {
+      "beats": "", 
+      "duration": 1, 
+      "edge": "LFI", 
+      "group": "3", 
+      "hold": "k", 
+      "index": "", 
+      "paths": [
+        [
+          -172.699, 
+          -173.01, 
+          -169.625, 
+          -172.025, 
+          -166.576, 
+          -170.995, 
+          -163.775, 
+          -169.534
+        ]
+      ], 
+      "step": "xfopcho"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "RBO", 
+      "group": "3", 
+      "hold": "k", 
+      "index": "10", 
+      "paths": [
+        [
+          -178.899, 
+          -173.503, 
+          -182.082, 
+          -196.077, 
+          -211.303, 
+          -220.739, 
+          -251.538, 
+          -207.747
+        ]
+      ], 
+      "step": "chox"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "LBI", 
+      "hold": "k", 
+      "index": "11", 
+      "paths": [
+        [
+          -250.708, 
+          -199.861, 
+          -271.004, 
+          -202.569, 
+          -291.641, 
+          -198.529, 
+          -310.064, 
+          -174.956
+        ]
+      ], 
+      "step": "xb"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "RBO", 
+      "hold": "k", 
+      "index": "12", 
+      "paths": [
+        [
+          -304.876, 
+          -170.182, 
+          -326.965, 
+          -158.558, 
+          -344.887, 
+          -141.636, 
+          -350.742, 
+          -109.373
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "duration": 4, 
+      "edge": "LBI", 
+      "hold": "k", 
+      "index": "13", 
+      "paths": [
+        [
+          -343.063, 
+          -105.638, 
+          -365.104, 
+          -88.437, 
+          -377.279, 
+          -66.88, 
+          -375.647, 
+          -39.225
+        ]
+      ], 
+      "step": "xf"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "RFI", 
+      "hold": "k", 
+      "index": "14", 
+      "paths": [
+        [
+          -377.307, 
+          -28.018, 
+          -379.964, 
+          -6.601, 
+          -380.78, 
+          15.536, 
+          -377.099, 
+          39.433
+        ]
+      ], 
+      "step": ""
+    }
+  ], 
   "level": "PreGold", 
   "name": "Kilian", 
   "patterns": {
     "lady": {
-      "endComponent": "0", 
+      "endComponent": "15", 
       "startComponent": "0"
     }, 
     "man": {
-      "endComponent": "0", 
+      "endComponent": "15", 
       "startComponent": "0"
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {}, 
+  "steps": {
+    "": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "chox": {
+      "desc": "Exit Choctow on #E Edge", 
+      "label": "#e"
+    }, 
+    "cr": {
+      "desc": "Cross Roll onto #E Edge", 
+      "label": "CR-#e"
+    }, 
+    "pr": {
+      "desc": "Progressive: Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "prx": {
+      "desc": "Progressive: Cross onto #E Edge", 
+      "label": "#e-Pr"
+    }, 
+    "xb": {
+      "desc": "Cross Behind onto #E Edge", 
+      "label": "XB-#e"
+    }, 
+    "xf": {
+      "desc": "Cross in Front onto #E Edge", 
+      "label": "XF-#e"
+    }, 
+    "xfopcho": {
+      "desc": "Crossed in Front Open Choctow", 
+      "label": "XF-OpCho"
+    }
+  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

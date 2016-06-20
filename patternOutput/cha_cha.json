@@ -421,7 +421,7 @@
     }, 
     "ws": {
       "desc": "Wide Step onto #E Edge", 
-      "label": "#e-ws"
+      "label": "ws-#e"
     }, 
     "xb": {
       "desc": "Cross Behind onto #E Edge", 
