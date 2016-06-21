@@ -14,8 +14,10 @@ clmo,#e-ClMo,#E Closed Mohawk
 cr,CR-#e,Cross Roll onto #E Edge
 crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
 crtt,CR-#e3,Cross Roll into a #E 3-turn
+dl,#e,"Stroke onto #E Edge, Double Lift Free Leg"
 ff,#f#d-#rff,#F#D Slip Step
 mox,#e,Exit Mohawk on #E Edge
+moxdl,#e,"Exit Mohawk on #E Edge, Double Lift Free Leg"
 opmo,#e-opMo,#E Open Mohawk
 pr,#e,Progressive: Stroke onto #E Edge
 prb,#e-Pr,Progressive: Stroke onto #E Edge
@@ -36,6 +38,7 @@ twl1.,,Twizzle Like Motion
 ws,ws-#e,Wide Step onto #E Edge
 xb,XB-#e,Cross Behind onto #E Edge
 xbce,XB-#e#o,Cross Behind onto #E Edge
+xbch,XB-#e-Ch,Cross Behind into a #E Chassé
 xbctr,XB-#e-Ctr,Cross Behind into a #E Counter
 xbopmo,XB-#e-opMo,Cross Behind into a #E Open Mohawk
 xf,XF-#e,Cross in Front onto #E Edge
