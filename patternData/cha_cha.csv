@@ -3,7 +3,7 @@ index,duration,pathCount,beats,edge,step,group,optional,hold
 2,,,2,RFI,prx,pr1,,k
 3,,,1,LFI,,,,k
 4,,,1,RFO,ch,,,k
-5,,,2,LFI,ws,,,k
+5,,,2,LFI,wd,,,k
 6,,,4,RFO,bk,,,k
 7,,2,1,RFI,slm,s,,k
 ,,2,1,RFO,slm,s,,k

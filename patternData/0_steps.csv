@@ -28,6 +28,8 @@ slchk,#e-slCh,"#E Slide Chassé, Fold #R Leg and Kick"
 slm,#e/#r#d#o-slm,#E / #R #D #O Slalom
 slme,#e/#r#d#o-slm-#e,"#E / #R #D #O Slalom, Push onto #E Edge"
 swclmo,#e-SwClMo,#E Swing Closed Mohawk
+swctr,#e-SwCtr,#E Swing Counter
+swclcho,Sw-ClCho,Swing Closed Choctow
 swopcho,Sw-opCho,Swing Open Choctow
 swr,#e-swR,"Stroke onto #E Edge, Swing Roll"
 swrk,#e-SwRk,#E Swing Rocker
@@ -35,7 +37,7 @@ swtt,#e-Sw3,#E Swing 3-turn
 tt,#e3,#E 3-turn
 twl1,Sw-“Tw1”,Twizzle Like Motion
 twl1.,,Twizzle Like Motion
-ws,ws-#e,Wide Step onto #E Edge
+wd,Wd-#e,Wide Step onto #E Edge
 xb,XB-#e,Cross Behind onto #E Edge
 xbce,XB-#e#o,Cross Behind onto #E Edge
 xbch,XB-#e-Ch,Cross Behind into a #E Chassé

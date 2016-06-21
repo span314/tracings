@@ -96,7 +96,7 @@
           63.978
         ]
       ], 
-      "step": "ws"
+      "step": "wd"
     }, 
     {
       "duration": 16, 
@@ -419,9 +419,9 @@
       "desc": "Stroke onto #E Edge, Swing Roll", 
       "label": "#e-swR"
     }, 
-    "ws": {
+    "wd": {
       "desc": "Wide Step onto #E Edge", 
-      "label": "ws-#e"
+      "label": "Wd-#e"
     }, 
     "xb": {
       "desc": "Cross Behind onto #E Edge", 
