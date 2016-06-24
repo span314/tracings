@@ -22,7 +22,7 @@ $.widget('shawnpan.diagram', {
 
     //find control ui and bind events, naming convention is prefix _$ for cached selectors used elsewhere
     this._$canvas = $('#diagram').click(this._onClick.bind(this));
-    this._$dance = $('#danceSelect').on('selectmenuchange', this._loadDance.bind(this));
+    this._$dance = $('#danceSelect').on('selectmenuchange', this._selectDance.bind(this));
     this._$part = $('#part');
     this._$part.find('input').click(this._loadPattern.bind(this));
     this._$optional = $('#optional').click(this._loadPattern.bind(this));
@@ -39,11 +39,12 @@ $.widget('shawnpan.diagram', {
     this._$hold = $('#holdButton').click(this._drawPattern.bind(this));
     this._$controlContainer = $('#controls');
     $(window).resize(this._onCanvasResize.bind(this));
+    $(window).bind('popstate', this._loadDance.bind(this));
 
     //initialize
     this._playbackSpeedPercentage = 100;
     this._onCanvasResize();
-    this._loadDance();
+    this._selectDance();
   },
 
   _onCanvasResize: function() {
@@ -83,9 +84,20 @@ $.widget('shawnpan.diagram', {
     }
   },
 
+  _selectDance: function() {
+    var danceHash = '#' + this._$dance.val();
+    if (window.history.pushState) {
+      window.history.pushState(null, null, danceHash);
+    } else {
+      window.location.hash = danceHash;
+    }
+    this._loadDance();
+  },
+
   _loadDance: function() {
-    var widget = this;
-    $.getJSON('patterns/' + this._$dance.val(), function(data) {
+    var widget = this,
+        url = 'patterns/' + window.location.hash.substr(1) + '.json';
+    $.getJSON(url, function(data) {
       console.log(data);
       widget._dance = data;
       widget._computePlaybackInterval();
