@@ -835,7 +835,7 @@
   "patternsPerLap": "2", 
   "steps": {
     "_tt": {
-      "desc": "Exit 3-turn on #E Edge", 
+      "desc": "3-turn: Turn onto #E Edge", 
       "label": ""
     }, 
     "swr": {

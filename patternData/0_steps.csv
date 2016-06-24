@@ -1,14 +1,15 @@
 code,label,desc
 _ce,,Change to #Q Edge
-_ctr,,Exit Counter on #E Edge
-_rk,,Exit Rocker on #E Edge
-_tt,,Exit 3-turn on #E Edge
+_ctr,,Counter: Turn onto #E Edge
+_rk,,Rocker: Turn onto #E Edge
+_tt,,3-turn: Turn onto #E Edge
 bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back"
 ce,#e#o,Stroke onto #E Edge
+ceopmo,,"Change to #Q Edge, Open Mohawk"
 cesw,#e#o-sw,"Stroke onto #E Edge, Swing"
 ch,#e-Ch,#E Chassé
-chox,#e,Exit Choctow on #E Edge
-choxb,,Exit Choctow on #E Edge
+chox,#e,Choctow: Turn onto #E Edge
+choxb,,Choctow: Turn onto #E Edge
 clcho,#e-ClCho,#E Closed Choctow
 clmo,#e-ClMo,#E Closed Mohawk
 cr,CR-#e,Cross Roll onto #E Edge
@@ -16,8 +17,8 @@ crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
 crtt,CR-#e3,Cross Roll into a #E 3-turn
 dl,#e,"Stroke onto #E Edge, Double Lift Free Leg"
 ff,#f#d-#rff,#F#D Slip Step
-mox,#e,Exit Mohawk on #E Edge
-moxdl,#e,"Exit Mohawk on #E Edge, Double Lift Free Leg"
+mox,#e,Mohawk: Turn onto #E Edge
+moxdl,#e,"Mohawk: Turn onto #E Edge, Double Lift Free Leg"
 opmo,#e-opMo,#E Open Mohawk
 pr,#e,Progressive: Stroke onto #E Edge
 prb,#e-Pr,Progressive: Stroke onto #E Edge

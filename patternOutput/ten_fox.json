@@ -876,7 +876,7 @@
       "label": ""
     }, 
     "_tt": {
-      "desc": "Exit 3-turn on #E Edge", 
+      "desc": "3-turn: Turn onto #E Edge", 
       "label": ""
     }, 
     "bk": {
@@ -888,7 +888,7 @@
       "label": "#e#o-sw"
     }, 
     "mox": {
-      "desc": "Exit Mohawk on #E Edge", 
+      "desc": "Mohawk: Turn onto #E Edge", 
       "label": "#e"
     }, 
     "opmo": {

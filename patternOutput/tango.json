@@ -954,11 +954,11 @@
       "label": "#e"
     }, 
     "_rk": {
-      "desc": "Exit Rocker on #E Edge", 
+      "desc": "Rocker: Turn onto #E Edge", 
       "label": ""
     }, 
     "_tt": {
-      "desc": "Exit 3-turn on #E Edge", 
+      "desc": "3-turn: Turn onto #E Edge", 
       "label": ""
     }, 
     "ch": {

@@ -29,7 +29,7 @@ index,duration,pathCount,beats,edge,step,group,optional,hold
 26,,,1,RFO,cr,,,op
 27,,,1,LFO,cr,,,op
 28,8,,3,RFO,crswr,4,,op
-,2,,,RFI,_ce,4,,op
+,2,,,RFI,ceopmo,4,,op
 ,2,,,LBI,mox,4,,op
 1,,,1,LFO,pr,1,,out
 2,,,1,RFI,prx,1,,out
