@@ -27,6 +27,7 @@ $.widget('shawnpan.diagram', {
     this._$part.find('input').click(this._loadPattern.bind(this));
     this._$optional = $('#optional').click(this._loadPattern.bind(this));
     this._$mirror = $('#mirror').click(this._loadPattern.bind(this));
+    this._$rotate = $('#rotate').click(this._loadPattern.bind(this));
     $('#beginningButton').click(this.beginning.bind(this));
     $('#previousButton').click(this.previous.bind(this));
     $('#nextButton').click(this.next.bind(this));
@@ -108,9 +109,10 @@ $.widget('shawnpan.diagram', {
   _loadPattern: function() {
     var optionalFlag = this._$optional.is(':checked') ? 'yes' : 'no',
         mirrorFlag = this._$mirror.is(':checked'),
+        rotateFlag = this._$rotate.is(':checked'),
         part = this._$part.find(':checked').val();
-    console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirrored: ' + mirrorFlag);
-    this._patternPositions = DiagramUtils.generatePositions(this._dance, part, optionalFlag, mirrorFlag, this._scaleFactor);
+    console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
+    this._patternPositions = DiagramUtils.generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
     this._positionSearchTree = DiagramUtils.positionTree(this._patternPositions);
     this.beginning();
   },
@@ -350,14 +352,14 @@ DiagramUtils.drawTextOnPath = function(ctx, text, path, offset) {
 };
 
 //Generate individual positions for a dance
-DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFactor) {
+DiagramUtils.generatePositions = function(dance, part, optional, mirror, rotate, scaleFactor) {
   var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path, positionIndex, beatsLabel,
       positions = [],
       pattern = dance.patterns[part];
 
   offset = 0;
   for (lapIndex = 0; lapIndex < dance.patternsPerLap; lapIndex++) {
-    transformMatrix = DiagramUtils._computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor, mirror);
+    transformMatrix = DiagramUtils._computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor, mirror, rotate);
     for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
       component = dance.components[componentIndex % dance.components.length];
       if (!component.optional || component.optional === optional) {
@@ -403,8 +405,9 @@ DiagramUtils.generatePositions = function(dance, part, optional, mirror, scaleFa
   return positions;
 };
 
-DiagramUtils._computeTransformMatrix = function(index, patternsPerLap, scaleFactor, mirror) {
-  var theta = 2 * Math.PI * index / patternsPerLap,
+DiagramUtils._computeTransformMatrix = function(index, patternsPerLap, scaleFactor, mirror, rotate) {
+  var rotateOffset = rotate ? Math.PI : 0,
+      theta = 2 * Math.PI * index / patternsPerLap + rotateOffset,
       flipX = mirror ? -1 : 1,
       sinTheta = Math.sin(theta) * scaleFactor,
       cosTheta = Math.cos(theta) * scaleFactor;
