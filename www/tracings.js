@@ -71,10 +71,10 @@ $.widget('shawnpan.diagram', {
     this._canvasElement.height = height;
     this._centerX = width / 2;
     this._centerY = height / 2;
-    this._scaleFactor = (width - 96) / 1024;
+    this._scaleFactor = 0.92 * width / 1024;
     this._$controlContainer.width(width);
-    this._labelFont =  Math.floor(14 * this._scaleFactor) + 'px Arial';
-    this._titleFont = Math.floor(21 * this._scaleFactor) + 'px Arial';
+    this._labelFont =  Math.floor(13 * this._scaleFactor) + 'px Arial';
+    this._titleFont = Math.floor(18 * this._scaleFactor) + 'px Arial';
 
     //Using page offsets, because Firefox does not have offsetX/offsetY in click events
     this._diagramPageOffsetX = this._$canvas.offset().left + this._centerX;
