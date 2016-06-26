@@ -165,13 +165,26 @@ $(document).ready(function() {
 
   IceDiagram.prototype.loadDance = function() {
     var widget = this,
-        url = 'patterns/' + this._controls.dance() + '.json';
-    $.getJSON(url, function(data) {
-      console.log(data);
-      widget._dance = data;
-      widget._computePlaybackInterval();
-      widget.loadPattern();
-    });
+        url = 'patterns/' + this._controls.dance() + '.json',
+        request = new XMLHttpRequest();
+    request.open('GET', url, true);
+
+    request.onload = function() {
+      if (request.status >= 200 && request.status < 400) {
+        widget._dance = JSON.parse(request.responseText);
+        console.log(widget._dance);
+        widget._computePlaybackInterval();
+        widget.loadPattern();
+      } else {
+        console.log('TODO server error');
+      }
+    };
+
+    request.onerror = function() {
+      console.log('TODO connection error');
+    };
+
+    request.send();
   };
 
   IceDiagram.prototype.loadPattern = function() {
@@ -515,7 +528,7 @@ $(document).ready(function() {
   };
 
   /**
-    Get a hash map of character codes to the corresponding parameter.
+    Hashmap of all the edges to the corresponding edge parameters.
 
     The following codes consisting of a # and a character represent parameterized edge features in text.
     A lower case character (e.g. #e) represent the short text version (e.g. RFO) and an upper case
@@ -532,37 +545,26 @@ $(document).ready(function() {
     #o  opposite quality (I, Inside)
     ##  escaped # character (#)
   */
-  IceDiagram._edgeParams = function(edgeCode) {
-    var i, result;
-    if (!IceDiagram._edgeParamsCache[edgeCode]) {
-      result = {'#': '#'};
-      for (i = 0; i < edgeCode.length; i++) {
-        $.extend(result, IceDiagram._EDGE_PARAMS_CODES[edgeCode.charAt(i)]);
-      }
-      result.e = $.grep([result.f, result.d, result.q], Boolean).join('');
-      result.E = $.grep([result.F, result.D, result.Q], Boolean).join(' ');
-      result.m = $.grep([result.r, result.d, result.q], Boolean).join('');
-      result.M = $.grep([result.R, result.D, result.Q], Boolean).join(' ');
-      IceDiagram._edgeParamsCache[edgeCode] = result;
-    }
-    return IceDiagram._edgeParamsCache[edgeCode];
+  IceDiagram._EDGE_PARAMS = {
+    'LB': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'B', b: 'F', D: 'Backward', B: 'Forward', e: 'LB', E: 'Left Backward', m: 'RB', M: 'Right Backward'},
+    'LBI': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'B', b: 'F', D: 'Backward', B: 'Forward', q: 'I', o: 'O', Q: 'Inside', O: 'Outside', e: 'LBI', E: 'Left Backward Inside', m: 'RBI', M: 'Right Backward Inside'},
+    'LBO': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'B', b: 'F', D: 'Backward', B: 'Forward', q: 'O', o: 'I', Q: 'Outside', O: 'Inside', e: 'LBO', E: 'Left Backward Outside', m: 'RBO', M: 'Right Backward Outside'},
+    'LF': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'F', b: 'B', D: 'Forward', B: 'Backward', e: 'LF', E: 'Left Forward', m: 'RF', M: 'Right Forward'},
+    'LFI': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'F', b: 'B', D: 'Forward', B: 'Backward', q: 'I', o: 'O', Q: 'Inside', O: 'Outside', e: 'LFI', E: 'Left Forward Inside', m: 'RFI', M: 'Right Forward Inside'},
+    'LFO': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'F', b: 'B', D: 'Forward', B: 'Backward', q: 'O', o: 'I', Q: 'Outside', O: 'Inside', e: 'LFO', E: 'Left Forward Outside', m: 'RFO', M: 'Right Forward Outside'},
+    'RB': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'B', b: 'F', D: 'Backward', B: 'Forward', e: 'RB', E: 'Right Backward', m: 'LB', M: 'Left Backward'},
+    'RBI': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'B', b: 'F', D: 'Backward', B: 'Forward', q: 'I', o: 'O', Q: 'Inside', O: 'Outside', e: 'RBI', E: 'Right Backward Inside', m: 'LBI', M: 'Left Backward Inside'},
+    'RBO': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'B', b: 'F', D: 'Backward', B: 'Forward', q: 'O', o: 'I', Q: 'Outside', O: 'Inside', e: 'RBO', E: 'Right Backward Outside', m: 'LBO', M: 'Left Backward Outside'},
+    'RF': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'F', b: 'B', D: 'Forward', B: 'Backward', e: 'RF', E: 'Right Forward', m: 'LF', M: 'Left Forward'},
+    'RFI': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'F', b: 'B', D: 'Forward', B: 'Backward', q: 'I', o: 'O', Q: 'Inside', O: 'Outside', e: 'RFI', E: 'Right Forward Inside', m: 'LFI', M: 'Left Forward Inside'},
+    'RFO': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'F', b: 'B', D: 'Forward', B: 'Backward', q: 'O', o: 'I', Q: 'Outside', O: 'Inside', e: 'RFO', E: 'Right Forward Outside', m: 'LFO', M: 'Left Forward Outside'}
   };
-  IceDiagram._edgeParamsCache = {};
-  IceDiagram._EDGE_PARAMS_CODES = {
-    'R': {f: 'R', r: 'L', F: 'Right', R: 'Left'},
-    'L': {f: 'L', r: 'R', F: 'Left', R: 'Right'},
-    'F': {d: 'F', b: 'B', D: 'Forward', B: 'Backward'},
-    'B': {d: 'B', b: 'F', D: 'Backward', B: 'Forward'},
-    'I': {q: 'I', o: 'O', Q: 'Inside', O: 'Outside'},
-    'O': {q: 'O', o: 'I', Q: 'Outside', O: 'Inside'}
-  };
-
   //Resolve edge parameters in text. All text should use edge parameters where appropriate to support features such as mirroring.
   IceDiagram._resolveParams = function(edgeCode, label) {
     var i, curChar,
         inParam = false,
         result = '',
-        edgeParams = IceDiagram._edgeParams(edgeCode);
+        edgeParams = IceDiagram._EDGE_PARAMS[edgeCode];
         for (i = 0; i < label.length; i++) {
           curChar = label.charAt(i);
           if (inParam) {
