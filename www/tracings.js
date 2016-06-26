@@ -1,6 +1,5 @@
 'use strict';
-//Version 0.1-RC3 | Software (c) Shawn Pan
-//Note: uses HTML5 and ECMAScript5 features requiring IE9 or later
+//Version 0.1-RC3 | Load widgets and bind events | Software (c) Shawn Pan | Target IE9+
 
 //Create jQuery UI widgets and diagram
 $(document).ready(function() {
