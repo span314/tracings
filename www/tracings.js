@@ -21,26 +21,65 @@ $(document).ready(function() {
 
   diagramControls = {
     _playbackSpeedPercentage: 100,
+    _optionalButton: document.getElementById('optionalButton'),
+    _mirrorButton: document.getElementById('mirrorButton'),
+    _rotateButton: document.getElementById('rotateButton'),
+    _partLadyButton: document.getElementById('partLadyButton'),
+    _stepButton: document.getElementById('stepButton'),
+    _numberButton: document.getElementById('numberButton'),
+    _countButton: document.getElementById('countButton'),
+    _holdButton: document.getElementById('holdButton'),
+    _$startPauseButtonIcon: $('#startPauseButton').find('.mdi'),
+    _$speedButton: $('#speedButton'),
+    _$danceSelect: $('#danceSelect'),
+    _$controls: $('#controls'),
 
-    //'optional', 'mirror', 'rotate', 'partLady', 'partMan', 'step', 'number', 'count', 'hold'
-    flag: function(flag) {
-      return document.getElementById(flag + 'Button').checked;
+    optional: function() {
+      return this._optionalButton.checked;
+    },
+
+    mirror: function() {
+      return this._mirrorButton.checked;
+    },
+
+    rotate: function() {
+      return this._rotateButton.checked;
+    },
+
+    part: function() {
+      return this._partLadyButton.checked ? 'lady' : 'man';
+    },
+
+    step: function() {
+      return this._stepButton.checked;
+    },
+
+    number: function() {
+      return this._numberButton.checked;
+    },
+
+    count: function() {
+      return this._countButton.checked;
+    },
+
+    hold: function() {
+      return this._holdButton.checked;
     },
 
     dance: function() {
-      return $('#danceSelect').val();
+      return this._$danceSelect.val();
     },
 
     start: function() {
-      $('#startPauseButton').find('.mdi').removeClass('mdi-play').addClass('mdi-pause');
+      this._$startPauseButtonIcon.removeClass('mdi-play').addClass('mdi-pause');
     },
 
     pause: function() {
-      $('#startPauseButton').find('.mdi').removeClass('mdi-pause').addClass('mdi-play');
+      this._$startPauseButtonIcon.removeClass('mdi-pause').addClass('mdi-play');
     },
 
     resize: function(width) {
-      $('#controls').width(width);
+      this._$controls.width(width);
     },
 
     speed: function() {
@@ -48,9 +87,9 @@ $(document).ready(function() {
       this._playbackSpeedPercentage -= 25;
       if (this._playbackSpeedPercentage < 50) {
         this._playbackSpeedPercentage = 100;
-        $('#speedButton').removeClass('speed-state-active');
+        this._$speedButton.removeClass('speed-state-active');
       } else {
-        $('#speedButton').addClass('speed-state-active');
+        this._$speedButton.addClass('speed-state-active');
       }
       return this._playbackSpeedPercentage;
     }

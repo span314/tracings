@@ -94,10 +94,10 @@
   };
 
   IceDiagram.prototype.loadPattern = function() {
-    var optionalFlag = this._controls.flag('optional') ? 'yes' : 'no',
-        mirrorFlag = this._controls.flag('mirror'),
-        rotateFlag = this._controls.flag('rotate'),
-        part = this._controls.flag('partLady') ? 'lady' : 'man';
+    var optionalFlag = this._controls.optional() ? 'yes' : 'no',
+        mirrorFlag = this._controls.mirror(),
+        rotateFlag = this._controls.rotate(),
+        part = this._controls.part();
     console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
     this._patternPositions = IceDiagram.generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
     this._positionSearchTree = IceDiagram.positionTree(this._patternPositions);
@@ -106,10 +106,10 @@
 
   IceDiagram.prototype.drawPattern = function() {
     var path, positionIndex, pathIndex, position, labelList, labelText, count,
-        showStep = this._controls.flag('step'),
-        showNumber = this._controls.flag('number'),
-        showCount = this._controls.flag('count'),
-        showHold = this._controls.flag('hold'),
+        showStep = this._controls.step(),
+        showNumber = this._controls.number(),
+        showCount = this._controls.count(),
+        showHold = this._controls.hold(),
         ctx = this._canvasContext,
         currentPosition = this._patternPositions[this._position],
         tickCount = currentPosition.offset + this._stepTickCount,
