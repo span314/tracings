@@ -1,5 +1,5 @@
 'use strict';
-//Version 0.1-RC2 | Software (c) Shawn Pan
+//Version 0.1-RC3 | Software (c) Shawn Pan
 //Note: uses HTML5 and ECMAScript5 features requiring IE9 or later
 
 //Create jQuery UI widgets and diagram
