@@ -20,6 +20,8 @@ $(document).ready(function() {
   copyDanceUrlToSelect();
 
   diagramControls = {
+    _playbackSpeedPercentage: 100,
+
     //'optional', 'mirror', 'rotate', 'partLady', 'partMan', 'step', 'number', 'count', 'hold'
     flag: function(flag) {
       return document.getElementById(flag + 'Button').checked;
@@ -27,9 +29,33 @@ $(document).ready(function() {
 
     dance: function() {
       return $('#danceSelect').val();
+    },
+
+    start: function() {
+      $('#startPauseButton').find('.mdi').removeClass('mdi-play').addClass('mdi-pause');
+    },
+
+    pause: function() {
+      $('#startPauseButton').find('.mdi').removeClass('mdi-pause').addClass('mdi-play');
+    },
+
+    resize: function(width) {
+      $('#controls').width(width);
+    },
+
+    speed: function() {
+      //Cycle speeds in 25% increments with a minimum of 50% and update button ui
+      this._playbackSpeedPercentage -= 25;
+      if (this._playbackSpeedPercentage < 50) {
+        this._playbackSpeedPercentage = 100;
+        $('#speedButton').removeClass('speed-state-active');
+      } else {
+        $('#speedButton').addClass('speed-state-active');
+      }
+      return this._playbackSpeedPercentage;
     }
   };
-  diagram = new IceDiagram(diagramControls);
+  diagram = new IceDiagram(document.getElementById('diagram'), diagramControls);
 
   copyDanceSelectToUrl = function() {
     var danceHash = '#' + $('#danceSelect').val();
@@ -55,9 +81,13 @@ $(document).ready(function() {
   });
   $('.require-reload').find('input').click(diagram.loadPattern.bind(diagram));
   $('.require-redraw').find('input').click(diagram.drawPattern.bind(diagram));
+  $('#speedButton').click(diagram.adjustSpeed.bind(diagram));
   $('#beginningButton').click(diagram.beginning.bind(diagram));
   $('#previousButton').click(diagram.previous.bind(diagram));
   $('#nextButton').click(diagram.next.bind(diagram));
+  $('#startPauseButton').click(diagram.toggleStartPause.bind(diagram));
+  $('#diagram').click(diagram.click.bind(diagram));
+  $(window).resize(diagram.onCanvasResize.bind(diagram));
 });
 
 
@@ -73,36 +103,26 @@ $(document).ready(function() {
     root.IceDiagram = factory(root.jQuery);
   }
 }(this, function ($) {
-  var IceDiagram = function(controls) {
+  var IceDiagram = function(canvas, controls) {
+    //store parameters
+    this._canvasElement = canvas;
+    this._controls = controls;
+
     //check canvas compatibility
-    this._canvasElement = $('#diagram').get(0);
-    if (!this._canvasElement.getContext) {
+    if (!canvas.getContext) {
       console.log('Canvas not supported');
       return;
     }
-    this._canvasContext = this._canvasElement.getContext('2d');
-
-    //find control ui and bind events, naming convention is prefix _$ for cached selectors used elsewhere
-    this._$canvas = $('#diagram').click(this._onClick.bind(this));
-
-    this._controls = controls;
-
-
-    this._$startPause = $('#startPauseButton').click(this.toggleStartPause.bind(this));
-    this._$startPauseIcon = this._$startPause.find('.mdi');
-    this._$speedButton = $('#speedButton').click(this._adjustSpeed.bind(this));
-
-    this._$controlContainer = $('#controls');
-    $(window).resize(this._onCanvasResize.bind(this));
+    this._canvasContext = canvas.getContext('2d');
 
     //initialize
     this._playbackSpeedPercentage = 100;
-    this._onCanvasResize();
+    this.onCanvasResize();
     this.loadDance();
   };
 
-  IceDiagram.prototype._onCanvasResize = function() {
-    var width, height,
+  IceDiagram.prototype.onCanvasResize = function() {
+    var width, height, bounds,
         availableWidth = Math.max(window.innerWidth - 16, 0),
         availableHeight = Math.max(window.innerHeight - 108, 0),
         aspectRatio = availableWidth / availableHeight;
@@ -122,16 +142,21 @@ $(document).ready(function() {
 
     this._canvasElement.width = width;
     this._canvasElement.height = height;
+    this._controls.resize(width, height);
     this._centerX = width / 2;
     this._centerY = height / 2;
     this._scaleFactor = 0.92 * width / 1024;
-    this._$controlContainer.width(width);
     this._labelFont =  Math.floor(13 * this._scaleFactor) + 'px Arial';
     this._titleFont = Math.floor(18 * this._scaleFactor) + 'px Arial';
 
     //Using page offsets, because Firefox does not have offsetX/offsetY in click events
-    this._diagramPageOffsetX = this._$canvas.offset().left + this._centerX;
-    this._diagramPageOffsetY = this._$canvas.offset().top + this._centerY;
+    bounds = this._canvasElement.getBoundingClientRect();
+    console.log(bounds.left + document.body.scrollLeft);
+    console.log(bounds.top + document.body.scrollTop);
+    console.log(bounds.left + $('#diagram').offset().left);
+    console.log(bounds.left + $('#diagram').offset().top);
+    this._diagramPageOffsetX = $('#diagram').offset().left + this._centerX;
+    this._diagramPageOffsetY = $('#diagram').offset().top + this._centerY;
 
     if (this._dance) {
       this.loadPattern();
@@ -314,16 +339,9 @@ $(document).ready(function() {
     this.drawPattern();
   };
 
-  IceDiagram.prototype._adjustSpeed = function() {
+  IceDiagram.prototype.adjustSpeed = function() {
     console.log('adjust speed');
-    //Cycle speeds in 25% increments with a minimum of 50% and update button ui
-    this._playbackSpeedPercentage -= 25;
-    if (this._playbackSpeedPercentage < 50) {
-      this._playbackSpeedPercentage = 100;
-      this._$speedButton.removeClass('speed-state-active');
-    } else {
-      this._$speedButton.addClass('speed-state-active');
-    }
+    this._playbackSpeedPercentage = this._controls.speed();
     this._computePlaybackInterval();
     //Restart play if necessary
     if (this._playing) {
@@ -348,15 +366,15 @@ $(document).ready(function() {
   IceDiagram.prototype._start = function() {
     console.log('start');
     this._playing = true;
+    this._controls.start();
     this._timer = setInterval(this._tick.bind(this), this._playbackInterval);
-    this._$startPauseIcon.removeClass('mdi-play').addClass('mdi-pause');
   };
 
 
   IceDiagram.prototype._pause = function() {
     console.log('pause');
     clearInterval(this._timer);
-    this._$startPauseIcon.removeClass('mdi-pause').addClass('mdi-play');
+    this._controls.pause();
     this._playing = false;
   };
 
@@ -376,7 +394,7 @@ $(document).ready(function() {
     this.drawPattern();
   };
 
-  IceDiagram.prototype._onClick = function(e) {
+  IceDiagram.prototype.click = function(e) {
     var point = [e.pageX - this._diagramPageOffsetX, e.pageY - this._diagramPageOffsetY],
         nearest = IceDiagram.nearestNeighbor(point, this._positionSearchTree, 32 * this._scaleFactor);
     if (nearest >= 0) {
