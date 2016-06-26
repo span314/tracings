@@ -94,15 +94,15 @@ $(document).ready(function() {
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
-    define(['jquery'], factory);
+    define(factory);
   } else if (typeof exports === 'object') {
     // Node, CommonJS-like
-    module.exports = factory(require('jquery'));
+    module.exports = factory();
   } else {
     // Browser globals (root is window)
-    root.IceDiagram = factory(root.jQuery);
+    root.IceDiagram = factory();
   }
-}(this, function ($) {
+}(this, function () {
   var IceDiagram = function(canvas, controls) {
     //store parameters
     this._canvasElement = canvas;
@@ -151,12 +151,8 @@ $(document).ready(function() {
 
     //Using page offsets, because Firefox does not have offsetX/offsetY in click events
     bounds = this._canvasElement.getBoundingClientRect();
-    console.log(bounds.left + document.body.scrollLeft);
-    console.log(bounds.top + document.body.scrollTop);
-    console.log(bounds.left + $('#diagram').offset().left);
-    console.log(bounds.left + $('#diagram').offset().top);
-    this._diagramPageOffsetX = $('#diagram').offset().left + this._centerX;
-    this._diagramPageOffsetY = $('#diagram').offset().top + this._centerY;
+    this._diagramPageOffsetX = bounds.left + document.body.scrollLeft + this._centerX;
+    this._diagramPageOffsetY = bounds.top + document.body.scrollTop + this._centerY;
 
     if (this._dance) {
       this.loadPattern();
@@ -437,8 +433,12 @@ $(document).ready(function() {
       for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
         component = dance.components[componentIndex % dance.components.length];
         if (!component.optional || component.optional === optional) {
-          //Copy component
-          position = $.extend({}, component);
+          position = {};
+          //Copy component properties
+          position.duration = component.duration;
+          position.hold = component.hold;
+          position.index = component.index;
+          position.step = component.step;
           //Generate paths
           position.paths = [];
           for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
@@ -448,7 +448,7 @@ $(document).ready(function() {
             position.paths.push(path);
           }
           //Check mirroring
-          position.edge = mirror ? IceDiagram._edgeParams(component.edge).m : component.edge;
+          position.edge = mirror ? IceDiagram._EDGE_PARAMS[component.edge].m : component.edge;
           //Generate text
           position.label = IceDiagram._resolveParams(position.edge, dance.steps[component.step].label);
           position.desc = IceDiagram._resolveParams(position.edge, dance.steps[component.step].desc);
