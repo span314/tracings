@@ -65,20 +65,20 @@
         <option value="argentine_tango">Argentine Tango</option>
       </select>
 
-      <span id="part" class="button-set">
-        <input type="radio" id="partLady" name="part" value="lady" checked="true">
-        <label for="partLady" title="Lady's Part"><i class="mdi mdi-human-female"></i></label>
-        <input type="radio" id="partMan" name="part" value="man">
-        <label for="partMan" title="Man's Part"><i class="mdi mdi-human-male"></i></label>
+      <span class="button-set require-reload">
+        <input type="radio" id="partLadyButton" name="part" value="lady" checked="true">
+        <label for="partLadyButton" title="Lady's Part"><i class="mdi mdi-human-female"></i></label>
+        <input type="radio" id="partManButton" name="part" value="man">
+        <label for="partManButton" title="Man's Part"><i class="mdi mdi-human-male"></i></label>
       </span>
 
-      <span class="button-set">
-        <input type="checkbox" id="optional" name="opt" checked="true">
-        <label for="optional" title="Optional Steps"><i class="mdi mdi-stairs"></i></label>
-        <input type="checkbox" id="mirror" name="mirror">
-        <label for="mirror" title="Mirror"><i class="mdi mdi-swap-horizontal"></i></label>
-        <input type="checkbox" id="rotate" name="rotate">
-        <label for="rotate" title="Rotate"><i class="mdi mdi-rotate-left"></i></label>
+      <span class="button-set require-reload">
+        <input type="checkbox" id="optionalButton" name="opt" checked="true">
+        <label for="optionalButton" title="Optional Steps"><i class="mdi mdi-stairs"></i></label>
+        <input type="checkbox" id="mirrorButton" name="mirror">
+        <label for="mirrorButton" title="Mirror"><i class="mdi mdi-swap-horizontal"></i></label>
+        <input type="checkbox" id="rotateButton" name="rotate">
+        <label for="rotateButton" title="Rotate"><i class="mdi mdi-rotate-left"></i></label>
       </span>
 
       <span class="button-set">
@@ -89,7 +89,7 @@
         <button id="nextButton" title="Next Step"><i class="mdi mdi-chevron-right"></i></button>
       </span>
 
-      <span class="button-set">
+      <span class="button-set require-redraw">
         <input type="checkbox" id="stepButton" name="step" checked="true">
         <label for="stepButton" title="Step Labels"><i class="mdi mdi-format-list-bulleted"></i></label>
         <input type="checkbox" id="numberButton" name="number">

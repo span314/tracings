@@ -4,11 +4,62 @@
 
 //Create jQuery UI widgets and diagram
 $(document).ready(function() {
+  var copyDanceUrlToSelect, copyDanceSelectToUrl, diagramControls, diagram;
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
   $('.button-set').buttonset();
   $('#controls').tooltip();
-  new IceDiagram();
+
+  copyDanceUrlToSelect = function() {
+    if (window.location.hash) {
+      $('#danceSelect').val(window.location.hash.substr(1));
+      $('#danceSelect').selectmenu('refresh');
+    }
+  };
+  //Select dance from URL before creating widget and loading diagram
+  //TODO handle invalid values
+  copyDanceUrlToSelect();
+
+  diagramControls = {
+    //'optional', 'mirror', 'rotate', 'partLady', 'partMan', 'step', 'number', 'count', 'hold'
+    flag: function(flag) {
+      return document.getElementById(flag + 'Button').checked;
+    },
+
+    dance: function() {
+      return $('#danceSelect').val();
+    }
+  };
+  diagram = new IceDiagram(diagramControls);
+
+  copyDanceSelectToUrl = function() {
+    var danceHash = '#' + $('#danceSelect').val();
+    if (window.history.pushState) {
+      window.history.pushState(null, null, danceHash);
+    } else {
+      window.location.hash = danceHash;
+    }
+  }
+  //Copy default dance to URL if none specified initally
+  if (!window.location.hash) {
+    copyDanceSelectToUrl();
+  }
+
+  //Bind control events
+  $('#danceSelect').on('selectmenuchange', function() {
+    copyDanceSelectToUrl();
+    diagram.loadDance();
+  });
+  $(window).on('popstate', function() {
+    copyDanceUrlToSelect();
+    diagram.loadDance();
+  });
+  $('.require-reload').find('input').click(diagram.loadPattern.bind(diagram));
+  $('.require-redraw').find('input').click(diagram.drawPattern.bind(diagram));
+  $('#beginningButton').click(diagram.beginning.bind(diagram));
+  $('#previousButton').click(diagram.previous.bind(diagram));
+  $('#nextButton').click(diagram.next.bind(diagram));
 });
+
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -22,7 +73,7 @@ $(document).ready(function() {
     root.IceDiagram = factory(root.jQuery);
   }
 }(this, function ($) {
-  var IceDiagram = function() {
+  var IceDiagram = function(controls) {
     //check canvas compatibility
     this._canvasElement = $('#diagram').get(0);
     if (!this._canvasElement.getContext) {
@@ -33,30 +84,21 @@ $(document).ready(function() {
 
     //find control ui and bind events, naming convention is prefix _$ for cached selectors used elsewhere
     this._$canvas = $('#diagram').click(this._onClick.bind(this));
-    this._$dance = $('#danceSelect').on('selectmenuchange', this._selectDance.bind(this));
-    this._$part = $('#part');
-    this._$part.find('input').click(this._loadPattern.bind(this));
-    this._$optional = $('#optional').click(this._loadPattern.bind(this));
-    this._$mirror = $('#mirror').click(this._loadPattern.bind(this));
-    this._$rotate = $('#rotate').click(this._loadPattern.bind(this));
-    $('#beginningButton').click(this.beginning.bind(this));
-    $('#previousButton').click(this.previous.bind(this));
-    $('#nextButton').click(this.next.bind(this));
+
+    this._controls = controls;
+
+
     this._$startPause = $('#startPauseButton').click(this.toggleStartPause.bind(this));
     this._$startPauseIcon = this._$startPause.find('.mdi');
     this._$speedButton = $('#speedButton').click(this._adjustSpeed.bind(this));
-    this._$step = $('#stepButton').click(this._drawPattern.bind(this));
-    this._$number = $('#numberButton').click(this._drawPattern.bind(this));
-    this._$count = $('#countButton').click(this._drawPattern.bind(this));
-    this._$hold = $('#holdButton').click(this._drawPattern.bind(this));
+
     this._$controlContainer = $('#controls');
     $(window).resize(this._onCanvasResize.bind(this));
-    $(window).bind('popstate', this._loadDance.bind(this));
 
     //initialize
     this._playbackSpeedPercentage = 100;
     this._onCanvasResize();
-    this._selectDance();
+    this.loadDance();
   };
 
   IceDiagram.prototype._onCanvasResize = function() {
@@ -92,48 +134,38 @@ $(document).ready(function() {
     this._diagramPageOffsetY = this._$canvas.offset().top + this._centerY;
 
     if (this._dance) {
-      this._loadPattern();
+      this.loadPattern();
     }
   };
 
-  IceDiagram.prototype._selectDance = function() {
-    var danceHash = '#' + this._$dance.val();
-    if (window.history.pushState) {
-      window.history.pushState(null, null, danceHash);
-    } else {
-      window.location.hash = danceHash;
-    }
-    this._loadDance();
-  };
-
-  IceDiagram.prototype._loadDance = function() {
+  IceDiagram.prototype.loadDance = function() {
     var widget = this,
-        url = 'patterns/' + window.location.hash.substr(1) + '.json';
+        url = 'patterns/' + this._controls.dance() + '.json';
     $.getJSON(url, function(data) {
       console.log(data);
       widget._dance = data;
       widget._computePlaybackInterval();
-      widget._loadPattern();
+      widget.loadPattern();
     });
   };
 
-  IceDiagram.prototype._loadPattern = function() {
-    var optionalFlag = this._$optional.is(':checked') ? 'yes' : 'no',
-        mirrorFlag = this._$mirror.is(':checked'),
-        rotateFlag = this._$rotate.is(':checked'),
-        part = this._$part.find(':checked').val();
+  IceDiagram.prototype.loadPattern = function() {
+    var optionalFlag = this._controls.flag('optional') ? 'yes' : 'no',
+        mirrorFlag = this._controls.flag('mirror'),
+        rotateFlag = this._controls.flag('rotate'),
+        part = this._controls.flag('partLady') ? 'lady' : 'man';
     console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
     this._patternPositions = IceDiagram.generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
     this._positionSearchTree = IceDiagram.positionTree(this._patternPositions);
     this.beginning();
   };
 
-  IceDiagram.prototype._drawPattern = function() {
+  IceDiagram.prototype.drawPattern = function() {
     var path, positionIndex, pathIndex, position, labelList, labelText, count,
-        showStep = this._$step.is(':checked'),
-        showNumber = this._$number.is(':checked'),
-        showCount = this._$count.is(':checked'),
-        showHold = this._$hold.is(':checked'),
+        showStep = this._controls.flag('step'),
+        showNumber = this._controls.flag('number'),
+        showCount = this._controls.flag('count'),
+        showHold = this._controls.flag('hold'),
         ctx = this._canvasContext,
         currentPosition = this._patternPositions[this._position],
         tickCount = currentPosition.offset + this._stepTickCount,
@@ -255,19 +287,19 @@ $(document).ready(function() {
     this._pause();
     this._position = 0;
     this._stepTickCount = 0;
-    this._drawPattern();
+    this.drawPattern();
   };
 
   IceDiagram.prototype.previous = function() {
     this._pause();
     this._shiftPosition(-1);
-    this._drawPattern();
+    this.drawPattern();
   };
 
   IceDiagram.prototype.next = function() {
     this._pause();
     this._shiftPosition(1);
-    this._drawPattern();
+    this.drawPattern();
   };
 
   IceDiagram.prototype._shiftPosition = function(amount) {
@@ -279,7 +311,7 @@ $(document).ready(function() {
     this._pause();
     this._position = index;
     this._stepTickCount = 0;
-    this._drawPattern();
+    this.drawPattern();
   };
 
   IceDiagram.prototype._adjustSpeed = function() {
@@ -298,7 +330,7 @@ $(document).ready(function() {
       clearInterval(this._timer);
       this._timer = setInterval(this._tick.bind(this), this._playbackInterval);
     } else {
-      this._drawPattern();
+      this.drawPattern();
     }
   };
 
@@ -341,7 +373,7 @@ $(document).ready(function() {
     if (this._stepTickCount >= this._patternPositions[this._position].duration) {
       this._shiftPosition(1);
     }
-    this._drawPattern();
+    this.drawPattern();
   };
 
   IceDiagram.prototype._onClick = function(e) {
