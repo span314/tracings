@@ -16,7 +16,7 @@ cr,CR-#e,Cross Roll onto #E Edge
 crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
 crtt,CR-#e3,Cross Roll into a #E 3-turn
 dl,#e,"Stroke onto #E Edge, Double Lift Free Leg"
-ff,#f#d-#rff,#F#D Slip Step
+ff,#e-#rff,#E Slip Step
 mox,#e,Mohawk: Turn onto #E Edge
 moxdl,#e,"Mohawk: Turn onto #E Edge, Double Lift Free Leg"
 opmo,#e-opMo,#E Open Mohawk
