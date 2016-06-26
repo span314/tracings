@@ -36,3 +36,21 @@ canvas {
   font-weight: normal;
   color: #212121;
 }
+
+button.active, button.inactive {
+  display: inline-block;
+  padding: 0.4em 1em;
+  vertical-align: middle;
+}
+
+button.active {
+  background: #ffffff;
+  border: 1px solid #aaaaaa;
+  color: #212121;
+}
+
+button.inactive {
+  background: #e6e6e6;
+  border: 1px solid #d3d3d3;
+  color: #555555;
+}
