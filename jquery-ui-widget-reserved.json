@@ -1,4 +1,0 @@
-{
-  "vars": [],
-  "props": ["_create", "_delay", "_destroy", "_focusable", "_getCreateEventData", "_getCreateOptions", "_hide", "_hoverable", "_init", "_off", "_on", "_setOption", "_setOptions", "_show", "_super", "_superApply", "_trigger"]
-}
