@@ -42,11 +42,13 @@ $(document).ready(function() {
     copyDanceUrlToSelect();
     diagram.loadDance();
   });
-  $('#diagram').click(diagram.click.bind(diagram));
+
   window.addEventListener('resize', function() {
     diagram.onCanvasResize();
     document.getElementById('controls').setAttribute('style', 'width:' + canvasEl.width + 'px;');
   });
+
+  document.getElementById('diagram').addEventListener('click', diagram.click.bind(diagram));
 
   createIconButton = function(property, states) {
     var stateIndex = 0,

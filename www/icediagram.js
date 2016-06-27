@@ -36,28 +36,28 @@
     this._controls[eventType] = value;
     switch (eventType) {
       case 'beginning':
-        this.beginning();
+        this._beginning();
         break;
       case 'next':
-        this.next();
+        this._next();
         break;
       case 'previous':
-        this.previous();
+        this._previous();
         break;
       case 'startPause':
-        this.toggleStartPause();
+        this._startPause();
         break;
       case 'dance':
         this.loadDance();
         break;
       case 'part': case 'optional': case 'mirror': case 'rotate':
-        this.loadPattern();
+        this._loadPattern();
         break;
       case 'speed':
-        this.adjustSpeed();
+        this._adjustSpeed();
         break;
       case 'step': case 'number': case 'count': case 'hold':
-        this.drawPattern();
+        this._drawPattern();
     }
   };
 
@@ -94,7 +94,7 @@
     this._diagramPageOffsetY = bounds.top + document.body.scrollTop + this._centerY;
 
     if (this._dance) {
-      this.loadPattern();
+      this._loadPattern();
     }
   };
 
@@ -109,7 +109,7 @@
         widget._dance = JSON.parse(request.responseText);
         console.log(widget._dance);
         widget._computePlaybackInterval();
-        widget.loadPattern();
+        widget._loadPattern();
       } else {
         console.log('TODO server error');
       }
@@ -122,7 +122,7 @@
     request.send();
   };
 
-  IceDiagram.prototype.loadPattern = function() {
+  IceDiagram.prototype._loadPattern = function() {
     var optionalFlag = this._controls.optional,
         mirrorFlag = this._controls.mirror,
         rotateFlag = this._controls.rotate,
@@ -130,10 +130,10 @@
     console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
     this._patternPositions = IceDiagram.generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
     this._positionSearchTree = IceDiagram.positionTree(this._patternPositions);
-    this.beginning();
+    this._beginning();
   };
 
-  IceDiagram.prototype.drawPattern = function() {
+  IceDiagram.prototype._drawPattern = function() {
     var path, positionIndex, pathIndex, position, labelList, labelText, count,
         showStep = this._controls.step,
         showNumber = this._controls.number,
@@ -256,23 +256,23 @@
     ctx.restore();
   };
 
-  IceDiagram.prototype.beginning = function() {
+  IceDiagram.prototype._beginning = function() {
     this._pause();
     this._position = 0;
     this._stepTickCount = 0;
-    this.drawPattern();
+    this._drawPattern();
   };
 
-  IceDiagram.prototype.previous = function() {
+  IceDiagram.prototype._previous = function() {
     this._pause();
     this._shiftPosition(-1);
-    this.drawPattern();
+    this._drawPattern();
   };
 
-  IceDiagram.prototype.next = function() {
+  IceDiagram.prototype._next = function() {
     this._pause();
     this._shiftPosition(1);
-    this.drawPattern();
+    this._drawPattern();
   };
 
   IceDiagram.prototype._shiftPosition = function(amount) {
@@ -284,10 +284,10 @@
     this._pause();
     this._position = index;
     this._stepTickCount = 0;
-    this.drawPattern();
+    this._drawPattern();
   };
 
-  IceDiagram.prototype.adjustSpeed = function() {
+  IceDiagram.prototype._adjustSpeed = function() {
     console.log('adjust speed');
     this._playbackSpeedPercentage = this._controls.speed;
     this._computePlaybackInterval();
@@ -296,7 +296,7 @@
       clearInterval(this._timer);
       this._timer = setInterval(this._tick.bind(this), this._playbackInterval);
     } else {
-      this.drawPattern();
+      this._drawPattern();
     }
   };
 
@@ -324,7 +324,7 @@
     this._playing = false;
   };
 
-  IceDiagram.prototype.toggleStartPause = function() {
+  IceDiagram.prototype._startPause = function() {
     if (this._playing) {
       this._pause();
     } else {
@@ -337,7 +337,7 @@
     if (this._stepTickCount >= this._patternPositions[this._position].duration) {
       this._shiftPosition(1);
     }
-    this.drawPattern();
+    this._drawPattern();
   };
 
   IceDiagram.prototype.click = function(e) {
