@@ -3,7 +3,7 @@
 
 //Create jQuery UI widgets and diagram
 $(document).ready(function() {
-  var copyDanceUrlToSelect, copyDanceSelectToUrl, diagramControls, diagram, createIconButton;
+  var copyDanceUrlToSelect, copyDanceSelectToUrl, canvasEl, diagram, createIconButton;
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
 
   copyDanceUrlToSelect = function() {
@@ -13,14 +13,8 @@ $(document).ready(function() {
     }
   };
 
-  diagramControls = {
-    _controlContainer: document.getElementById('controls'),
-
-    resize: function(width) {
-      this._controlContainer.setAttribute('style', 'width:' + width + 'px;');
-    }
-  };
-  diagram = new IceDiagram(document.getElementById('diagram'), diagramControls);
+  canvasEl = document.getElementById('diagram');
+  diagram = new IceDiagram(canvasEl);
   //Select dance from URL before creating widget and loading diagram
   //TODO handle invalid values
   copyDanceUrlToSelect();
@@ -51,6 +45,7 @@ $(document).ready(function() {
   $('#diagram').click(diagram.click.bind(diagram));
   window.addEventListener('resize', function() {
     diagram.onCanvasResize();
+    document.getElementById('controls').setAttribute('style', 'width:' + canvasEl.width + 'px;');
   });
 
   createIconButton = function(property, states) {
@@ -88,5 +83,6 @@ $(document).ready(function() {
   createIconButton('hold', [{active: false, icon: 'human-male-female'}, {active: true, icon: 'human-male-female'}]);
 
   diagram.onCanvasResize();
+  document.getElementById('controls').setAttribute('style', 'width:' + canvasEl.width + 'px;');
   diagram.loadDance();
 });

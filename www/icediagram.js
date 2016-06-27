@@ -12,11 +12,9 @@
     root.IceDiagram = factory();
   }
 }(this, function () {
-  var IceDiagram = function(canvas, controls) {
+  var IceDiagram = function(canvas) {
     //store parameters
     this._canvasElement = canvas;
-    this._controls = controls;
-
     //check canvas compatibility
     if (!canvas.getContext) {
       console.log('Canvas not supported');
@@ -25,6 +23,7 @@
     this._canvasContext = canvas.getContext('2d');
 
     //initialize
+    this._controls = {};
     this._playbackSpeedPercentage = 100;
   };
 
@@ -83,7 +82,6 @@
 
     this._canvasElement.width = width;
     this._canvasElement.height = height;
-    this._controls.resize(width, height);
     this._centerX = width / 2;
     this._centerY = height / 2;
     this._scaleFactor = 0.92 * width / 1024;
