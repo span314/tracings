@@ -14,43 +14,41 @@ canvas {
   vertical-align: middle;
 }
 
-.button-set {
-  white-space: nowrap;
-}
-
 .mdi {
   font-size: 24px;
 }
 
-.ui-dialog-titlebar-close:focus {
-  outline: none;
+.button-set {
+  white-space: nowrap;
 }
 
-.default-hidden {
-  display: none;
-}
-
-.button-set .speed-state-active {
-  border: 1px solid #aaaaaa;
-  background: #ffffff;
-  font-weight: normal;
-  color: #212121;
-}
-
-button.active, button.inactive {
+.button-set button {
   display: inline-block;
   padding: 0.4em 1em;
   vertical-align: middle;
+  margin-right: -0.3em;
 }
 
-button.active {
+.button-set button.active {
   background: #ffffff;
   border: 1px solid #aaaaaa;
   color: #212121;
 }
 
-button.inactive {
+.button-set button.inactive {
   background: #e6e6e6;
   border: 1px solid #d3d3d3;
   color: #555555;
+}
+
+.button-set button:first-child {
+  margin-left: 0.2em;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.button-set button:last-child {
+  margin-right: 0.2em;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
 }

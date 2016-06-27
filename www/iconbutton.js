@@ -18,11 +18,3 @@ var initializeIconButton = function(elemId, states, clickHandler) {
     clickHandler();
   });
 };
-
-$(document).ready(function() {
-  var testState = [
-    {cssClass: 'inactive', icon: 'play'},
-    {cssClass: 'active', icon: 'pause'}
-  ];
-  initializeIconButton('testButton', testState, function() {console.log('foo')});
-});

@@ -67,40 +67,29 @@
         <option value="argentine_tango">Argentine Tango</option>
       </select>
 
-      <span class="button-set require-reload">
-        <input type="radio" id="partLadyButton" name="part" value="lady" checked="true">
-        <label for="partLadyButton" title="Lady's Part"><i class="mdi mdi-human-female"></i></label>
-        <input type="radio" id="partManButton" name="part" value="man">
-        <label for="partManButton" title="Man's Part"><i class="mdi mdi-human-male"></i></label>
-      </span>
-
-      <span class="button-set require-reload">
-        <input type="checkbox" id="optionalButton" name="opt" checked="true">
-        <label for="optionalButton" title="Optional Steps"><i class="mdi mdi-stairs"></i></label>
-        <input type="checkbox" id="mirrorButton" name="mirror">
-        <label for="mirrorButton" title="Mirror"><i class="mdi mdi-swap-horizontal"></i></label>
-        <input type="checkbox" id="rotateButton" name="rotate">
-        <label for="rotateButton" title="Rotate"><i class="mdi mdi-rotate-left"></i></label>
+      <span class="button-set">
+        <button id="partButton" title="Part"></button>
       </span>
 
       <span class="button-set">
-        <button id="speedButton" title="Speed"><i class="mdi mdi-clock-fast"></i></button>
-        <button id="beginningButton" title="Start of Pattern"><i class="mdi mdi-page-first"></i></button>
-        <button id="previousButton" title="Previous Step"><i class="mdi mdi-chevron-left"></i></button>
-        <button id="startPauseButton" title="Play / Pause"><i class="mdi mdi-play"></i></button>
-        <button id="nextButton" title="Next Step"><i class="mdi mdi-chevron-right"></i></button>
+        <button id="optionalButton" title="Optional Steps"></button>
+        <button id="mirrorButton" title="Mirror"></button>
+        <button id="rotateButton" title="Rotate"></button>
       </span>
 
-      <span class="require-redraw">
-        <input type="checkbox" id="stepButton" name="step" checked="true">
-        <label for="stepButton" title="Step Labels"><i class="mdi mdi-format-list-bulleted"></i></label>
-        <input type="checkbox" id="numberButton" name="number">
-        <label for="numberButton" title="Step Numbers"><i class="mdi mdi-format-list-numbers"></i></label>
-        <input type="checkbox" id="countButton" name="count" checked="true">
-        <label for="countButton" title="Beat Counts"><i class="mdi mdi-clock"></i></label>
-        <input type="checkbox" id="holdButton" name="hold">
-        <label for="holdButton" title="Hold Labels"><i class="mdi mdi-human-male-female"></i></label>
-        <button id="testButton" title="Test"></button>
+      <span class="button-set">
+        <button id="speedButton" title="Speed"></button>
+        <button id="beginningButton" title="Start of Pattern"></button>
+        <button id="previousButton" title="Previous Step"></button>
+        <button id="startPauseButton" title="Play / Pause"></button>
+        <button id="nextButton" title="Next Step"></button>
+      </span>
+
+      <span class="button-set">
+        <button id="stepButton" title="Step Labels"></button>
+        <button id="numberButton" title="Step Numbers"></button>
+        <button id="countButton" title="Beat Counts"></button>
+        <button id="holdButton" title="Hold Labels"></button>
       </span>
     </div>
 
