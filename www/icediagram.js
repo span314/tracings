@@ -51,11 +51,11 @@
       case 'dance':
         this.loadDance();
         break;
-      case 'speed':
-        this.adjustSpeed();
-        break;
       case 'part': case 'optional': case 'mirror': case 'rotate':
         this.loadPattern();
+        break;
+      case 'speed':
+        this.adjustSpeed();
         break;
       case 'step': case 'number': case 'count': case 'hold':
         this.drawPattern();
@@ -316,7 +316,6 @@
   IceDiagram.prototype._start = function() {
     console.log('start');
     this._playing = true;
-    this._controls.start();
     this._timer = setInterval(this._tick.bind(this), this._playbackInterval);
   };
 
@@ -324,7 +323,6 @@
   IceDiagram.prototype._pause = function() {
     console.log('pause');
     clearInterval(this._timer);
-    this._controls.pause();
     this._playing = false;
   };
 

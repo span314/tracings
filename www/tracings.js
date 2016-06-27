@@ -16,14 +16,6 @@ $(document).ready(function() {
   diagramControls = {
     _controlContainer: document.getElementById('controls'),
 
-    start: function() {
-      $('#startPauseButton').find('.mdi').removeClass('mdi-play').addClass('mdi-pause');
-    },
-
-    pause: function() {
-      $('#startPauseButton').find('.mdi').removeClass('mdi-pause').addClass('mdi-play');
-    },
-
     resize: function(width) {
       this._controlContainer.setAttribute('style', 'width:' + width + 'px;');
     }
@@ -57,7 +49,9 @@ $(document).ready(function() {
     diagram.loadDance();
   });
   $('#diagram').click(diagram.click.bind(diagram));
-  window.addEventListener('resize', diagram.onCanvasResize.bind(diagram));
+  window.addEventListener('resize', function() {
+    diagram.onCanvasResize();
+  });
 
   createIconButton = function(property, states) {
     var stateIndex = 0,
@@ -84,7 +78,7 @@ $(document).ready(function() {
 
   createIconButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
   createIconButton('beginning', [{active: false, icon: 'page-first'}]);
-  createIconButton('startPause', [{active: false, icon: 'play'}, {active: false, icon: 'pause'}]);
+  createIconButton('startPause', [{active: false, icon: 'play-pause'}]);
   createIconButton('previous', [{active: false, icon: 'chevron-left'}]);
   createIconButton('next', [{active: false, icon: 'chevron-right'}]);
 
