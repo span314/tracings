@@ -30,35 +30,35 @@ $(document).ready(function() {
     _$danceSelect: $('#danceSelect'),
 
     optional: function() {
-      return this._optionalButton.className === 'active';
+      return this._optionalButton.value === 'true';
     },
 
     mirror: function() {
-      return this._mirrorButton.className === 'active';
+      return this._mirrorButton.value === 'true';
     },
 
     rotate: function() {
-      return this._rotateButton.className === 'active';
+      return this._rotateButton.value === 'true';
     },
 
     part: function() {
-      return this._partButton.className.split(' ')[1];
+      return this._partButton.value;
     },
 
     step: function() {
-      return this._stepButton.className === 'active';
+      return this._stepButton.value === 'true';
     },
 
     number: function() {
-      return this._numberButton.className === 'active';
+      return this._numberButton.value === 'true';
     },
 
     count: function() {
-      return this._countButton.className === 'active';
+      return this._countButton.value === 'true';
     },
 
     hold: function() {
-      return this._holdButton.className === 'active';
+      return this._holdButton.value === 'true';
     },
 
     dance: function() {
@@ -78,9 +78,7 @@ $(document).ready(function() {
     },
 
     speed: function() {
-      var css = this._speedButton.className,
-          index = css.indexOf('speed');
-      return parseInt(css.substring(index + 5));
+      return parseInt(this._speedButton.value);
     }
   };
   diagram = new IceDiagram(document.getElementById('diagram'), diagramControls);
@@ -111,44 +109,44 @@ $(document).ready(function() {
   $(window).resize(diagram.onCanvasResize.bind(diagram));
 
   initializeIconButton('partButton',
-    [{cssClass: 'inactive lady', icon: 'human-female'}, {cssClass: 'inactive man', icon: 'human-male'}],
+    [{active: false, value: 'lady', icon: 'human-female'}, {active: false, value: 'man', icon: 'human-male'}],
     diagram.loadPattern.bind(diagram));
   initializeIconButton('optionalButton',
-    [{cssClass: 'active', icon: 'stairs'}, {cssClass: 'inactive', icon: 'stairs'}],
+    [{active: true, icon: 'stairs'}, {active: false, icon: 'stairs'}],
     diagram.loadPattern.bind(diagram));
   initializeIconButton('mirrorButton',
-    [{cssClass: 'inactive', icon: 'swap-horizontal'}, {cssClass: 'active', icon: 'swap-horizontal'}],
+    [{active: false, icon: 'swap-horizontal'}, {active: true, icon: 'swap-horizontal'}],
     diagram.loadPattern.bind(diagram));
   initializeIconButton('rotateButton',
-    [{cssClass: 'inactive', icon: 'rotate-left'}, {cssClass: 'active', icon: 'rotate-left'}],
+    [{active: false, icon: 'rotate-left'}, {active: true, icon: 'rotate-left'}],
     diagram.loadPattern.bind(diagram));
 
   initializeIconButton('speedButton',
-    [{cssClass: 'inactive speed100', icon: 'clock-fast'}, {cssClass: 'active speed75', icon: 'clock-fast'}, {cssClass: 'active speed50', icon: 'clock-fast'}],
+    [{active: false, value: '100', icon: 'clock-fast'}, {active: true, value: '75', icon: 'clock-fast'}, {active: true, value: '50', icon: 'clock-fast'}],
     diagram.adjustSpeed.bind(diagram));
   initializeIconButton('beginningButton',
-    [{cssClass: 'inactive', icon: 'page-first'}],
+    [{active: false, icon: 'page-first'}],
     diagram.beginning.bind(diagram));
   initializeIconButton('startPauseButton',
-    [{cssClass: 'inactive paused', icon: 'play'}, {cssClass: 'inactive playing', icon: 'pause'}],
+    [{active: false, value: 'paused', icon: 'play'}, {active: false, value: 'playing', icon: 'pause'}],
     diagram.toggleStartPause.bind(diagram));
   initializeIconButton('previousButton',
-    [{cssClass: 'inactive', icon: 'chevron-left'}],
+    [{active: false, icon: 'chevron-left'}],
     diagram.previous.bind(diagram));
   initializeIconButton('nextButton',
-    [{cssClass: 'inactive', icon: 'chevron-right'}],
+    [{active: false, icon: 'chevron-right'}],
     diagram.next.bind(diagram));
 
   initializeIconButton('stepButton',
-    [{cssClass: 'active', icon: 'format-list-bulleted'}, {cssClass: 'inactive', icon: 'format-list-bulleted'}],
+    [{active: true, icon: 'format-list-bulleted'}, {active: false, icon: 'format-list-bulleted'}],
     diagram.drawPattern.bind(diagram));
   initializeIconButton('numberButton',
-    [{cssClass: 'inactive', icon: 'format-list-numbers'}, {cssClass: 'active', icon: 'format-list-numbers'}],
+    [{active: false, icon: 'format-list-numbers'}, {active: true, icon: 'format-list-numbers'}],
     diagram.drawPattern.bind(diagram));
   initializeIconButton('countButton',
-    [{cssClass: 'active', icon: 'clock'}, {cssClass: 'inactive', icon: 'clock'}],
+    [{active: true, icon: 'clock'}, {active: false, icon: 'clock'}],
     diagram.drawPattern.bind(diagram));
   initializeIconButton('holdButton',
-    [{cssClass: 'inactive', icon: 'human-male-female'}, {cssClass: 'active', icon: 'human-male-female'}],
+    [{active: false, icon: 'human-male-female'}, {active: true, icon: 'human-male-female'}],
     diagram.drawPattern.bind(diagram));
 });
