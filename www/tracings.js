@@ -50,18 +50,14 @@ $(document).ready(function() {
 
   createIconButton = function(property, states) {
     var stateIndex = 0,
-        elem = document.getElementById(property + 'Button'),
-        icon = document.createElement('i');
-    elem.appendChild(icon);
+        elem = document.getElementById(property + 'Button');
     //Initialize state
-    elem.className = states[0].active ? 'active' : 'inactive';
-    icon.className = 'mdi mdi-' + states[0].icon;
+    elem.className = (states[0].active ? 'active' : 'inactive') + ' mdi mdi-' + states[0].icon;
     diagram.initializeProperty(property, states[0].value || states[0].active);
     //Bind click event
     elem.addEventListener('click', function() {
       stateIndex = (stateIndex + 1) % states.length;
-      elem.className = states[stateIndex].active ? 'active' : 'inactive';
-      icon.className = 'mdi mdi-' + states[stateIndex].icon;
+      elem.className = (states[stateIndex].active ? 'active' : 'inactive') + ' mdi mdi-' + states[stateIndex].icon;
       diagram.controlEvent(property, states[stateIndex].value || states[stateIndex].active);
     });
   };
