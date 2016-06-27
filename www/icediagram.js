@@ -47,6 +47,9 @@
       case 'startPause':
         this._startPause();
         break;
+      case 'click':
+        this._click();
+        break;
       case 'dance':
         this.loadDance();
         break;
@@ -87,11 +90,6 @@
     this._scaleFactor = 0.92 * width / 1024;
     this._labelFont =  Math.floor(13 * this._scaleFactor) + 'px Arial';
     this._titleFont = Math.floor(18 * this._scaleFactor) + 'px Arial';
-
-    //Using page offsets, because Firefox does not have offsetX/offsetY in click events
-    bounds = this._canvasElement.getBoundingClientRect();
-    this._diagramPageOffsetX = bounds.left + document.body.scrollLeft + this._centerX;
-    this._diagramPageOffsetY = bounds.top + document.body.scrollTop + this._centerY;
 
     if (this._dance) {
       this._loadPattern();
@@ -340,8 +338,8 @@
     this._drawPattern();
   };
 
-  IceDiagram.prototype.click = function(e) {
-    var point = [e.pageX - this._diagramPageOffsetX, e.pageY - this._diagramPageOffsetY],
+  IceDiagram.prototype._click = function() {
+    var point = [this._controls.click[0] - this._centerX, this._controls.click[1] - this._centerY],
         nearest = IceDiagram.nearestNeighbor(point, this._positionSearchTree, 32 * this._scaleFactor);
     if (nearest >= 0) {
       this._movePosition(this._positionSearchTree[nearest][2]);

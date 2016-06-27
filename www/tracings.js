@@ -48,7 +48,13 @@ $(document).ready(function() {
     document.getElementById('controls').setAttribute('style', 'width:' + canvasEl.width + 'px;');
   });
 
-  document.getElementById('diagram').addEventListener('click', diagram.click.bind(diagram));
+  document.getElementById('diagram').addEventListener('click', function(e) {
+    //Note: calcuating offsets from page, because Firefox does not have offsetX/offsetY in click events
+    var bounds = this.getBoundingClientRect(),
+        x = e.pageX - bounds.left - document.body.scrollLeft,
+        y = e.pageY - bounds.top - document.body.scrollTop;
+    diagram.controlEvent('click', [x, y]);
+  });
 
   createIconButton = function(property, states) {
     var stateIndex = 0,
