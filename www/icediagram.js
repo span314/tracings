@@ -25,15 +25,21 @@
     //initialize
     this._controls = {};
     this._playbackSpeedPercentage = 100;
+    this._active = false;
   };
 
-  IceDiagram.prototype.initializeProperty = function(property, value) {
-    this._controls[property] = value;
+  IceDiagram.prototype.activate = function() {
+    this._active = true;
+    this._resize();
+    this.loadDance();
   };
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('control event ' + eventType + ' with value ' + value);
     this._controls[eventType] = value;
+    if (!this._active) {
+      return;
+    }
     switch (eventType) {
       case 'beginning':
         this._beginning();
@@ -52,6 +58,7 @@
         break;
       case 'resize':
         this._resize();
+        this._loadPattern();
         break;
       case 'dance':
         this.loadDance();
@@ -67,22 +74,12 @@
     }
   };
 
-  IceDiagram.prototype.onCanvasResize = function() {
-
-
-    this._resize();
-  };
-
   IceDiagram.prototype._resize = function() {
     this._centerX = this._canvasElement.width / 2;
     this._centerY = this._canvasElement.height / 2;
     this._scaleFactor = 0.92 * this._canvasElement.width / 1024;
     this._labelFont =  Math.floor(13 * this._scaleFactor) + 'px Arial';
     this._titleFont = Math.floor(18 * this._scaleFactor) + 'px Arial';
-
-    if (this._dance) {
-      this._loadPattern();
-    }
   };
 
   IceDiagram.prototype.loadDance = function() {

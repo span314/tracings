@@ -20,7 +20,7 @@ $(document).ready(function() {
   //Select dance from URL before creating widget and loading diagram
   //TODO handle invalid values
   copyDanceUrlToSelect();
-  diagram.initializeProperty('dance', $('#danceSelect').val());
+  diagram.controlEvent('dance', $('#danceSelect').val());
 
   copyDanceSelectToUrl = function() {
     var danceHash = '#' + $('#danceSelect').val();
@@ -85,7 +85,7 @@ $(document).ready(function() {
         elem = document.getElementById(property + 'Button');
     //Initialize state
     elem.className = (states[0].active ? 'active' : 'inactive') + ' mdi mdi-' + states[0].icon;
-    diagram.initializeProperty(property, states[0].value || states[0].active);
+    diagram.controlEvent(property, states[0].value || states[0].active);
     //Bind click event
     elem.addEventListener('click', function() {
       stateIndex = (stateIndex + 1) % states.length;
@@ -110,5 +110,5 @@ $(document).ready(function() {
   createIconButton('count', [{active: true, icon: 'clock'}, {active: false, icon: 'clock'}]);
   createIconButton('hold', [{active: false, icon: 'human-male-female'}, {active: true, icon: 'human-male-female'}]);
 
-  diagram.loadDance();
+  diagram.activate();
 });
