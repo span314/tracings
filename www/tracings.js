@@ -7,26 +7,24 @@ $(document).ready(function() {
       controlsEl = document.getElementById('controls'),
       $select = $('#danceSelect').selectmenu({position: {collision: 'flip'}}),
       diagram = new IceDiagram(canvasEl),
-      runAndAddListener,
-      createIconButton, copyDanceUrlToSelect, copyDanceSelectToUrl, resizeCanvas;
-
+      runAndAddListener, createIconButton, copyDanceSelectToUrl;
 
   runAndAddListener = function(elem, event, handler) {
     handler();
     elem.addEventListener(event, handler);
   };
 
-  copyDanceUrlToSelect = function() {
+  runAndAddListener(window, 'popstate', function() {
+    //Copy dance from url to select and reload
+    var dance;
     if (window.location.hash) {
-      $select.val(window.location.hash.substr(1));
+      dance = window.location.hash.substr(1);
+      //TODO handle invalid values
+      $select.val(dance);
       $select.selectmenu('refresh');
-      diagram.controlEvent('dance', $select.val());
+      diagram.controlEvent('dance', dance);
     }
-  };
-
-  //Select dance from URL before creating widget and loading diagram
-  //TODO handle invalid values
-  copyDanceUrlToSelect();
+  });
 
   copyDanceSelectToUrl = function() {
     var dance = $select.val();
@@ -41,12 +39,9 @@ $(document).ready(function() {
   if (!window.location.hash) {
     copyDanceSelectToUrl();
   }
-
-  //Bind control events
   $select.on('selectmenuchange', copyDanceSelectToUrl);
-  window.addEventListener('popstate', copyDanceUrlToSelect);
 
-  resizeCanvas = function() {
+  runAndAddListener(window, 'resize', function() {
     var width, height,
         availableWidth = Math.max(window.innerWidth - 16, 0),
         availableHeight = Math.max(window.innerHeight - 108, 0),
@@ -69,9 +64,7 @@ $(document).ready(function() {
     canvasEl.height = height;
     controlsEl.setAttribute('style', 'width:' + width + 'px;');
     diagram.controlEvent('resize');
-  }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+  });
 
   canvasEl.addEventListener('click', function(e) {
     //Note: calcuating offsets from page, because Firefox does not have offsetX/offsetY in click events
@@ -82,13 +75,9 @@ $(document).ready(function() {
   });
 
   createIconButton = function(property, states) {
-    var stateIndex = 0,
+    var stateIndex = -1,
         elem = document.getElementById(property + 'Button');
-    //Initialize state
-    elem.className = (states[0].active ? 'active' : 'inactive') + ' mdi mdi-' + states[0].icon;
-    diagram.controlEvent(property, states[0].value || states[0].active);
-    //Bind click event
-    elem.addEventListener('click', function() {
+    runAndAddListener(elem, 'click', function() {
       stateIndex = (stateIndex + 1) % states.length;
       elem.className = (states[stateIndex].active ? 'active' : 'inactive') + ' mdi mdi-' + states[stateIndex].icon;
       diagram.controlEvent(property, states[stateIndex].value || states[stateIndex].active);
