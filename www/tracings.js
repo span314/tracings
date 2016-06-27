@@ -5,18 +5,22 @@
 $(document).ready(function() {
   var canvasEl = document.getElementById('diagram'),
       controlsEl = document.getElementById('controls'),
+      $select = $('#danceSelect').selectmenu({position: {collision: 'flip'}}),
       diagram = new IceDiagram(canvasEl),
+      runAndAddListener,
       createIconButton, copyDanceUrlToSelect, copyDanceSelectToUrl, resizeCanvas;
 
-  $('#danceSelect').selectmenu({position: {collision: 'flip'}});
 
-
+  runAndAddListener = function(elem, event, handler) {
+    handler();
+    elem.addEventListener(event, handler);
+  };
 
   copyDanceUrlToSelect = function() {
     if (window.location.hash) {
-      $('#danceSelect').val(window.location.hash.substr(1));
-      $('#danceSelect').selectmenu('refresh');
-      diagram.controlEvent('dance', $('#danceSelect').val());
+      $select.val(window.location.hash.substr(1));
+      $select.selectmenu('refresh');
+      diagram.controlEvent('dance', $select.val());
     }
   };
 
@@ -25,7 +29,7 @@ $(document).ready(function() {
   copyDanceUrlToSelect();
 
   copyDanceSelectToUrl = function() {
-    var dance = $('#danceSelect').val();
+    var dance = $select.val();
     if (window.history.pushState) {
       window.history.pushState(null, null, '#' + dance);
     } else {
@@ -39,7 +43,7 @@ $(document).ready(function() {
   }
 
   //Bind control events
-  $('#danceSelect').on('selectmenuchange', copyDanceSelectToUrl);
+  $select.on('selectmenuchange', copyDanceSelectToUrl);
   window.addEventListener('popstate', copyDanceUrlToSelect);
 
   resizeCanvas = function() {
