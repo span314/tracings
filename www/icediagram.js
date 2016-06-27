@@ -26,8 +26,40 @@
 
     //initialize
     this._playbackSpeedPercentage = 100;
-    this.onCanvasResize();
-    this.loadDance();
+  };
+
+  IceDiagram.prototype.initializeProperty = function(property, value) {
+    this._controls[property] = value;
+  };
+
+  IceDiagram.prototype.controlEvent = function(eventType, value) {
+    console.log('control event ' + eventType + ' with value ' + value);
+    this._controls[eventType] = value;
+    switch (eventType) {
+      case 'beginning':
+        this.beginning();
+        break;
+      case 'next':
+        this.next();
+        break;
+      case 'previous':
+        this.previous();
+        break;
+      case 'startPause':
+        this.toggleStartPause();
+        break;
+      case 'dance':
+        this.loadDance();
+        break;
+      case 'speed':
+        this.adjustSpeed();
+        break;
+      case 'part': case 'optional': case 'mirror': case 'rotate':
+        this.loadPattern();
+        break;
+      case 'step': case 'number': case 'count': case 'hold':
+        this.drawPattern();
+    }
   };
 
   IceDiagram.prototype.onCanvasResize = function() {
@@ -70,7 +102,7 @@
 
   IceDiagram.prototype.loadDance = function() {
     var widget = this,
-        url = 'patterns/' + this._controls.dance() + '.json',
+        url = 'patterns/' + this._controls.dance + '.json',
         request = new XMLHttpRequest();
     request.open('GET', url, true);
 
@@ -93,10 +125,10 @@
   };
 
   IceDiagram.prototype.loadPattern = function() {
-    var optionalFlag = this._controls.optional() ? 'yes' : 'no',
-        mirrorFlag = this._controls.mirror(),
-        rotateFlag = this._controls.rotate(),
-        part = this._controls.part();
+    var optionalFlag = this._controls.optional,
+        mirrorFlag = this._controls.mirror,
+        rotateFlag = this._controls.rotate,
+        part = this._controls.part;
     console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
     this._patternPositions = IceDiagram.generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
     this._positionSearchTree = IceDiagram.positionTree(this._patternPositions);
@@ -105,10 +137,10 @@
 
   IceDiagram.prototype.drawPattern = function() {
     var path, positionIndex, pathIndex, position, labelList, labelText, count,
-        showStep = this._controls.step(),
-        showNumber = this._controls.number(),
-        showCount = this._controls.count(),
-        showHold = this._controls.hold(),
+        showStep = this._controls.step,
+        showNumber = this._controls.number,
+        showCount = this._controls.count,
+        showHold = this._controls.hold,
         ctx = this._canvasContext,
         currentPosition = this._patternPositions[this._position],
         tickCount = currentPosition.offset + this._stepTickCount,
@@ -259,7 +291,7 @@
 
   IceDiagram.prototype.adjustSpeed = function() {
     console.log('adjust speed');
-    this._playbackSpeedPercentage = this._controls.speed();
+    this._playbackSpeedPercentage = this._controls.speed;
     this._computePlaybackInterval();
     //Restart play if necessary
     if (this._playing) {

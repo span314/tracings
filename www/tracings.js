@@ -3,7 +3,7 @@
 
 //Create jQuery UI widgets and diagram
 $(document).ready(function() {
-  var copyDanceUrlToSelect, copyDanceSelectToUrl, diagramControls, diagram;
+  var copyDanceUrlToSelect, copyDanceSelectToUrl, diagramControls, diagram, createIconButton;
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
 
   copyDanceUrlToSelect = function() {
@@ -12,58 +12,9 @@ $(document).ready(function() {
       $('#danceSelect').selectmenu('refresh');
     }
   };
-  //Select dance from URL before creating widget and loading diagram
-  //TODO handle invalid values
-  copyDanceUrlToSelect();
 
   diagramControls = {
-    _optionalButton: document.getElementById('optionalButton'),
-    _mirrorButton: document.getElementById('mirrorButton'),
-    _rotateButton: document.getElementById('rotateButton'),
-    _partButton: document.getElementById('partButton'),
-    _stepButton: document.getElementById('stepButton'),
-    _numberButton: document.getElementById('numberButton'),
-    _countButton: document.getElementById('countButton'),
-    _holdButton: document.getElementById('holdButton'),
-    _speedButton: document.getElementById('speedButton'),
     _controlContainer: document.getElementById('controls'),
-    _$danceSelect: $('#danceSelect'),
-
-    optional: function() {
-      return this._optionalButton.value === 'true';
-    },
-
-    mirror: function() {
-      return this._mirrorButton.value === 'true';
-    },
-
-    rotate: function() {
-      return this._rotateButton.value === 'true';
-    },
-
-    part: function() {
-      return this._partButton.value;
-    },
-
-    step: function() {
-      return this._stepButton.value === 'true';
-    },
-
-    number: function() {
-      return this._numberButton.value === 'true';
-    },
-
-    count: function() {
-      return this._countButton.value === 'true';
-    },
-
-    hold: function() {
-      return this._holdButton.value === 'true';
-    },
-
-    dance: function() {
-      return this._$danceSelect.val();
-    },
 
     start: function() {
       $('#startPauseButton').find('.mdi').removeClass('mdi-play').addClass('mdi-pause');
@@ -75,13 +26,13 @@ $(document).ready(function() {
 
     resize: function(width) {
       this._controlContainer.setAttribute('style', 'width:' + width + 'px;');
-    },
-
-    speed: function() {
-      return parseInt(this._speedButton.value);
     }
   };
   diagram = new IceDiagram(document.getElementById('diagram'), diagramControls);
+  //Select dance from URL before creating widget and loading diagram
+  //TODO handle invalid values
+  copyDanceUrlToSelect();
+  diagram.initializeProperty('dance', $('#danceSelect').val());
 
   copyDanceSelectToUrl = function() {
     var danceHash = '#' + $('#danceSelect').val();
@@ -99,7 +50,7 @@ $(document).ready(function() {
   //Bind control events
   $('#danceSelect').on('selectmenuchange', function() {
     copyDanceSelectToUrl();
-    diagram.loadDance();
+    diagram.controlEvent('dance', $(this).val());
   });
   window.addEventListener('popstate', function() {
     copyDanceUrlToSelect();
@@ -108,45 +59,40 @@ $(document).ready(function() {
   $('#diagram').click(diagram.click.bind(diagram));
   window.addEventListener('resize', diagram.onCanvasResize.bind(diagram));
 
-  initializeIconButton('partButton',
-    [{active: false, value: 'lady', icon: 'human-female'}, {active: false, value: 'man', icon: 'human-male'}],
-    diagram.loadPattern.bind(diagram));
-  initializeIconButton('optionalButton',
-    [{active: true, icon: 'stairs'}, {active: false, icon: 'stairs'}],
-    diagram.loadPattern.bind(diagram));
-  initializeIconButton('mirrorButton',
-    [{active: false, icon: 'swap-horizontal'}, {active: true, icon: 'swap-horizontal'}],
-    diagram.loadPattern.bind(diagram));
-  initializeIconButton('rotateButton',
-    [{active: false, icon: 'rotate-left'}, {active: true, icon: 'rotate-left'}],
-    diagram.loadPattern.bind(diagram));
+  createIconButton = function(property, states) {
+    var stateIndex = 0,
+        elem = document.getElementById(property + 'Button'),
+        icon = document.createElement('i');
+    elem.appendChild(icon);
+    //Initialize state
+    elem.className = states[0].active ? 'active' : 'inactive';
+    icon.className = 'mdi mdi-' + states[0].icon;
+    diagram.initializeProperty(property, states[0].value || states[0].active);
+    //Bind click event
+    elem.addEventListener('click', function() {
+      stateIndex = (stateIndex + 1) % states.length;
+      elem.className = states[stateIndex].active ? 'active' : 'inactive';
+      icon.className = 'mdi mdi-' + states[stateIndex].icon;
+      diagram.controlEvent(property, states[stateIndex].value || states[stateIndex].active);
+    });
+  };
 
-  initializeIconButton('speedButton',
-    [{active: false, value: '100', icon: 'clock-fast'}, {active: true, value: '75', icon: 'clock-fast'}, {active: true, value: '50', icon: 'clock-fast'}],
-    diagram.adjustSpeed.bind(diagram));
-  initializeIconButton('beginningButton',
-    [{active: false, icon: 'page-first'}],
-    diagram.beginning.bind(diagram));
-  initializeIconButton('startPauseButton',
-    [{active: false, value: 'paused', icon: 'play'}, {active: false, value: 'playing', icon: 'pause'}],
-    diagram.toggleStartPause.bind(diagram));
-  initializeIconButton('previousButton',
-    [{active: false, icon: 'chevron-left'}],
-    diagram.previous.bind(diagram));
-  initializeIconButton('nextButton',
-    [{active: false, icon: 'chevron-right'}],
-    diagram.next.bind(diagram));
+  createIconButton('part', [{active: false, value: 'lady', icon: 'human-female'}, {active: false, value: 'man', icon: 'human-male'}]);
+  createIconButton('optional', [{active: true, value: 'yes', icon: 'stairs'}, {active: false, value: 'no', icon: 'stairs'}]);
+  createIconButton('mirror', [{active: false, icon: 'swap-horizontal'}, {active: true, icon: 'swap-horizontal'}]);
+  createIconButton('rotate', [{active: false, icon: 'rotate-left'}, {active: true, icon: 'rotate-left'}]);
 
-  initializeIconButton('stepButton',
-    [{active: true, icon: 'format-list-bulleted'}, {active: false, icon: 'format-list-bulleted'}],
-    diagram.drawPattern.bind(diagram));
-  initializeIconButton('numberButton',
-    [{active: false, icon: 'format-list-numbers'}, {active: true, icon: 'format-list-numbers'}],
-    diagram.drawPattern.bind(diagram));
-  initializeIconButton('countButton',
-    [{active: true, icon: 'clock'}, {active: false, icon: 'clock'}],
-    diagram.drawPattern.bind(diagram));
-  initializeIconButton('holdButton',
-    [{active: false, icon: 'human-male-female'}, {active: true, icon: 'human-male-female'}],
-    diagram.drawPattern.bind(diagram));
+  createIconButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
+  createIconButton('beginning', [{active: false, icon: 'page-first'}]);
+  createIconButton('startPause', [{active: false, icon: 'play'}, {active: false, icon: 'pause'}]);
+  createIconButton('previous', [{active: false, icon: 'chevron-left'}]);
+  createIconButton('next', [{active: false, icon: 'chevron-right'}]);
+
+  createIconButton('step', [{active: true, icon: 'format-list-bulleted'}, {active: false, icon: 'format-list-bulleted'}]);
+  createIconButton('number', [{active: false, icon: 'format-list-numbers'}, {active: true, icon: 'format-list-numbers'}]);
+  createIconButton('count', [{active: true, icon: 'clock'}, {active: false, icon: 'clock'}]);
+  createIconButton('hold', [{active: false, icon: 'human-male-female'}, {active: true, icon: 'human-male-female'}]);
+
+  diagram.onCanvasResize();
+  diagram.loadDance();
 });
