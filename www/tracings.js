@@ -3,32 +3,35 @@
 
 //Create jQuery UI widgets and diagram
 $(document).ready(function() {
-  var canvasEl, controlsEl, diagram,
+  var canvasEl = document.getElementById('diagram'),
+      controlsEl = document.getElementById('controls'),
+      diagram = new IceDiagram(canvasEl),
       createIconButton, copyDanceUrlToSelect, copyDanceSelectToUrl, resizeCanvas;
+
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
+
+
 
   copyDanceUrlToSelect = function() {
     if (window.location.hash) {
       $('#danceSelect').val(window.location.hash.substr(1));
       $('#danceSelect').selectmenu('refresh');
+      diagram.controlEvent('dance', $('#danceSelect').val());
     }
   };
 
-  canvasEl = document.getElementById('diagram');
-  controlsEl = document.getElementById('controls');
-  diagram = new IceDiagram(canvasEl);
   //Select dance from URL before creating widget and loading diagram
   //TODO handle invalid values
   copyDanceUrlToSelect();
-  diagram.controlEvent('dance', $('#danceSelect').val());
 
   copyDanceSelectToUrl = function() {
-    var danceHash = '#' + $('#danceSelect').val();
+    var dance = $('#danceSelect').val();
     if (window.history.pushState) {
-      window.history.pushState(null, null, danceHash);
+      window.history.pushState(null, null, '#' + dance);
     } else {
-      window.location.hash = danceHash;
+      window.location.hash = '#' + dance;
     }
+    diagram.controlEvent('dance', dance);
   }
   //Copy default dance to URL if none specified initally
   if (!window.location.hash) {
@@ -36,14 +39,8 @@ $(document).ready(function() {
   }
 
   //Bind control events
-  $('#danceSelect').on('selectmenuchange', function() {
-    copyDanceSelectToUrl();
-    diagram.controlEvent('dance', $(this).val());
-  });
-  window.addEventListener('popstate', function() {
-    copyDanceUrlToSelect();
-    diagram.loadDance();
-  });
+  $('#danceSelect').on('selectmenuchange', copyDanceSelectToUrl);
+  window.addEventListener('popstate', copyDanceUrlToSelect);
 
   resizeCanvas = function() {
     var width, height,
