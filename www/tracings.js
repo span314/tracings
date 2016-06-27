@@ -26,8 +26,8 @@ $(document).ready(function() {
     _countButton: document.getElementById('countButton'),
     _holdButton: document.getElementById('holdButton'),
     _speedButton: document.getElementById('speedButton'),
+    _controlContainer: document.getElementById('controls'),
     _$danceSelect: $('#danceSelect'),
-    _$controls: $('#controls'),
 
     optional: function() {
       return this._optionalButton.className === 'active';
@@ -74,7 +74,7 @@ $(document).ready(function() {
     },
 
     resize: function(width) {
-      this._$controls.width(width);
+      this._controlContainer.width = width;
     },
 
     speed: function() {
