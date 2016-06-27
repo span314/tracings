@@ -3,7 +3,8 @@
 
 //Create jQuery UI widgets and diagram
 $(document).ready(function() {
-  var copyDanceUrlToSelect, copyDanceSelectToUrl, canvasEl, diagram, createIconButton;
+  var canvasEl, controlsEl, diagram,
+      createIconButton, copyDanceUrlToSelect, copyDanceSelectToUrl, resizeCanvas;
   $('#danceSelect').selectmenu({position: {collision: 'flip'}});
 
   copyDanceUrlToSelect = function() {
@@ -14,6 +15,7 @@ $(document).ready(function() {
   };
 
   canvasEl = document.getElementById('diagram');
+  controlsEl = document.getElementById('controls');
   diagram = new IceDiagram(canvasEl);
   //Select dance from URL before creating widget and loading diagram
   //TODO handle invalid values
@@ -43,12 +45,34 @@ $(document).ready(function() {
     diagram.loadDance();
   });
 
-  window.addEventListener('resize', function() {
-    diagram.onCanvasResize();
-    document.getElementById('controls').setAttribute('style', 'width:' + canvasEl.width + 'px;');
-  });
+  resizeCanvas = function() {
+    var width, height,
+        availableWidth = Math.max(window.innerWidth - 16, 0),
+        availableHeight = Math.max(window.innerHeight - 108, 0),
+        aspectRatio = availableWidth / availableHeight;
+    if (aspectRatio > 1.8) {
+      //height limited
+      height = availableHeight;
+      width = 1.8 * height;
+    } else {
+      //width limited
+      width = availableWidth;
+      height = width / 1.8;
+    }
+    if (width < 800) {
+      width = 800;
+      height = 800 / 1.8;
+    }
 
-  document.getElementById('diagram').addEventListener('click', function(e) {
+    canvasEl.width = width;
+    canvasEl.height = height;
+    controlsEl.setAttribute('style', 'width:' + width + 'px;');
+    diagram.controlEvent('resize');
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  canvasEl.addEventListener('click', function(e) {
     //Note: calcuating offsets from page, because Firefox does not have offsetX/offsetY in click events
     var bounds = this.getBoundingClientRect(),
         x = e.pageX - bounds.left - document.body.scrollLeft,
@@ -86,7 +110,5 @@ $(document).ready(function() {
   createIconButton('count', [{active: true, icon: 'clock'}, {active: false, icon: 'clock'}]);
   createIconButton('hold', [{active: false, icon: 'human-male-female'}, {active: true, icon: 'human-male-female'}]);
 
-  diagram.onCanvasResize();
-  document.getElementById('controls').setAttribute('style', 'width:' + canvasEl.width + 'px;');
   diagram.loadDance();
 });

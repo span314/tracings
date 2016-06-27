@@ -50,6 +50,9 @@
       case 'click':
         this._click();
         break;
+      case 'resize':
+        this._resize();
+        break;
       case 'dance':
         this.loadDance();
         break;
@@ -65,29 +68,15 @@
   };
 
   IceDiagram.prototype.onCanvasResize = function() {
-    var width, height, bounds,
-        availableWidth = Math.max(window.innerWidth - 16, 0),
-        availableHeight = Math.max(window.innerHeight - 108, 0),
-        aspectRatio = availableWidth / availableHeight;
-    if (aspectRatio > 1.8) {
-      //height limited
-      height = availableHeight;
-      width = 1.8 * height;
-    } else {
-      //width limited
-      width = availableWidth;
-      height = width / 1.8;
-    }
-    if (width < 800) {
-      width = 800;
-      height = 800 / 1.8;
-    }
 
-    this._canvasElement.width = width;
-    this._canvasElement.height = height;
-    this._centerX = width / 2;
-    this._centerY = height / 2;
-    this._scaleFactor = 0.92 * width / 1024;
+
+    this._resize();
+  };
+
+  IceDiagram.prototype._resize = function() {
+    this._centerX = this._canvasElement.width / 2;
+    this._centerY = this._canvasElement.height / 2;
+    this._scaleFactor = 0.92 * this._canvasElement.width / 1024;
     this._labelFont =  Math.floor(13 * this._scaleFactor) + 'px Arial';
     this._titleFont = Math.floor(18 * this._scaleFactor) + 'px Arial';
 
