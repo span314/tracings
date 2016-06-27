@@ -74,7 +74,7 @@ $(document).ready(function() {
     },
 
     resize: function(width) {
-      this._controlContainer.width = width;
+      this._controlContainer.setAttribute('style', 'width:' + width + 'px;');
     },
 
     speed: function() {
@@ -101,12 +101,12 @@ $(document).ready(function() {
     copyDanceSelectToUrl();
     diagram.loadDance();
   });
-  $(window).on('popstate', function() {
+  window.addEventListener('popstate', function() {
     copyDanceUrlToSelect();
     diagram.loadDance();
   });
   $('#diagram').click(diagram.click.bind(diagram));
-  $(window).resize(diagram.onCanvasResize.bind(diagram));
+  window.addEventListener('resize', diagram.onCanvasResize.bind(diagram));
 
   initializeIconButton('partButton',
     [{active: false, value: 'lady', icon: 'human-female'}, {active: false, value: 'man', icon: 'human-male'}],
