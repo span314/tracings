@@ -1,6 +1,7 @@
 'use strict';
-//Version 0.1-RC3 | Load widgets and bind events | Software (c) Shawn Pan | Target IE9+
-
+/*!
+Load widgets and bind events v0.1-RC4 | Software Copyright (c) Shawn Pan
+*/
 //Create jQuery UI widgets and diagram
 $(document).ready(function() {
   var canvasEl = document.getElementById('diagram'),

@@ -1,3 +1,6 @@
+/*!
+Selectator jQuery Plugin v2.2 | Copyright (c) 2013 Faroe Media | MIT License <link>
+*/
 /*
  Selectator jQuery Plugin
  A plugin for select elements
@@ -72,8 +75,8 @@
 			down:     40
 		};
 
-		
-		
+
+
 		// INITIALIZE PLUGIN
 		plugin.init = function () {
 			plugin.settings = $.extend({}, defaults, options);
@@ -306,7 +309,7 @@
 				$container_element.removeClass('focused');
 				hideDropdown();
 			});
-			
+
 
 			// bind option events
 			$container_element.delegate('.' + plugin.settings.prefix + 'option', 'mouseover', function (e) {
@@ -451,7 +454,7 @@
 			});
 			search();
 		};
-		
+
 
 		// CREATE RESULT OPTION
 		var createOption = function (isGroupOption) {
@@ -495,8 +498,8 @@
 
 			return $option;
 		};
-		
-		
+
+
 		// SEARCH
 		var search = function () {
 			// bool true if search field is considered empty
@@ -511,16 +514,16 @@
 				var source_option_element = $this.data('source_option_element');
 				// show if:
 				// (item is not selected  or  if single select)
-				// and 
+				// and
 				//     use search
 				//         and search is empty  or  text matches the input box
 				//     or not using search
 				if (
-					(!source_option_element.selected || is_single) 
+					(!source_option_element.selected || is_single)
 					&& (
 						plugin.settings.useSearch
 						&& (
-							searchIsEmpty 
+							searchIsEmpty
 							|| $(source_option_element).html().toLowerCase().indexOf(searchFor) !== -1
 						)
 						|| !plugin.settings.useSearch
@@ -632,11 +635,11 @@
 			}
 		};
 
-		
+
 		// Initialize plugin
 		plugin.init();
 	};
-	
+
 	$.fn.selectator = function(options) {
 		options = options !== undefined ? options : {};
 		return this.each(function () {

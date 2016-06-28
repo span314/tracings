@@ -1,5 +1,7 @@
 'use strict';
-//Version 0.1-RC3 | Ice Diagram Widget | Software (c) Shawn Pan | Target IE9+
+/*!
+Ice Diagram Widget v0.1-RC4 | Software Copyright (c) Shawn Pan
+*/
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
