@@ -1,2 +1,2 @@
 #!/bin/sh
-uglifyjs www/tracings.js www/icediagram.js --output www/tracings-all.min.js --compress drop-console --mangle --screw-ie8 --comments "/^Version/" --verbose --source-map www/tracings-all.min.js.map --prefix relative --mangle-props --mangle-regex="/^_/" --reserve-domprops
+uglifyjs www/tracings.js www/icediagram.js www/lib/selectator/fm.selectator.jquery.js --output www/tracings-all.min.js --compress drop-console --mangle --screw-ie8 --comments "/.*\(c\).*/" --verbose --source-map www/tracings-all.min.js.map --prefix relative --mangle-props --mangle-regex="/^_/" --reserve-domprops
