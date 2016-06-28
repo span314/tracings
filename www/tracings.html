@@ -5,21 +5,21 @@
 
   <title>Ice Dance Diagrams</title>
 <!--
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css">
+  <link rel="stylesheet" href="fm.selectator.jquery.min.css">
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="style.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="fm.selectator.jquery.js"></script>
   <script src="tracings-all.min.js"></script>
  -->
 
-  <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.css">
+  <link rel="stylesheet" href="lib/selectator/fm.selectator.jquery.css">
   <link rel="stylesheet" href="lib/MaterialDesign-Webfont-master/css/materialdesignicons.css">
   <link rel="stylesheet" href="style.css">
 
   <script src="lib/jquery.min.js"></script>
-  <script src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+  <script src="lib/selectator/fm.selectator.jquery.js"></script>
   <script src="icediagram.js"></script>
   <script src="tracings.js"></script>
 
@@ -33,37 +33,31 @@
 
   <div id="diagramContainer">
     <canvas id="diagram"></canvas>
-    <div id="controls" class="ui-widget-header ui-corner-all">
+    <div id="controls">
       <select id="danceSelect">
-        <option value="dutch_waltz">Dutch Waltz</option>
-        <option value="canasta_tango">Canasta Tango</option>
-        <option value="rhythm_blues">Rhythm Blues</option>
-
-        <option value="swing_dance">Swing Dance</option>
-        <option value="cha_cha">Cha Cha</option>
-        <option value="fiesta_tango">Fiesta Tango</option>
-
-        <option value="hickory_hoedown">Hickory Hoedown</option>
-        <option value="willow_waltz" selected="true">Willow Waltz</option>
-        <option value="ten_fox">Ten-Fox</option>
-
-        <option value="fourteenstep">Fourteenstep</option>
-        <option value="european_waltz">European Waltz</option>
-        <option value="foxtrot">Foxtrot</option>
-
-        <option value="american_waltz">American Waltz</option>
-        <option value="tango">Tango</option>
-        <option value="rocker_foxtrot">Rocker Foxtrot</option>
-
-        <option value="kilian">Kilian</option>
-        <option value="blues">Blues</option>
-        <option value="paso_doble">Paso Doble</option>
-        <option value="starlight_waltz">Starlight Waltz</option>
-
-        <option value="viennese_waltz">Viennese Waltz</option>
-        <option value="westminster_waltz">Westminster Waltz</option>
-        <option value="quickstep">Quickstep</option>
-        <option value="argentine_tango">Argentine Tango</option>
+        <option value="american_waltz" data-subtitle="Silver">American Waltz</option>
+        <option value="argentine_tango" data-subtitle="Gold">Argentine Tango</option>
+        <option value="blues" data-subtitle="Pre-Gold">Blues</option>
+        <option value="canasta_tango" data-subtitle="Preliminary">Canasta Tango</option>
+        <option value="cha_cha" data-subtitle="Pre-Bronze">Cha Cha</option>
+        <option value="dutch_waltz" data-subtitle="Preliminary">Dutch Waltz</option>
+        <option value="european_waltz" data-subtitle="Pre-Silver">European Waltz</option>
+        <option value="fiesta_tango" data-subtitle="Pre-Bronze">Fiesta Tango</option>
+        <option value="fourteenstep" data-subtitle="Pre-Silver">Fourteenstep</option>
+        <option value="foxtrot" data-subtitle="Pre-Silver">Foxtrot</option>
+        <option value="hickory_hoedown" data-subtitle="Bronze">Hickory Hoedown</option>
+        <option value="kilian" data-subtitle="Pre-Gold">Kilian</option>
+        <option value="paso_doble" data-subtitle="Pre-Gold">Paso Doble</option>
+        <option value="quickstep" data-subtitle="Gold">Quickstep</option>
+        <option value="rhythm_blues" data-subtitle="Preliminary">Rhythm Blues</option>
+        <option value="rocker_foxtrot" data-subtitle="Silver">Rocker Foxtrot</option>
+        <option value="starlight_waltz" data-subtitle="Pre-Gold">Starlight Waltz</option>
+        <option value="swing_dance" data-subtitle="Pre-Bronze">Swing Dance</option>
+        <option value="tango" data-subtitle="Silver">Tango</option>
+        <option value="ten_fox" data-subtitle="Bronze">Ten-Fox</option>
+        <option value="viennese_waltz" data-subtitle="Gold">Viennese Waltz</option>
+        <option value="westminster_waltz" data-subtitle="Gold">Westminster Waltz</option>
+        <option value="willow_waltz" data-subtitle="Bronze" selected="true">Willow Waltz</option>
       </select>
 
       <span class="button-set">

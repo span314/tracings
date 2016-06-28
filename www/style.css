@@ -4,14 +4,21 @@ canvas {
 
 #controls {
   width: 1024px;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  background: #cccccc;
+  color: #222222;
+  font-weight: bold;
 }
 
-#controls select {
-  width: 256px;
+#danceSelect {
+  width: 16em;
 }
 
-#controls .ui-selectmenu-button {
-  vertical-align: middle;
+#selectator_danceSelect {
+  background: #e6e6e6;
+  height: 3em;
+  padding: 1em !important;
 }
 
 .mdi {

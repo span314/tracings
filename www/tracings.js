@@ -5,41 +5,25 @@
 $(document).ready(function() {
   var canvasEl = document.getElementById('diagram'),
       controlsEl = document.getElementById('controls'),
-      $select = $('#danceSelect').selectmenu({position: {collision: 'flip'}}),
+      selectEl = document.getElementById('danceSelect'),
+      $select = $(selectEl),
       diagram = new IceDiagram(canvasEl),
-      runAndAddListener, createIconButton, copyDanceSelectToUrl;
+      runAndAddListener, createIconButton;
+
+  if (window.location.hash) {
+    selectEl.value = window.location.hash.substr(1);
+  }
+  diagram.controlEvent('dance', selectEl.value);
+
+  $select.selectator();
+  $select.change(function() {
+    diagram.controlEvent('dance', $select.val());
+  });
 
   runAndAddListener = function(elem, event, handler) {
     handler();
     elem.addEventListener(event, handler);
   };
-
-  runAndAddListener(window, 'popstate', function() {
-    //Copy dance from url to select and reload
-    var dance;
-    if (window.location.hash) {
-      dance = window.location.hash.substr(1);
-      //TODO handle invalid values
-      $select.val(dance);
-      $select.selectmenu('refresh');
-      diagram.controlEvent('dance', dance);
-    }
-  });
-
-  copyDanceSelectToUrl = function() {
-    var dance = $select.val();
-    if (window.history.pushState) {
-      window.history.pushState(null, null, '#' + dance);
-    } else {
-      window.location.hash = '#' + dance;
-    }
-    diagram.controlEvent('dance', dance);
-  }
-  //Copy default dance to URL if none specified initally
-  if (!window.location.hash) {
-    copyDanceSelectToUrl();
-  }
-  $select.on('selectmenuchange', copyDanceSelectToUrl);
 
   runAndAddListener(window, 'resize', function() {
     var width, height,
