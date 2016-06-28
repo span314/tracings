@@ -2,23 +2,20 @@
 /*!
 Load widgets and bind events v0.1-RC4 | Software Copyright (c) Shawn Pan
 */
-//Create jQuery UI widgets and diagram
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
   var canvasEl = document.getElementById('diagram'),
       controlsEl = document.getElementById('controls'),
-      selectEl = document.getElementById('danceSelect'),
-      $select = $(selectEl),
+      danceSelectEl = document.getElementById('danceSelect'),
+      danceSelect = new Select({el: danceSelectEl}),
       diagram = new IceDiagram(canvasEl),
       runAndAddListener, createIconButton;
 
   if (window.location.hash) {
-    selectEl.value = window.location.hash.substr(1);
+    danceSelect.change(window.location.hash.substr(1));
   }
-  diagram.controlEvent('dance', selectEl.value);
-
-  $select.selectator();
-  $select.change(function() {
-    diagram.controlEvent('dance', $select.val());
+  diagram.controlEvent('dance', danceSelect.value);
+  danceSelectEl.addEventListener('change', function() {
+    diagram.controlEvent('dance', danceSelect.value);
   });
 
   runAndAddListener = function(elem, event, handler) {

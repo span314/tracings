@@ -15,6 +15,10 @@ canvas {
   width: 16em;
 }
 
+.select-target, .select {
+  min-width: 16em;
+}
+
 #selectator_danceSelect {
   background: #e6e6e6;
   height: 3em;
