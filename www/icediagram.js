@@ -360,6 +360,7 @@
           position.hold = component.hold;
           position.index = component.index;
           position.step = component.step;
+          position.beats = component.beats;
           //Generate paths
           position.paths = [];
           for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
