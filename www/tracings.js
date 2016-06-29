@@ -10,18 +10,39 @@ document.addEventListener('DOMContentLoaded', function() {
       diagram = new IceDiagram(canvasEl),
       runAndAddListener, createIconButton;
 
-  if (window.location.hash) {
-    danceSelect.change(window.location.hash.substr(1));
-  }
-  diagram.controlEvent('dance', danceSelect.value);
-  danceSelectEl.addEventListener('change', function() {
-    diagram.controlEvent('dance', danceSelect.value);
-  });
-
   runAndAddListener = function(elem, event, handler) {
     handler();
     elem.addEventListener(event, handler);
   };
+
+  //Initialize select and url hash to match
+  if (window.location.hash) { //Try dance from URL first
+    danceSelect.change(window.location.hash.substr(1));
+  } else if (window.history.pushState) { //Otherwise push default to URL
+    window.history.pushState(null, null, '#' + danceSelect.value);
+  } else { //IE support
+    window.location.hash = '#' + danceSelect.value;
+  }
+  diagram.controlEvent('dance', danceSelect.value);
+
+  danceSelectEl.addEventListener('change', function() {
+    var danceHash = '#' + danceSelect.value;
+    diagram.controlEvent('dance', danceSelect.value);
+    if (window.location.hash !== danceHash) {
+      if (window.history.pushState) {
+        window.history.pushState(null, null, danceHash);
+      } else { //IE support
+        window.location.hash = danceHash;
+      }
+    }
+  });
+
+  window.addEventListener('popstate', function() {
+    if (window.location.hash) {
+      danceSelect.change(window.location.hash.substr(1));
+      diagram.controlEvent('dance', danceSelect.value);
+    }
+  });
 
   runAndAddListener(window, 'resize', function() {
     var width, height,
