@@ -1,6 +1,6 @@
 'use strict';
 /*!
-Load widgets and bind events v0.1-RC4 | Software Copyright (c) Shawn Pan
+Load widgets and bind events v0.1-RC5 | Software Copyright (c) Shawn Pan
 */
 document.addEventListener('DOMContentLoaded', function() {
   var canvasEl = document.getElementById('diagram'),
