@@ -1,5 +1,5 @@
 /*!
-tether-select 1.1.1 | Copyright (c) 2013 HubSpot, Inc. | License MIT https://github.com/HubSpot/select
+tether-select 1.1.1.1 | Copyright (c) 2013 HubSpot, Inc. | License MIT https://github.com/HubSpot/select
 */
 /*
 Copyright (c) 2013 HubSpot, Inc.
@@ -52,7 +52,6 @@ var clickEvent = touchDevice ? 'touchstart' : 'click';
 function _useNative() {
   var innerWidth = window.innerWidth;
   var innerHeight = window.innerHeight;
-
   return touchDevice && (innerWidth <= 640 || innerHeight <= 640);
 }
 
@@ -451,7 +450,11 @@ var Select = (function (_Evented) {
 
       addClass(this.select, 'select-select');
 
-      this.select.addEventListener('change', this.update);
+      this.select.addEventListener('change', function() {
+        var widget = this.selectInstance;
+        widget.value = this.value
+        widget.update();
+      });
     }
   }, {
     key: 'bindMutationEvents',

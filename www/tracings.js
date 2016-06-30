@@ -46,17 +46,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   runAndAddListener(window, 'resize', function() {
     var width, height,
-        availableWidth = Math.max(window.innerWidth - 16, 0),
-        availableHeight = Math.max(window.innerHeight - 108, 0),
+        TARGET_ASPECT_RATIO = 1.85,
+        availableWidth = Math.min(window.innerWidth, window.outerWidth) - 16,
+        availableHeight = Math.min(window.innerHeight, window.outerHeight) - 64,
         aspectRatio = availableWidth / availableHeight;
-    if (aspectRatio > 1.8) {
+    if (aspectRatio > TARGET_ASPECT_RATIO) {
       //height limited
       height = availableHeight;
-      width = 1.8 * height;
+      width = TARGET_ASPECT_RATIO * height;
     } else {
       //width limited
       width = availableWidth;
-      height = width / 1.8;
+      height = width / TARGET_ASPECT_RATIO;
     }
 
     canvasEl.width = width;

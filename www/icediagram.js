@@ -82,6 +82,7 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
     this._scaleFactor = 0.92 * this._canvasElement.width / 1024;
     this._labelFont =  Math.floor(13 * this._scaleFactor) + 'px Arial';
     this._titleFont = Math.floor(18 * this._scaleFactor) + 'px Arial';
+    this._labelOffset = 13 * this._scaleFactor;
   };
 
   IceDiagram.prototype.loadDance = function() {
@@ -136,11 +137,11 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
     //Draw text
     ctx.font = this._titleFont;
     ctx.textBaseline = 'top';
-    ctx.fillText(currentPosition.desc, 10, 10);
+    ctx.fillText(currentPosition.desc, this._labelOffset, this._labelOffset);
 
     ctx.font = this._labelFont;
     ctx.textBaseline = 'bottom'
-    ctx.fillText(this._playbackSpeedText, 10, this._canvasElement.height - 10);
+    ctx.fillText(this._playbackSpeedText, this._labelOffset, this._canvasElement.height - this._labelOffset);
 
     ctx.save();
     ctx.translate(this._centerX, this._centerY);
@@ -154,9 +155,9 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
 
       ctx.save();
       if (position.lapIndex !== currentPosition.lapIndex) {
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 1;
       } else if (position === currentPosition) {
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 3;
         if (beat === 1 && fracBeat === 0) {
           ctx.strokeStyle = 'rgb(0,220,0)';
         } else if (fracBeat === 0) {
@@ -165,10 +166,10 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
           ctx.strokeStyle = 'rgb(0,180,0)';
         }
       } else if (position.group && position.group === currentPosition.group) {
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 3;
         ctx.strokeStyle = 'rgb(0,120,0)';
       } else {
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2;
       }
 
       for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
@@ -192,7 +193,7 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = 'rgb(0,100,255)';
-          IceDiagram.drawTextOnPath(ctx, labelText, position.paths[0], 12);
+          IceDiagram.drawTextOnPath(ctx, labelText, position.paths[0], this._labelOffset);
         }
         //Draw hold and count
         labelList = [];
@@ -206,7 +207,7 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = 'rgb(255,100,0)';
-          IceDiagram.drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -12);
+          IceDiagram.drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -this._labelOffset);
         }
       }
       ctx.restore();
