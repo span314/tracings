@@ -58,10 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
       width = availableWidth;
       height = width / 1.8;
     }
-    if (width < 800) {
-      width = 800;
-      height = 800 / 1.8;
-    }
 
     canvasEl.width = width;
     canvasEl.height = height;
