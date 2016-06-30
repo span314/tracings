@@ -244,27 +244,15 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._beginning = function() {
-    this._pause();
-    this._position = 0;
-    this._stepTickCount = 0;
-    this._drawPattern();
+    this._movePosition(0);
   };
 
   IceDiagram.prototype._previous = function() {
-    this._pause();
-    this._shiftPosition(-1);
-    this._drawPattern();
+    this._movePosition(this._position === 0 ? this._patternPositions.length - 1 : this._position - 1);
   };
 
   IceDiagram.prototype._next = function() {
-    this._pause();
-    this._shiftPosition(1);
-    this._drawPattern();
-  };
-
-  IceDiagram.prototype._shiftPosition = function(amount) {
-    this._position = (this._position + this._patternPositions.length + amount) % this._patternPositions.length;
-    this._stepTickCount = 0;
+    this._movePosition(this._position === this._patternPositions.length - 1 ? 0 : this._position + 1);
   };
 
   IceDiagram.prototype._movePosition = function(index) {
@@ -322,7 +310,8 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._tick = function() {
     this._stepTickCount++;
     if (this._stepTickCount >= this._patternPositions[this._position].duration) {
-      this._shiftPosition(1);
+      this._position = (this._position === this._patternPositions.length - 1 ? 0 : this._position + 1);
+      this._stepTickCount = 0;
     }
     this._drawPattern();
   };
