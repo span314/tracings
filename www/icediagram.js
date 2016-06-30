@@ -79,10 +79,12 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._resize = function() {
     this._centerX = this._canvasElement.width / 2;
     this._centerY = this._canvasElement.height / 2;
-    this._scaleFactor = 0.92 * this._canvasElement.width / 1024;
-    this._labelFont =  Math.floor(13 * this._scaleFactor) + 'px Arial';
-    this._titleFont = Math.floor(18 * this._scaleFactor) + 'px Arial';
-    this._labelOffset = 13 * this._scaleFactor;
+    this._scaleFactor = Math.max(0.92 * this._canvasElement.width / 1024, 0.8);
+    this._zoomed = (this._scaleFactor <= 0.8);
+    this._fontFactor = Math.sqrt(this._scaleFactor);
+    this._labelFont =  Math.floor(14 * this._fontFactor) + 'px Arial';
+    this._titleFont = Math.floor(16 * this._fontFactor) + 'px Arial';
+    this._labelOffset = 12 * this._fontFactor;
   };
 
   IceDiagram.prototype.loadDance = function() {
@@ -120,6 +122,21 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
     this._beginning();
   };
 
+  IceDiagram.prototype._getCenter = function() {
+    if (this._zoomed) {
+      //Center around active step
+      var centerCurrent = this._patternPositions[this._position].paths[0].value,
+          centerNext = this._patternPositions[this._nextIndex()].paths[0].value,
+          weight = this._stepTickCount / this._patternPositions[this._position].duration,
+          activeX = centerCurrent[0] * (1 - weight) + centerNext[0] * weight,
+          activeY = centerCurrent[1] * (1 - weight) + centerNext[1] * weight;
+          return [this._centerX - activeX, this._centerY - activeY];
+    } else {
+      //Can see whole rink, center at middle of rink
+      return [this._centerX, this._centerY];
+    }
+  }
+
   IceDiagram.prototype._drawPattern = function() {
     var path, positionIndex, pathIndex, position, labelList, labelText, count,
         showStep = this._controls.step,
@@ -134,17 +151,8 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
 
     ctx.clearRect(0, 0, this._canvasElement.width, this._canvasElement.height);
 
-    //Draw text
-    ctx.font = this._titleFont;
-    ctx.textBaseline = 'top';
-    ctx.fillText(currentPosition.desc, this._labelOffset, this._labelOffset);
-
-    ctx.font = this._labelFont;
-    ctx.textBaseline = 'bottom'
-    ctx.fillText(this._playbackSpeedText, this._labelOffset, this._canvasElement.height - this._labelOffset);
-
     ctx.save();
-    ctx.translate(this._centerX, this._centerY);
+    ctx.translate.apply(ctx, this._getCenter());
 
     //Draw rink
     this._drawRink();
@@ -213,6 +221,15 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
       ctx.restore();
     }
     ctx.restore();
+
+    //Draw text
+    ctx.font = this._titleFont;
+    ctx.textBaseline = 'top';
+    ctx.fillText(currentPosition.desc, this._labelOffset, this._labelOffset);
+
+    ctx.font = this._labelFont;
+    ctx.textBaseline = 'bottom'
+    ctx.fillText(this._playbackSpeedText, this._labelOffset, this._canvasElement.height - this._labelOffset);
   };
 
   IceDiagram.prototype._drawRink = function() {
@@ -252,7 +269,11 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._next = function() {
-    this._movePosition(this._position === this._patternPositions.length - 1 ? 0 : this._position + 1);
+    this._movePosition(this._nextIndex());
+  };
+
+  IceDiagram.prototype._nextIndex = function() {
+    return this._position === this._patternPositions.length - 1 ? 0 : this._position + 1;
   };
 
   IceDiagram.prototype._movePosition = function(index) {
@@ -310,14 +331,15 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._tick = function() {
     this._stepTickCount++;
     if (this._stepTickCount >= this._patternPositions[this._position].duration) {
-      this._position = (this._position === this._patternPositions.length - 1 ? 0 : this._position + 1);
+      this._position = this._nextIndex();
       this._stepTickCount = 0;
     }
     this._drawPattern();
   };
 
   IceDiagram.prototype._click = function() {
-    var point = [this._controls.click[0] - this._centerX, this._controls.click[1] - this._centerY],
+    var center = this._getCenter(),
+        point = [this._controls.click[0] - center[0], this._controls.click[1] - center[1]],
         nearest = IceDiagram.nearestNeighbor(point, this._positionSearchTree, 32 * this._scaleFactor);
     if (nearest >= 0) {
       this._movePosition(this._positionSearchTree[nearest][2]);
