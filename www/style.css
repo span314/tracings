@@ -11,10 +11,13 @@ canvas {
   font-weight: bold;
 }
 
-.select-target, .select {
-  min-width: 15em;
-  margin-left: 2px;
-  margin-right: 2px;
+#danceSelect {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: #eee;
+  font-size: 16pt;
+  padding-top: 0.24em;
+  padding-bottom: 0.12em;
 }
 
 .mdi {
@@ -27,8 +30,7 @@ canvas {
 
 .button-set button {
   display: inline-block;
-  padding: 0.25em 0.7em;
-  vertical-align: middle;
+  padding: 0.2em 0.6em;
   margin-right: -0.2em;
 }
 

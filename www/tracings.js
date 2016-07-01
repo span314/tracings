@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var canvasEl = document.getElementById('diagram'),
       controlsEl = document.getElementById('controls'),
       danceSelectEl = document.getElementById('danceSelect'),
-      danceSelect = new Select({el: danceSelectEl}),
+      //danceSelect = new Select({el: danceSelectEl}),
       diagram = new IceDiagram(canvasEl),
       runAndAddListener, createIconButton;
 
@@ -17,17 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //Initialize select and url hash to match
   if (window.location.hash) { //Try dance from URL first
-    danceSelect.change(window.location.hash.substr(1));
+    //danceSelect.change(window.location.hash.substr(1));
+    danceSelectEl.value = window.location.hash.substr(1);
   } else if (window.history.pushState) { //Otherwise push default to URL
-    window.history.pushState(null, null, '#' + danceSelect.value);
+    window.history.pushState(null, null, '#' + danceSelectEl.value);
   } else { //IE support
-    window.location.hash = '#' + danceSelect.value;
+    window.location.hash = '#' + danceSelectEl.value;
   }
-  diagram.controlEvent('dance', danceSelect.value);
+  diagram.controlEvent('dance', danceSelectEl.value);
 
   danceSelectEl.addEventListener('change', function() {
-    var danceHash = '#' + danceSelect.value;
-    diagram.controlEvent('dance', danceSelect.value);
+    var danceHash = '#' + danceSelectEl.value;
+    diagram.controlEvent('dance', danceSelectEl.value);
     if (window.location.hash !== danceHash) {
       if (window.history.pushState) {
         window.history.pushState(null, null, danceHash);
@@ -39,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('popstate', function() {
     if (window.location.hash) {
-      danceSelect.change(window.location.hash.substr(1));
-      diagram.controlEvent('dance', danceSelect.value);
+      //danceSelect.change(window.location.hash.substr(1));
+      danceSelectEl.value = window.location.hash.substr(1);
+      diagram.controlEvent('dance', danceSelectEl.value);
     }
   });
 
