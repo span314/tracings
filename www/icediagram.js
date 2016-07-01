@@ -153,6 +153,7 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
 
     ctx.save();
     ctx.translate.apply(ctx, this._getCenter());
+    ctx.font = this._labelFont;
 
     //Draw rink
     this._drawRink();
