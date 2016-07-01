@@ -451,9 +451,8 @@ var Select = (function (_Evented) {
       addClass(this.select, 'select-select');
 
       this.select.addEventListener('change', function() {
-        var widget = this.selectInstance;
-        widget.value = this.value
-        widget.update();
+        this.selectInstance.value = this.value
+        this.selectInstance.update();
       });
     }
   }, {
