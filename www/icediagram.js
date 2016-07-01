@@ -77,10 +77,19 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._resize = function() {
+    var TARGET_WIDTH = 1120,
+        ZOOM_WIDTH = 0.8 * TARGET_WIDTH;
     this._centerX = this._canvasElement.width / 2;
     this._centerY = this._canvasElement.height / 2;
-    this._scaleFactor = Math.max(0.92 * this._canvasElement.width / 1024, 0.8);
-    this._zoomed = (this._scaleFactor <= 0.8);
+    if (this._canvasElement.width > ZOOM_WIDTH) {
+      this._scaleFactor = this._canvasElement.width / TARGET_WIDTH;
+      this._zoomed = false;
+    } else {
+      this._scaleFactor = 0.8;
+      this._zoomed = true;
+      this._maxX = (ZOOM_WIDTH - this._canvasElement.width) / 2;
+      this._maxY = this._maxX / 1.85;
+    }
     this._fontFactor = Math.sqrt(this._scaleFactor);
     this._labelFont =  Math.floor(14 * this._fontFactor) + 'px Arial';
     this._titleFont = Math.floor(16 * this._fontFactor) + 'px Arial';
@@ -130,6 +139,8 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
           weight = this._stepTickCount / this._patternPositions[this._position].duration,
           activeX = centerCurrent[0] * (1 - weight) + centerNext[0] * weight,
           activeY = centerCurrent[1] * (1 - weight) + centerNext[1] * weight;
+          activeX = Math.min(Math.max(-this._maxX, activeX), this._maxX);
+          activeY = Math.min(Math.max(-this._maxY, activeY), this._maxY);
           return [this._centerX - activeX, this._centerY - activeY];
     } else {
       //Can see whole rink, center at middle of rink
