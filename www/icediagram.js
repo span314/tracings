@@ -91,8 +91,10 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
       this._maxY = this._maxX / 1.85;
     }
     this._fontFactor = Math.sqrt(this._scaleFactor);
-    this._labelFont =  Math.floor(14 * this._fontFactor) + 'px Arial';
-    this._titleFont = Math.floor(16 * this._fontFactor) + 'px Arial';
+    this._labelFontSize = Math.floor(14 * this._fontFactor);
+    this._labelFont =  this._labelFontSize + 'px Arial';
+    this._titleFontSize = Math.floor(16 * this._fontFactor);
+    this._titleFont = this._titleFontSize + 'px Arial';
     this._labelOffset = 12 * this._fontFactor;
   };
 
@@ -235,9 +237,15 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
     ctx.restore();
 
     //Draw text
+    ctx.save();
     ctx.font = this._titleFont;
     ctx.textBaseline = 'top';
+    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    ctx.fillRect(this._labelOffset, this._labelOffset, ctx.measureText(currentPosition.desc).width, this._titleFontSize);
+    ctx.fillStyle = 'rgb(0,0,0)';
     ctx.fillText(currentPosition.desc, this._labelOffset, this._labelOffset);
+    ctx.restore();
+
 
     ctx.font = this._labelFont;
     ctx.textBaseline = 'bottom'
