@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
   runAndAddListener(window, 'resize', function() {
     var width, height,
         TARGET_ASPECT_RATIO = 1.85,
-        availableWidth = Math.min(window.innerWidth, window.outerWidth) - 16,
-        availableHeight = Math.min(window.innerHeight, window.outerHeight) - 64,
+        availableWidth = window.innerWidth - 16,
+        availableHeight = window.innerHeight - 64,
         aspectRatio = availableWidth / availableHeight;
     if (aspectRatio > TARGET_ASPECT_RATIO) {
       //height limited
