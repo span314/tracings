@@ -356,7 +356,7 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._click = function() {
     var center = this._getCenter(),
         point = [this._controls.click[0] - center[0], this._controls.click[1] - center[1]],
-        nearest = IceDiagram.nearestNeighbor(point, this._positionSearchTree, 32 * this._scaleFactor);
+        nearest = IceDiagram.nearestNeighbor(point, this._positionSearchTree, 16 * this._scaleFactor);
     if (nearest >= 0) {
       this._movePosition(this._positionSearchTree[nearest][2]);
     }
@@ -543,39 +543,25 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   };
 
   //Creates a kd search tree of the paths in the list of positions
+  //Creates a point per tick including both end points--roughly
+  //means that longer steps have more guide points
   IceDiagram.positionTree = function(positions) {
-    var posIndex, paths, pathIndex,
+    var posIndex, position, pathIndex, cubic, point, t,
         points = [];
     for (posIndex = 0; posIndex < positions.length; posIndex++) {
-      paths = positions[posIndex].paths;
-      for (pathIndex = 0; pathIndex < paths.length; pathIndex++) {
-        var i, x, y,
-            c = paths[pathIndex].cubic,
-            cf = IceDiagram._CUBIC_COEFFS_8;
-        for (i = 0; i < cf.length; i = i + 4) {
-          x = c[0] * cf[i] + c[2] * cf[i+1] + c[4] * cf[i+2] + c[6] * cf[i+3];
-          y = c[1] * cf[i] + c[3] * cf[i+1] + c[5] * cf[i+2] + c[7] * cf[i+3];
-          points.push([x, y, posIndex]);
+      position = positions[posIndex];
+      for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
+        cubic = position.paths[pathIndex].cubic;
+        for (t = 0; t <= position.duration; t++) {
+          point = IceDiagram._cubicValueAt(cubic, t / position.duration);
+          point.push(posIndex);
+          points.push(point);
         }
       }
     }
     IceDiagram._kdTree(points);
     return points;
   };
-  //Cubic bezier coefficients for t=0 to t=8 in 1/8 increments
-  IceDiagram._CUBIC_COEFFS_8 = function() {
-    var i, t, ti,
-        coeffs = [];
-    for (i = 0; i <= 8; i++) {
-      t = i / 8;
-      ti = 1 - t;
-      coeffs.push(ti * ti * ti);
-      coeffs.push(3 * ti * ti * t);
-      coeffs.push(3 * ti * t * t);
-      coeffs.push(t * t * t);
-    }
-    return coeffs;
-  }();
   //Creates a 2D tree in-place for an array of points
   IceDiagram._kdTree = function(points) {
     IceDiagram._kdTreeHelper(points, 0, points.length, 0);
