@@ -30,6 +30,9 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
     this._active = false;
   };
 
+  IceDiagram._BASE_WIDTH = 740;
+  IceDiagram._BASE_HEIGHT = 400;
+
   IceDiagram.prototype.activate = function() {
     this._active = true;
     this._resize();
@@ -78,21 +81,17 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._resize = function() {
     var width = this._canvasElement.width,
-        height = this._canvasElement.height,
-        MIN_ZOOM = 0.75,
-        TARGET_ASPECT_RATIO = 1.85,
-        TARGET_WIDTH = 1120,
-        TARGET_HEIGHT = TARGET_WIDTH / TARGET_ASPECT_RATIO;
+        height = this._canvasElement.height;
 
-    this._scaleFactor = Math.max(width / height > TARGET_ASPECT_RATIO ? height / TARGET_HEIGHT : width / TARGET_WIDTH, MIN_ZOOM);
-    this._maxX = (MIN_ZOOM * TARGET_WIDTH - width) / 2;
-    this._maxY = (MIN_ZOOM * TARGET_HEIGHT - height) / 2;
+    this._scaleFactor = Math.max(width * IceDiagram._BASE_HEIGHT > height * IceDiagram._BASE_WIDTH ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
+    this._maxX = (IceDiagram._BASE_WIDTH - width) / 2;
+    this._maxY = (IceDiagram._BASE_HEIGHT - height) / 2;
     this._centerX = width / 2;
     this._centerY = height / 2;
     this._zoomed = this._maxX > 0;
-    this._labelFontSize = Math.floor(14 * this._scaleFactor);
+    this._labelFontSize = Math.floor(10 * this._scaleFactor);
     this._labelFont =  this._labelFontSize + 'px Arial';
-    this._labelOffset = 10 * this._scaleFactor;
+    this._labelOffset = 8 * this._scaleFactor;
   };
 
   IceDiagram.prototype.loadDance = function() {
@@ -253,7 +252,7 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._drawRink = function() {
     var ctx = this._canvasContext,
-        scale = this._scaleFactor * 512 / 30,
+        scale = IceDiagram._BASE_HEIGHT * this._scaleFactor * 17 / 600,
         halfWidth = 30.5 * scale,
         halfWidthStraight = 22 * scale,
         halfHeight = 15 * scale,
