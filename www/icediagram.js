@@ -77,25 +77,22 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._resize = function() {
-    var TARGET_WIDTH = 1120,
-        ZOOM_WIDTH = 0.8 * TARGET_WIDTH;
-    this._centerX = this._canvasElement.width / 2;
-    this._centerY = this._canvasElement.height / 2;
-    if (this._canvasElement.width > ZOOM_WIDTH) {
-      this._scaleFactor = this._canvasElement.width / TARGET_WIDTH;
-      this._zoomed = false;
-    } else {
-      this._scaleFactor = 0.8;
-      this._zoomed = true;
-      this._maxX = (ZOOM_WIDTH - this._canvasElement.width) / 2;
-      this._maxY = this._maxX / 1.85;
-    }
-    this._fontFactor = Math.sqrt(this._scaleFactor);
-    this._labelFontSize = Math.floor(14 * this._fontFactor);
+    var width = this._canvasElement.width,
+        height = this._canvasElement.height,
+        MIN_ZOOM = 0.75,
+        TARGET_ASPECT_RATIO = 1.85,
+        TARGET_WIDTH = 1120,
+        TARGET_HEIGHT = TARGET_WIDTH / TARGET_ASPECT_RATIO;
+
+    this._scaleFactor = Math.max(width / height > TARGET_ASPECT_RATIO ? height / TARGET_HEIGHT : width / TARGET_WIDTH, MIN_ZOOM);
+    this._maxX = (MIN_ZOOM * TARGET_WIDTH - width) / 2;
+    this._maxY = (MIN_ZOOM * TARGET_HEIGHT - height) / 2;
+    this._centerX = width / 2;
+    this._centerY = height / 2;
+    this._zoomed = this._maxX > 0;
+    this._labelFontSize = Math.floor(14 * this._scaleFactor);
     this._labelFont =  this._labelFontSize + 'px Arial';
-    this._titleFontSize = Math.floor(16 * this._fontFactor);
-    this._titleFont = this._titleFontSize + 'px Arial';
-    this._labelOffset = 12 * this._fontFactor;
+    this._labelOffset = 10 * this._scaleFactor;
   };
 
   IceDiagram.prototype.loadDance = function() {
@@ -237,17 +234,19 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
     ctx.restore();
 
     //Draw text
+    ctx.font = this._labelFont;
+
+
     ctx.save();
-    ctx.font = this._titleFont;
     ctx.textBaseline = 'top';
     ctx.fillStyle = 'rgba(255,255,255,0.75)';
-    ctx.fillRect(this._labelOffset, this._labelOffset, ctx.measureText(currentPosition.desc).width, this._titleFontSize);
+    ctx.fillRect(this._labelOffset, this._labelOffset, ctx.measureText(currentPosition.desc).width, this._labelFontSize);
     ctx.fillStyle = 'rgb(0,0,0)';
     ctx.fillText(currentPosition.desc, this._labelOffset, this._labelOffset);
     ctx.restore();
 
 
-    ctx.font = this._labelFont;
+
     ctx.textBaseline = 'bottom'
     ctx.fillText(this._playbackSpeedText, this._labelOffset, this._canvasElement.height - this._labelOffset);
   };

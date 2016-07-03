@@ -47,24 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   runAndAddListener(window, 'resize', function() {
-    var width, height,
-        TARGET_ASPECT_RATIO = 1.85,
-        availableWidth = window.innerWidth - 16,
-        availableHeight = window.innerHeight - 64,
-        aspectRatio = availableWidth / availableHeight;
-    if (aspectRatio > TARGET_ASPECT_RATIO) {
-      //height limited
-      height = availableHeight;
-      width = TARGET_ASPECT_RATIO * height;
-    } else {
-      //width limited
-      width = availableWidth;
-      height = width / TARGET_ASPECT_RATIO;
-    }
-
-    canvasEl.width = width;
-    canvasEl.height = height;
-    controlsEl.setAttribute('style', 'width:' + width + 'px;');
+    //TODO Figure out why this line is necessary to
+    //force update window.innerHeight on Android orientation change
+    //Match the width of canvas with that of the controls div (width:auto)
+    canvasEl.width = controlsEl.getBoundingClientRect().width;
+    //Show one or two lines of control buttons depending on window size
+    canvasEl.height = canvasEl.width < 480 ? window.innerHeight - 88 : window.innerHeight - 48;
+    //Recompute width in case scroll bar added after height change
+    canvasEl.width = controlsEl.getBoundingClientRect().width;
     diagram.controlEvent('resize');
   });
 

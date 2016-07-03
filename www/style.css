@@ -1,3 +1,7 @@
+body {
+  margin: 4px;
+}
+
 canvas {
   border: 1px solid #aaa;
   border-radius: 4px;
@@ -9,6 +13,7 @@ canvas {
   background: #ccc;
   color: #222;
   font-weight: bold;
+  width: auto;
 }
 
 #danceSelect {
