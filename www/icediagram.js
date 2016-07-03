@@ -88,7 +88,6 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
     this._maxY = (IceDiagram._BASE_HEIGHT - height) / 2;
     this._centerX = width / 2;
     this._centerY = height / 2;
-    this._zoomed = this._maxX > 0;
     this._labelFontSize = Math.floor(10 * this._scaleFactor);
     this._labelFont =  this._labelFontSize + 'px Arial';
     this._labelOffset = 8 * this._scaleFactor;
@@ -130,20 +129,19 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._getCenter = function() {
-    if (this._zoomed) {
-      //Center around active step
-      var centerCurrent = this._patternPositions[this._position].paths[0].value,
-          centerNext = this._patternPositions[this._nextIndex()].paths[0].value,
-          weight = this._stepTickCount / this._patternPositions[this._position].duration,
-          activeX = centerCurrent[0] * (1 - weight) + centerNext[0] * weight,
-          activeY = centerCurrent[1] * (1 - weight) + centerNext[1] * weight;
-          activeX = Math.min(Math.max(-this._maxX, activeX), this._maxX);
-          activeY = Math.min(Math.max(-this._maxY, activeY), this._maxY);
-          return [this._centerX - activeX, this._centerY - activeY];
-    } else {
-      //Can see whole rink, center at middle of rink
-      return [this._centerX, this._centerY];
+    var x = this._centerX,
+        y = this._centerY,
+        currentPosition = this._patternPositions[this._position],
+        activeCenter = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, this._stepTickCount / currentPosition.duration);
+
+    //Center around active step if zoomed in
+    if (this._maxX > 0) {
+      x -= Math.min(Math.max(-this._maxX, activeCenter[0]), this._maxX);
     }
+    if (this._maxY > 0) {
+      y -= Math.min(Math.max(-this._maxY, activeCenter[1]), this._maxY);
+    }
+    return [x, y];
   }
 
   IceDiagram.prototype._drawPattern = function() {
@@ -455,6 +453,17 @@ Ice Diagram Widget v0.1-RC5 | Software Copyright (c) Shawn Pan
     return result;
   };
 
+  //Calculate value of a cubic for parameter t
+  IceDiagram._cubicValueAt = function(c, t) {
+    var ti = 1 -t,
+        w1 = ti * ti * ti,
+        w2 = 3 * ti * ti * t,
+        w3 = 3 * ti * t * t,
+        w4 = t * t * t,
+        x = w1 * c[0] + w2 * c[2] + w3 * c[4] + w4 * c[6],
+        y = w1 * c[1] + w2 * c[3] + w3 * c[5] + w4 * c[7];
+    return [x, y];
+  }
   //Calculate normal vector of a cubic for parameter t
   IceDiagram._cubicNormalAt = function(cubic, t) {
     var dx = IceDiagram._cubicDerivatives(cubic[0], cubic[2], cubic[4], cubic[6], t),
