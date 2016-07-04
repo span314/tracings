@@ -80,15 +80,16 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   createIconButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
-  createIconButton('optional', [{active: true, value: 'yes'}, {active: false, value: 'no'}]);
-  createIconButton('mirror', [{active: false}, {active: true}]);
-  createIconButton('rotate', [{active: false}, {active: true}]);
 
-  createIconButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
   createIconButton('beginning', [{active: false}]);
   createIconButton('startPause', [{active: false}]);
   createIconButton('previous', [{active: false}]);
   createIconButton('next', [{active: false}]);
+
+  createIconButton('optional', [{active: true, value: 'yes'}, {active: false, value: 'no'}]);
+  createIconButton('mirror', [{active: false}, {active: true}]);
+  createIconButton('rotate', [{active: false}, {active: true}]);
+  createIconButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
 
   createIconButton('step', [{active: true}, {active: false}]);
   createIconButton('number', [{active: false}, {active: true}]);
