@@ -70,27 +70,30 @@ document.addEventListener('DOMContentLoaded', function() {
     var stateIndex = -1,
         elem = document.getElementById(property + 'Button');
     runAndAddListener(elem, 'click', function() {
+      var state, icon;
       stateIndex = (stateIndex + 1) % states.length;
-      elem.className = (states[stateIndex].active ? 'active' : 'inactive') + ' mdi mdi-' + states[stateIndex].icon;
-      diagram.controlEvent(property, states[stateIndex].value || states[stateIndex].active);
+      state = states[stateIndex];
+      icon = state.icon ? ' ' + state.icon : '';
+      elem.className = (state.active ? 'active' : 'inactive') + icon;
+      diagram.controlEvent(property, state.value || state.active);
     });
   };
 
-  createIconButton('part', [{active: false, value: 'lady', icon: 'human-female'}, {active: false, value: 'man', icon: 'human-male'}]);
-  createIconButton('optional', [{active: true, value: 'yes', icon: 'stairs'}, {active: false, value: 'no', icon: 'stairs'}]);
-  createIconButton('mirror', [{active: false, icon: 'swap-horizontal'}, {active: true, icon: 'swap-horizontal'}]);
-  createIconButton('rotate', [{active: false, icon: 'rotate-left'}, {active: true, icon: 'rotate-left'}]);
+  createIconButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
+  createIconButton('optional', [{active: true, value: 'yes'}, {active: false, value: 'no'}]);
+  createIconButton('mirror', [{active: false}, {active: true}]);
+  createIconButton('rotate', [{active: false}, {active: true}]);
 
   createIconButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
-  createIconButton('beginning', [{active: false, icon: 'page-first'}]);
-  createIconButton('startPause', [{active: false, icon: 'play-pause'}]);
-  createIconButton('previous', [{active: false, icon: 'chevron-left'}]);
-  createIconButton('next', [{active: false, icon: 'chevron-right'}]);
+  createIconButton('beginning', [{active: false}]);
+  createIconButton('startPause', [{active: false}]);
+  createIconButton('previous', [{active: false}]);
+  createIconButton('next', [{active: false}]);
 
-  createIconButton('step', [{active: true, icon: 'format-list-bulleted'}, {active: false, icon: 'format-list-bulleted'}]);
-  createIconButton('number', [{active: false, icon: 'format-list-numbers'}, {active: true, icon: 'format-list-numbers'}]);
-  createIconButton('count', [{active: true, icon: 'clock'}, {active: false, icon: 'clock'}]);
-  createIconButton('hold', [{active: false, icon: 'human-male-female'}, {active: true, icon: 'human-male-female'}]);
+  createIconButton('step', [{active: true}, {active: false}]);
+  createIconButton('number', [{active: false}, {active: true}]);
+  createIconButton('count', [{active: true}, {active: false}]);
+  createIconButton('hold', [{active: false}, {active: true}]);
 
   diagram.activate();
 });
