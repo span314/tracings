@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       danceSelectEl = document.getElementById('danceSelect'),
       //danceSelect = new Select({el: danceSelectEl}),
       diagram = new IceDiagram(canvasEl),
-      runAndAddListener, createIconButton;
+      runAndAddListener, createIconButton, createControlButton, createToggleButton;
 
   runAndAddListener = function(elem, event, handler) {
     handler();
@@ -66,6 +66,45 @@ document.addEventListener('DOMContentLoaded', function() {
     diagram.controlEvent('click', [x, y]);
   });
 
+  createControlButton = function(command) {
+    var elem = document.getElementById(command + 'Button');
+    elem.addEventListener('click', function() {
+      diagram.controlEvent(command);
+    });
+  };
+
+  createControlButton('beginning');
+  createControlButton('startPause');
+  createControlButton('previous');
+  createControlButton('next');
+
+  createToggleButton = function(command) {
+    var elem = document.getElementById(command + 'Button');
+    elem.addEventListener('click', function() {
+      var newState = (elem.getAttribute('data-active') !== 'true');
+      elem.setAttribute('data-active', newState);
+      diagram.controlEvent(command, newState);
+    });
+  };
+
+  createToggleButton('optional');
+  createToggleButton('mirror');
+  createToggleButton('rotate');
+
+  diagram.controlEvent('optional', true);
+  diagram.controlEvent('mirror', false);
+  diagram.controlEvent('rotate', false);
+
+  createToggleButton('step');
+  createToggleButton('number');
+  createToggleButton('count');
+  createToggleButton('hold');
+
+  diagram.controlEvent('step', true);
+  diagram.controlEvent('number', false);
+  diagram.controlEvent('count', true);
+  diagram.controlEvent('hold', false);
+
   createIconButton = function(property, states) {
     var stateIndex = -1,
         elem = document.getElementById(property + 'Button');
@@ -80,21 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   createIconButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
-
-  createIconButton('beginning', [{active: false}]);
-  createIconButton('startPause', [{active: false}]);
-  createIconButton('previous', [{active: false}]);
-  createIconButton('next', [{active: false}]);
-
-  createIconButton('optional', [{active: true, value: 'yes'}, {active: false, value: 'no'}]);
-  createIconButton('mirror', [{active: false}, {active: true}]);
-  createIconButton('rotate', [{active: false}, {active: true}]);
   createIconButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
-
-  createIconButton('step', [{active: true}, {active: false}]);
-  createIconButton('number', [{active: false}, {active: true}]);
-  createIconButton('count', [{active: true}, {active: false}]);
-  createIconButton('hold', [{active: false}, {active: true}]);
 
   diagram.activate();
 });

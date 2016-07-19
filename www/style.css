@@ -36,18 +36,15 @@ canvas {
   height: 36px;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.button-set button.active {
-  background-color: #fff;
-  border: 1px solid #aaa;
-  color: #222;
-}
-
-.button-set button.inactive {
   background-color: #eee;
   border: 1px solid #ddd;
   color: #666;
+}
+
+.button-set button.active, .button-set button[data-active="true"] {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  color: #222;
 }
 
 .button-set button:first-child {

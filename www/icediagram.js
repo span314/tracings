@@ -118,7 +118,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._loadPattern = function() {
-    var optionalFlag = this._controls.optional,
+    var optionalFlag = this._controls.optional ? 'yes' : 'no',
         mirrorFlag = this._controls.mirror,
         rotateFlag = this._controls.rotate,
         part = this._controls.part;
