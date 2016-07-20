@@ -46,18 +46,6 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
       return;
     }
     switch (eventType) {
-      case 'beginning':
-        this._beginning();
-        break;
-      case 'next':
-        this._next();
-        break;
-      case 'previous':
-        this._previous();
-        break;
-      case 'startPause':
-        this._startPause();
-        break;
       case 'click':
         this._click();
         break;
@@ -125,7 +113,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
     this._patternPositions = IceDiagram._generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
     this._positionSearchTree = IceDiagram._positionTree(this._patternPositions);
-    this._beginning();
+    this.beginning();
   };
 
   IceDiagram.prototype._getCenter = function() {
@@ -276,15 +264,15 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     ctx.restore();
   };
 
-  IceDiagram.prototype._beginning = function() {
+  IceDiagram.prototype.beginning = function() {
     this._movePosition(0);
   };
 
-  IceDiagram.prototype._previous = function() {
+  IceDiagram.prototype.previous = function() {
     this._movePosition(this._position === 0 ? this._patternPositions.length - 1 : this._position - 1);
   };
 
-  IceDiagram.prototype._next = function() {
+  IceDiagram.prototype.next = function() {
     this._movePosition(this._nextIndex());
   };
 
@@ -336,7 +324,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._playing = false;
   };
 
-  IceDiagram.prototype._startPause = function() {
+  IceDiagram.prototype.startPause = function() {
     if (this._playing) {
       this._pause();
     } else {

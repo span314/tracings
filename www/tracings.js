@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
       controlsEl = document.getElementById('controls'),
       danceSelectEl = document.getElementById('danceSelect'),
       diagram = new IceDiagram(canvasEl),
-      runAndAddListener, createIconButton, createControlButton, createToggleButton;
+      runAndAddListener, createIconButton, createToggleButton;
 
   runAndAddListener = function(elem, event, handler) {
     handler();
@@ -63,17 +63,22 @@ document.addEventListener('DOMContentLoaded', function() {
     diagram.controlEvent('click', [x, y]);
   });
 
-  createControlButton = function(command) {
-    var elem = document.getElementById(command + 'Button');
-    elem.addEventListener('click', function() {
-      diagram.controlEvent(command);
-    });
-  };
+  //Bind navigation control buttons
+  document.getElementById('beginningButton').addEventListener('click', function() {
+    diagram.beginning();
+  });
 
-  createControlButton('beginning');
-  createControlButton('startPause');
-  createControlButton('previous');
-  createControlButton('next');
+  document.getElementById('startPauseButton').addEventListener('click', function() {
+    diagram.startPause();
+  });
+
+  document.getElementById('previousButton').addEventListener('click', function() {
+    diagram.previous();
+  });
+
+  document.getElementById('nextButton').addEventListener('click', function() {
+    diagram.next();
+  });
 
   createToggleButton = function(command) {
     var elem = document.getElementById(command + 'Button');
