@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var canvasEl = document.getElementById('diagram'),
       controlsEl = document.getElementById('controls'),
       danceSelectEl = document.getElementById('danceSelect'),
-      //danceSelect = new Select({el: danceSelectEl}),
       diagram = new IceDiagram(canvasEl),
       runAndAddListener, createIconButton, createControlButton, createToggleButton;
 
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //Initialize select and url hash to match
   if (window.location.hash) { //Try dance from URL first
-    //danceSelect.change(window.location.hash.substr(1));
     danceSelectEl.value = window.location.hash.substr(1);
   } else if (window.history.pushState) { //Otherwise push default to URL
     window.history.pushState(null, null, '#' + danceSelectEl.value);
@@ -40,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('popstate', function() {
     if (window.location.hash) {
-      //danceSelect.change(window.location.hash.substr(1));
       danceSelectEl.value = window.location.hash.substr(1);
       diagram.controlEvent('dance', danceSelectEl.value);
     }
