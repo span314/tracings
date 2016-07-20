@@ -36,7 +36,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype.activate = function() {
     this._active = true;
     this._resize();
-    this.loadDance();
+    this._loadDance();
   };
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
@@ -66,7 +66,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
         this._loadPattern();
         break;
       case 'dance':
-        this.loadDance();
+        this._loadDance();
         break;
       case 'part': case 'optional': case 'mirror': case 'rotate':
         this._loadPattern();
@@ -93,7 +93,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._labelOffset = 8 * this._scaleFactor;
   };
 
-  IceDiagram.prototype.loadDance = function() {
+  IceDiagram.prototype._loadDance = function() {
     var widget = this,
         url = 'patterns/' + this._controls.dance + '.json',
         request = new XMLHttpRequest();
@@ -123,8 +123,8 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
         rotateFlag = this._controls.rotate,
         part = this._controls.part;
     console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
-    this._patternPositions = IceDiagram.generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
-    this._positionSearchTree = IceDiagram.positionTree(this._patternPositions);
+    this._patternPositions = IceDiagram._generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
+    this._positionSearchTree = IceDiagram._positionTree(this._patternPositions);
     this._beginning();
   };
 
@@ -209,7 +209,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = 'rgb(0,100,255)';
-          IceDiagram.drawTextOnPath(ctx, labelText, position.paths[0], this._labelOffset);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[0], this._labelOffset);
         }
         //Draw hold and count
         labelList = [];
@@ -223,7 +223,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = 'rgb(255,100,0)';
-          IceDiagram.drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -this._labelOffset);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -this._labelOffset);
         }
       }
       ctx.restore();
@@ -356,7 +356,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._click = function() {
     var center = this._getCenter(),
         point = [this._controls.click[0] - center[0], this._controls.click[1] - center[1]],
-        nearest = IceDiagram.nearestNeighbor(point, this._positionSearchTree, 16 * this._scaleFactor);
+        nearest = IceDiagram._nearestNeighbor(point, this._positionSearchTree, 16 * this._scaleFactor);
     if (nearest >= 0) {
       this._movePosition(this._positionSearchTree[nearest][2]);
     }
@@ -365,7 +365,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   //Static utility functions
 
   //Draw text next to a cubic path
-  IceDiagram.drawTextOnPath = function(ctx, text, path, offset) {
+  IceDiagram._drawTextOnPath = function(ctx, text, path, offset) {
     var x = path.value[0] + path.normal[0] * offset,
         y = path.value[1] + path.normal[1] * offset;
         ctx.textAlign = path.value[0] > x ? 'end' : 'start';
@@ -373,7 +373,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   };
 
   //Generate individual positions for a dance
-  IceDiagram.generatePositions = function(dance, part, optional, mirror, rotate, scaleFactor) {
+  IceDiagram._generatePositions = function(dance, part, optional, mirror, rotate, scaleFactor) {
     var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path, positionIndex, beatsLabel,
         positions = [],
         pattern = dance.patterns[part];
@@ -545,7 +545,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   //Creates a kd search tree of the paths in the list of positions
   //Creates a point per tick including both end points--roughly
   //means that longer steps have more guide points
-  IceDiagram.positionTree = function(positions) {
+  IceDiagram._positionTree = function(positions) {
     var posIndex, position, pathIndex, cubic, point, t,
         points = [];
     for (posIndex = 0; posIndex < positions.length; posIndex++) {
@@ -613,7 +613,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 
   //Find the nearest neighbor to a point given a kd search tree and a maximum allowed distance
   //Returns index into search tree of nearest point or -1 if no point within max distance
-  IceDiagram.nearestNeighbor = function(point, kdTree, maxDist) {
+  IceDiagram._nearestNeighbor = function(point, kdTree, maxDist) {
     return IceDiagram._nearestNeighborHelper(point, kdTree, 0, kdTree.length, 0, {index: -1, score: maxDist * maxDist}).index;
   };
   //Recursive helper function
