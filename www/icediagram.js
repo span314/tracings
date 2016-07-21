@@ -283,13 +283,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     console.log('adjust speed');
     this._playbackSpeedPercentage = this._controls.speed;
     this._computePlaybackInterval();
-    //Restart play if necessary
-    if (this._playing) {
-      clearInterval(this._timer);
-      this._timer = setInterval(this._tick.bind(this), this._playbackInterval);
-    } else {
-      this._drawPattern();
-    }
+    this._drawPattern();
   };
 
   IceDiagram.prototype._computePlaybackInterval = function() {
@@ -306,13 +300,15 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._start = function() {
     console.log('start');
     this._playing = true;
-    this._timer = setInterval(this._tick.bind(this), this._playbackInterval);
+    this._animFrame = window.requestAnimationFrame(this._tick.bind(this));
   };
 
 
   IceDiagram.prototype._pause = function() {
     console.log('pause');
-    clearInterval(this._timer);
+
+    window.cancelAnimationFrame(this._animFrame);
+    this._animStartTime = 0;
     this._playing = false;
   };
 
@@ -324,13 +320,22 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     }
   };
 
-  IceDiagram.prototype._tick = function() {
-    this._stepTickCount++;
-    if (this._stepTickCount >= this._patternPositions[this._position].duration) {
-      this._position = this._nextIndex();
-      this._stepTickCount = 0;
+  IceDiagram.prototype._tick = function(timestamp) {
+    var elapsedTicks;
+    this._animStartTime = this._animStartTime || timestamp; //Set initial timestamp
+    elapsedTicks = Math.floor((timestamp - this._animStartTime) / this._playbackInterval);
+    //Loop ideally runs once if there's no lag
+    while (elapsedTicks-- > 0) {
+      this._stepTickCount++;
+      if (this._stepTickCount >= this._patternPositions[this._position].duration) {
+        this._position = this._nextIndex();
+        this._stepTickCount = 0;
+      }
+      this._animStartTime = timestamp;
     }
     this._drawPattern();
+
+    this._animFrame = window.requestAnimationFrame(this._tick.bind(this));
   };
 
   IceDiagram.prototype._click = function() {
