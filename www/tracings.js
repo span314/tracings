@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       danceSelectEl = document.getElementById('danceSelect'),
       errorBarEl = document.getElementById('errorBar'),
       compatiblityErrors = [],
-      diagram, createIconButton, createToggleButton;
+      diagram, createStateButton, createToggleButton;
 
   //Check compatibility
   canvasEl.getContext || compatiblityErrors.push('canvas'); //http://caniuse.com/#feat=canvas
@@ -24,18 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   //Initialize select and url hash to match
-  if (window.location.hash) { //Try dance from URL first
+  if (window.location.hash) {
+    //Try dance from URL first
     danceSelectEl.value = window.location.hash.substr(1);
-  } else if (window.history.pushState) { //Otherwise push default to URL
+  } else {
+    //Otherwise push default to URL
     window.history.pushState(null, null, '#' + danceSelectEl.value);
-  } else { //IE support
-    window.location.hash = '#' + danceSelectEl.value;
   }
 
-  //Initial window size
+  //Initialize window size
   canvasEl.width = controlsEl.getBoundingClientRect().width;
   canvasEl.height = canvasEl.width < 480 ? window.innerHeight - 88 : window.innerHeight - 48;
 
+  //Initialize diagram
   diagram = new IceDiagram(canvasEl, {
     step: true,
     number: false,
@@ -49,15 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
     dance: danceSelectEl.value
   });
 
+  //Bind events
   danceSelectEl.addEventListener('change', function() {
     var danceHash = '#' + danceSelectEl.value;
     diagram.controlEvent('dance', danceSelectEl.value);
     if (window.location.hash !== danceHash) {
-      if (window.history.pushState) {
-        window.history.pushState(null, null, danceHash);
-      } else { //IE support
-        window.location.hash = danceHash;
-      }
+      window.history.pushState(null, null, danceHash);
     }
   });
 
@@ -101,11 +99,12 @@ document.addEventListener('DOMContentLoaded', function() {
     diagram.next();
   });
 
+  //Bind option buttons
   createToggleButton = function(command) {
     var elem = document.getElementById(command + 'Button');
     elem.addEventListener('click', function() {
-      var newState = (elem.getAttribute('data-active') !== 'true');
-      elem.setAttribute('data-active', newState);
+      var newState = elem.dataset.active !== 'true';
+      elem.dataset.active = newState;
       diagram.controlEvent(command, newState);
     });
   };
@@ -119,19 +118,19 @@ document.addEventListener('DOMContentLoaded', function() {
   createToggleButton('count');
   createToggleButton('hold');
 
-  createIconButton = function(property, states) {
+  createStateButton = function(property, states) {
     var stateIndex = 0,
         elem = document.getElementById(property + 'Button');
     elem.addEventListener('click', function() {
       var state;
       stateIndex = (stateIndex + 1) % states.length;
       state = states[stateIndex];
-      elem.setAttribute('data-active', state.active);
+      elem.dataset.active = state.active;
       elem.className = state.icon;
       diagram.controlEvent(property, state.value);
     });
   };
 
-  createIconButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
-  createIconButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
+  createStateButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
+  createStateButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
 });
