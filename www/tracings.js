@@ -6,7 +6,22 @@ document.addEventListener('DOMContentLoaded', function() {
   var canvasEl = document.getElementById('diagram'),
       controlsEl = document.getElementById('controls'),
       danceSelectEl = document.getElementById('danceSelect'),
+      errorBarEl = document.getElementById('errorBar'),
+      compatiblityErrors = [],
       diagram, createIconButton, createToggleButton;
+
+  //Check compatibility
+  canvasEl.getContext || compatiblityErrors.push('canvas'); //http://caniuse.com/#feat=canvas
+  canvasEl.dataset || compatiblityErrors.push('dataset'); //http://caniuse.com/#feat=dataset
+  window.requestAnimationFrame || compatiblityErrors.push('requestAnimationFrame'); //http://caniuse.com/#feat=requestanimationframe
+  window.history || compatiblityErrors.push('history'); //http://caniuse.com/#feat=history
+
+  if (compatiblityErrors.length) {
+    errorBarEl.innerHTML += " Your browser does not support the following HTML5 features: " + compatiblityErrors.join(", ");
+    return;
+  } else {
+    errorBarEl.className = 'hidden';
+  }
 
   //Initialize select and url hash to match
   if (window.location.hash) { //Try dance from URL first
@@ -119,5 +134,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   createIconButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
   createIconButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
-
 });
