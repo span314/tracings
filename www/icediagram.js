@@ -14,9 +14,10 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     root.IceDiagram = factory();
   }
 }(this, function () {
-  var IceDiagram = function(canvas) {
+  var IceDiagram = function(canvas, options) {
     //store parameters
     this._canvasElement = canvas;
+    this._controls = options;
     //check canvas compatibility
     if (!canvas.getContext) {
       console.log('Canvas not supported');
@@ -25,7 +26,6 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._canvasContext = canvas.getContext('2d');
 
     //initialize
-    this._controls = {};
     this._playbackSpeedPercentage = 100;
     this._active = false;
   };

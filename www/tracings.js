@@ -6,13 +6,19 @@ document.addEventListener('DOMContentLoaded', function() {
   var canvasEl = document.getElementById('diagram'),
       controlsEl = document.getElementById('controls'),
       danceSelectEl = document.getElementById('danceSelect'),
-      diagram = new IceDiagram(canvasEl),
-      runAndAddListener, createIconButton, createToggleButton;
+      diagram, createIconButton, createToggleButton;
 
-  runAndAddListener = function(elem, event, handler) {
-    handler();
-    elem.addEventListener(event, handler);
-  };
+  diagram = new IceDiagram(canvasEl, {
+    step: true,
+    number: false,
+    count: true,
+    hold: false,
+    optional: true,
+    mirror: false,
+    rotate: false,
+    part: 'lady',
+    speed: 100
+  });
 
   //Initialize select and url hash to match
   if (window.location.hash) { //Try dance from URL first
@@ -43,7 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  runAndAddListener(window, 'resize', function() {
+  canvasEl.width = controlsEl.getBoundingClientRect().width;
+  canvasEl.height = canvasEl.width < 480 ? window.innerHeight - 88 : window.innerHeight - 48;
+  canvasEl.width = controlsEl.getBoundingClientRect().width;
+  window.addEventListener('resize', function() {
     //TODO Figure out why this line is necessary to
     //force update window.innerHeight on Android orientation change
     //Match the width of canvas with that of the controls div (width:auto)
@@ -93,30 +102,21 @@ document.addEventListener('DOMContentLoaded', function() {
   createToggleButton('mirror');
   createToggleButton('rotate');
 
-  diagram.controlEvent('optional', true);
-  diagram.controlEvent('mirror', false);
-  diagram.controlEvent('rotate', false);
-
   createToggleButton('step');
   createToggleButton('number');
   createToggleButton('count');
   createToggleButton('hold');
 
-  diagram.controlEvent('step', true);
-  diagram.controlEvent('number', false);
-  diagram.controlEvent('count', true);
-  diagram.controlEvent('hold', false);
-
   createIconButton = function(property, states) {
-    var stateIndex = -1,
+    var stateIndex = 0,
         elem = document.getElementById(property + 'Button');
-    runAndAddListener(elem, 'click', function() {
-      var state, icon;
+    elem.addEventListener('click', function() {
+      var state;
       stateIndex = (stateIndex + 1) % states.length;
       state = states[stateIndex];
-      icon = state.icon ? ' ' + state.icon : '';
-      elem.className = (state.active ? 'active' : 'inactive') + icon;
-      diagram.controlEvent(property, state.value || state.active);
+      elem.setAttribute('data-active', state.active);
+      elem.className = state.icon;
+      diagram.controlEvent(property, state.value);
     });
   };
 
