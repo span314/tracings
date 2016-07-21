@@ -27,24 +27,16 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 
     //initialize
     this._playbackSpeedPercentage = 100;
-    this._active = false;
+    this._resize();
+    this._loadDance();
   };
 
   IceDiagram._BASE_WIDTH = 740;
   IceDiagram._BASE_HEIGHT = 400;
 
-  IceDiagram.prototype.activate = function() {
-    this._active = true;
-    this._resize();
-    this._loadDance();
-  };
-
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('control event ' + eventType + ' with value ' + value);
     this._controls[eventType] = value;
-    if (!this._active) {
-      return;
-    }
     switch (eventType) {
       case 'click':
         this._click();
