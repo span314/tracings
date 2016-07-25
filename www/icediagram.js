@@ -28,7 +28,6 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     //initialize
     this._metronome = new WebAudioMetronome(); //TODO fix AMD and Node
 
-    this._playbackSpeedPercentage = 100;
     this._resize();
     this._loadDance();
   };
@@ -53,10 +52,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
       case 'part': case 'optional': case 'mirror': case 'rotate':
         this._loadPattern();
         break;
-      case 'speed':
-        this._adjustSpeed();
-        break;
-      case 'step': case 'number': case 'count': case 'hold':
+      case 'step': case 'number': case 'count': case 'hold': case 'speed':
         this._drawPattern();
     }
   };
@@ -85,7 +81,6 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
       if (request.status >= 200 && request.status < 400) {
         widget._dance = JSON.parse(request.responseText);
         console.log(widget._dance);
-        widget._computePlaybackInterval();
         widget._loadPattern();
       } else {
         console.log('TODO server error');
@@ -215,7 +210,6 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     //Draw text
     ctx.font = this._labelFont;
 
-
     ctx.save();
     ctx.textBaseline = 'top';
     ctx.fillStyle = 'rgba(255,255,255,0.75)';
@@ -224,10 +218,10 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     ctx.fillText(currentPosition.desc, this._labelOffset, this._labelOffset);
     ctx.restore();
 
-
-
     ctx.textBaseline = 'bottom'
-    ctx.fillText(this._playbackSpeedText, this._labelOffset, this._canvasElement.height - this._labelOffset);
+    labelText = this._controls.speed === 1 ? '' : Math.round(this._controls.speed * this._dance.beatsPerMinute) + 'bpm of ';
+    labelText += this._dance.beatsPerMinute + 'bpm';
+    ctx.fillText(labelText, this._labelOffset, this._canvasElement.height - this._labelOffset);
   };
 
   IceDiagram.prototype._drawRink = function() {
@@ -281,28 +275,10 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._drawPattern();
   };
 
-  IceDiagram.prototype._adjustSpeed = function() {
-    console.log('adjust speed');
-    this._playbackSpeedPercentage = this._controls.speed;
-    this._computePlaybackInterval();
-    this._drawPattern();
-  };
-
-  IceDiagram.prototype._computePlaybackInterval = function() {
-    var percentBeatsPerMinute = this._playbackSpeedPercentage * this._dance.beatsPerMinute;
-    //(60000 ms/min * 100%) / (4 ticks/beat)
-    this._playbackInterval = 1500000 / percentBeatsPerMinute;
-    if (this._playbackSpeedPercentage === 100) {
-      this._playbackSpeedText = this._dance.beatsPerMinute + 'bpm'
-    } else {
-      this._playbackSpeedText = this._playbackSpeedPercentage + '% speed (' + Math.round(percentBeatsPerMinute / 100) + 'bpm of ' + this._dance.beatsPerMinute + 'bpm)';
-    }
-  };
-
   IceDiagram.prototype._start = function() {
     console.log('start');
     this._metronome.options({
-      beatsPerMinute: this._playbackSpeedPercentage * this._dance.beatsPerMinute / 100,
+      beatsPerMinute: this._controls.speed * this._dance.beatsPerMinute,
       startTick: this._patternPositions[this._position].offset,
       beatPattern: this._dance.timeSignatureTop % 2 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1],
       beatsPerMeasure: this._dance.timeSignatureTop,
@@ -319,9 +295,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._pause = function() {
     console.log('pause');
-
     window.cancelAnimationFrame(this._animFrame);
-    this._animStartTime = 0;
     this._playing = false;
   };
 

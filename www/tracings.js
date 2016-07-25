@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mirror: false,
     rotate: false,
     part: 'lady',
-    speed: 100,
+    speed: 1,
     dance: danceSelectEl.value
   });
 
@@ -136,5 +136,5 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   createStateButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
-  createStateButton('speed', [{active: false, value: 100, icon: 'clock-fast'}, {active: true, value: 75, icon: 'clock-fast'}, {active: true, value: 50, icon: 'clock-fast'}]);
+  createStateButton('speed', [{active: false, value: 1, icon: 'speed100'}, {active: true, value: 0.75, icon: 'speed75'}, {active: true, value: 0.50, icon: 'speed50'}]);
 });
