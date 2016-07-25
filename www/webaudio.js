@@ -1,18 +1,24 @@
 "use strict"
 
-var WebAudioMetronome = function(options) {
-  this._options = options;
-  this._tickSpacing = 60 / (this._options.resolution * this._options.bpm);
-  this._beatPattern = this._BEAT_PATTERNS[this._options.timeSignatureTop];
-  this._audioContext = new AudioContext();
+var WebAudioMetronome = function() {
+  //Create audio context, otherwise use backup timer
+  if (AudioContext) {
+    this._audioContext = new AudioContext();
+    this._getTime = function() {return this._audioContext.currentTime};
+  } else if (performance.now) {
+    this._getTime = function() {return performance.now() * 0.001};
+  } else {
+    this._getTime = function() {return Date.now() * 0.001};
+  }
 }
 
-WebAudioMetronome.prototype._BEAT_PATTERNS = {
-  '2': [3, 1],
-  '3': [3, 1, 1],
-  '4': [3, 1, 2, 1],
-  '6': [3, 1, 1, 2, 1, 1]
-};
+WebAudioMetronome.prototype.options = function(options) {
+  this._options = options;
+}
+
+WebAudioMetronome.prototype.supportsAudio = function() {
+  return !!this._audioContext;
+}
 
 WebAudioMetronome.prototype.reset = function() {
   this._active = false;
@@ -20,32 +26,36 @@ WebAudioMetronome.prototype.reset = function() {
 
 WebAudioMetronome.prototype.synchronize = function() {
   var beatCount, beatStrength,
-      currentTime = this._audioContext.currentTime;
+      currentTime = this._getTime();
   //Initialize timer if necessary
   if (!this._active) {
     this._nextTickTimestamp = currentTime;
-    //Leave one tick buffer to schedule first beat
-    this._elapsedTicks = this._options.startTick - 1;
-    this._active = true;
+    this._elapsedTicks = this._options.startTick - 1; //Leave one tick buffer to schedule first beat
     this._currentBeat = {};
     this._nextBeat = {};
+    this._active = true;
   }
 
   //Ideally loop runs once with no lag
   while (currentTime >= this._nextTickTimestamp) {
     this._elapsedTicks++;
-    this._nextTickTimestamp += this._tickSpacing;
+    this._nextTickTimestamp +=  60 / (this._options.ticksPerBeat * this._options.bpm);
 
-    beatCount = Math.floor(this._elapsedTicks / this._options.resolution) % this._options.timeSignatureTop;
-    beatStrength = this._elapsedTicks % this._options.resolution ? 0 : this._beatPattern[beatCount];
+    beatCount = Math.floor(this._elapsedTicks / this._options.ticksPerBeat) % this._options.beatPattern.length;
+    beatStrength = this._elapsedTicks % this._options.ticksPerBeat ? 0 : this._options.beatPattern[beatCount];
 
     this._currentBeat = this._nextBeat;
-    this._nextBeat = {ticks: this._elapsedTicks, beat: beatCount, strength: beatStrength};
+    this._nextBeat = {
+      ticks: this._elapsedTicks,
+      beat: beatCount % this._options.beatsPerMeasure + 1,
+      strength: beatStrength
+    };
 
-    if (beatStrength) {
+    if (this._options.sound && beatStrength) {
       this._scheduleBeat(beatStrength);
     }
   }
+
   return this._currentBeat;
 }
 
@@ -53,7 +63,7 @@ WebAudioMetronome.prototype._scheduleBeat = function(strength) {
   var osc = this._audioContext.createOscillator(),
       gain = this._audioContext.createGain(),
       startTime = this._nextTickTimestamp,
-      endTime = startTime + this._options.beatDuration;
+      endTime = startTime + 0.2;
 
   osc.start(startTime);
   osc.stop(endTime);
@@ -70,17 +80,18 @@ WebAudioMetronome.prototype._scheduleBeat = function(strength) {
 
 var testDuration = 6000;
 var testPollRate = 50;
-var test = new WebAudioMetronome({
+var test = new WebAudioMetronome();
+
+test.options({
   bpm: 138,
-  beatDuration: 0.2,
   startTick: 0,
-  timeSignatureTop: 6,
-  timeSignatureBottom: 8,
-  resolution: 4
+  beatPattern: [3, 1, 1, 2, 1, 1],
+  beatsPerMeasure: 3,
+  ticksPerBeat: 4,
+  sound: true
 });
 
 var timerId = setInterval(function() {
-  console.log("raf");
   console.log(test.synchronize());
   testDuration -= testPollRate;
   if (testDuration <= 0) {

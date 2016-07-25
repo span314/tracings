@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
   window.requestAnimationFrame || compatiblityErrors.push('requestAnimationFrame'); //http://caniuse.com/#feat=requestanimationframe
   window.history || compatiblityErrors.push('history'); //http://caniuse.com/#feat=history
 
+  //Partial compatibility
+  //window.performance.now || compatiblityErrors.push('high resolution time'); //http://caniuse.com/#feat=high-resolution-time
+  //window.AudioContext || compatiblityErrors.push('audio api'); //http://caniuse.com/#feat=audio-api
+
   if (compatiblityErrors.length) {
     errorBarEl.innerHTML += " Your browser does not support the following HTML5 features: " + compatiblityErrors.join(", ");
     return;
