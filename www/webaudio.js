@@ -5,6 +5,9 @@ var WebAudioMetronome = function() {
   if (AudioContext) {
     this._audioContext = new AudioContext();
     this._getTime = function() {return this._audioContext.currentTime};
+  } else if (webkitAudioContext) {
+    this._audioContext = new webkitAudioContext();
+    this._getTime = function() {return this._audioContext.currentTime};
   } else if (performance.now) {
     this._getTime = function() {return performance.now() * 0.001};
   } else {
@@ -14,6 +17,10 @@ var WebAudioMetronome = function() {
 
 WebAudioMetronome.prototype.options = function(options) {
   this._options = options;
+  //Unmute by playing a beat quietly - iOS devices must play directly after a user interaction
+  if (this._options.sound && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    this._scheduleBeat(0.01, this._audioContext.currentTime);
+  }
 }
 
 WebAudioMetronome.prototype.supportsAudio = function() {
@@ -52,17 +59,16 @@ WebAudioMetronome.prototype.synchronize = function() {
     };
 
     if (this._options.sound && beatStrength) {
-      this._scheduleBeat(beatStrength);
+      this._scheduleBeat(beatStrength / 3, this._nextTickTimestamp);
     }
   }
 
   return this._currentBeat;
 }
 
-WebAudioMetronome.prototype._scheduleBeat = function(strength) {
+WebAudioMetronome.prototype._scheduleBeat = function(volume, startTime) {
   var osc = this._audioContext.createOscillator(),
       gain = this._audioContext.createGain(),
-      startTime = this._nextTickTimestamp,
       endTime = startTime + 0.2;
 
   osc.start(startTime);
@@ -71,7 +77,7 @@ WebAudioMetronome.prototype._scheduleBeat = function(strength) {
   osc.frequency.setValueAtTime(440.0, startTime);
   osc.frequency.exponentialRampToValueAtTime(1.0, endTime);
 
-  gain.gain.setValueAtTime(strength / 3, startTime);
+  gain.gain.setValueAtTime(volume, startTime);
   gain.gain.exponentialRampToValueAtTime(0.01, endTime);
 
   osc.connect(gain);
