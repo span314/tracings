@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rotate: false,
     part: 'lady',
     speed: 1,
+    sound: true,
     dance: danceSelectEl.value
   });
 

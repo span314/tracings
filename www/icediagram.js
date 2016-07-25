@@ -18,22 +18,22 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     //store parameters
     this._canvasElement = canvas;
     this._controls = options;
-    //check canvas compatibility
-    if (!canvas.getContext) {
-      console.log('Canvas not supported');
-      return;
-    }
+    //create canvas context
     this._canvasContext = canvas.getContext('2d');
-
+    //create audio context, if available
+    if (AudioContext) {
+      this._audioContext = new AudioContext();
+    } else if (webkitAudioContext) {
+      this._audioContext = new webkitAudioContext();
+    }
     //initialize
-    this._metronome = new WebAudioMetronome(); //TODO fix AMD and Node
-
     this._resize();
     this._loadDance();
   };
 
   IceDiagram._BASE_WIDTH = 740;
   IceDiagram._BASE_HEIGHT = 400;
+  IceDiagram._TICKS_PER_BEAT = 4;
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('control event ' + eventType + ' with value ' + value);
@@ -80,6 +80,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     request.onload = function() {
       if (request.status >= 200 && request.status < 400) {
         widget._dance = JSON.parse(request.responseText);
+        widget._beatPattern = widget._dance.timeSignatureTop % 3 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1];
         console.log(widget._dance);
         widget._loadPattern();
       } else {
@@ -264,6 +265,14 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._movePosition(this._nextIndex());
   };
 
+  IceDiagram.prototype._nextTick = function() {
+    this._stepTickCount++;
+    if (this._stepTickCount >= this._patternPositions[this._position].duration) {
+      this._position = this._nextIndex();
+      this._stepTickCount = 0;
+    }
+  };
+
   IceDiagram.prototype._nextIndex = function() {
     return this._position === this._patternPositions.length - 1 ? 0 : this._position + 1;
   };
@@ -277,16 +286,16 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._start = function() {
     console.log('start');
-    this._metronome.options({
-      beatsPerMinute: this._controls.speed * this._dance.beatsPerMinute,
-      startTick: this._patternPositions[this._position].offset,
-      beatPattern: this._dance.timeSignatureTop % 3 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1],
-      beatsPerMeasure: this._dance.timeSignatureTop,
-      ticksPerBeat: 4,
-      sound: true
-    });
 
-    this._elapsedTicksXXX = -1; //TODO Cleanup
+    this._nextTickTimestamp = 0;
+    this._elapsedTicks = this._patternPositions[this._position].offset - 1; //Leave one tick buffer to schedule first beat
+    this._currentBeatInfo = {};
+    this._nextBeatInfo = {};
+
+    //Unmute by playing a beat quietly - iOS devices must play directly after a user interaction
+    if (this._audioContext && this._controls.sound && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      this._scheduleBeatAudio(0.01, this._audioContext.currentTime);
+    }
 
     this._playing = true;
     this._animFrame = window.requestAnimationFrame(this._tick.bind(this));
@@ -295,7 +304,6 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._pause = function() {
     console.log('pause');
-    this._metronome.reset();
     window.cancelAnimationFrame(this._animFrame);
     this._playing = false;
   };
@@ -308,21 +316,9 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     }
   };
 
-  IceDiagram.prototype._tick = function(timestamp) {
-    var beatInfo = this._metronome.synchronize(timestamp),
-        elapsedTicks = beatInfo.ticks || 0;
-
-    if (elapsedTicks !== this._elapsedTicksXXX) {
-      this._elapsedTicksXXX = elapsedTicks;
-      this._stepTickCount++;
-      if (this._stepTickCount >= this._patternPositions[this._position].duration) {
-        this._position = this._nextIndex();
-        this._stepTickCount = 0;
-      }
-    }
-
+  IceDiagram.prototype._tick = function(rafTimestamp) {
+    this._synchronize(rafTimestamp);
     this._drawPattern();
-
     this._animFrame = window.requestAnimationFrame(this._tick.bind(this));
   };
 
@@ -334,6 +330,58 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
       this._movePosition(this._positionSearchTree[nearest][2]);
     }
   };
+
+  //Schedules audio for beats, returning a object containing tick count, beat number, and beat strength.
+  //Takes in a backup ms timestamp such as performance.now(), Date.now(), or requestAnimationFrame timestamp
+  //for browsers that do not support web audio API
+  IceDiagram.prototype._synchronize = function(backupTimestamp) {
+    var beatCount, beatStrength,
+        currentTime = this._audioContext ? this._audioContext.currentTime : backupTimestamp * 0.001;
+    //Initialize timer if necessary
+    this._nextTickTimestamp = this._nextTickTimestamp || currentTime;
+
+    //Ideally loop runs once with no lag
+    while (currentTime >= this._nextTickTimestamp) {
+      this._elapsedTicks++;
+      this._nextTick();
+      this._nextTickTimestamp +=  60 / (IceDiagram._TICKS_PER_BEAT * this._controls.speed * this._dance.beatsPerMinute);
+
+      beatCount = Math.floor(this._elapsedTicks / IceDiagram._TICKS_PER_BEAT) % this._beatPattern.length;
+      beatStrength = this._elapsedTicks % IceDiagram._TICKS_PER_BEAT ? 0 : this._beatPattern[beatCount];
+
+      this._currentBeatInfo = this._nextBeatInfo;
+      this._nextBeatInfo = {
+        ticks: this._elapsedTicks,
+        beat: beatCount % this._dance.timeSignatureTop + 1,
+        strength: beatStrength
+      };
+
+      if (this._audioContext && this._controls.sound && beatStrength) {
+        this._scheduleBeatAudio(beatStrength / 3, this._nextTickTimestamp);
+      }
+    }
+  }
+
+  //Schedule audio for a beat - drum-like waveform
+  IceDiagram.prototype._scheduleBeatAudio = function(volume, startTime) {
+    var osc = this._audioContext.createOscillator(),
+        gain = this._audioContext.createGain(),
+        endTime = startTime + 0.2;
+
+    osc.start(startTime);
+    osc.stop(endTime);
+
+    osc.frequency.setValueAtTime(440.0, startTime);
+    osc.frequency.exponentialRampToValueAtTime(1.0, endTime);
+
+    gain.gain.setValueAtTime(volume, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, endTime);
+
+    osc.connect(gain);
+    gain.connect(this._audioContext.destination);
+  };
+
+
 
   //Static utility functions
 
