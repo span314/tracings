@@ -19,29 +19,34 @@ WebAudioMetronome.prototype.reset = function() {
 }
 
 WebAudioMetronome.prototype.synchronize = function() {
-  var currentTime = this._audioContext.currentTime,
-      currentBeat = {};
+  var beatCount, beatStrength,
+      currentTime = this._audioContext.currentTime;
   //Initialize timer if necessary
   if (!this._active) {
-    this._nextTickTimestamp = this._audioContext.currentTime;
-    this._elapsedTicks = this._options.startTick;
+    this._nextTickTimestamp = currentTime;
+    //Leave one tick buffer to schedule first beat
+    this._elapsedTicks = this._options.startTick - 1;
     this._active = true;
+    this._currentBeat = {};
+    this._nextBeat = {};
   }
-  currentBeat.ticks = this._elapsedTicks;
-  currentBeat.beat = Math.floor(this._elapsedTicks / this._options.resolution) % this._options.timeSignatureTop;
-  currentBeat.strength = this._elapsedTicks % this._options.resolution ? 0 : this._beatPattern[currentBeat.beat];
-  //currentBeat.beat++; //convert to 1 index
-  //Ideally loop runs once with no lag
-  while (currentTime > this._nextTickTimestamp) {
 
+  //Ideally loop runs once with no lag
+  while (currentTime >= this._nextTickTimestamp) {
+    this._elapsedTicks++;
     this._nextTickTimestamp += this._tickSpacing;
 
-    if (currentBeat.strength) {
-      this._scheduleBeat(currentBeat.strength);
+    beatCount = Math.floor(this._elapsedTicks / this._options.resolution) % this._options.timeSignatureTop;
+    beatStrength = this._elapsedTicks % this._options.resolution ? 0 : this._beatPattern[beatCount];
+
+    this._currentBeat = this._nextBeat;
+    this._nextBeat = {ticks: this._elapsedTicks, beat: beatCount, strength: beatStrength};
+
+    if (beatStrength) {
+      this._scheduleBeat(beatStrength);
     }
-    this._elapsedTicks++;
   }
-  return currentBeat;
+  return this._currentBeat;
 }
 
 WebAudioMetronome.prototype._scheduleBeat = function(strength) {
