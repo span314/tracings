@@ -26,6 +26,8 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._canvasContext = canvas.getContext('2d');
 
     //initialize
+    this._metronome = new WebAudioMetronome(); //TODO fix AMD and Node
+
     this._playbackSpeedPercentage = 100;
     this._resize();
     this._loadDance();
@@ -299,6 +301,17 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._start = function() {
     console.log('start');
+    this._metronome.options({
+      beatsPerMinute: this._playbackSpeedPercentage * this._dance.beatsPerMinute / 100,
+      startTick: this._patternPositions[this._position].offset,
+      beatPattern: this._dance.timeSignatureTop % 2 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1],
+      beatsPerMeasure: this._dance.timeSignatureTop,
+      ticksPerBeat: 4,
+      sound: true
+    });
+
+    this._elapsedTicks = -1; //TODO Cleanup
+
     this._playing = true;
     this._animFrame = window.requestAnimationFrame(this._tick.bind(this));
   };
@@ -321,18 +334,18 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._tick = function(timestamp) {
-    var elapsedTicks;
-    this._animStartTime = this._animStartTime || timestamp; //Set initial timestamp
-    elapsedTicks = Math.floor((timestamp - this._animStartTime) / this._playbackInterval);
-    //Loop ideally runs once if there's no lag
-    while (elapsedTicks-- > 0) {
+    var beatInfo = this._metronome.synchronize(),
+        elapsedTicks = beatInfo.ticks || 0;
+
+    if (elapsedTicks !== this._elapsedTicks) {
+      this._elapsedTicks = elapsedTicks;
       this._stepTickCount++;
       if (this._stepTickCount >= this._patternPositions[this._position].duration) {
         this._position = this._nextIndex();
         this._stepTickCount = 0;
       }
-      this._animStartTime = timestamp;
     }
+
     this._drawPattern();
 
     this._animFrame = window.requestAnimationFrame(this._tick.bind(this));
