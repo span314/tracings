@@ -21,7 +21,7 @@
       });
 
       var timerId = setInterval(function() {
-        console.log(test.synchronize());
+        console.log(test.synchronize(performance.now()));
         testDuration -= testPollRate;
         if (testDuration <= 0) {
           clearInterval(timerId);

@@ -15,17 +15,11 @@ Metronome Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   }
 }(this, function () {
   var WebAudioMetronome = function() {
-    //Create audio context, otherwise use backup timer
+    //Create audio context
     if (AudioContext) {
       this._audioContext = new AudioContext();
-      this._getTime = function() {return this._audioContext.currentTime};
     } else if (webkitAudioContext) {
       this._audioContext = new webkitAudioContext();
-      this._getTime = function() {return this._audioContext.currentTime};
-    } else if (performance.now) {
-      this._getTime = function() {return performance.now() * 0.001};
-    } else {
-      this._getTime = function() {return Date.now() * 0.001};
     }
   }
 
@@ -42,7 +36,7 @@ Metronome Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._options = options;
     //Unmute by playing a beat quietly - iOS devices must play directly after a user interaction
     if (this._options.sound && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      this._scheduleBeat(0.01, this._audioContext.currentTime);
+      this._scheduleBeatAudio(0.01, this._audioContext.currentTime);
     }
   }
 
@@ -54,15 +48,18 @@ Metronome Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._active = false;
   }
 
-  WebAudioMetronome.prototype.synchronize = function() {
+  //Schedules audio for beats, returning a object containing tick count, beat number, and beat strength.
+  //Takes in a backup ms timestamp such as performance.now(), Date.now(), or requestAnimationFrame timestamp
+  //for browsers that do not support web audio API
+  WebAudioMetronome.prototype.synchronize = function(backupTimestamp) {
     var beatCount, beatStrength,
-        currentTime = this._getTime();
+        currentTime = this._audioContext ? this._audioContext.currentTime : backupTimestamp * 0.001;
     //Initialize timer if necessary
     if (!this._active) {
       this._nextTickTimestamp = currentTime;
       this._elapsedTicks = this._options.startTick - 1; //Leave one tick buffer to schedule first beat
-      this._currentBeat = {};
-      this._nextBeat = {};
+      this._currentBeatInfo = {};
+      this._nextBeatInfo = {};
       this._active = true;
     }
 
@@ -74,22 +71,22 @@ Metronome Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
       beatCount = Math.floor(this._elapsedTicks / this._options.ticksPerBeat) % this._options.beatPattern.length;
       beatStrength = this._elapsedTicks % this._options.ticksPerBeat ? 0 : this._options.beatPattern[beatCount];
 
-      this._currentBeat = this._nextBeat;
-      this._nextBeat = {
+      this._currentBeatInfo = this._nextBeatInfo;
+      this._nextBeatInfo = {
         ticks: this._elapsedTicks,
         beat: beatCount % this._options.beatsPerMeasure + 1,
         strength: beatStrength
       };
 
       if (this._options.sound && beatStrength) {
-        this._scheduleBeat(beatStrength / 3, this._nextTickTimestamp);
+        this._scheduleBeatAudio(beatStrength / 3, this._nextTickTimestamp);
       }
     }
 
-    return this._currentBeat;
+    return this._currentBeatInfo;
   }
 
-  WebAudioMetronome.prototype._scheduleBeat = function(volume, startTime) {
+  WebAudioMetronome.prototype._scheduleBeatAudio = function(volume, startTime) {
     var osc = this._audioContext.createOscillator(),
         gain = this._audioContext.createGain(),
         endTime = startTime + 0.2;

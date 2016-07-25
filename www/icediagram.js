@@ -280,13 +280,13 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._metronome.options({
       beatsPerMinute: this._controls.speed * this._dance.beatsPerMinute,
       startTick: this._patternPositions[this._position].offset,
-      beatPattern: this._dance.timeSignatureTop % 2 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1],
+      beatPattern: this._dance.timeSignatureTop % 3 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1],
       beatsPerMeasure: this._dance.timeSignatureTop,
       ticksPerBeat: 4,
       sound: true
     });
 
-    this._elapsedTicks = -1; //TODO Cleanup
+    this._elapsedTicksXXX = -1; //TODO Cleanup
 
     this._playing = true;
     this._animFrame = window.requestAnimationFrame(this._tick.bind(this));
@@ -295,6 +295,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._pause = function() {
     console.log('pause');
+    this._metronome.reset();
     window.cancelAnimationFrame(this._animFrame);
     this._playing = false;
   };
@@ -308,11 +309,11 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._tick = function(timestamp) {
-    var beatInfo = this._metronome.synchronize(),
+    var beatInfo = this._metronome.synchronize(timestamp),
         elapsedTicks = beatInfo.ticks || 0;
 
-    if (elapsedTicks !== this._elapsedTicks) {
-      this._elapsedTicks = elapsedTicks;
+    if (elapsedTicks !== this._elapsedTicksXXX) {
+      this._elapsedTicksXXX = elapsedTicks;
       this._stepTickCount++;
       if (this._stepTickCount >= this._patternPositions[this._position].duration) {
         this._position = this._nextIndex();
