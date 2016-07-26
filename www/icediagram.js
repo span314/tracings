@@ -386,8 +386,6 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     gain.connect(this._audioContext.destination);
   };
 
-
-
   //Static utility functions
 
   //Draw text next to a cubic path

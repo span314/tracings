@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
       controlsEl = document.getElementById('controls'),
       danceSelectEl = document.getElementById('danceSelect'),
       errorBarEl = document.getElementById('errorBar'),
+      audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
       diagram, createStateButton, createToggleButton;
 
@@ -15,10 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
   canvasEl.dataset || compatiblityErrors.push('dataset'); //http://caniuse.com/#feat=dataset
   window.requestAnimationFrame || compatiblityErrors.push('requestAnimationFrame'); //http://caniuse.com/#feat=requestanimationframe
   window.history || compatiblityErrors.push('history'); //http://caniuse.com/#feat=history
-
-  //Partial compatibility
-  //window.performance.now || compatiblityErrors.push('high resolution time'); //http://caniuse.com/#feat=high-resolution-time
-  //window.AudioContext || compatiblityErrors.push('audio api'); //http://caniuse.com/#feat=audio-api
 
   if (compatiblityErrors.length) {
     errorBarEl.innerHTML += " Your browser does not support the following HTML5 features: " + compatiblityErrors.join(", ");
@@ -51,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rotate: false,
     part: 'lady',
     speed: 1,
-    sound: true,
+    sound: audioCompatible,
     dance: danceSelectEl.value
   });
 
