@@ -21,9 +21,9 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     //create canvas context
     this._canvasContext = canvas.getContext('2d');
     //create audio context, if available
-    if (AudioContext) {
+    if (window.AudioContext) {
       this._audioContext = new AudioContext();
-    } else if (webkitAudioContext) {
+    } else if (window.webkitAudioContext) {
       this._audioContext = new webkitAudioContext();
     }
     //initialize
@@ -292,9 +292,15 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
     this._currentBeatInfo = {};
     this._nextBeatInfo = {};
 
-    //Unmute by playing a beat quietly - iOS devices must play directly after a user interaction
-    if (this._audioContext && this._controls.sound && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      this._scheduleBeatAudio(0.01, this._audioContext.currentTime);
+    if (this._audioContext) {
+      //Unmute by playing a beat quietly - iOS devices must play directly after a user interaction
+      if (this._controls.sound && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        this._scheduleBeatAudio(0.01, this._audioContext.currentTime);
+      }
+      //Current time does not advance on MS Edge when sound isn't available
+      if (this._audioContext.currentTime === 0) {
+        this._audioContext = false;
+      }
     }
 
     this._playing = true;
@@ -339,7 +345,6 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
         currentTime = this._audioContext ? this._audioContext.currentTime : backupTimestamp * 0.001;
     //Initialize timer if necessary
     this._nextTickTimestamp = this._nextTickTimestamp || currentTime;
-
     //Ideally loop runs once with no lag
     while (currentTime >= this._nextTickTimestamp) {
       this._elapsedTicks++;

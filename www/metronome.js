@@ -16,9 +16,9 @@ Metronome Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 }(this, function () {
   var WebAudioMetronome = function() {
     //Create audio context
-    if (AudioContext) {
+    if (window.AudioContext) {
       this._audioContext = new AudioContext();
-    } else if (webkitAudioContext) {
+    } else if (window.webkitAudioContext) {
       this._audioContext = new webkitAudioContext();
     }
   }
