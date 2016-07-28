@@ -134,6 +134,8 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
         fracBeat = tickCount % 4,
         beat = (tickCount >> 2) % this._dance.timeSignatureTop + 1;
 
+    //Note: set background color to white in css
+    //otherwise background will be black in IE and Firefox when fullscreen
     ctx.clearRect(0, 0, this._canvasElement.width, this._canvasElement.height);
 
     ctx.save();

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
       controlsEl = document.getElementById('controls'),
       danceSelectEl = document.getElementById('danceSelect'),
       errorBarEl = document.getElementById('errorBar'),
+      fullscreenButtonEl = document.getElementById('fullscreenButton'),
       audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
       diagram, createStateButton, createToggleButton;
@@ -39,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //Initialize window size
   canvasEl.width = controlsEl.getBoundingClientRect().width;
-  canvasEl.height = canvasEl.width < 480 ? window.innerHeight - 88 : window.innerHeight - 48;
+  canvasEl.height = window.innerHeight - controlsEl.getBoundingClientRect().height - 8;
+  canvasEl.width = controlsEl.getBoundingClientRect().width; //re-adjust after scroll bar
 
   //Initialize diagram
   diagram = new IceDiagram(canvasEl, {
@@ -75,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('resize', function() {
     //Match the width of canvas with that of the controls div (width:auto)
     canvasEl.width = controlsEl.getBoundingClientRect().width;
-    //Show one or two lines of control buttons depending on window size
-    canvasEl.height = canvasEl.width < 480 ? window.innerHeight - 88 : window.innerHeight - 48;
+    canvasEl.height = window.innerHeight - controlsEl.getBoundingClientRect().height - 8;
+    canvasEl.width = controlsEl.getBoundingClientRect().width;
     diagram.controlEvent('resize');
   });
 
@@ -139,6 +141,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   createStateButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
   createStateButton('speed', [{active: false, value: 1, icon: 'speed100'}, {active: true, value: 0.75, icon: 'speed75'}, {active: true, value: 0.50, icon: 'speed50'}]);
-  createStateButton('fullscreen', [{active: false, value: 'enter', icon: 'enter'}, {active: true, value: 'exit', icon: 'exit'}]);
   createStateButton('sound', [{active: false, value: false, icon: 'off'}, {active: true, value: true, icon: 'on'}]);
+
+  fullscreenButtonEl.addEventListener('click', function() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      document.getElementById('diagramContainer').requestFullscreen();
+    }
+  });
+
+  document.addEventListener('fullscreenchange', function() {
+    if (document.fullscreenElement) {
+      canvasEl.width = window.screen.width;
+      fullscreenButtonEl.className = 'exit';
+      fullscreenButtonEl.dataset.active = true;
+    } else {
+      canvasEl.width = controlsEl.getBoundingClientRect().width;
+      fullscreenButtonEl.className = 'enter';
+      fullscreenButtonEl.dataset.active = false;
+    }
+    diagram.controlEvent('resize');
+  });
 });
