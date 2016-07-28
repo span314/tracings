@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     errorBarEl.className = 'hidden';
   }
 
+  if (!audioCompatible) {
+    document.getElementById('soundButton').className = 'hidden';
+  }
+
   //Initialize select and url hash to match
   if (window.location.hash) {
     //Try dance from URL first
@@ -48,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rotate: false,
     part: 'lady',
     speed: 1,
-    sound: audioCompatible,
+    sound: false,
     dance: danceSelectEl.value
   });
 
@@ -135,4 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   createStateButton('part', [{active: false, value: 'lady', icon: 'female'}, {active: false, value: 'man', icon: 'male'}]);
   createStateButton('speed', [{active: false, value: 1, icon: 'speed100'}, {active: true, value: 0.75, icon: 'speed75'}, {active: true, value: 0.50, icon: 'speed50'}]);
+  createStateButton('fullscreen', [{active: false, value: 'enter', icon: 'enter'}, {active: true, value: 'exit', icon: 'exit'}]);
+  createStateButton('sound', [{active: false, value: false, icon: 'off'}, {active: true, value: true, icon: 'on'}]);
 });
