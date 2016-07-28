@@ -75,8 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   window.addEventListener('resize', function() {
+    if (document.fullscreenElement) {
+      canvasEl.width = window.screen.width;
+    } else {
+      canvasEl.width = controlsEl.getBoundingClientRect().width;
+    }
     //Match the width of canvas with that of the controls div (width:auto)
-    canvasEl.width = controlsEl.getBoundingClientRect().width;
     canvasEl.height = window.innerHeight - controlsEl.getBoundingClientRect().height - 8;
     canvasEl.width = controlsEl.getBoundingClientRect().width;
     diagram.controlEvent('resize');
