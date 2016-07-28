@@ -296,9 +296,7 @@ Ice Diagram Widget v0.1-RC6 | Software Copyright (c) Shawn Pan
 
     if (this._audioContext) {
       //Unmute by playing a beat quietly - iOS devices must play directly after a user interaction
-      if (this._controls.sound && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        this._scheduleBeatAudio(0.01, this._audioContext.currentTime);
-      }
+      this._scheduleBeatAudio(0.01, this._audioContext.currentTime);
       //Current time does not advance on MS Edge when sound isn't available
       if (this._audioContext.currentTime === 0) {
         this._audioContext = false;
