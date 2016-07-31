@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
     errorBarEl.innerHTML += " Your browser does not support the following HTML5 features: " + compatiblityErrors.join(", ");
     return;
   } else {
-    errorBarEl.className = 'hidden';
+    errorBarEl.style.display = 'none';
   }
 
   if (!audioCompatible) {
-    document.getElementById('soundButton').className = 'hidden';
+    document.getElementById('soundButton').style.display = 'none';
   }
 
   //Initialize select and url hash to match
