@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       fullscreenButtonEl = document.getElementById('fullscreenButton'),
       audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
-      diagram, createStateButton, createToggleButton;
+      diagram, resizeWindow, createStateButton, createToggleButton;
 
   //Check compatibility
   canvasEl.getContext || compatiblityErrors.push('canvas'); //http://caniuse.com/#feat=canvas
@@ -38,10 +38,24 @@ document.addEventListener('DOMContentLoaded', function() {
     window.history.pushState(null, null, '#' + danceSelectEl.value);
   }
 
+  resizeWindow = function() {
+    //TODO figure out why width needs to be set twice on orientation change for Android
+    canvasEl.width = controlsEl.getBoundingClientRect().width;
+    canvasEl.height = window.innerHeight - controlsEl.getBoundingClientRect().height - 8;
+    if (document.fullscreenElement) {
+      canvasEl.width = window.screen.width;
+      fullscreenButtonEl.className = 'exit';
+      fullscreenButtonEl.dataset.active = true;
+    } else {
+      canvasEl.width = controlsEl.getBoundingClientRect().width;
+      fullscreenButtonEl.className = 'enter';
+      fullscreenButtonEl.dataset.active = false;
+    }
+    diagram && diagram.controlEvent('resize');
+  };
+
   //Initialize window size
-  canvasEl.width = controlsEl.getBoundingClientRect().width;
-  canvasEl.height = window.innerHeight - controlsEl.getBoundingClientRect().height - 8;
-  canvasEl.width = controlsEl.getBoundingClientRect().width; //re-adjust after scroll bar
+  resizeWindow();
 
   //Initialize diagram
   diagram = new IceDiagram(canvasEl, {
@@ -59,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   //Bind events
+  window.addEventListener('resize', resizeWindow);
+  document.addEventListener('fullscreenchange', resizeWindow);
+
   danceSelectEl.addEventListener('change', function() {
     var danceHash = '#' + danceSelectEl.value;
     diagram.controlEvent('dance', danceSelectEl.value);
@@ -72,18 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
       danceSelectEl.value = window.location.hash.substr(1);
       diagram.controlEvent('dance', danceSelectEl.value);
     }
-  });
-
-  window.addEventListener('resize', function() {
-    if (document.fullscreenElement) {
-      canvasEl.width = window.screen.width;
-    } else {
-      canvasEl.width = controlsEl.getBoundingClientRect().width;
-    }
-    //Match the width of canvas with that of the controls div (width:auto)
-    canvasEl.height = window.innerHeight - controlsEl.getBoundingClientRect().height - 8;
-    canvasEl.width = controlsEl.getBoundingClientRect().width;
-    diagram.controlEvent('resize');
   });
 
   canvasEl.addEventListener('click', function(e) {
@@ -153,18 +158,5 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       document.getElementById('diagramContainer').requestFullscreen();
     }
-  });
-
-  document.addEventListener('fullscreenchange', function() {
-    if (document.fullscreenElement) {
-      canvasEl.width = window.screen.width;
-      fullscreenButtonEl.className = 'exit';
-      fullscreenButtonEl.dataset.active = true;
-    } else {
-      canvasEl.width = controlsEl.getBoundingClientRect().width;
-      fullscreenButtonEl.className = 'enter';
-      fullscreenButtonEl.dataset.active = false;
-    }
-    diagram.controlEvent('resize');
   });
 });
