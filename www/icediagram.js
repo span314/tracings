@@ -27,13 +27,15 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
       this._audioContext = new webkitAudioContext();
     }
     //initialize
-    this._resize();
     this._loadDance();
   };
 
   IceDiagram._BASE_WIDTH = 740;
   IceDiagram._BASE_HEIGHT = 400;
   IceDiagram._TICKS_PER_BEAT = 4;
+  IceDiagram._BASE_FONT_SIZE = 10;
+  IceDiagram._BASE_LABEL_OFFSET = 8;
+  IceDiagram._FONT = IceDiagram._BASE_FONT_SIZE + 'px Arial';
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('control event ' + eventType + ' with value ' + value);
@@ -41,10 +43,6 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     switch (eventType) {
       case 'click':
         this._click();
-        break;
-      case 'resize':
-        this._resize();
-        this._loadPattern();
         break;
       case 'dance':
         this._loadDance();
@@ -57,18 +55,11 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     }
   };
 
-  IceDiagram.prototype._resize = function() {
+  IceDiagram.prototype._getDefaultZoom = function() {
     var width = this._canvasElement.width,
-        height = this._canvasElement.height;
-
-    this._scaleFactor = Math.max(width * IceDiagram._BASE_HEIGHT > height * IceDiagram._BASE_WIDTH ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
-    this._maxX = (IceDiagram._BASE_WIDTH - width) / 2;
-    this._maxY = (IceDiagram._BASE_HEIGHT - height) / 2;
-    this._centerX = width / 2;
-    this._centerY = height / 2;
-    this._labelFontSize = Math.floor(10 * this._scaleFactor);
-    this._labelFont =  this._labelFontSize + 'px Arial';
-    this._labelOffset = 8 * this._scaleFactor;
+        height = this._canvasElement.height,
+        isHeightLimited = width * IceDiagram._BASE_HEIGHT > height * IceDiagram._BASE_WIDTH;
+    return Math.max(isHeightLimited ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
   };
 
   IceDiagram.prototype._loadDance = function() {
@@ -101,24 +92,20 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
         rotateFlag = this._controls.rotate,
         part = this._controls.part;
     console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
-    this._patternPositions = IceDiagram._generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag, this._scaleFactor);
+    this._patternPositions = IceDiagram._generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag);
     this._positionSearchTree = IceDiagram._positionTree(this._patternPositions);
     this.beginning();
   };
 
-  IceDiagram.prototype._getCenter = function() {
-    var x = this._centerX,
-        y = this._centerY,
-        currentPosition = this._patternPositions[this._position],
-        activeCenter = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, this._stepTickCount / currentPosition.duration);
-
-    //Center around active step if zoomed in
-    if (this._maxX > 0) {
-      x -= Math.min(Math.max(-this._maxX, activeCenter[0]), this._maxX);
-    }
-    if (this._maxY > 0) {
-      y -= Math.min(Math.max(-this._maxY, activeCenter[1]), this._maxY);
-    }
+  IceDiagram.prototype._getCenter = function(zoom) {
+    var currentPosition = this._patternPositions[this._position],
+        activeCenter = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, this._stepTickCount / currentPosition.duration),
+        w = this._canvasElement.width,
+        h = this._canvasElement.height,
+        contentHalfWidth = (w < IceDiagram._BASE_WIDTH ? IceDiagram._BASE_WIDTH : w) / 2,
+        contentHalfHeight = (h < IceDiagram._BASE_HEIGHT ? IceDiagram._BASE_HEIGHT : h) / 2,
+        x = Math.min(Math.max(w - contentHalfWidth, w / 2 - activeCenter[0]), contentHalfWidth) / zoom,
+        y = Math.min(Math.max(h - contentHalfHeight, h / 2 - activeCenter[1]), contentHalfHeight) / zoom;
     return [x, y];
   }
 
@@ -128,6 +115,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
         showNumber = this._controls.number,
         showCount = this._controls.count,
         showHold = this._controls.hold,
+        zoom = this._getDefaultZoom(),
         ctx = this._canvasContext,
         currentPosition = this._patternPositions[this._position],
         tickCount = currentPosition.offset + this._stepTickCount,
@@ -137,10 +125,13 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     //Note: set background color to white in css
     //otherwise background will be black in IE and Firefox when fullscreen
     ctx.clearRect(0, 0, this._canvasElement.width, this._canvasElement.height);
+    ctx.save();
+    ctx.scale(zoom, zoom);
+
+    ctx.font = IceDiagram._FONT;
 
     ctx.save();
-    ctx.translate.apply(ctx, this._getCenter());
-    ctx.font = this._labelFont;
+    ctx.translate.apply(ctx, this._getCenter(zoom));
 
     //Draw rink
     this._drawRink();
@@ -189,7 +180,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = 'rgb(0,100,255)';
-          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[0], this._labelOffset);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[0], IceDiagram._BASE_LABEL_OFFSET);
         }
         //Draw hold and count
         labelList = [];
@@ -203,7 +194,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = 'rgb(255,100,0)';
-          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -this._labelOffset);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -IceDiagram._BASE_LABEL_OFFSET);
         }
       }
       ctx.restore();
@@ -211,25 +202,25 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     ctx.restore();
 
     //Draw text
-    ctx.font = this._labelFont;
-
     ctx.save();
     ctx.textBaseline = 'top';
     ctx.fillStyle = 'rgba(255,255,255,0.75)';
-    ctx.fillRect(this._labelOffset, this._labelOffset, ctx.measureText(currentPosition.desc).width, this._labelFontSize);
+    ctx.fillRect(IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET, ctx.measureText(currentPosition.desc).width, IceDiagram._BASE_FONT_SIZE);
     ctx.fillStyle = 'rgb(0,0,0)';
-    ctx.fillText(currentPosition.desc, this._labelOffset, this._labelOffset);
+    ctx.fillText(currentPosition.desc, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET);
     ctx.restore();
 
     ctx.textBaseline = 'bottom'
     labelText = this._controls.speed === 1 ? '' : Math.round(this._controls.speed * this._dance.beatsPerMinute) + 'bpm of ';
     labelText += this._dance.beatsPerMinute + 'bpm';
-    ctx.fillText(labelText, this._labelOffset, this._canvasElement.height - this._labelOffset);
+    ctx.fillText(labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height - IceDiagram._BASE_LABEL_OFFSET);
+
+    ctx.restore();
   };
 
   IceDiagram.prototype._drawRink = function() {
     var ctx = this._canvasContext,
-        scale = IceDiagram._BASE_HEIGHT * this._scaleFactor * 17 / 600,
+        scale = IceDiagram._BASE_HEIGHT * 17 / 600,
         halfWidth = 30.5 * scale,
         halfWidthStraight = 22 * scale,
         halfHeight = 15 * scale,
@@ -329,9 +320,10 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._click = function() {
-    var center = this._getCenter(),
-        point = [this._controls.click[0] - center[0], this._controls.click[1] - center[1]],
-        nearest = IceDiagram._nearestNeighbor(point, this._positionSearchTree, 16 * this._scaleFactor);
+    var zoom = this._getDefaultZoom(),
+        center = this._getCenter(zoom),
+        point = [this._controls.click[0] / zoom - center[0], this._controls.click[1] / zoom - center[1]],
+        nearest = IceDiagram._nearestNeighbor(point, this._positionSearchTree, 16);
     if (nearest >= 0) {
       this._movePosition(this._positionSearchTree[nearest][2]);
     }
@@ -397,14 +389,14 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
   };
 
   //Generate individual positions for a dance
-  IceDiagram._generatePositions = function(dance, part, optional, mirror, rotate, scaleFactor) {
+  IceDiagram._generatePositions = function(dance, part, optional, mirror, rotate) {
     var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path, positionIndex, beatsLabel,
         positions = [],
         pattern = dance.patterns[part];
 
     offset = 0;
     for (lapIndex = 0; lapIndex < dance.patternsPerLap; lapIndex++) {
-      transformMatrix = IceDiagram._computeTransformMatrix(lapIndex, dance.patternsPerLap, scaleFactor, mirror, rotate);
+      transformMatrix = IceDiagram._computeTransformMatrix(lapIndex, dance.patternsPerLap, mirror, rotate);
       for (componentIndex = pattern.startComponent; componentIndex < pattern.endComponent; componentIndex++) {
         component = dance.components[componentIndex % dance.components.length];
         if (!component.optional || component.optional === optional) {
@@ -415,6 +407,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
           position.index = component.index;
           position.step = component.step;
           position.beats = component.beats;
+          position.group = component.group;
           //Generate paths
           position.paths = [];
           for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
@@ -455,12 +448,12 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     return positions;
   };
 
-  IceDiagram._computeTransformMatrix = function(index, patternsPerLap, scaleFactor, mirror, rotate) {
+  IceDiagram._computeTransformMatrix = function(index, patternsPerLap, mirror, rotate) {
     var rotateOffset = rotate ? Math.PI : 0,
         theta = 2 * Math.PI * index / patternsPerLap + rotateOffset,
         flipX = mirror ? -1 : 1,
-        sinTheta = Math.sin(theta) * scaleFactor,
-        cosTheta = Math.cos(theta) * scaleFactor;
+        sinTheta = Math.sin(theta),
+        cosTheta = Math.cos(theta);
     return [flipX * cosTheta, -sinTheta, flipX * sinTheta, cosTheta];
   };
 
