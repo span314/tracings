@@ -36,6 +36,15 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
   IceDiagram._BASE_FONT_SIZE = 10;
   IceDiagram._BASE_LABEL_OFFSET = 8;
   IceDiagram._FONT = IceDiagram._BASE_FONT_SIZE + 'px Arial';
+  IceDiagram._COLOR_TRACING = 'rgb(0,0,0)';
+  IceDiagram._COLOR_TRACING_ACTIVE_DOWNBEAT = 'rgb(0,220,0)';
+  IceDiagram._COLOR_TRACING_ACTIVE_ONBEAT = 'rgb(0,200,0)';
+  IceDiagram._COLOR_TRACING_ACTIVE_OFFBEAT = 'rgb(0,180,0)';
+  IceDiagram._COLOR_TRACING_GROUP = 'rgb(0,120,0)';
+  IceDiagram._COLOR_TEXT_MAIN = 'rgb(0,0,0)';
+  IceDiagram._COLOR_TEXT_LABEL_STEP = 'rgb(0,100,255)';
+  IceDiagram._COLOR_TEXT_LABEL_COUNT = 'rgb(255,100,0)';
+  IceDiagram._COLOR_RINK = 'rgb(210,210,210)';
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('control event ' + eventType + ' with value ' + value);
@@ -50,7 +59,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
       case 'part': case 'optional': case 'mirror': case 'rotate':
         this._loadPattern();
         break;
-      case 'step': case 'number': case 'count': case 'hold': case 'speed':
+      case 'step': case 'number': case 'count': case 'hold': case 'speed': case 'resize':
         this._drawPattern();
     }
   };
@@ -97,15 +106,15 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     this.beginning();
   };
 
-  IceDiagram.prototype._getCenter = function(zoom) {
+  IceDiagram.prototype._getCenter = function() {
     var currentPosition = this._patternPositions[this._position],
         activeCenter = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, this._stepTickCount / currentPosition.duration),
         w = this._canvasElement.width,
         h = this._canvasElement.height,
         contentHalfWidth = (w < IceDiagram._BASE_WIDTH ? IceDiagram._BASE_WIDTH : w) / 2,
         contentHalfHeight = (h < IceDiagram._BASE_HEIGHT ? IceDiagram._BASE_HEIGHT : h) / 2,
-        x = Math.min(Math.max(w - contentHalfWidth, w / 2 - activeCenter[0]), contentHalfWidth) / zoom,
-        y = Math.min(Math.max(h - contentHalfHeight, h / 2 - activeCenter[1]), contentHalfHeight) / zoom;
+        x = Math.min(Math.max(w - contentHalfWidth, w / 2 - activeCenter[0]), contentHalfWidth),
+        y = Math.min(Math.max(h - contentHalfHeight, h / 2 - activeCenter[1]), contentHalfHeight);
     return [x, y];
   }
 
@@ -116,22 +125,24 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
         showCount = this._controls.count,
         showHold = this._controls.hold,
         zoom = this._getDefaultZoom(),
+        center = this._getCenter(),
         ctx = this._canvasContext,
         currentPosition = this._patternPositions[this._position],
         tickCount = currentPosition.offset + this._stepTickCount,
-        fracBeat = tickCount % 4,
+        fracBeat = tickCount % IceDiagram._TICKS_PER_BEAT,
         beat = (tickCount >> 2) % this._dance.timeSignatureTop + 1;
 
     //Note: set background color to white in css
     //otherwise background will be black in IE and Firefox when fullscreen
     ctx.clearRect(0, 0, this._canvasElement.width, this._canvasElement.height);
-    ctx.save();
-    ctx.scale(zoom, zoom);
 
     ctx.font = IceDiagram._FONT;
 
-    ctx.save();
-    ctx.translate.apply(ctx, this._getCenter(zoom));
+    ctx.save(); //scale
+    ctx.scale(zoom, zoom);
+
+    ctx.save(); //translate
+    ctx.translate(center[0] / zoom, center[1] / zoom);
 
     //Draw rink
     this._drawRink();
@@ -140,23 +151,25 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     for (positionIndex = 0; positionIndex < this._patternPositions.length; positionIndex++) {
       position = this._patternPositions[positionIndex];
 
-      ctx.save();
+
       if (position.lapIndex !== currentPosition.lapIndex) {
         ctx.lineWidth = 1;
+        ctx.strokeStyle = IceDiagram._COLOR_TRACING;
       } else if (position === currentPosition) {
         ctx.lineWidth = 3;
         if (beat === 1 && fracBeat === 0) {
-          ctx.strokeStyle = 'rgb(0,220,0)';
+          ctx.strokeStyle = IceDiagram._COLOR_TRACING_ACTIVE_DOWNBEAT;
         } else if (fracBeat === 0) {
-          ctx.strokeStyle = 'rgb(0,200,0)';
+          ctx.strokeStyle = IceDiagram._COLOR_TRACING_ACTIVE_ONBEAT;
         } else {
-          ctx.strokeStyle = 'rgb(0,180,0)';
+          ctx.strokeStyle = IceDiagram._COLOR_TRACING_ACTIVE_OFFBEAT;
         }
       } else if (position.group && position.group === currentPosition.group) {
         ctx.lineWidth = 3;
-        ctx.strokeStyle = 'rgb(0,120,0)';
+        ctx.strokeStyle = IceDiagram._COLOR_TRACING_GROUP;
       } else {
         ctx.lineWidth = 2;
+        ctx.strokeStyle = IceDiagram._COLOR_TRACING;
       }
 
       for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
@@ -179,7 +192,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
         }
         labelText = labelList.join(' ');
         if (labelText) {
-          ctx.fillStyle = 'rgb(0,100,255)';
+          ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_STEP;
           IceDiagram._drawTextOnPath(ctx, labelText, position.paths[0], IceDiagram._BASE_LABEL_OFFSET);
         }
         //Draw hold and count
@@ -193,29 +206,25 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
         }
         labelText = labelList.join(' ');
         if (labelText) {
-          ctx.fillStyle = 'rgb(255,100,0)';
+          ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_COUNT;
           IceDiagram._drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -IceDiagram._BASE_LABEL_OFFSET);
         }
       }
-      ctx.restore();
     }
-    ctx.restore();
+    ctx.restore(); //translate
 
     //Draw text
-    ctx.save();
     ctx.textBaseline = 'top';
     ctx.fillStyle = 'rgba(255,255,255,0.75)';
     ctx.fillRect(IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET, ctx.measureText(currentPosition.desc).width, IceDiagram._BASE_FONT_SIZE);
-    ctx.fillStyle = 'rgb(0,0,0)';
+    ctx.fillStyle = IceDiagram._COLOR_TEXT_MAIN;
     ctx.fillText(currentPosition.desc, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET);
-    ctx.restore();
-
-    ctx.textBaseline = 'bottom'
+    ctx.textBaseline = 'bottom';
     labelText = this._controls.speed === 1 ? '' : Math.round(this._controls.speed * this._dance.beatsPerMinute) + 'bpm of ';
     labelText += this._dance.beatsPerMinute + 'bpm';
-    ctx.fillText(labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height - IceDiagram._BASE_LABEL_OFFSET);
+    ctx.fillText(labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height / zoom - IceDiagram._BASE_LABEL_OFFSET);
 
-    ctx.restore();
+    ctx.restore(); //scale
   };
 
   IceDiagram.prototype._drawRink = function() {
@@ -229,7 +238,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
 
     ctx.save();
 
-    ctx.strokeStyle = 'rgb(210,210,210)';
+    ctx.strokeStyle = IceDiagram._COLOR_RINK;
 
     ctx.beginPath();
     ctx.moveTo(-halfWidthStraight, -halfHeight);
@@ -321,8 +330,8 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._click = function() {
     var zoom = this._getDefaultZoom(),
-        center = this._getCenter(zoom),
-        point = [this._controls.click[0] / zoom - center[0], this._controls.click[1] / zoom - center[1]],
+        center = this._getCenter(),
+        point = [(this._controls.click[0] - center[0]) / zoom, (this._controls.click[1] - center[1]) / zoom],
         nearest = IceDiagram._nearestNeighbor(point, this._positionSearchTree, 16);
     if (nearest >= 0) {
       this._movePosition(this._positionSearchTree[nearest][2]);

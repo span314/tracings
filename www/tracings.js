@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
       fullscreenButtonEl.className = 'enter';
       fullscreenButtonEl.dataset.active = false;
     }
+    diagram && diagram.controlEvent('resize');
   };
 
   //Initialize window size
