@@ -37,9 +37,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
   IceDiagram._BASE_LABEL_OFFSET = 8;
   IceDiagram._FONT = IceDiagram._BASE_FONT_SIZE + 'px Arial';
   IceDiagram._COLOR_TRACING = 'rgb(0,0,0)';
-  IceDiagram._COLOR_TRACING_ACTIVE_DOWNBEAT = 'rgb(0,220,0)';
-  IceDiagram._COLOR_TRACING_ACTIVE_ONBEAT = 'rgb(0,200,0)';
-  IceDiagram._COLOR_TRACING_ACTIVE_OFFBEAT = 'rgb(0,180,0)';
+  IceDiagram._COLOR_TRACING_ACTIVE = ['rgb(0,180,0)', 'rgb(0,200,0)', 'rgb(0,210,0)', 'rgb(0,220,0)'];
   IceDiagram._COLOR_TRACING_GROUP = 'rgb(0,120,0)';
   IceDiagram._COLOR_TEXT_MAIN = 'rgb(0,0,0)';
   IceDiagram._COLOR_TEXT_LABEL_STEP = 'rgb(0,100,255)';
@@ -130,20 +128,11 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
         zoom = this._getDefaultZoom(),
         center = this._getCenter(),
         ctx = this._canvasContext,
-        currentPosition = this._patternPositions[this._position],
-        tickCount = currentPosition.offset + this._stepTickCount,
-        fracBeat = tickCount % IceDiagram._TICKS_PER_BEAT,
-        beat = (tickCount >> 2) % this._dance.timeSignatureTop + 1;
+        currentPosition = this._patternPositions[this._position];
 
     //Note: set background color to white in css
     //otherwise background will be black in IE and Firefox when fullscreen
     ctx.clearRect(0, 0, this._canvasElement.width, this._canvasElement.height);
-
-    console.log(this._currentBeatInfo);
-    console.log(tickCount);
-    console.log(beat);
-    console.log(fracBeat);
-
     ctx.font = IceDiagram._FONT;
 
     ctx.save(); //scale
@@ -159,19 +148,12 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     for (positionIndex = 0; positionIndex < this._patternPositions.length; positionIndex++) {
       position = this._patternPositions[positionIndex];
 
-
       if (position.lapIndex !== currentPosition.lapIndex) {
         ctx.lineWidth = 1;
         ctx.strokeStyle = IceDiagram._COLOR_TRACING;
       } else if (position === currentPosition) {
         ctx.lineWidth = 3;
-        if (beat === 1 && fracBeat === 0) {
-          ctx.strokeStyle = IceDiagram._COLOR_TRACING_ACTIVE_DOWNBEAT;
-        } else if (fracBeat === 0) {
-          ctx.strokeStyle = IceDiagram._COLOR_TRACING_ACTIVE_ONBEAT;
-        } else {
-          ctx.strokeStyle = IceDiagram._COLOR_TRACING_ACTIVE_OFFBEAT;
-        }
+        ctx.strokeStyle = IceDiagram._COLOR_TRACING_ACTIVE[this._currentBeatInfo.strength];
       } else if (position.group && position.group === currentPosition.group) {
         ctx.lineWidth = 3;
         ctx.strokeStyle = IceDiagram._COLOR_TRACING_GROUP;
@@ -360,13 +342,14 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
       this._currentBeatInfo = this._nextBeatInfo;
       this._nextBeatInfo = this._beatInfo(this._elapsedTicks);
 
-      this._elapsedTicks++;
       this._nextTick();
       this._nextTickTimestamp +=  60 / (IceDiagram._TICKS_PER_BEAT * this._controls.speed * this._dance.beatsPerMinute);
 
       if (this._audioContext && this._controls.sound && this._nextBeatInfo.strength) {
         this._scheduleBeatAudio(this._nextBeatInfo.strength / 3, this._nextTickTimestamp);
       }
+
+      this._elapsedTicks++;
     }
   }
 
