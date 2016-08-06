@@ -33,7 +33,7 @@ body {
   border: 1px solid #aaa;
   border-radius: 4px;
   background: #eee;
-  font-size: 16pt;
+  font-size: 14pt;
   padding: 0.2em;
   vertical-align: top;
 }
@@ -45,8 +45,8 @@ body {
 .button-set button {
   display: inline-block;
   margin: 0 -2px;
-  width: 52px;
-  height: 36px;
+  width: 48px;
+  height: 32px;
   background-repeat: no-repeat;
   background-position: center;
   background-color: #eee;
@@ -61,15 +61,56 @@ body {
 }
 
 .button-set button:first-child {
-  margin-left: 1px;
+  margin-left: 0px;
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
 }
 
 .button-set button:last-child {
-  margin-right: 1px;
+  margin-right: 0px;
   border-bottom-right-radius: 4px;
   border-top-right-radius: 4px;
+}
+
+#infoModal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+  pointer-events: none;
+}
+
+#infoModal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#info {
+  width: 85%;
+  height: 85%;
+  padding: 1em;
+  padding-top: 2em;
+  margin: 2% auto;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+#infoCloseButton {
+  font-size: 16pt;
+  position: absolute;
+  top: 0.3em;
+  right: 0.3em;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 /*!
@@ -275,4 +316,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 #soundButton.on {
   /* mdi icon music-note.svg */
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGJhc2VQcm9maWxlPSJmdWxsIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNC4wMCAyNC4wMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQuMDAgMjQuMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoJPHBhdGggZmlsbD0iIzAwMDAwMCIgZmlsbC1vcGFjaXR5PSIxIiBzdHJva2Utd2lkdGg9IjEuMzMzMzMiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIGQ9Ik0gMTIsM0wgMTIsMTIuMjYzN0MgMTEuNTE4NiwxMi4wOTEyIDExLjAxMTMsMTIuMDAyIDEwLjUsMTJDIDguMDE0NzIsMTIgNiwxNC4wMTQ3IDYsMTYuNUMgNiwxOC45ODUzIDguMDE0NzIsMjEgMTAuNSwyMUMgMTIuOTg1MywyMSAxNSwxOC45ODUzIDE1LDE2LjVMIDE1LDZMIDE5LDZMIDE5LDNMIDEyLDMgWiAiLz4KPC9zdmc+Cg==");
+}
+
+#infoButton {
+  /* mdi icon information-outline.svg */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGJhc2VQcm9maWxlPSJmdWxsIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNC4wMCAyNC4wMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjQuMDAgMjQuMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgoJPHBhdGggZmlsbD0iIzAwMDAwMCIgZmlsbC1vcGFjaXR5PSIxIiBzdHJva2Utd2lkdGg9IjAuMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTSAxMC45OTk0LDguOTk4MDVMIDEyLjk5OTQsOC45OTgwNUwgMTIuOTk5NCw2Ljk5ODA1TCAxMC45OTk0LDYuOTk4MDVNIDExLjk5OTQsMTkuOTk4QyA3LjU4ODM4LDE5Ljk5OCAzLjk5OTM5LDE2LjQwOTEgMy45OTkzOSwxMS45OThDIDMuOTk5MzksNy41ODcwNCA3LjU4ODM4LDMuOTk4MDUgMTEuOTk5NCwzLjk5ODA1QyAxNi40MTA0LDMuOTk4MDUgMTkuOTk5NCw3LjU4NzA0IDE5Ljk5OTQsMTEuOTk4QyAxOS45OTk0LDE2LjQwOTEgMTYuNDEwNCwxOS45OTggMTEuOTk5NCwxOS45OTggWiBNIDExLjk5OTQsMS45OTgwNUMgNi40NzYzOCwxLjk5ODA1IDEuOTk5MzksNi40NzUwNCAxLjk5OTM5LDExLjk5OEMgMS45OTkzOSwxNy41MjExIDYuNDc2MzgsMjEuOTk4IDExLjk5OTQsMjEuOTk4QyAxNy41MjI0LDIxLjk5OCAyMS45OTk0LDE3LjUyMTEgMjEuOTk5NCwxMS45OThDIDIxLjk5OTQsNi40NzUwNCAxNy41MjI0LDEuOTk4MDUgMTEuOTk5NCwxLjk5ODA1IFogTSAxMC45OTk0LDE2Ljk5OEwgMTIuOTk5NCwxNi45OThMIDEyLjk5OTQsMTAuOTk4TCAxMC45OTk0LDEwLjk5OEwgMTAuOTk5NCwxNi45OTggWiAiLz4KPC9zdmc+Cg==");
 }

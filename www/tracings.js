@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
   resizeWindow = function() {
     //TODO figure out why width needs to be set twice on orientation change for Android
     canvasEl.width = controlsEl.getBoundingClientRect().width;
-    canvasEl.height = window.innerHeight - controlsEl.getBoundingClientRect().height - 8;
+    canvasEl.height = window.innerHeight - controlsEl.getBoundingClientRect().height - 16;
     if (document.fullscreenElement) {
       canvasEl.width = window.screen.width;
       fullscreenButtonEl.className = 'exit';
@@ -158,5 +158,14 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       document.getElementById('diagramContainer').requestFullscreen();
     }
+  });
+
+  //Info popup button
+  document.getElementById('infoButton').addEventListener('click', function() {
+    document.getElementById('infoModal').className = 'open';
+  });
+
+  document.getElementById('infoCloseButton').addEventListener('click', function() {
+    document.getElementById('infoModal').className = '';
   });
 });

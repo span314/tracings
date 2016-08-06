@@ -56,19 +56,27 @@
       </span>
 
       <span class="button-set">
+        <button id="infoButton" title="Info"></button>
         <button id="fullscreenButton" title="Fullscreen" class="enter"></button>
+      </span>
+
+      <span class="button-set">
         <button id="beginningButton" title="Pattern Start"></button>
         <button id="previousButton" title="Previous Step"></button>
         <button id="startPauseButton" title="Play / Pause"></button>
         <button id="nextButton" title="Next Step"></button>
+
+      </span>
+
+      <span class="button-set">
         <button id="soundButton" title="Sound" class="off"></button>
+        <button id="speedButton" title="Speed" class="speed100"></button>
       </span>
 
       <span class="button-set">
         <button id="optionalButton" title="Optional Steps" data-active="true"></button>
         <button id="mirrorButton" title="Mirror" data-active="false"></button>
         <button id="rotateButton" title="Rotate" data-active="false"></button>
-        <button id="speedButton" title="Speed" class="speed100"></button>
       </span>
 
       <span class="button-set">
@@ -78,10 +86,14 @@
         <button id="holdButton" title="Hold Labels" data-active="false"></button>
       </span>
     </div>
-  </div>
-  <div id="info">
-    <p>This page is a non-indexed snapshot version (0.1-RC7). <a href="../latest/tracings.html">Latest Version</a></p>
-    <p>Diagrams adapted from <a href="http://www.usfsa.org/story?id=84114" target="_blank">USFSA rulebook</a></p>
+
+    <div id="infoModal">
+      <div id="info">
+        <button id="infoCloseButton" title="Close">X</button>
+        <p>This page is a non-indexed snapshot version (0.1-RC7). <a href="../latest/tracings.html">Latest Version</a></p>
+        <p>Diagrams adapted from <a href="http://www.usfsa.org/story?id=84114" target="_blank">USFSA rulebook</a></p>
+      </div>
+    </div>
   </div>
 </body>
 
