@@ -93,8 +93,7 @@ body {
 #info {
   width: 85%;
   height: 85%;
-  padding: 1em;
-  padding-top: 2em;
+  padding: 0 1em;
   margin: 2% auto;
   position: relative;
   background-color: #fff;
