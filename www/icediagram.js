@@ -36,13 +36,13 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
   IceDiagram._BASE_FONT_SIZE = 10;
   IceDiagram._BASE_LABEL_OFFSET = 8;
   IceDiagram._FONT = IceDiagram._BASE_FONT_SIZE + 'px Arial';
-  IceDiagram._COLOR_TRACING = 'rgb(0,0,0)';
-  IceDiagram._COLOR_TRACING_ACTIVE = ['rgb(0,180,0)', 'rgb(0,200,0)', 'rgb(0,210,0)', 'rgb(0,220,0)'];
-  IceDiagram._COLOR_TRACING_GROUP = 'rgb(0,120,0)';
-  IceDiagram._COLOR_TEXT_MAIN = 'rgb(0,0,0)';
-  IceDiagram._COLOR_TEXT_LABEL_STEP = 'rgb(0,100,255)';
-  IceDiagram._COLOR_TEXT_LABEL_COUNT = 'rgb(255,100,0)';
-  IceDiagram._COLOR_RINK = 'rgb(210,210,210)';
+  IceDiagram._COLOR_TRACING = '#000';
+  IceDiagram._COLOR_TRACING_ACTIVE = ['#0B0', '#0C0', '#0D0', '#0E0'];
+  IceDiagram._COLOR_TRACING_GROUP = '#070';
+  IceDiagram._COLOR_TEXT_MAIN = '#000';
+  IceDiagram._COLOR_TEXT_LABEL_STEP = '#07F';
+  IceDiagram._COLOR_TEXT_LABEL_COUNT = '#F70';
+  IceDiagram._COLOR_RINK = '#DDD';
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('control event ' + eventType + ' with value ' + value);
