@@ -96,12 +96,15 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._loadPattern = function() {
-    var optionalFlag = this._controls.optional ? 'yes' : 'no',
+    var lastPosition,
+        optionalFlag = this._controls.optional ? 'yes' : 'no',
         mirrorFlag = this._controls.mirror,
         rotateFlag = this._controls.rotate,
         part = this._controls.part;
     console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
     this._patternPositions = IceDiagram._generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag);
+    lastPosition = this._patternPositions[this._patternPositions.length - 1];
+    this._ticksPerLap = lastPosition.offset + lastPosition.duration;
     this._positionSearchTree = IceDiagram._positionTree(this._patternPositions);
     this.beginning();
   };
@@ -135,6 +138,11 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     //Note: set background color to white in css
     //otherwise background will be black in IE and Firefox when fullscreen
     ctx.clearRect(0, 0, this._canvasElement.width, this._canvasElement.height);
+
+    console.log(this._currentBeatInfo);
+    console.log(tickCount);
+    console.log(beat);
+    console.log(fracBeat);
 
     ctx.font = IceDiagram._FONT;
 
@@ -268,8 +276,9 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._nextTick = function() {
-    this._stepTickCount++;
-    if (this._stepTickCount >= this._patternPositions[this._position].duration) {
+    var currentPosition = this._patternPositions[this._position];
+    this._stepTickCount = (this._currentBeatInfo.ticks - currentPosition.offset) % this._ticksPerLap;
+    if (this._stepTickCount >= currentPosition.duration) {
       this._position = this._nextIndex();
       this._stepTickCount = 0;
     }
@@ -283,6 +292,7 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     this._pause();
     this._position = index;
     this._stepTickCount = 0;
+    this._currentBeatInfo = this._beatInfo(this._patternPositions[index].offset);
     this._drawPattern();
   };
 
@@ -290,9 +300,9 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
     console.log('start');
 
     this._nextTickTimestamp = 0;
-    this._elapsedTicks = this._patternPositions[this._position].offset - 1; //Leave one tick buffer to schedule first beat
-    this._currentBeatInfo = {};
-    this._nextBeatInfo = {};
+    this._elapsedTicks = this._patternPositions[this._position].offset;
+    this._stepTickCount = 0;
+    this._nextBeatInfo = this._beatInfo(this._elapsedTicks);
 
     if (this._audioContext) {
       //Unmute by playing a beat quietly - iOS devices must play directly after a user interaction
@@ -342,31 +352,33 @@ Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
   //Takes in a backup ms timestamp such as performance.now(), Date.now(), or requestAnimationFrame timestamp
   //for browsers that do not support web audio API
   IceDiagram.prototype._synchronize = function(backupTimestamp) {
-    var beatCount, beatStrength,
-        currentTime = this._audioContext ? this._audioContext.currentTime : backupTimestamp * 0.001;
+    var currentTime = this._audioContext ? this._audioContext.currentTime : backupTimestamp * 0.001;
     //Initialize timer if necessary
     this._nextTickTimestamp = this._nextTickTimestamp || currentTime;
     //Ideally loop runs once with no lag
     while (currentTime >= this._nextTickTimestamp) {
+      this._currentBeatInfo = this._nextBeatInfo;
+      this._nextBeatInfo = this._beatInfo(this._elapsedTicks);
+
       this._elapsedTicks++;
       this._nextTick();
       this._nextTickTimestamp +=  60 / (IceDiagram._TICKS_PER_BEAT * this._controls.speed * this._dance.beatsPerMinute);
 
-      beatCount = Math.floor(this._elapsedTicks / IceDiagram._TICKS_PER_BEAT) % this._beatPattern.length;
-      beatStrength = this._elapsedTicks % IceDiagram._TICKS_PER_BEAT ? 0 : this._beatPattern[beatCount];
-
-      this._currentBeatInfo = this._nextBeatInfo;
-      this._nextBeatInfo = {
-        ticks: this._elapsedTicks,
-        beat: beatCount % this._dance.timeSignatureTop + 1,
-        strength: beatStrength
-      };
-
-      if (this._audioContext && this._controls.sound && beatStrength) {
-        this._scheduleBeatAudio(beatStrength / 3, this._nextTickTimestamp);
+      if (this._audioContext && this._controls.sound && this._nextBeatInfo.strength) {
+        this._scheduleBeatAudio(this._nextBeatInfo.strength / 3, this._nextTickTimestamp);
       }
     }
   }
+
+  //Construct beat info for given time offset
+  IceDiagram.prototype._beatInfo = function(offset) {
+    var info = {},
+        beatCount = Math.floor(offset / IceDiagram._TICKS_PER_BEAT) % this._beatPattern.length;
+    info.ticks = offset;
+    info.beat = beatCount % this._dance.timeSignatureTop + 1;
+    info.strength = offset % IceDiagram._TICKS_PER_BEAT ? 0 : this._beatPattern[beatCount];
+    return info;
+  };
 
   //Schedule audio for a beat - drum-like waveform
   IceDiagram.prototype._scheduleBeatAudio = function(volume, startTime) {
