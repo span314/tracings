@@ -3,12 +3,13 @@
   "version": "0.2.0",
   "description": "Ice diagrams website",
   "scripts": {
-    "build": "npm run minifyjs && npm run minifycss && npm run patterns && npm run lint",
+    "build": "npm run minifyjs && npm run minifycss && npm run patterns && npm run lint && npm test",
     "lint": "jshint js/*.js",
     "minifyjs": "uglifyjs js/*.js --output www/tracings-all.min.js --compress drop-console --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map www/tracings-all.min.js.map --source-map-include-sources --mangle-props --mangle-regex='/^_/' --reserve-domprops",
     "minifycss": "cleancss -o www/style-all.min.css css/style.css --source-map --source-map-inline-sources",
     "patterns": "python processPatterns.py",
-    "test": "echo TODO"
+    "test": "mocha js/test -u bdd -R spec",
+    "watch": "watch-run -i -p 'js/*, css/*, patterns*' npm run build"
   },
   "author": "Shawn Pan",
   "license": "UNLICENSED",
@@ -16,6 +17,9 @@
   "devDependencies": {
     "clean-css": "^3.4.19",
     "jshint": "^2.9.2",
-    "uglify-js": "^2.7.0"
+    "mocha": "^3.0.1",
+    "should": "^10.0.0",
+    "uglify-js": "^2.7.0",
+    "watch-run": "^1.2.4"
   }
 }
