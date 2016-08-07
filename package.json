@@ -1,0 +1,19 @@
+{
+  "name": "tracings",
+  "version": "0.2.0",
+  "description": "Ice diagrams website",
+  "scripts": {
+    "build": "npm run patterns && npm run minifyjs && npm run minifycss",
+    "patterns": "python processPatterns.py",
+    "minifyjs": "cd www && uglifyjs header.js tracings.js icediagram.js fullscreen-api-polyfill.js --output tracings-all.min.js --compress drop-console --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map tracings-all.min.js.map --prefix relative --mangle-props --mangle-regex='/^_/' --reserve-domprops",
+    "minifycss": "cd www && cleancss -o style-all.min.css style.css --source-map",
+    "test": "echo TODO"
+  },
+  "author": "Shawn Pan",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "clean-css": "^3.4.19",
+    "uglify-js": "^2.7.0"
+  }
+}
