@@ -1,6 +1,6 @@
 'use strict';
 /*!
-Ice Diagram Widget v0.1-RC7 | Software Copyright (c) Shawn Pan
+Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
 */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
