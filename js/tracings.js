@@ -1,8 +1,8 @@
-'use strict';
 /*!
 Load widgets and bind events v0.2.0 | Software Copyright (c) Shawn Pan
 */
 document.addEventListener('DOMContentLoaded', function() {
+  'use strict';
   var canvasEl = document.getElementById('diagram'),
       controlsEl = document.getElementById('controls'),
       danceSelectEl = document.getElementById('danceSelect'),
@@ -13,11 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
       diagram, resizeWindow, createStateButton, createToggleButton;
 
   //Check compatibility
-  canvasEl.getContext || compatiblityErrors.push('canvas'); //http://caniuse.com/#feat=canvas
-  canvasEl.dataset || compatiblityErrors.push('dataset'); //http://caniuse.com/#feat=dataset
-  window.requestAnimationFrame || compatiblityErrors.push('requestAnimationFrame'); //http://caniuse.com/#feat=requestanimationframe
-  window.history || compatiblityErrors.push('history'); //http://caniuse.com/#feat=history
-
+  if (!canvasEl.getContext) {
+    compatiblityErrors.push('canvas'); //http://caniuse.com/#feat=canvas
+  }
+  if (!canvasEl.dataset) {
+    compatiblityErrors.push('dataset'); //http://caniuse.com/#feat=dataset
+  }
+  if (!window.requestAnimationFrame) {
+    compatiblityErrors.push('requestAnimationFrame'); //http://caniuse.com/#feat=requestanimationframe
+  }
+  if (!window.history) {
+    compatiblityErrors.push('history'); //http://caniuse.com/#feat=history
+  }
   if (compatiblityErrors.length) {
     errorBarEl.innerHTML += " Your browser does not support the following HTML5 features: " + compatiblityErrors.join(", ");
     return;
@@ -51,7 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
       fullscreenButtonEl.className = 'enter';
       fullscreenButtonEl.dataset.active = false;
     }
-    diagram && diagram.controlEvent('resize');
+    if (diagram) {
+      diagram.controlEvent('resize');
+    }
   };
 
   //Initialize window size

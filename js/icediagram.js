@@ -1,4 +1,3 @@
-'use strict';
 /*!
 Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
 */
@@ -14,6 +13,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     root.IceDiagram = factory();
   }
 }(this, function () {
+  'use strict';
   var IceDiagram = function(canvas, options) {
     //store parameters
     this._canvasElement = canvas;
@@ -117,7 +117,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
         x = Math.min(Math.max(w - contentHalfWidth, w / 2 - activeCenter[0]), contentHalfWidth),
         y = Math.min(Math.max(h - contentHalfHeight, h / 2 - activeCenter[1]), contentHalfHeight);
     return [x, y];
-  }
+  };
 
   IceDiagram.prototype._drawPattern = function() {
     var path, positionIndex, pathIndex, position, labelList, labelText, count,
@@ -351,7 +351,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
 
       this._elapsedTicks++;
     }
-  }
+  };
 
   //Construct beat info for given time offset
   IceDiagram.prototype._beatInfo = function(offset) {
@@ -484,7 +484,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
         x = w1 * c[0] + w2 * c[2] + w3 * c[4] + w4 * c[6],
         y = w1 * c[1] + w2 * c[3] + w3 * c[5] + w4 * c[7];
     return [x, y];
-  }
+  };
   //Calculate normal vector of a cubic for parameter t
   IceDiagram._cubicNormalAt = function(cubic, t) {
     var dx = IceDiagram._cubicDerivatives(cubic[0], cubic[2], cubic[4], cubic[6], t),
@@ -501,7 +501,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     return {
       value: [dx[0], dy[0]],
       normal: [normX, normY]
-    }
+    };
   };
   //Calculate array of value, first derivative, and second derivative
   IceDiagram._cubicDerivatives = function(p0, p1, p2, p3, t) {
@@ -612,14 +612,14 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
       for (i = start; i < end - 1; i++) {
         //Swap lesser elements towards front
         if (points[i][k] < pivot[k]) {
-          swap = points[i]
-          points[i] = points[partition]
-          points[partition] = swap
+          swap = points[i];
+          points[i] = points[partition];
+          points[partition] = swap;
           partition++;
         }
       }
       //Restore pivot. Working array size grows by 1 back to original size.
-      points[end - 1] = points[partition]
+      points[end - 1] = points[partition];
       points[partition] = pivot;
       //Continue on with approriate half
       if (partition < n) {
