@@ -5,8 +5,8 @@
   "scripts": {
     "build": "npm run patterns && npm run minifyjs && npm run minifycss",
     "patterns": "python processPatterns.py",
-    "minifyjs": "cd www && uglifyjs header.js tracings.js icediagram.js fullscreen-api-polyfill.js --output tracings-all.min.js --compress drop-console --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map tracings-all.min.js.map --prefix relative --mangle-props --mangle-regex='/^_/' --reserve-domprops",
-    "minifycss": "cd www && cleancss -o style-all.min.css style.css --source-map",
+    "minifyjs": "uglifyjs js/*.js --output www/tracings-all.min.js --compress drop-console --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map www/tracings-all.min.js.map --source-map-include-sources --mangle-props --mangle-regex='/^_/' --reserve-domprops",
+    "minifycss": "cleancss -o www/style-all.min.css css/style.css --source-map --source-map-inline-sources",
     "test": "echo TODO"
   },
   "author": "Shawn Pan",
