@@ -51,13 +51,16 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
       case 'click':
         this._click();
         break;
+      case 'shift':
+        this._shiftCenter();
+        break;
       case 'dance':
         this._loadDance();
         break;
       case 'part': case 'optional': case 'mirror': case 'rotate':
         this._loadPattern();
         break;
-      case 'step': case 'number': case 'count': case 'hold': case 'speed': case 'resize': case 'center':
+      case 'step': case 'number': case 'count': case 'hold': case 'speed': case 'resize':
         this._drawPattern();
     }
   };
@@ -108,11 +111,31 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._getCenter = function() {
     var w = this._canvasElement.width,
         h = this._canvasElement.height,
-        contentHalfWidth = (w < IceDiagram._BASE_WIDTH ? IceDiagram._BASE_WIDTH : w) / 2,
-        contentHalfHeight = (h < IceDiagram._BASE_HEIGHT ? IceDiagram._BASE_HEIGHT : h) / 2,
-        x = Math.min(Math.max(w - contentHalfWidth, w / 2 - this._controls.center[0]), contentHalfWidth),
-        y = Math.min(Math.max(h - contentHalfHeight, h / 2 - this._controls.center[1]), contentHalfHeight);
-    return [x, y];
+        cx = IceDiagram._trimCenter(this._activeCenter[0], IceDiagram._BASE_WIDTH, w),
+        cy = IceDiagram._trimCenter(this._activeCenter[1], IceDiagram._BASE_HEIGHT, h);
+    return [w / 2 - cx, h / 2 - cy];
+  };
+
+  IceDiagram._trimCenter = function(center, content, container) {
+    var bound = (container - content) / 2;
+    if (bound > 0) {
+      return 0;
+    }
+    if (center < bound) {
+      return bound;
+    }
+    if (center > -bound) {
+      return -bound;
+    }
+    return center;
+  };
+
+  IceDiagram.prototype._shiftCenter = function() {
+    if (!this._playing) {
+      this._activeCenter[0] = IceDiagram._trimCenter(this._activeCenter[0] - this._controls.shift[0], IceDiagram._BASE_WIDTH, this._canvasElement.width);
+      this._activeCenter[1] = IceDiagram._trimCenter(this._activeCenter[1] - this._controls.shift[1], IceDiagram._BASE_HEIGHT, this._canvasElement.height);
+      this._drawPattern();
+    }
   };
 
   IceDiagram.prototype._drawPattern = function() {
@@ -259,14 +282,14 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     if (stepTickCount >= currentPosition.duration) {
       this._position = this._position === this._patternPositions.length - 1 ? 0 : this._position + 1;
     }
-    this._controls.center = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, stepTickCount / currentPosition.duration);
+    this._activeCenter = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, stepTickCount / currentPosition.duration);
   };
 
   IceDiagram.prototype._movePosition = function(index) {
     this._pause();
     this._position = index;
     this._currentBeatInfo = this._beatInfo(this._patternPositions[index].offset);
-    this._controls.center = this._patternPositions[this._position].paths[0].value;
+    this._activeCenter = this._patternPositions[this._position].paths[0].value.slice();
     this._drawPattern();
   };
 

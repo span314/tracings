@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       fullscreenButtonEl = document.getElementById('fullscreenButton'),
       audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
-      diagram, resizeWindow, createStateButton, createToggleButton;
+      diagram, touchStart, getCoordinates, resizeWindow, createStateButton, createToggleButton;
 
   //Check compatibility
   if (!canvasEl.getContext) {
@@ -100,12 +100,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  canvasEl.addEventListener('click', function(e) {
-    //Note: calcuating offsets from page, because Firefox does not have offsetX/offsetY in click events
-    var bounds = this.getBoundingClientRect(),
+  //Bind touch and mouse events
+  getCoordinates = function(e) {
+    //Note: calcuating offsets from page, because Firefox does not have offsetX/offsetY in mouse events
+    var bounds = canvasEl.getBoundingClientRect(),
         x = e.pageX - bounds.left - document.body.scrollLeft,
         y = e.pageY - bounds.top - document.body.scrollTop;
-    diagram.controlEvent('click', [x, y]);
+    return [x, y];
+  };
+
+  canvasEl.addEventListener('click', function(e) {
+    diagram.controlEvent('click', getCoordinates(e));
+  });
+
+  canvasEl.addEventListener('touchstart', function(e) {
+    touchStart = getCoordinates(e.touches[0]);
+  });
+
+  canvasEl.addEventListener('touchmove', function(e) {
+    var touchEnd = getCoordinates(e.touches[0]),
+        dx = touchEnd[0] - touchStart[0],
+        dy = touchEnd[1] - touchStart[1];
+    touchStart = touchEnd;
+    diagram.controlEvent('shift', [dx, dy]);
   });
 
   //Bind navigation control buttons
