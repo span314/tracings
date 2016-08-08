@@ -57,7 +57,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
       case 'part': case 'optional': case 'mirror': case 'rotate':
         this._loadPattern();
         break;
-      case 'step': case 'number': case 'count': case 'hold': case 'speed': case 'resize':
+      case 'step': case 'number': case 'count': case 'hold': case 'speed': case 'resize': case 'center':
         this._drawPattern();
     }
   };
@@ -108,14 +108,12 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._getCenter = function() {
-    var currentPosition = this._patternPositions[this._position],
-        activeCenter = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, this._stepTickCount / currentPosition.duration),
-        w = this._canvasElement.width,
+    var w = this._canvasElement.width,
         h = this._canvasElement.height,
         contentHalfWidth = (w < IceDiagram._BASE_WIDTH ? IceDiagram._BASE_WIDTH : w) / 2,
         contentHalfHeight = (h < IceDiagram._BASE_HEIGHT ? IceDiagram._BASE_HEIGHT : h) / 2,
-        x = Math.min(Math.max(w - contentHalfWidth, w / 2 - activeCenter[0]), contentHalfWidth),
-        y = Math.min(Math.max(h - contentHalfHeight, h / 2 - activeCenter[1]), contentHalfHeight);
+        x = Math.min(Math.max(w - contentHalfWidth, w / 2 - this._controls.center[0]), contentHalfWidth),
+        y = Math.min(Math.max(h - contentHalfHeight, h / 2 - this._controls.center[1]), contentHalfHeight);
     return [x, y];
   };
 
@@ -263,7 +261,9 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     if (this._stepTickCount >= currentPosition.duration) {
       this._position = this._nextIndex();
       this._stepTickCount = 0;
+      currentPosition = this._patternPositions[this._position];
     }
+    this._controls.center = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, this._stepTickCount / currentPosition.duration);
   };
 
   IceDiagram.prototype._nextIndex = function() {
@@ -275,6 +275,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     this._position = index;
     this._stepTickCount = 0;
     this._currentBeatInfo = this._beatInfo(this._patternPositions[index].offset);
+    this._controls.center = this._patternPositions[this._position].paths[0].value;
     this._drawPattern();
   };
 
