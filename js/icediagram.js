@@ -45,7 +45,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
   IceDiagram._COLOR_RINK = '#DDD';
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
-    console.log('control event ' + eventType + ' with value ' + value);
+    console.log('UI ' + eventType + ' ' + (value || ''));
     this._controls[eventType] = value;
     switch (eventType) {
       case 'click':
@@ -79,15 +79,14 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
       if (request.status >= 200 && request.status < 400) {
         widget._dance = JSON.parse(request.responseText);
         widget._beatPattern = widget._dance.timeSignatureTop % 3 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1];
-        console.log(widget._dance);
         widget._loadPattern();
       } else {
-        console.log('TODO server error');
+        console.log('Cannot load pattern - server error');
       }
     };
 
     request.onerror = function() {
-      console.log('TODO connection error');
+      console.log('Cannot load pattern - connection error');
     };
 
     request.send();
@@ -99,7 +98,6 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
         mirrorFlag = this._controls.mirror,
         rotateFlag = this._controls.rotate,
         part = this._controls.part;
-    console.log('loading pattern ' + this._dance.name + ' part: ' + part + ' optional: ' + optionalFlag + ' mirror: ' + mirrorFlag + ' rotate: ' + rotateFlag);
     this._patternPositions = IceDiagram._generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag);
     lastPosition = this._patternPositions[this._patternPositions.length - 1];
     this._ticksPerLap = lastPosition.offset + lastPosition.duration;
@@ -280,8 +278,6 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._start = function() {
-    console.log('start');
-
     this._nextTickTimestamp = 0;
     this._elapsedTicks = this._patternPositions[this._position].offset;
     this._stepTickCount = 0;
@@ -302,7 +298,6 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
 
 
   IceDiagram.prototype._pause = function() {
-    console.log('pause');
     window.cancelAnimationFrame(this._animFrame);
     this._playing = false;
   };
