@@ -48,6 +48,18 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     console.log('UI ' + eventType + ' ' + (value || ''));
     this._controls[eventType] = value;
     switch (eventType) {
+      case 'beginning':
+        this._movePosition(0);
+        break;
+      case 'previous':
+        this._movePosition(this._position - 1);
+        break;
+      case 'next':
+        this._movePosition(this._position + 1);
+        break;
+      case 'startPause':
+        this._startPause();
+        break;
       case 'click':
         this._click();
         break;
@@ -98,7 +110,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     lastPosition = this._patternPositions[this._patternPositions.length - 1];
     this._ticksPerLap = lastPosition.offset + lastPosition.duration;
     this._positionSearchTree = IceDiagram._positionTree(this._patternPositions);
-    this.beginning();
+    this._movePosition(0);
   };
 
   IceDiagram.prototype._getCenter = function() {
@@ -243,18 +255,6 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     ctx.restore();
   };
 
-  IceDiagram.prototype.beginning = function() {
-    this._movePosition(0);
-  };
-
-  IceDiagram.prototype.previous = function() {
-    this._movePosition(this._position === 0 ? this._patternPositions.length - 1 : this._position - 1);
-  };
-
-  IceDiagram.prototype.next = function() {
-    this._movePosition(this._position === this._patternPositions.length - 1 ? 0 : this._position + 1);
-  };
-
   IceDiagram.prototype._nextTick = function() {
     var currentPosition = this._patternPositions[this._position],
         stepTickCount = (this._currentBeatInfo.ticks - currentPosition.offset) % this._ticksPerLap;
@@ -266,6 +266,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._movePosition = function(index) {
     this._pause();
+    index = (index + this._patternPositions.length) % this._patternPositions.length;
     this._position = index;
     this._currentBeatInfo = this._beatInfo(this._patternPositions[index].offset);
     this._activeCenter = this._patternPositions[this._position].paths[0].value.slice();
@@ -296,7 +297,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     this._playing = false;
   };
 
-  IceDiagram.prototype.startPause = function() {
+  IceDiagram.prototype._startPause = function() {
     if (this._playing) {
       this._pause();
     } else {

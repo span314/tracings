@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       fullscreenButtonEl = document.getElementById('fullscreenButton'),
       audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
-      diagram, touchStart, getCoordinates, resizeWindow, createStateButton, createToggleButton;
+      diagram, touchStart, getCoordinates, resizeWindow, createNavigationButton, createStateButton, createToggleButton;
 
   //Check compatibility
   if (!canvasEl.getContext) {
@@ -126,21 +126,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   //Bind navigation control buttons
-  document.getElementById('beginningButton').addEventListener('click', function() {
-    diagram.beginning();
-  });
+  createNavigationButton = function(command) {
+    var elem = document.getElementById(command + 'Button');
+    elem.addEventListener('click', function() {
+      diagram.controlEvent(command);
+    });
+  };
 
-  document.getElementById('startPauseButton').addEventListener('click', function() {
-    diagram.startPause();
-  });
-
-  document.getElementById('previousButton').addEventListener('click', function() {
-    diagram.previous();
-  });
-
-  document.getElementById('nextButton').addEventListener('click', function() {
-    diagram.next();
-  });
+  createNavigationButton('beginning');
+  createNavigationButton('previous');
+  createNavigationButton('next');
+  createNavigationButton('startPause');
 
   //Bind option buttons
   createToggleButton = function(command) {
