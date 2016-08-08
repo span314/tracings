@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run minifyjs && npm run minifycss && npm run patterns && npm run lint && npm test",
     "lint": "jshint js/*.js",
-    "minifyjs": "uglifyjs js/*.js --output www/tracings-all.min.js --compress --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map www/tracings-all.min.js.map --source-map-include-sources --mangle-props --mangle-regex='/^_/' --reserve-domprops",
+    "minifyjs": "uglifyjs js/*.js --output www/tracings-all.min.js --compress --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map www/tracings-all.min.js.map --source-map-include-sources --prefix relative --mangle-props --mangle-regex='/^_/' --reserve-domprops",
     "minifycss": "cleancss -o www/style-all.min.css css/style.css --source-map --source-map-inline-sources",
     "patterns": "python processPatterns.py",
     "test": "mocha jstest -u bdd -R spec",
