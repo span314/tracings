@@ -250,28 +250,21 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype.next = function() {
-    this._movePosition(this._nextIndex());
+    this._movePosition(this._position === this._patternPositions.length - 1 ? 0 : this._position + 1);
   };
 
   IceDiagram.prototype._nextTick = function() {
-    var currentPosition = this._patternPositions[this._position];
-    this._stepTickCount = (this._currentBeatInfo.ticks - currentPosition.offset) % this._ticksPerLap;
-    if (this._stepTickCount >= currentPosition.duration) {
-      this._position = this._nextIndex();
-      this._stepTickCount = 0;
-      currentPosition = this._patternPositions[this._position];
+    var currentPosition = this._patternPositions[this._position],
+        stepTickCount = (this._currentBeatInfo.ticks - currentPosition.offset) % this._ticksPerLap;
+    if (stepTickCount >= currentPosition.duration) {
+      this._position = this._position === this._patternPositions.length - 1 ? 0 : this._position + 1;
     }
-    this._controls.center = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, this._stepTickCount / currentPosition.duration);
-  };
-
-  IceDiagram.prototype._nextIndex = function() {
-    return this._position === this._patternPositions.length - 1 ? 0 : this._position + 1;
+    this._controls.center = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, stepTickCount / currentPosition.duration);
   };
 
   IceDiagram.prototype._movePosition = function(index) {
     this._pause();
     this._position = index;
-    this._stepTickCount = 0;
     this._currentBeatInfo = this._beatInfo(this._patternPositions[index].offset);
     this._controls.center = this._patternPositions[this._position].paths[0].value;
     this._drawPattern();
@@ -280,7 +273,6 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._start = function() {
     this._nextTickTimestamp = 0;
     this._elapsedTicks = this._patternPositions[this._position].offset;
-    this._stepTickCount = 0;
     this._nextBeatInfo = this._beatInfo(this._elapsedTicks);
 
     if (this._audioContext) {
