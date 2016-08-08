@@ -43,6 +43,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
   IceDiagram._COLOR_TEXT_LABEL_STEP = '#07F';
   IceDiagram._COLOR_TEXT_LABEL_COUNT = '#F70';
   IceDiagram._COLOR_RINK = '#DDD';
+  IceDiagram._FADE_MASK = 'rgba(255,255,255,0.75)';
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('UI ' + eventType + ' ' + (value || ''));
@@ -214,16 +215,10 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     ctx.restore(); //translate
 
     //Draw text
-    ctx.textBaseline = 'top';
-    ctx.fillStyle = 'rgba(255,255,255,0.75)';
-    ctx.fillRect(IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET, ctx.measureText(currentPosition.desc).width, IceDiagram._BASE_FONT_SIZE);
-    ctx.fillStyle = IceDiagram._COLOR_TEXT_MAIN;
-    ctx.fillText(currentPosition.desc, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET);
-    ctx.textBaseline = 'bottom';
+    IceDiagram._drawTextOver(ctx, currentPosition.desc, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE);
     labelText = this._controls.speed === 1 ? '' : Math.round(this._controls.speed * this._dance.beatsPerMinute) + 'bpm of ';
     labelText += this._dance.beatsPerMinute + 'bpm';
-    ctx.fillText(labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height / zoom - IceDiagram._BASE_LABEL_OFFSET);
-
+    IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height / zoom - IceDiagram._BASE_LABEL_OFFSET);
     ctx.restore(); //scale
   };
 
@@ -381,6 +376,15 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
         y = path.value[1] + path.normal[1] * offset;
         ctx.textAlign = path.value[0] > x ? 'end' : 'start';
         ctx.fillText(text, x, y);
+  };
+
+  //Draw text with faded background over diagram
+  IceDiagram._drawTextOver = function(ctx, text, x, y) {
+    ctx.textBaseline = 'bottom';
+    ctx.fillStyle = IceDiagram._FADE_MASK;
+    ctx.fillRect(x, y - IceDiagram._BASE_FONT_SIZE, ctx.measureText(text).width, IceDiagram._BASE_FONT_SIZE);
+    ctx.fillStyle = IceDiagram._COLOR_TEXT_MAIN;
+    ctx.fillText(text, x, y);
   };
 
   //Generate individual positions for a dance
