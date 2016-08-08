@@ -8,7 +8,7 @@
     "minifyjs": "uglifyjs js/*.js --output www/tracings-all.min.js --compress drop-console --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map www/tracings-all.min.js.map --source-map-include-sources --mangle-props --mangle-regex='/^_/' --reserve-domprops",
     "minifycss": "cleancss -o www/style-all.min.css css/style.css --source-map --source-map-inline-sources",
     "patterns": "python processPatterns.py",
-    "test": "mocha js/test -u bdd -R spec",
+    "test": "mocha jstest -u bdd -R spec",
     "watch": "watch-run -i -p 'js/*, css/*, patterns*' npm run build"
   },
   "author": "Shawn Pan",

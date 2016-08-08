@@ -476,7 +476,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
 
   //Calculate value of a cubic for parameter t
   IceDiagram._cubicValueAt = function(c, t) {
-    var ti = 1 -t,
+    var ti = 1 - t,
         w1 = ti * ti * ti,
         w2 = 3 * ti * ti * t,
         w3 = 3 * ti * t * t,
