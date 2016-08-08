@@ -83,3 +83,34 @@ describe('Point searching', function() {
     nearest[1].should.equal(2);
   });
 });
+
+describe('Diagram', function() {
+  describe('alignment', function() {
+    it('is centered within the container if content fits', function() {
+      IceDiagram._trimCenter(30, 100, 100).should.equal(0);
+    });
+    it('is centered on element if content does not fit', function() {
+      IceDiagram._trimCenter(5, 100, 50).should.equal(5);
+    });
+    it('should stop on left edge', function() {
+      IceDiagram._trimCenter(-30, 100, 50).should.equal(-25);
+    });
+    it('should stop on right edge', function() {
+      IceDiagram._trimCenter(30, 100, 50).should.equal(25);
+    });
+  });
+  describe('zoom', function() {
+    it('should be 1 if width does not fit', function() {
+      IceDiagram._getDefaultZoom(0.8 * IceDiagram._BASE_WIDTH, IceDiagram._BASE_HEIGHT).should.equal(1);
+    });
+    it('should be 1 if height does not fit', function() {
+      IceDiagram._getDefaultZoom(IceDiagram._BASE_WIDTH, 0.8 * IceDiagram._BASE_HEIGHT).should.equal(1);
+    });
+    it('should be width limited', function() {
+      IceDiagram._getDefaultZoom(2 * IceDiagram._BASE_WIDTH, 3 * IceDiagram._BASE_HEIGHT).should.equal(2);
+    });
+    it('should be height limited', function() {
+      IceDiagram._getDefaultZoom(3 * IceDiagram._BASE_WIDTH, 2 * IceDiagram._BASE_HEIGHT).should.equal(2);
+    });
+  });
+});

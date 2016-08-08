@@ -65,13 +65,6 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     }
   };
 
-  IceDiagram.prototype._getDefaultZoom = function() {
-    var width = this._canvasElement.width,
-        height = this._canvasElement.height,
-        isHeightLimited = width * IceDiagram._BASE_HEIGHT > height * IceDiagram._BASE_WIDTH;
-    return Math.max(isHeightLimited ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
-  };
-
   IceDiagram.prototype._loadDance = function() {
     var widget = this,
         url = 'patterns/' + this._controls.dance + '.json',
@@ -116,20 +109,6 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
     return [w / 2 - cx, h / 2 - cy];
   };
 
-  IceDiagram._trimCenter = function(center, content, container) {
-    var bound = (container - content) / 2;
-    if (bound > 0) {
-      return 0;
-    }
-    if (center < bound) {
-      return bound;
-    }
-    if (center > -bound) {
-      return -bound;
-    }
-    return center;
-  };
-
   IceDiagram.prototype._shiftCenter = function() {
     if (!this._playing) {
       this._activeCenter[0] = IceDiagram._trimCenter(this._activeCenter[0] - this._controls.shift[0], IceDiagram._BASE_WIDTH, this._canvasElement.width);
@@ -144,7 +123,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
         showNumber = this._controls.number,
         showCount = this._controls.count,
         showHold = this._controls.hold,
-        zoom = this._getDefaultZoom(),
+        zoom = IceDiagram._getDefaultZoom(this._canvasElement.width, this._canvasElement.height),
         center = this._getCenter(),
         ctx = this._canvasContext,
         currentPosition = this._patternPositions[this._position];
@@ -332,7 +311,7 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._click = function() {
-    var zoom = this._getDefaultZoom(),
+    var zoom = IceDiagram._getDefaultZoom(this._canvasElement.width, this._canvasElement.height),
         center = this._getCenter(),
         point = [(this._controls.click[0] - center[0]) / zoom, (this._controls.click[1] - center[1]) / zoom],
         nearest = IceDiagram._nearestNeighbor(point, this._positionSearchTree, 16);
@@ -683,6 +662,27 @@ Ice Diagram Widget v0.2.0 | Software Copyright (c) Shawn Pan
       best = IceDiagram._nearestNeighborHelper(point, kdTree, childOtherStart, childOtherEnd, kNext, best);
     }
     return best;
+  };
+
+  //Trim the 0-origin center to fit content in container
+  IceDiagram._trimCenter = function(center, content, container) {
+    var bound = (container - content) / 2;
+    if (bound > 0) {
+      return 0;
+    }
+    if (center < bound) {
+      return bound;
+    }
+    if (center > -bound) {
+      return -bound;
+    }
+    return center;
+  };
+
+  //Get zoom scale factor, stretching above 1 if possible
+  IceDiagram._getDefaultZoom = function(width, height) {
+    var isHeightLimited = width * IceDiagram._BASE_HEIGHT > height * IceDiagram._BASE_WIDTH;
+    return Math.max(isHeightLimited ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
   };
 
   //Return UMD factory result
