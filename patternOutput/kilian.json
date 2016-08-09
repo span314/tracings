@@ -126,6 +126,7 @@
       "group": "2", 
       "hold": "k", 
       "index": "7", 
+      "labelOffset": "0.3", 
       "paths": [
         [
           -30.458, 

@@ -1,4 +1,4 @@
-index,duration,pathCount,beats,edge,step,group,optional,hold
+index,duration,pathCount,beats,edge,step,group,optional,hold,labelOffset
 1,2,,,RF,,,,
 2,2,,,LF,,,,
 3,2,,,RF,,,,

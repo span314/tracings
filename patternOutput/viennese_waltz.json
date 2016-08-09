@@ -279,6 +279,7 @@
       "edge": "LBO", 
       "hold": "out", 
       "index": "14", 
+      "labelOffset": "0.3", 
       "paths": [
         [
           -162.687, 
@@ -397,6 +398,7 @@
       "group": "5", 
       "hold": "po", 
       "index": "20", 
+      "labelOffset": "0.2", 
       "paths": [
         [
           98.661, 
@@ -475,6 +477,7 @@
       "group": "6", 
       "hold": "po", 
       "index": "23", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           238.994, 
@@ -838,6 +841,7 @@
       "group": "5", 
       "hold": "out", 
       "index": "14", 
+      "labelOffset": "0.3", 
       "paths": [
         [
           -162.634, 
@@ -976,6 +980,7 @@
       "group": "7", 
       "hold": "po", 
       "index": "20", 
+      "labelOffset": "0.2", 
       "paths": [
         [
           99.054, 
@@ -1053,6 +1058,7 @@
       "edge": "LBO", 
       "hold": "po", 
       "index": "23", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           239.59, 

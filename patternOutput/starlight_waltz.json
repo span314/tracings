@@ -453,6 +453,7 @@
       "edge": "RBO", 
       "hold": "cl", 
       "index": "20", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           -102.418, 
@@ -532,6 +533,7 @@
       "group": "7", 
       "hold": "cl", 
       "index": "24", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           54.513, 
@@ -1210,6 +1212,7 @@
       "edge": "LFO", 
       "hold": "cl", 
       "index": "20", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           -100.713, 
@@ -1286,6 +1289,7 @@
       "edge": "LFO", 
       "hold": "cl", 
       "index": "24", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           61.626, 
@@ -1324,6 +1328,7 @@
       "edge": "LFO", 
       "hold": "ch", 
       "index": "26", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           94.616, 
@@ -1363,6 +1368,7 @@
       "group": "6", 
       "hold": "ch", 
       "index": "28", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           201.972, 

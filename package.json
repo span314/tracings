@@ -9,7 +9,7 @@
     "minifycss": "cleancss -o www/style-all.min.css css/style.css --source-map --source-map-inline-sources",
     "patterns": "python processPatterns.py",
     "test": "mocha jstest -u bdd -R spec",
-    "watch": "watch-run -i -p 'js/*, css/*, patterns*' npm run build"
+    "watch": "watch-run -i -p 'js/*, css/*, patternData/*' npm run build"
   },
   "author": "Shawn Pan",
   "license": "UNLICENSED",

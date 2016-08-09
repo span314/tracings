@@ -14,7 +14,7 @@
    height="1566"
    id="svg3603"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="westminster_waltz_man.svg">
   <defs
      id="defs3605" />
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="736.67752"
-     inkscape:cy="988.77967"
+     inkscape:cx="586.77769"
+     inkscape:cy="1107.3115"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -35,9 +35,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="2495"
+     inkscape:window-width="1855"
      inkscape:window-height="1056"
-     inkscape:window-x="1985"
+     inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <metadata
@@ -253,7 +253,7 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#800000"
-       d="M 475.14416,331.65487 C 433.3602,398.1002 454.12381,475.1022 551.54329,512.15836"
+       d="M 551.54329,512.15836 C 454.12381,475.1022 433.3602,398.1002 475.14416,331.65487"
        id="path3692"
        inkscape:connector-curvature="0"
        transform="translate(168.42857,0.79075402)"

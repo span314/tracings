@@ -172,6 +172,8 @@ def extractStepsFromCSV(fileHandle, processedPaths):
       row.pop("optional")
     if (not row["group"]):
       row.pop("group")
+    if (not row["labelOffset"]):
+      row.pop("labelOffset")
     components.append(row)
   return components
 

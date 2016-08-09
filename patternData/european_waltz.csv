@@ -1,4 +1,4 @@
-index,duration,pathCount,beats,edge,step,group,optional,hold
+index,duration,pathCount,beats,edge,step,group,optional,hold,labelOffset
 1,,,3,LBO,,,,cl
 2,,,2,RFO,tt,1,,cl
 ,,,1,RBI,_tt,1,,cl

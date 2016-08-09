@@ -106,6 +106,7 @@
       "group": "3", 
       "hold": "k", 
       "index": "5", 
+      "labelOffset": "0.6", 
       "paths": [
         [
           137.467, 
@@ -126,6 +127,7 @@
       "group": "3", 
       "hold": "rk", 
       "index": "6", 
+      "labelOffset": "0.3", 
       "paths": [
         [
           103.462, 
@@ -504,6 +506,7 @@
       "group": "7", 
       "hold": "cl", 
       "index": "21a", 
+      "labelOffset": "0.4", 
       "paths": [
         [
           86.184, 
@@ -563,6 +566,7 @@
       "group": "8", 
       "hold": "cs", 
       "index": "22", 
+      "labelOffset": "0.7", 
       "paths": [
         [
           167.962, 
@@ -702,6 +706,7 @@
       "group": "3", 
       "hold": "k", 
       "index": "5", 
+      "labelOffset": "0.6", 
       "paths": [
         [
           135.973, 
@@ -722,6 +727,7 @@
       "group": "3", 
       "hold": "rk", 
       "index": "6", 
+      "labelOffset": "0.3", 
       "paths": [
         [
           103.043, 
@@ -1059,6 +1065,7 @@
       "edge": "LBO", 
       "hold": "rk", 
       "index": "21", 
+      "labelOffset": "0.3", 
       "paths": [
         [
           84.383, 
@@ -1079,16 +1086,17 @@
       "group": "6", 
       "hold": "cs", 
       "index": "22", 
+      "labelOffset": "0.6", 
       "paths": [
         [
-          264.503, 
-          -59.826, 
-          228.402, 
-          -82.528, 
+          166.433, 
+          -18.317, 
           186.566, 
           -71.247, 
-          166.433, 
-          -18.317
+          228.402, 
+          -82.528, 
+          264.503, 
+          -59.826
         ]
       ], 
       "step": "cesw"

@@ -411,7 +411,7 @@ Ice Diagram Widget v0.2.1 | Software Copyright (c) Shawn Pan
           position.paths = [];
           for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
             cubic = IceDiagram._transformCoordinates(component.paths[pathIndex], transformMatrix);
-            path = IceDiagram._cubicNormalAt(cubic, 0.5);
+            path = IceDiagram._cubicNormalAt(cubic, component.labelOffset || 0.5);
             path.cubic = cubic;
             position.paths.push(path);
           }
