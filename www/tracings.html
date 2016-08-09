@@ -83,12 +83,40 @@
     <div id="infoModal">
       <div id="info">
         <button id="infoCloseButton" title="Close">X</button>
+
         <h2>Ice Diagrams</h2>
         <p>
-          This version (0.2.0) is a non-indexed snapshot of some work in progress.
-          The latest version can be found <a href="../latest/tracings.html">here</a>.
+          This version (0.2.0) is a non-indexed snapshot of some work in progress. The latest version can be found <a href="../latest/tracings.html">here</a>.
         </p>
-        <p>Diagrams adapted from <a href="http://www.usfsa.org/story?id=84114" target="_blank">USFSA rulebook</a></p>
+        <p>
+          Diagrams are adapted from the <a href="http://www.usfsa.org/story?id=84114" target="_blank">USFSA rulebook</a>.
+        </p>
+
+        <h2>FAQ</h2>
+        <ul>
+          <li>
+            <h3>Can it play dance music?</h3>
+            This is a common feature request I've been getting, and something I'm considering for a future version. I would need to work out synchronizing the diagrams, copyright issues with the music, and hosting.
+          </li>
+          <li>
+            <h3>What about other patterns?</h3>
+            I have plans to add international dances and moves patterns in future versions. I need to work out label crowding issues with international dances as well as the fixed steps of the Finnstep.
+          </li>
+        </ul>
+
+        <h2>Known Issues</h2>
+        <ul>
+          <li>Some of the labels may overlap. The labels are automatically placed next to the tracing lines, and the algorithm does not check for overlaps.</li>
+          <li>Metronome sound is a bit choppy in Firefox, and the WebAudio API is not supported by IE11.</li>
+        </ul>
+
+        <h2>Terms of Use</h2>
+        <p>
+          I built this webapp as a convenient way to access ice dance patterns. While I have made every attempt to provide accurate diagrams, keep in mind that I'm a recreational skater and not a skating coach. Please refer to the official <a href="http://www.isu.org/en/single-and-pair-skating-and-ice-dance/isu-judging-system/ice-dance" target="_black">ISU<a> and <a href="http://www.usfsa.org/story?id=84114" target="_blank">USFSA</a> rules.
+        </p>
+        <p>
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        </p>
       </div>
     </div>
   </div>
