@@ -1,5 +1,5 @@
 /*!
-Load widgets and bind events v0.2.1 | Software Copyright (c) Shawn Pan
+Load widgets and bind events v0.2.2 | Software Copyright (c) Shawn Pan
 */
 document.addEventListener('DOMContentLoaded', function() {
   'use strict';

@@ -1,6 +1,6 @@
 {
   "name": "tracings",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Ice diagrams website",
   "scripts": {
     "build": "npm run minifyjs && npm run minifycss && npm run patterns && npm run lint && npm test",
