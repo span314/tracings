@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       danceSelectEl = document.getElementById('danceSelect'),
       errorBarEl = document.getElementById('errorBar'),
       fullscreenButtonEl = document.getElementById('fullscreenButton'),
+      infoModalEl = document.getElementById('infoModal'),
       audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
       diagram, touchStart, getCoordinates, resizeWindow, createNavigationButton, createStateButton, createToggleButton;
@@ -183,11 +184,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   //Info popup button
+  //Explicitly setting display to block and none as a fallback to opacity css transition
   document.getElementById('infoButton').addEventListener('click', function() {
-    document.getElementById('infoModal').className = 'open';
+    infoModalEl.style.display = 'block';
+    window.setTimeout(function() {
+      infoModalEl.className = 'open';
+    }, 300);
   });
 
   document.getElementById('infoCloseButton').addEventListener('click', function() {
-    document.getElementById('infoModal').className = '';
+    infoModalEl.className = '';
+    window.setTimeout(function() {
+      infoModalEl.style.display = 'none';
+    }, 300);
   });
 });
