@@ -6,8 +6,8 @@ import re
 import csv
 import math
 
-NEW_WIDTH = 340
-NEW_HEIGHT = 680
+NEW_WIDTH = 435
+NEW_HEIGHT = NEW_WIDTH * 2
 INPUT_DIRECTORY = "patternData"
 OUTPUT_DIRECTORY = "patternOutput"
 MIN_OUTPUT_DIRECTORY = "www/patterns"

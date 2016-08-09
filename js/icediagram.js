@@ -30,12 +30,18 @@ Ice Diagram Widget v0.2.1 | Software Copyright (c) Shawn Pan
     this._loadDance();
   };
 
-  IceDiagram._BASE_WIDTH = 740;
-  IceDiagram._BASE_HEIGHT = 400;
-  IceDiagram._TICKS_PER_BEAT = 4;
-  IceDiagram._BASE_FONT_SIZE = 10;
-  IceDiagram._BASE_LABEL_OFFSET = 8;
+  IceDiagram._BASE_FONT_SIZE = 12;
+  IceDiagram._BASE_LABEL_OFFSET = 10;
   IceDiagram._FONT = IceDiagram._BASE_FONT_SIZE + 'px Arial';
+
+  //Width is 870 in diagram generation to compensate for rulebook diagram being not quite the right aspect ratio
+  IceDiagram._RINK_WIDTH = 900;
+  IceDiagram._RINK_HEIGHT = IceDiagram._RINK_WIDTH / 2;
+  IceDiagram._RINK_TO_VIEWPORT_RATIO = 0.9;
+  IceDiagram._BASE_WIDTH = IceDiagram._RINK_WIDTH / IceDiagram._RINK_TO_VIEWPORT_RATIO;
+  IceDiagram._BASE_HEIGHT = IceDiagram._RINK_HEIGHT / IceDiagram._RINK_TO_VIEWPORT_RATIO;
+
+  IceDiagram._TICKS_PER_BEAT = 4;
   IceDiagram._COLOR_TRACING = '#000';
   IceDiagram._COLOR_TRACING_ACTIVE = ['#0B0', '#0C0', '#0D0', '#0E0'];
   IceDiagram._COLOR_TRACING_GROUP = '#070';
@@ -224,12 +230,11 @@ Ice Diagram Widget v0.2.1 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._drawRink = function() {
     var ctx = this._canvasContext,
-        scale = IceDiagram._BASE_HEIGHT * 17 / 600,
-        halfWidth = 30.5 * scale,
-        halfWidthStraight = 22 * scale,
-        halfHeight = 15 * scale,
-        halfHeightStraight = 6.5 * scale,
-        cornerRadius = 8.5 * scale;
+        halfWidth = 0.5 * IceDiagram._RINK_WIDTH,
+        halfWidthStraight = 0.361 * IceDiagram._RINK_WIDTH, // 22 / 61
+        halfHeight = 0.246 * IceDiagram._RINK_WIDTH, // 15 / 61
+        halfHeightStraight = 0.107 * IceDiagram._RINK_WIDTH, // 6.5 / 61
+        cornerRadius = 0.139 * IceDiagram._RINK_WIDTH; // 8.5 / 61
 
     ctx.save();
 
