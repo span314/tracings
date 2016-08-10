@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     part: 'lady',
     speed: 1,
     sound: false,
-    dance: danceSelectEl.value
+    dance: danceSelectEl.value || window.location.hash.substr(1)
   });
 
   //Bind events

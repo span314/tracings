@@ -1,0 +1,486 @@
+{
+  "beatsPerMinute": "176", 
+  "components": [
+    {
+      "duration": 4, 
+      "edge": "LFO", 
+      "hold": "k", 
+      "index": "1", 
+      "paths": [
+        [
+          358.798, 
+          -22.214, 
+          370.499, 
+          -27.119, 
+          377.661, 
+          -35.995, 
+          383.402, 
+          -46.115
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "duration": 4, 
+      "edge": "RFI", 
+      "hold": "k", 
+      "index": "2", 
+      "paths": [
+        [
+          389.166, 
+          -44.428, 
+          398.235, 
+          -53.489, 
+          403.575, 
+          -66.487, 
+          405.897, 
+          -82.67
+        ]
+      ], 
+      "step": "ch"
+    }, 
+    {
+      "duration": 8, 
+      "edge": "LFO", 
+      "hold": "k", 
+      "index": "3", 
+      "paths": [
+        [
+          402.241, 
+          -86.888, 
+          415.692, 
+          -105.144, 
+          414.611, 
+          -137.048, 
+          395.774, 
+          -146.078
+        ]
+      ], 
+      "step": "cece"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "LFI", 
+      "hold": "k", 
+      "index": "", 
+      "paths": [
+        [
+          396.055, 
+          -146.078, 
+          380.181, 
+          -145.375, 
+          378.513, 
+          -162.137, 
+          382.136, 
+          -167.729
+        ]
+      ], 
+      "step": "_ce"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "LFO", 
+      "hold": "k", 
+      "index": "", 
+      "paths": [
+        [
+          382.277, 
+          -167.448, 
+          386.787, 
+          -180.123, 
+          376.738, 
+          -188.278, 
+          368.92, 
+          -192.334
+        ]
+      ], 
+      "step": "_ce"
+    }, 
+    {
+      "duration": 8, 
+      "edge": "RFI", 
+      "hold": "k", 
+      "index": "4", 
+      "paths": [
+        [
+          361.891, 
+          -191.49, 
+          345.798, 
+          -199.401, 
+          327.912, 
+          -199.236, 
+          309.59, 
+          -197.114
+        ]
+      ], 
+      "step": "xf"
+    }, 
+    {
+      "duration": 16, 
+      "edge": "LFO", 
+      "hold": "k", 
+      "index": "5", 
+      "paths": [
+        [
+          306.778, 
+          -188.959, 
+          247.473, 
+          -184.187, 
+          209.903, 
+          -133.227, 
+          214.407, 
+          -77.608
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "duration": 8, 
+      "edge": "RFO", 
+      "hold": "k", 
+      "index": "6", 
+      "paths": [
+        [
+          222.983, 
+          -77.608, 
+          215.069, 
+          -39.364, 
+          182.258, 
+          -35.048, 
+          160.419, 
+          -50.614
+        ]
+      ], 
+      "step": "cr"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "LFI", 
+      "hold": "k", 
+      "index": "7", 
+      "paths": [
+        [
+          161.684, 
+          -56.097, 
+          149.757, 
+          -64.366, 
+          143.028, 
+          -75.725, 
+          144.953, 
+          -92.23
+        ]
+      ], 
+      "step": "xb"
+    }, 
+    {
+      "duration": 4, 
+      "edge": "RFI", 
+      "hold": "k", 
+      "index": "8", 
+      "paths": [
+        [
+          158.872, 
+          -101.509, 
+          155.986, 
+          -114.824, 
+          150.276, 
+          -127.936, 
+          142.141, 
+          -140.876
+        ]
+      ], 
+      "step": "wd"
+    }, 
+    {
+      "duration": 8, 
+      "edge": "LFO", 
+      "hold": "k", 
+      "index": "9", 
+      "paths": [
+        [
+          133.846, 
+          -140.735, 
+          127.869, 
+          -168.329, 
+          89.069, 
+          -185.638, 
+          67.345, 
+          -180.383
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "duration": 16, 
+      "edge": "RFI", 
+      "hold": "k", 
+      "index": "10", 
+      "paths": [
+        [
+          68.048, 
+          -190.084, 
+          24.321, 
+          -188.512, 
+          -35.905, 
+          -150.967, 
+          -24.182, 
+          -66.923
+        ]
+      ], 
+      "step": "xb"
+    }, 
+    {
+      "beats": "4", 
+      "duration": 15, 
+      "edge": "LFI", 
+      "group": "11", 
+      "hold": "k", 
+      "index": "11", 
+      "paths": [
+        [
+          -5.061, 
+          -62.846, 
+          -31.341, 
+          11.262, 
+          -104.873, 
+          -6.766, 
+          -122.317, 
+          -47.38
+        ]
+      ], 
+      "step": "wd"
+    }, 
+    {
+      "beats": "", 
+      "duration": 1, 
+      "edge": "LFI", 
+      "group": "11", 
+      "hold": "k", 
+      "index": "", 
+      "paths": [
+        [
+          -122.458, 
+          -47.099, 
+          -120.37, 
+          -48.0, 
+          -117.545, 
+          -49.956, 
+          -115.147, 
+          -52.02
+        ]
+      ], 
+      "step": "wdxfopcho"
+    }, 
+    {
+      "beats": "4", 
+      "duration": 15, 
+      "edge": "RBO", 
+      "group": "12", 
+      "hold": "k", 
+      "index": "12", 
+      "paths": [
+        [
+          -101.509, 
+          -57.222, 
+          -124.117, 
+          -116.26, 
+          -205.02, 
+          -104.949, 
+          -220.171, 
+          -67.626
+        ]
+      ], 
+      "step": "chox"
+    }, 
+    {
+      "beats": "", 
+      "duration": 1, 
+      "edge": "RBO", 
+      "group": "12", 
+      "hold": "k", 
+      "index": "", 
+      "paths": [
+        [
+          -220.106, 
+          -67.684, 
+          -219.749, 
+          -72.126, 
+          -219.779, 
+          -76.497, 
+          -219.89, 
+          -80.42
+        ]
+      ], 
+      "step": "wdxbclcho"
+    }, 
+    {
+      "duration": 16, 
+      "edge": "LFI", 
+      "group": "12", 
+      "hold": "k", 
+      "index": "13", 
+      "paths": [
+        [
+          -212.86, 
+          -53.145, 
+          -258.131, 
+          -28.563, 
+          -310.888, 
+          -71.356, 
+          -294.686, 
+          -126.395
+        ]
+      ], 
+      "step": "chox"
+    }, 
+    {
+      "duration": 16, 
+      "edge": "RFI", 
+      "group": "14", 
+      "hold": "k", 
+      "index": "14", 
+      "paths": [
+        [
+          -286.251, 
+          -125.973, 
+          -299.086, 
+          -245.019, 
+          -452.135, 
+          -190.617, 
+          -399.008, 
+          -106.29
+        ]
+      ], 
+      "step": "tt"
+    }, 
+    {
+      "duration": 8, 
+      "edge": "RBO", 
+      "group": "14", 
+      "hold": "k", 
+      "index": "", 
+      "paths": [
+        [
+          -399.148, 
+          -106.571, 
+          -413.798, 
+          -89.424, 
+          -397.575, 
+          -58.079, 
+          -365.827, 
+          -57.644
+        ]
+      ], 
+      "step": "_tt"
+    }, 
+    {
+      "duration": 8, 
+      "edge": "LBO", 
+      "hold": "k", 
+      "index": "15", 
+      "labelOffset": "0.3", 
+      "paths": [
+        [
+          -364.14, 
+          -66.08, 
+          -341.256, 
+          -70.764, 
+          -319.328, 
+          -51.238, 
+          -316.338, 
+          -27.978
+        ]
+      ], 
+      "step": "cr"
+    }, 
+    {
+      "duration": 8, 
+      "edge": "RBI", 
+      "hold": "k", 
+      "index": "16", 
+      "paths": [
+        [
+          -324.493, 
+          -26.713, 
+          -312.642, 
+          -11.575, 
+          -310.125, 
+          19.463, 
+          -342.067, 
+          29.665
+        ]
+      ], 
+      "step": "xf"
+    }
+  ], 
+  "level": "International", 
+  "name": "Rhumba", 
+  "patterns": {
+    "lady": {
+      "endComponent": "21", 
+      "startComponent": "0"
+    }, 
+    "man": {
+      "endComponent": "21", 
+      "startComponent": "0"
+    }
+  }, 
+  "patternsPerLap": "2", 
+  "steps": {
+    "": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e"
+    }, 
+    "_ce": {
+      "desc": "Change to #Q Edge", 
+      "label": ""
+    }, 
+    "_tt": {
+      "desc": "3-turn: Turn onto #E Edge", 
+      "label": ""
+    }, 
+    "cece": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e#o#q"
+    }, 
+    "ch": {
+      "desc": "#E Chass\u00e9", 
+      "label": "#e-Ch"
+    }, 
+    "chox": {
+      "desc": "Choctow: Turn onto #E Edge", 
+      "label": "#e"
+    }, 
+    "cr": {
+      "desc": "Cross Roll onto #E Edge", 
+      "label": "CR-#e"
+    }, 
+    "tt": {
+      "desc": "#E 3-turn", 
+      "label": "#e3"
+    }, 
+    "wd": {
+      "desc": "Wide Step onto #E Edge", 
+      "label": "Wd-#e"
+    }, 
+    "wdxbclcho": {
+      "desc": "Wide Step Cross Behind Closed Choctow", 
+      "label": "Wd-XB-ClCho"
+    }, 
+    "wdxfopcho": {
+      "desc": "Wide Step Cross in Front Open Choctow", 
+      "label": "Wd-XF-opCho"
+    }, 
+    "xb": {
+      "desc": "Cross Behind onto #E Edge", 
+      "label": "XB-#e"
+    }, 
+    "xf": {
+      "desc": "Cross in Front onto #E Edge", 
+      "label": "XF-#e"
+    }
+  }, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
+  "version": "2016"
+}

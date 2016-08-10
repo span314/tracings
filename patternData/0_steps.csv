@@ -5,6 +5,7 @@ _rk,,Rocker: Turn onto #E Edge
 _tt,,3-turn: Turn onto #E Edge
 bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back"
 ce,#e#o,Stroke onto #E Edge
+cece,#e#o#q,Stroke onto #E Edge
 ceopmo,,"Change to #Q Edge, Open Mohawk"
 cesw,#e#o-sw,"Stroke onto #E Edge, Swing"
 ch,#e-Ch,#E Chassé
@@ -39,6 +40,8 @@ tt,#e3,#E 3-turn
 twl1,Sw-“Tw1”,Twizzle Like Motion
 twl1.,,Twizzle Like Motion
 wd,Wd-#e,Wide Step onto #E Edge
+wdxfopcho,Wd-XF-opCho,Wide Step Cross in Front Open Choctow
+wdxbclcho,Wd-XB-ClCho,Wide Step Cross Behind Closed Choctow
 xb,XB-#e,Cross Behind onto #E Edge
 xbce,XB-#e#o,Cross Behind onto #E Edge
 xbch,XB-#e-Ch,Cross Behind into a #E Chassé
