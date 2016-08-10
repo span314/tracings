@@ -1,0 +1,9 @@
+index,duration,pathCount,beats,edge,step,group,optional,hold,labelOffset
+,,,3,RFO,tt,,,,
+,,,3,RBI,_tt,,,,
+,,,6,LBO,,,,,
+,,,6,RFO,,,,,
+,,,3,LFO,tt,,,,
+,,,3,LBI,_tt,,,,
+,,,6,RBO,,,,,
+,,,6,LFO,,,,,

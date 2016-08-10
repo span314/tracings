@@ -1,0 +1,67 @@
+{
+  "beatsPerMinute": "100", 
+  "components": [
+    {
+      "beats": "", 
+      "duration": 32, 
+      "edge": "RF", 
+      "hold": "", 
+      "index": "", 
+      "paths": [
+        [
+          380.286, 
+          -105.798, 
+          249.87, 
+          -104.101, 
+          133.178, 
+          -104.899, 
+          17.04, 
+          -105.798
+        ]
+      ], 
+      "step": ""
+    }, 
+    {
+      "beats": "", 
+      "duration": 32, 
+      "edge": "LF", 
+      "hold": "", 
+      "index": "", 
+      "paths": [
+        [
+          -18.738, 
+          -105.798, 
+          -146.939, 
+          -106.321, 
+          -273.232, 
+          -106.209, 
+          -398.631, 
+          -105.798
+        ]
+      ], 
+      "step": ""
+    }
+  ], 
+  "level": "PrePreliminary", 
+  "name": "USFS PP Spirals", 
+  "patterns": {
+    "lady": {
+      "endComponent": "2", 
+      "startComponent": "0"
+    }, 
+    "man": {
+      "endComponent": "2", 
+      "startComponent": "0"
+    }
+  }, 
+  "patternsPerLap": "1", 
+  "steps": {
+    "": {
+      "desc": "Stroke onto #E Edge", 
+      "label": "#e"
+    }
+  }, 
+  "timeSignatureBottom": "4", 
+  "timeSignatureTop": "4", 
+  "version": "2016"
+}

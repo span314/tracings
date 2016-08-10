@@ -13,6 +13,7 @@ chox,#e,Choctow: Turn onto #E Edge
 choxb,,Choctow: Turn onto #E Edge
 clcho,#e-ClCho,#E Closed Choctow
 clmo,#e-ClMo,#E Closed Mohawk
+co,#e,Crossover onto #E Edge
 cr,CR-#e,Cross Roll onto #E Edge
 crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
 crtt,CR-#e3,Cross Roll into a #E 3-turn
@@ -29,6 +30,7 @@ slch,#e-slCh,#E Slide Chassé
 slchk,#e-slCh,"#E Slide Chassé, Fold #R Leg and Kick"
 slm,#e/#r#d#o-slm,#E / #R #D #O Slalom
 slme,#e/#r#d#o-slm-#e,"#E / #R #D #O Slalom, Push onto #E Edge"
+spr,#e=spr,#E Spiral
 swclmo,#e-SwClMo,#E Swing Closed Mohawk
 swctr,#e-SwCtr,#E Swing Counter
 swclcho,Sw-ClCho,Swing Closed Choctow
