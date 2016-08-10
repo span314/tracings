@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="212.72501mm"
+   height="276.22501mm"
+   viewBox="0 0 753.75002 978.75002"
+   id="svg3573"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="usfs_pp_forward_edges.svg">
+  <defs
+     id="defs3575" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="316.3772"
+     inkscape:cy="595.74026"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="2495"
+     inkscape:window-height="1056"
+     inkscape:window-x="1985"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3578">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-497.41071,-445.84436)">
+    <image
+       sodipodi:absref="/home/shawn/Desktop/danceDiagrams/moves/page-301.png"
+       y="445.84436"
+       x="497.41071"
+       id="image3640"
+       xlink:href="file:///home/shawn/Desktop/danceDiagrams/moves/page-301.png"
+       preserveAspectRatio="none"
+       height="978.75"
+       width="753.75" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 707.05357,1031.0229 311.96423,0"
+       id="path3703"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 863.125,727.09436 0,607.32144"
+       id="path3705"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 713.125,817.80864 c 6.96767,-35.08151 50.05447,-30.38383 50,2.14286"
+       id="path3707"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 764.73214,818.7015 c 3.06151,31.45744 47.16907,31.08886 48.92857,-0.35714"
+       id="path3709"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 815.44642,817.27293 c 2.45795,-27.83981 43.73246,-36.56323 50.53572,3.57143"
+       id="path3711"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 866.875,817.80864 c -0.447,30.95795 46.50583,33.16957 46.96428,0.53572"
+       id="path3713"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 915.80357,817.4515 c -0.18713,-29.22295 45.51268,-33.94992 47.32143,2.5"
+       id="path3715"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#800000"
+       d="m 964.55357,818.16579 c -2.60156,26.97576 44.86473,35.32333 45.89283,-0.17857"
+       id="path3717"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
