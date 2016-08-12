@@ -1,13 +1,17 @@
 code,label,desc
 _ce,,Change to #Q Edge
+_cett,,Change to #Q Edge for a #E 3-turn
 _ctr,,Counter: Turn onto #E Edge
 _rk,,Rocker: Turn onto #E Edge
 _tt,,3-turn: Turn onto #E Edge
+_ttibtt,#e-InBa-3,3-turn into a #E Ina Bauer into another 3-turn
 bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back"
 ce,#e#o,Stroke onto #E Edge
 cece,#e#o#q,Stroke onto #E Edge
 ceopmo,,"Change to #Q Edge, Open Mohawk"
 cesw,#e#o-sw,"Stroke onto #E Edge, Swing"
+cett,#e#o3,Stroke onto #E Edge
+cexrk,#e-Rk,Change to #Q Edge for a #E Rocker
 ch,#e-Ch,#E Chassé
 chox,#e,Choctow: Turn onto #E Edge
 choxb,,Choctow: Turn onto #E Edge
@@ -18,6 +22,7 @@ cr,CR-#e,Cross Roll onto #E Edge
 crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
 crtt,CR-#e3,Cross Roll into a #E 3-turn
 dl,#e,"Stroke onto #E Edge, Double Lift Free Leg"
+e,,Continue on #E Edge
 ff,#e-#rff,#E Slip Step
 mox,#e,Mohawk: Turn onto #E Edge
 moxdl,#e,"Mohawk: Turn onto #E Edge, Double Lift Free Leg"
@@ -39,9 +44,14 @@ swr,#e-swR,"Stroke onto #E Edge, Swing Roll"
 swrk,#e-SwRk,#E Swing Rocker
 swtt,#e-Sw3,#E Swing 3-turn
 tt,#e3,#E 3-turn
+ttxce,#e#o,3-turn: Turn onto #E Edge
+tw1,#e-Tw1,Stroke into a #E Twizzle
+tw.,,Twizzle
 twl1,Sw-“Tw1”,Twizzle Like Motion
 twl1.,,Twizzle Like Motion
 wd,Wd-#e,Wide Step onto #E Edge
+wds,Wd-#e,Wide Step Briefly onto #E Edge
+wdtt,Wd-#e3,Wide Step into a #E 3-turn
 wdxfopcho,Wd-XF-opCho,Wide Step Cross in Front Open Choctow
 wdxbclcho,Wd-XB-ClCho,Wide Step Cross Behind Closed Choctow
 xb,XB-#e,Cross Behind onto #E Edge
@@ -49,8 +59,11 @@ xbce,XB-#e#o,Cross Behind onto #E Edge
 xbch,XB-#e-Ch,Cross Behind into a #E Chassé
 xbctr,XB-#e-Ctr,Cross Behind into a #E Counter
 xbopmo,XB-#e-opMo,Cross Behind into a #E Open Mohawk
+xcut,Xcut-#e,Cross Cut onto #E Edge
 xf,XF-#e,Cross in Front onto #E Edge
 xfce,XB-#e#o,Cross in Front onto #E Edge
 xfopcho,XF-OpCho,Crossed in Front Open Choctow
 xfsrk,XF-#e-Rk,Cross in Front into a Shallow #E Rocker
+xfttt,#e-XFt3,#E Behind Cross Foot 3-turn
+xftw1,XF-#e-Tw1,Cross in Front onto #E Edge for a 1 Rotation Twizzle
 ,#e,Stroke onto #E Edge
