@@ -6,6 +6,7 @@ import re
 import csv
 import math
 
+DATA_VERSION = 1
 NEW_WIDTH = 435
 NEW_HEIGHT = NEW_WIDTH * 2
 INPUT_DIRECTORY = "patternData"
@@ -208,6 +209,9 @@ for danceData in dances:
   danceData["patterns"]["lady"] = {"startComponent": danceData.pop("ladyStart"), "endComponent": danceData.pop("ladyEnd")}
   danceData["patterns"]["man"] = {"startComponent": danceData.pop("manStart"), "endComponent": danceData.pop("manEnd")}
   patternName = danceData["name"].lower().replace(" ", "_").replace("-", "_")
+  danceData["dataVersion"] = DATA_VERSION
+  if (not danceData["dev"]):
+    danceData.pop("dev")
   print "Processing " + patternName
 
   #Extract path values from svg

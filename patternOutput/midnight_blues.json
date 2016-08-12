@@ -1092,6 +1092,8 @@
       "step": "swr"
     }
   ], 
+  "dataVersion": 1, 
+  "dev": "1", 
   "level": "International", 
   "name": "Midnight Blues", 
   "patterns": {

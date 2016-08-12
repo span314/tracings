@@ -595,6 +595,7 @@
       "step": "swr"
     }
   ], 
+  "dataVersion": 1, 
   "level": "PreBronze", 
   "name": "Swing Dance", 
   "patterns": {

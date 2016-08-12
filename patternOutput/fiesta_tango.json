@@ -332,6 +332,7 @@
       "step": ""
     }
   ], 
+  "dataVersion": 1, 
   "level": "PreBronze", 
   "name": "Fiesta Tango", 
   "patterns": {

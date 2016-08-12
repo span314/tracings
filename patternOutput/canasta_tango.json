@@ -295,6 +295,7 @@
       "step": "cr"
     }
   ], 
+  "dataVersion": 1, 
   "level": "Preliminary", 
   "name": "Canasta Tango", 
   "patterns": {

@@ -628,6 +628,7 @@
       "step": ""
     }
   ], 
+  "dataVersion": 1, 
   "level": "Silver", 
   "name": "Rocker Foxtrot", 
   "patterns": {

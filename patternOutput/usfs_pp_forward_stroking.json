@@ -290,6 +290,8 @@
       "step": "co"
     }
   ], 
+  "dataVersion": 1, 
+  "dev": "1", 
   "level": "PrePreliminary", 
   "name": "USFS PP Forward Stroking", 
   "patterns": {

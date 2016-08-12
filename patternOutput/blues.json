@@ -762,6 +762,7 @@
       "step": ""
     }
   ], 
+  "dataVersion": 1, 
   "level": "PreGold", 
   "name": "Blues", 
   "patterns": {

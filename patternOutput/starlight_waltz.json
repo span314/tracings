@@ -1499,6 +1499,7 @@
       "step": "slch"
     }
   ], 
+  "dataVersion": 1, 
   "level": "PreGold", 
   "name": "Starlight Waltz", 
   "patterns": {

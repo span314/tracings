@@ -373,6 +373,7 @@
       "step": "swr"
     }
   ], 
+  "dataVersion": 1, 
   "level": "PreBronze", 
   "name": "Cha Cha", 
   "patterns": {

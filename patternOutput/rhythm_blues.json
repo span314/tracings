@@ -337,6 +337,7 @@
       "step": "xb"
     }
   ], 
+  "dataVersion": 1, 
   "level": "Preliminary", 
   "name": "Rhythm Blues", 
   "patterns": {

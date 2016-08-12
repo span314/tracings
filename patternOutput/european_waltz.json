@@ -980,6 +980,7 @@
       "step": ""
     }
   ], 
+  "dataVersion": 1, 
   "level": "PreSilver", 
   "name": "European Waltz", 
   "patterns": {

@@ -1093,6 +1093,7 @@
       "step": "swr"
     }
   ], 
+  "dataVersion": 1, 
   "level": "Gold", 
   "name": "Viennese Waltz", 
   "patterns": {

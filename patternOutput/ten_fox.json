@@ -853,6 +853,7 @@
       "step": ""
     }
   ], 
+  "dataVersion": 1, 
   "level": "Bronze", 
   "name": "Ten-Fox", 
   "patterns": {

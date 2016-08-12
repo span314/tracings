@@ -972,6 +972,7 @@
       "step": "prx"
     }
   ], 
+  "dataVersion": 1, 
   "level": "Bronze", 
   "name": "Hickory Hoedown", 
   "patterns": {
