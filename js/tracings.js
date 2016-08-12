@@ -87,17 +87,19 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('fullscreenchange', resizeWindow);
 
   danceSelectEl.addEventListener('change', function() {
-    var danceHash = '#' + danceSelectEl.value;
+    var dance = danceSelectEl.value;
     diagram.controlEvent('dance', danceSelectEl.value);
-    if (window.location.hash !== danceHash) {
-      window.history.pushState(null, null, danceHash);
+    if (window.location.hash.substr(1) !== dance) {
+      window.history.pushState(null, null, '#' + dance);
     }
   });
 
   window.addEventListener('popstate', function() {
+    var dance;
     if (window.location.hash) {
-      danceSelectEl.value = window.location.hash.substr(1);
-      diagram.controlEvent('dance', danceSelectEl.value);
+      dance = window.location.hash.substr(1);
+      danceSelectEl.value = dance;
+      diagram.controlEvent('dance', dance);
     }
   });
 

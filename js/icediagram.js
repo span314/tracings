@@ -30,6 +30,10 @@ Ice Diagram Widget v0.2.2 | Software Copyright (c) Shawn Pan
     this._loadDance();
   };
 
+  //Support for various pattern format versions
+  IceDiagram._DATA_VERSION_MIN = 1;
+  IceDiagram._DATA_VERSION_MAX = 1;
+
   IceDiagram._BASE_FONT_SIZE = 12;
   IceDiagram._BASE_LABEL_OFFSET = 10;
   IceDiagram._FONT = IceDiagram._BASE_FONT_SIZE + 'px Arial';
@@ -50,6 +54,12 @@ Ice Diagram Widget v0.2.2 | Software Copyright (c) Shawn Pan
   IceDiagram._COLOR_TEXT_LABEL_COUNT = '#F70';
   IceDiagram._COLOR_RINK = '#DDD';
   IceDiagram._FADE_MASK = 'rgba(255,255,255,0.75)';
+
+  IceDiagram._ERROR_CONTACT = '\n\nLet me know at icediagrams\x40shawnpan.com if this problem continues.';
+  IceDiagram._ERROR_SERVER = 'Cannot find pattern file for selected dance.' + IceDiagram._ERROR_CONTACT;
+  IceDiagram._ERROR_CONNECTION = 'Cannot connect to server to load dance. Please check your internet connection. Press OK to refresh the page.' + IceDiagram._ERROR_CONTACT;
+  IceDiagram._ERROR_VERSION = 'Incompatible pattern version. Webpage has probably been updated. Press OK refresh the page.' + IceDiagram._ERROR_CONTACT;
+  IceDiagram._ERROR_DEV = 'Warning: This pattern is still under development.' + IceDiagram._ERROR_CONTACT;
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('UI ' + eventType + ' ' + (value || ''));
@@ -91,17 +101,35 @@ Ice Diagram Widget v0.2.2 | Software Copyright (c) Shawn Pan
     request.open('GET', url, true);
 
     request.onload = function() {
-      if (request.status >= 200 && request.status < 400) {
-        widget._dance = JSON.parse(request.responseText);
-        widget._beatPattern = widget._dance.timeSignatureTop % 3 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1];
-        widget._loadPattern();
-      } else {
-        console.log('Cannot load pattern - server error');
+      var dance, version;
+      if (request.status < 200 || request.status >= 400) {
+        window.alert(IceDiagram._ERROR_SERVER);
+        return;
       }
+      dance = JSON.parse(request.responseText);
+
+      //TODO remove conditional once all production patterns have a version
+      version = dance.dataVersion ? parseInt(dance.dataVersion) : 1;
+      if (version < IceDiagram._DATA_VERSION_MIN || version > IceDiagram._DATA_VERSION_MAX) {
+        if (window.confirm(IceDiagram._ERROR_VERSION)) {
+          window.location.reload(true);
+        }
+        return;
+      }
+
+      if (dance.dev) {
+        window.alert(IceDiagram._ERROR_DEV);
+      }
+
+      widget._dance = dance;
+      widget._beatPattern = dance.timeSignatureTop % 3 ? [3, 1, 2, 1] : [3, 1, 1, 2, 1, 1];
+      widget._loadPattern();
     };
 
     request.onerror = function() {
-      console.log('Cannot load pattern - connection error');
+      if (window.confirm(IceDiagram._ERROR_CONNECTION)) {
+        window.location.reload(true);
+      }
     };
 
     request.send();
