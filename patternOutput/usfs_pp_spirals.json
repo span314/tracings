@@ -2,8 +2,7 @@
   "beatsPerMinute": "100", 
   "components": [
     {
-      "beats": "", 
-      "duration": 32, 
+      "beats": "8*", 
       "edge": "RF", 
       "hold": "", 
       "index": "", 
@@ -22,8 +21,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 32, 
+      "beats": "8*", 
       "edge": "LF", 
       "hold": "", 
       "index": "", 
@@ -42,7 +40,7 @@
       "step": ""
     }
   ], 
-  "dataVersion": 1, 
+  "dataVersion": 2, 
   "dev": "1", 
   "level": "PrePreliminary", 
   "name": "USFS PP Spirals", 

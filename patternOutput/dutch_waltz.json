@@ -2,7 +2,7 @@
   "beatsPerMinute": "138", 
   "components": [
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFO", 
       "group": "pr1", 
       "hold": "k", 
@@ -22,7 +22,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "group": "pr1", 
       "hold": "k", 
@@ -42,7 +42,7 @@
       "step": "prx"
     }, 
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "LFO", 
       "group": "pr1", 
       "hold": "k", 
@@ -62,7 +62,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 24, 
+      "beats": "6", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "4", 
@@ -81,7 +81,7 @@
       "step": "swr"
     }, 
     {
-      "duration": 24, 
+      "beats": "6", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "5", 
@@ -100,7 +100,7 @@
       "step": "swr"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFO", 
       "group": "pr2", 
       "hold": "k", 
@@ -120,7 +120,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFI", 
       "group": "pr2", 
       "hold": "k", 
@@ -140,7 +140,7 @@
       "step": "prx"
     }, 
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "RFO", 
       "group": "pr2", 
       "hold": "k", 
@@ -160,7 +160,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "9", 
@@ -179,7 +179,7 @@
       "step": ""
     }, 
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "10", 
@@ -198,7 +198,7 @@
       "step": ""
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFO", 
       "group": "pr3", 
       "hold": "k", 
@@ -218,7 +218,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "group": "pr3", 
       "hold": "k", 
@@ -238,7 +238,7 @@
       "step": "prx"
     }, 
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "LFO", 
       "group": "pr3", 
       "hold": "k", 
@@ -258,7 +258,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 24, 
+      "beats": "6", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "14", 
@@ -277,7 +277,7 @@
       "step": "swr"
     }, 
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "15", 
@@ -296,7 +296,7 @@
       "step": ""
     }, 
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "16", 
@@ -315,7 +315,7 @@
       "step": ""
     }
   ], 
-  "dataVersion": 1, 
+  "dataVersion": 2, 
   "level": "Preliminary", 
   "name": "Dutch Waltz", 
   "patterns": {

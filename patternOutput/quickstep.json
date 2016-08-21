@@ -2,7 +2,7 @@
   "beatsPerMinute": "112", 
   "components": [
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "1", 
@@ -21,7 +21,7 @@
       "step": ""
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "2", 
@@ -40,7 +40,7 @@
       "step": "ch"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFO", 
       "group": "1", 
       "hold": "k", 
@@ -60,7 +60,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "group": "1", 
       "hold": "k", 
@@ -80,8 +80,7 @@
       "step": "prx"
     }, 
     {
-      "beats": "4", 
-      "duration": 15, 
+      "beats": "3.75", 
       "edge": "LFO", 
       "group": "2", 
       "hold": "k", 
@@ -101,8 +100,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 1, 
+      "beats": "0.25*", 
       "edge": "LFO", 
       "group": "2", 
       "hold": "k", 
@@ -122,7 +120,7 @@
       "step": "swclcho"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RBI", 
       "group": "3", 
       "hold": "k", 
@@ -142,7 +140,7 @@
       "step": "ce"
     }, 
     {
-      "duration": 4, 
+      "beats": "1_", 
       "edge": "RBO", 
       "group": "3", 
       "hold": "k", 
@@ -162,7 +160,7 @@
       "step": "_ce"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LBI", 
       "hold": "k", 
       "index": "7", 
@@ -181,7 +179,7 @@
       "step": "xb"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RBI", 
       "hold": "k", 
       "index": "8", 
@@ -200,7 +198,7 @@
       "step": ""
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LBO", 
       "hold": "k", 
       "index": "9", 
@@ -219,7 +217,7 @@
       "step": "xf"
     }, 
     {
-      "duration": 16, 
+      "beats": "4", 
       "edge": "RBO", 
       "hold": "k", 
       "index": "10", 
@@ -238,7 +236,7 @@
       "step": "xb"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFI", 
       "hold": "k", 
       "index": "11", 
@@ -257,7 +255,7 @@
       "step": ""
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "12", 
@@ -276,7 +274,7 @@
       "step": ""
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFO", 
       "group": "4", 
       "hold": "k", 
@@ -296,7 +294,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "group": "4", 
       "hold": "k", 
@@ -316,7 +314,7 @@
       "step": "prx"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFO", 
       "group": "4", 
       "hold": "k", 
@@ -336,7 +334,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "16", 
@@ -355,7 +353,7 @@
       "step": "cr"
     }, 
     {
-      "duration": 2, 
+      "beats": "0.5", 
       "edge": "LFI", 
       "group": "5", 
       "hold": "k", 
@@ -375,7 +373,7 @@
       "step": "xbce"
     }, 
     {
-      "duration": 2, 
+      "beats": "0.5_", 
       "edge": "LFO", 
       "group": "5", 
       "hold": "k", 
@@ -395,7 +393,7 @@
       "step": "_ce"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "18", 
@@ -414,7 +412,7 @@
       "step": "xf"
     }
   ], 
-  "dataVersion": 1, 
+  "dataVersion": 2, 
   "level": "Gold", 
   "name": "Quickstep", 
   "patterns": {

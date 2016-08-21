@@ -2,7 +2,7 @@
   "beatsPerMinute": "100", 
   "components": [
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFO", 
       "group": "pr1", 
       "hold": "k", 
@@ -22,7 +22,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFI", 
       "group": "pr1", 
       "hold": "k", 
@@ -42,7 +42,7 @@
       "step": "prx"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFI", 
       "hold": "k", 
       "index": "3", 
@@ -61,7 +61,7 @@
       "step": ""
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "4", 
@@ -80,7 +80,7 @@
       "step": "ch"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFI", 
       "hold": "k", 
       "index": "5", 
@@ -99,7 +99,7 @@
       "step": "wd"
     }, 
     {
-      "duration": 16, 
+      "beats": "4", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "6", 
@@ -118,7 +118,7 @@
       "step": "bk"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "group": "s", 
       "hold": "k", 
@@ -148,7 +148,7 @@
       "step": "slm"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFO", 
       "group": "s", 
       "hold": "k", 
@@ -178,7 +178,7 @@
       "step": "slm"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFI", 
       "group": "s", 
       "hold": "k", 
@@ -208,7 +208,7 @@
       "step": "slm"
     }, 
     {
-      "duration": 6, 
+      "beats": "1.5", 
       "edge": "RFO", 
       "group": "s", 
       "hold": "k", 
@@ -238,7 +238,7 @@
       "step": "slme"
     }, 
     {
-      "duration": 2, 
+      "beats": "0.5", 
       "edge": "LFI", 
       "hold": "k", 
       "index": "9", 
@@ -257,7 +257,7 @@
       "step": "ch"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "10", 
@@ -276,7 +276,7 @@
       "step": ""
     }, 
     {
-      "duration": 16, 
+      "beats": "4", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "11", 
@@ -295,7 +295,7 @@
       "step": "swr"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "12", 
@@ -315,7 +315,7 @@
       "step": ""
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "12", 
@@ -335,7 +335,7 @@
       "step": "xf"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFI", 
       "hold": "k", 
       "index": "13", 
@@ -354,7 +354,7 @@
       "step": "xb"
     }, 
     {
-      "duration": 16, 
+      "beats": "4", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "14", 
@@ -373,7 +373,7 @@
       "step": "swr"
     }
   ], 
-  "dataVersion": 1, 
+  "dataVersion": 2, 
   "level": "PreBronze", 
   "name": "Cha Cha", 
   "patterns": {

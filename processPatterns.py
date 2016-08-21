@@ -6,7 +6,7 @@ import re
 import csv
 import math
 
-DATA_VERSION = 1
+DATA_VERSION = 2
 NEW_WIDTH = 435
 NEW_HEIGHT = NEW_WIDTH * 2
 INPUT_DIRECTORY = "patternData"
@@ -148,15 +148,6 @@ def extractStepsFromCSV(fileHandle, processedPaths):
   pathIndex = 0
   reader = csv.DictReader(csvFile)
   for row in reader:
-    #Calculate unspecified duration
-    if (not row["duration"]):
-      beats = row.pop("beats")
-      if (beats[0] ==  "q"):
-        row["duration"] = int(beats[1:])
-      else:
-        row["duration"] = 4 * int(beats)
-    else:
-      row["duration"] = int(row["duration"])
     #Add paths
     componentPaths = []
     pathCount = row.pop("pathCount")

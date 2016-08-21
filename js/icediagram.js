@@ -31,8 +31,8 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   };
 
   //Support for various pattern format versions
-  IceDiagram._DATA_VERSION_MIN = 1;
-  IceDiagram._DATA_VERSION_MAX = 1;
+  IceDiagram._DATA_VERSION_MIN = 2;
+  IceDiagram._DATA_VERSION_MAX = 2;
 
   IceDiagram._BASE_FONT_SIZE = 12;
   IceDiagram._BASE_LABEL_OFFSET = 10;
@@ -165,7 +165,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._drawPattern = function() {
-    var path, positionIndex, pathIndex, position, labelList, labelText, count,
+    var path, positionIndex, pathIndex, position, labelList, labelText,
         showStep = this._controls.step,
         showNumber = this._controls.number,
         showCount = this._controls.count,
@@ -235,9 +235,8 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         if (showHold && position.hold) {
           labelList.push(position.hold);
         }
-        count = (typeof position.beats === 'undefined') ? position.count : position.beats;
-        if (showCount && count) {
-          labelList.push(count);
+        if (showCount && position.countLabel) {
+          labelList.push(position.countLabel);
         }
         labelText = labelList.join(' ');
         if (labelText) {
@@ -422,7 +421,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 
   //Generate individual positions for a dance
   IceDiagram._generatePositions = function(dance, part, optional, mirror, rotate) {
-    var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path, positionIndex, beatsLabel,
+    var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path, positionIndex, countLabel, countTotal,
         positions = [],
         pattern = dance.patterns[part];
 
@@ -434,12 +433,15 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         if (!component.optional || component.optional === optional) {
           position = {};
           //Copy component properties
-          position.duration = component.duration;
           position.hold = component.hold;
           position.index = component.index;
           position.step = component.step;
-          position.beats = component.beats;
           position.group = component.group;
+          //Parse timing
+          position.beats = parseFloat(component.beats);
+          position.beatGrouping = component.beats.slice(-1);
+          position.count = IceDiagram._toMixedNumber(position.beats);
+          position.duration = Math.round(position.beats * IceDiagram._TICKS_PER_BEAT);
           //Generate paths
           position.paths = [];
           for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
@@ -453,27 +455,30 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
           //Generate text
           position.label = IceDiagram._resolveParams(position.edge, dance.steps[component.step].label);
           position.desc = IceDiagram._resolveParams(position.edge, dance.steps[component.step].desc);
-          //Generate count by converting quarter beat duration to mixed number string
-          position.count = IceDiagram._toMixedNumber(position.duration / IceDiagram._TICKS_PER_BEAT);
           //Add lap index and offset
           position.lapIndex = lapIndex;
           position.offset = offset;
-          offset += component.duration;
+          offset += position.duration;
           positions.push(position);
         }
       }
     }
 
-    //Iterate backwards through steps to generate beat labels, taking into account combination steps
-    beatsLabel = '';
+    //Iterate backwards through steps to generate count labels, taking into account combination steps
+    countLabel = '';
+    countTotal = 0;
     for (positionIndex = positions.length - 1; positionIndex >= 0; positionIndex--) {
       position = positions[positionIndex];
-      if (position.step.charAt(0) === '_') {
-        position.beats = '';
-        beatsLabel = '+' + position.count + beatsLabel;
-      } else if (beatsLabel) {
-        position.beats = position.count + beatsLabel;
-        beatsLabel = '';
+      if (position.beatGrouping === '_') { //Display with plus notation, e.g. 1+1
+        countLabel = '+' + position.count + countLabel;
+      } else if (position.beatGrouping === '*') { //Display as sum of durations
+        countTotal += position.beats;
+      } else if (countTotal) {
+        position.countLabel = IceDiagram._toMixedNumber(position.beats + countTotal);
+        countTotal = 0;
+      } else {
+        position.countLabel = position.count + countLabel;
+        countLabel = '';
       }
     }
 

@@ -2,8 +2,7 @@
   "beatsPerMinute": "100", 
   "components": [
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RFO", 
       "hold": "", 
       "index": "", 
@@ -22,8 +21,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LFO", 
       "hold": "", 
       "index": "", 
@@ -42,8 +40,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RFO", 
       "hold": "", 
       "index": "", 
@@ -62,8 +59,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LFO", 
       "hold": "", 
       "index": "", 
@@ -82,8 +78,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RFO", 
       "hold": "", 
       "index": "", 
@@ -102,8 +97,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LFO", 
       "hold": "", 
       "index": "", 
@@ -122,8 +116,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RFI", 
       "hold": "", 
       "index": "", 
@@ -142,8 +135,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LFI", 
       "hold": "", 
       "index": "", 
@@ -162,8 +154,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RFI", 
       "hold": "", 
       "index": "", 
@@ -182,8 +173,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LFI", 
       "hold": "", 
       "index": "", 
@@ -202,8 +192,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RFI", 
       "hold": "", 
       "index": "", 
@@ -222,8 +211,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LFI", 
       "hold": "", 
       "index": "", 
@@ -242,8 +230,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RBO", 
       "hold": "", 
       "index": "", 
@@ -272,8 +259,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LBO", 
       "hold": "", 
       "index": "", 
@@ -302,8 +288,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RBO", 
       "hold": "", 
       "index": "", 
@@ -332,8 +317,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LBO", 
       "hold": "", 
       "index": "", 
@@ -362,8 +346,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RBO", 
       "hold": "", 
       "index": "", 
@@ -392,8 +375,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LBO", 
       "hold": "", 
       "index": "", 
@@ -422,8 +404,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RBI", 
       "hold": "", 
       "index": "", 
@@ -452,8 +433,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LBI", 
       "hold": "", 
       "index": "", 
@@ -482,8 +462,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RBI", 
       "hold": "", 
       "index": "", 
@@ -512,8 +491,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LBI", 
       "hold": "", 
       "index": "", 
@@ -542,8 +520,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "RBI", 
       "hold": "", 
       "index": "", 
@@ -572,8 +549,7 @@
       "step": ""
     }, 
     {
-      "beats": "", 
-      "duration": 16, 
+      "beats": "4*", 
       "edge": "LBI", 
       "hold": "", 
       "index": "", 
@@ -602,7 +578,7 @@
       "step": ""
     }
   ], 
-  "dataVersion": 1, 
+  "dataVersion": 2, 
   "dev": "1", 
   "level": "PrePreliminary", 
   "name": "USFS PP Forward Edges", 

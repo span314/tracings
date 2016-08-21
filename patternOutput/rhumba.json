@@ -2,7 +2,7 @@
   "beatsPerMinute": "176", 
   "components": [
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "1", 
@@ -21,7 +21,7 @@
       "step": ""
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "2", 
@@ -40,7 +40,7 @@
       "step": "ch"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "3", 
@@ -59,7 +59,7 @@
       "step": "cece"
     }, 
     {
-      "duration": 4, 
+      "beats": "1_", 
       "edge": "LFI", 
       "hold": "k", 
       "index": "", 
@@ -78,7 +78,7 @@
       "step": "_ce"
     }, 
     {
-      "duration": 4, 
+      "beats": "1_", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "", 
@@ -97,7 +97,7 @@
       "step": "_ce"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "4", 
@@ -116,7 +116,7 @@
       "step": "xf"
     }, 
     {
-      "duration": 16, 
+      "beats": "4", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "5", 
@@ -135,7 +135,7 @@
       "step": ""
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "6", 
@@ -154,7 +154,7 @@
       "step": "cr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFI", 
       "hold": "k", 
       "index": "7", 
@@ -173,7 +173,7 @@
       "step": "xb"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "8", 
@@ -192,7 +192,7 @@
       "step": "wd"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFO", 
       "hold": "k", 
       "index": "9", 
@@ -211,7 +211,7 @@
       "step": ""
     }, 
     {
-      "duration": 16, 
+      "beats": "4", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "10", 
@@ -230,8 +230,7 @@
       "step": "xb"
     }, 
     {
-      "beats": "4", 
-      "duration": 15, 
+      "beats": "3.75", 
       "edge": "LFI", 
       "group": "11", 
       "hold": "k", 
@@ -251,8 +250,7 @@
       "step": "wd"
     }, 
     {
-      "beats": "", 
-      "duration": 1, 
+      "beats": "0.25*", 
       "edge": "LFI", 
       "group": "11", 
       "hold": "k", 
@@ -272,8 +270,7 @@
       "step": "wdxfopcho"
     }, 
     {
-      "beats": "4", 
-      "duration": 15, 
+      "beats": "3.75", 
       "edge": "RBO", 
       "group": "12", 
       "hold": "k", 
@@ -293,8 +290,7 @@
       "step": "chox"
     }, 
     {
-      "beats": "", 
-      "duration": 1, 
+      "beats": "0.25*", 
       "edge": "RBO", 
       "group": "12", 
       "hold": "k", 
@@ -314,7 +310,7 @@
       "step": "wdxbclcho"
     }, 
     {
-      "duration": 16, 
+      "beats": "4", 
       "edge": "LFI", 
       "group": "12", 
       "hold": "k", 
@@ -334,7 +330,7 @@
       "step": "chox"
     }, 
     {
-      "duration": 16, 
+      "beats": "4", 
       "edge": "RFI", 
       "group": "14", 
       "hold": "k", 
@@ -354,7 +350,7 @@
       "step": "tt"
     }, 
     {
-      "duration": 8, 
+      "beats": "2_", 
       "edge": "RBO", 
       "group": "14", 
       "hold": "k", 
@@ -374,7 +370,7 @@
       "step": "_tt"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LBO", 
       "hold": "k", 
       "index": "15", 
@@ -394,7 +390,7 @@
       "step": "cr"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RBI", 
       "hold": "k", 
       "index": "16", 
@@ -413,7 +409,7 @@
       "step": "xf"
     }
   ], 
-  "dataVersion": 1, 
+  "dataVersion": 2, 
   "dev": "1", 
   "level": "International", 
   "name": "Rhumba", 

@@ -2,7 +2,7 @@
   "beatsPerMinute": "100", 
   "components": [
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "RFO", 
       "hold": "", 
       "index": "", 
@@ -21,7 +21,7 @@
       "step": "tt"
     }, 
     {
-      "duration": 12, 
+      "beats": "3_", 
       "edge": "RBI", 
       "hold": "", 
       "index": "", 
@@ -40,7 +40,7 @@
       "step": "_tt"
     }, 
     {
-      "duration": 24, 
+      "beats": "6", 
       "edge": "LBO", 
       "hold": "", 
       "index": "", 
@@ -59,7 +59,7 @@
       "step": ""
     }, 
     {
-      "duration": 24, 
+      "beats": "6", 
       "edge": "RFO", 
       "hold": "", 
       "index": "", 
@@ -78,7 +78,7 @@
       "step": ""
     }, 
     {
-      "duration": 12, 
+      "beats": "3", 
       "edge": "LFO", 
       "hold": "", 
       "index": "", 
@@ -97,7 +97,7 @@
       "step": "tt"
     }, 
     {
-      "duration": 12, 
+      "beats": "3_", 
       "edge": "LBI", 
       "hold": "", 
       "index": "", 
@@ -116,7 +116,7 @@
       "step": "_tt"
     }, 
     {
-      "duration": 24, 
+      "beats": "6", 
       "edge": "RBO", 
       "hold": "", 
       "index": "", 
@@ -135,7 +135,7 @@
       "step": ""
     }, 
     {
-      "duration": 24, 
+      "beats": "6", 
       "edge": "LFO", 
       "hold": "", 
       "index": "", 
@@ -154,7 +154,7 @@
       "step": ""
     }
   ], 
-  "dataVersion": 1, 
+  "dataVersion": 2, 
   "dev": "1", 
   "level": "PrePreliminary", 
   "name": "USFS PP Waltz Eight", 

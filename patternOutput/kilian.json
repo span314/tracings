@@ -2,7 +2,7 @@
   "beatsPerMinute": "116", 
   "components": [
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFO", 
       "group": "1", 
       "hold": "k", 
@@ -22,7 +22,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "group": "1", 
       "hold": "k", 
@@ -42,7 +42,7 @@
       "step": "prx"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "LFO", 
       "group": "1", 
       "hold": "k", 
@@ -62,7 +62,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 8, 
+      "beats": "2", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "4", 
@@ -81,7 +81,7 @@
       "step": ""
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFO", 
       "group": "2", 
       "hold": "k", 
@@ -101,7 +101,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "group": "2", 
       "hold": "k", 
@@ -121,7 +121,7 @@
       "step": "prx"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LFO", 
       "group": "2", 
       "hold": "k", 
@@ -142,7 +142,7 @@
       "step": "pr"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFO", 
       "hold": "k", 
       "index": "8", 
@@ -161,8 +161,7 @@
       "step": "cr"
     }, 
     {
-      "beats": "1", 
-      "duration": 3, 
+      "beats": "0.75", 
       "edge": "LFI", 
       "group": "3", 
       "hold": "k", 
@@ -182,8 +181,7 @@
       "step": "xb"
     }, 
     {
-      "beats": "", 
-      "duration": 1, 
+      "beats": "0.25", 
       "edge": "LFI", 
       "group": "3", 
       "hold": "k", 
@@ -203,7 +201,7 @@
       "step": "xfopcho"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RBO", 
       "group": "3", 
       "hold": "k", 
@@ -223,7 +221,7 @@
       "step": "chox"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LBI", 
       "hold": "k", 
       "index": "11", 
@@ -242,7 +240,7 @@
       "step": "xb"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RBO", 
       "hold": "k", 
       "index": "12", 
@@ -261,7 +259,7 @@
       "step": ""
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "LBI", 
       "hold": "k", 
       "index": "13", 
@@ -280,7 +278,7 @@
       "step": "xf"
     }, 
     {
-      "duration": 4, 
+      "beats": "1", 
       "edge": "RFI", 
       "hold": "k", 
       "index": "14", 
@@ -299,7 +297,7 @@
       "step": ""
     }
   ], 
-  "dataVersion": 1, 
+  "dataVersion": 2, 
   "level": "PreGold", 
   "name": "Kilian", 
   "patterns": {
