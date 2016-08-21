@@ -454,7 +454,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
           position.label = IceDiagram._resolveParams(position.edge, dance.steps[component.step].label);
           position.desc = IceDiagram._resolveParams(position.edge, dance.steps[component.step].desc);
           //Generate count by converting quarter beat duration to mixed number string
-          position.count = (position.duration >> 2 || '') + '\xBC\xBD\xBE'.charAt((position.duration + 3) % 4);
+          position.count = IceDiagram._toMixedNumber(position.duration / IceDiagram._TICKS_PER_BEAT);
           //Add lap index and offset
           position.lapIndex = lapIndex;
           position.offset = offset;
@@ -478,6 +478,19 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     }
 
     return positions;
+  };
+
+  //Convert a positive decimal to mixed-number String
+  //Exact for denominators 1, 2, 3, 4, 5, 6, and 8; approximate otherwise
+  //Values that round to zero become an empty string
+  IceDiagram._toMixedNumber = function(decimal) {
+    var nearestInteger = decimal + 0.0625 | 0, //add 1/16 to round 15/16 up to nearest integer vs down to 7/8
+        nearestIndex = (decimal * 24 + 22.5) % 24, //shift by -2 = 22 mod 24 for index, add 0.5 to round
+        //Closest fractions to n / 24
+        //n 2     3     4     5     6   7   8     9     10    11  12  13  14    15    16    17  18  19    20    21    22
+        // '\u2152\u215B\u2159\u2155\xBC\xBC\u2153\u215C\u2156\xBD\xBD\xBD\u2157\u215D\u2154\xBE\xBE\u2158\u215A\u215E\u215E'
+        nearestFraction = '⅒⅛⅙⅕¼¼⅓⅜⅖½½½⅗⅝⅔¾¾⅘⅚⅞⅞'.charAt(nearestIndex);
+    return (nearestInteger || '') + (nearestFraction || '');
   };
 
   IceDiagram._computeTransformMatrix = function(index, patternsPerLap, mirror, rotate) {

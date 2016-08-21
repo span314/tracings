@@ -114,3 +114,27 @@ describe('Diagram', function() {
     });
   });
 });
+
+describe('Mixed number notation', function() {
+  it('should round 1.05 down to 1', function() {
+    IceDiagram._toMixedNumber(1.05).should.equal('1');
+  });
+  it('should round 1.95 up to 2', function() {
+    IceDiagram._toMixedNumber(1.95).should.equal('2');
+  });
+  it('should round 12.34 to 12 1/3', function() {
+    IceDiagram._toMixedNumber(12.34).should.equal('12⅓');
+  });
+  it('should express 1/8 correctly', function() {
+    IceDiagram._toMixedNumber(1 / 8).should.equal('⅛');
+  });
+  it('should express 1/4 correctly', function() {
+    IceDiagram._toMixedNumber(1 / 4).should.equal('¼');
+  });
+  it('should express 4/5 correctly', function() {
+    IceDiagram._toMixedNumber(0.8).should.equal('⅘');
+  });
+  it('should express 0 as empty', function() {
+    IceDiagram._toMixedNumber(0).should.equal('');
+  });
+});
