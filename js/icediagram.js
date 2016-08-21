@@ -249,6 +249,9 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 
     //Draw text
     IceDiagram._drawTextOver(ctx, currentPosition.desc, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE);
+    labelText = currentPosition.count + ' beat' + (currentPosition.duration > IceDiagram._TICKS_PER_BEAT ? 's' : '');
+    IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE * 2.2);
+    IceDiagram._drawTextOver(ctx, currentPosition.edge, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE * 3.4);
     labelText = this._controls.speed === 1 ? '' : Math.round(this._controls.speed * this._dance.beatsPerMinute) + 'bpm of ';
     labelText += this._dance.beatsPerMinute + 'bpm';
     IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height / zoom - IceDiagram._BASE_LABEL_OFFSET);
