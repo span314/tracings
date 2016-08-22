@@ -994,24 +994,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "Xtt": {
-      "desc": "3-turn: Turn onto #E Edge", 
-      "label": ""
-    }, 
-    "crtt": {
-      "desc": "Cross Roll into a #E 3-turn", 
-      "label": "CR-#e3"
-    }, 
-    "tt": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "3", 
   "version": "2016"

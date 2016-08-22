@@ -311,40 +311,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "chox": {
-      "desc": "Choctow: Turn onto #E Edge", 
-      "label": "#e"
-    }, 
-    "cr": {
-      "desc": "Cross Roll onto #E Edge", 
-      "label": "CR-#e"
-    }, 
-    "pr": {
-      "desc": "Progressive: Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "prx": {
-      "desc": "Progressive: Cross onto #E Edge", 
-      "label": "#e-Pr"
-    }, 
-    "xb": {
-      "desc": "Cross Behind onto #E Edge", 
-      "label": "XB-#e"
-    }, 
-    "xf": {
-      "desc": "Cross in Front onto #E Edge", 
-      "label": "XF-#e"
-    }, 
-    "xfopcho": {
-      "desc": "Crossed in Front Open Choctow", 
-      "label": "XF-OpCho"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

@@ -3,7 +3,7 @@
 import os
 import base64
 
-DIRECTORY = "icons"
+DIRECTORY = "."
 EXT_SVG = ".svg"
 
 for filename in os.listdir(DIRECTORY):

@@ -18,7 +18,7 @@
           -105.798
         ]
       ], 
-      "step": ""
+      "step": "spr"
     }, 
     {
       "beats": "8*", 
@@ -37,7 +37,7 @@
           -105.798
         ]
       ], 
-      "step": ""
+      "step": "spr"
     }
   ], 
   "dataVersion": 2, 
@@ -55,12 +55,6 @@
     }
   }, 
   "patternsPerLap": "1", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

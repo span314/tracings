@@ -834,20 +834,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "Xtt": {
-      "desc": "3-turn: Turn onto #E Edge", 
-      "label": ""
-    }, 
-    "swr": {
-      "desc": "Stroke onto #E Edge, Swing Roll", 
-      "label": "#e-swR"
-    }, 
-    "swtt": {
-      "desc": "#E Swing 3-turn", 
-      "label": "#e-Sw3"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "3", 
   "version": "2016"

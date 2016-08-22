@@ -986,44 +986,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "Xtt": {
-      "desc": "3-turn: Turn onto #E Edge", 
-      "label": ""
-    }, 
-    "ch": {
-      "desc": "#E Chass\u00e9", 
-      "label": "#e-Ch"
-    }, 
-    "cr": {
-      "desc": "Cross Roll onto #E Edge", 
-      "label": "CR-#e"
-    }, 
-    "pr": {
-      "desc": "Progressive: Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "prx": {
-      "desc": "Progressive: Cross onto #E Edge", 
-      "label": "#e-Pr"
-    }, 
-    "slchk": {
-      "desc": "#E Slide Chass\u00e9, Fold #R Leg and Kick", 
-      "label": "#e-slCh"
-    }, 
-    "swr": {
-      "desc": "Stroke onto #E Edge, Swing Roll", 
-      "label": "#e-swR"
-    }, 
-    "tt": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

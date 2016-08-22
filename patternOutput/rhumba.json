@@ -424,60 +424,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "Xce": {
-      "desc": "Change to #Q Edge", 
-      "label": ""
-    }, 
-    "Xtt": {
-      "desc": "3-turn: Turn onto #E Edge", 
-      "label": ""
-    }, 
-    "cece": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e#o#q"
-    }, 
-    "ch": {
-      "desc": "#E Chass\u00e9", 
-      "label": "#e-Ch"
-    }, 
-    "chox": {
-      "desc": "Choctow: Turn onto #E Edge", 
-      "label": "#e"
-    }, 
-    "cr": {
-      "desc": "Cross Roll onto #E Edge", 
-      "label": "CR-#e"
-    }, 
-    "tt": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }, 
-    "wd": {
-      "desc": "Wide Step onto #E Edge", 
-      "label": "Wd-#e"
-    }, 
-    "wdxbclcho": {
-      "desc": "Wide Step Cross Behind Closed Choctow", 
-      "label": "Wd-XB-ClCho"
-    }, 
-    "wdxfopcho": {
-      "desc": "Wide Step Cross in Front Open Choctow", 
-      "label": "Wd-XF-opCho"
-    }, 
-    "xb": {
-      "desc": "Cross Behind onto #E Edge", 
-      "label": "XB-#e"
-    }, 
-    "xf": {
-      "desc": "Cross in Front onto #E Edge", 
-      "label": "XF-#e"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

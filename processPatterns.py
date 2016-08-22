@@ -169,117 +169,6 @@ def extractStepsFromCSV(fileHandle, processedPaths):
     components.append(row)
   return components
 
-def createStepList(components):
-  steps = {}
-  for component in components:
-    step = component["step"]
-    if step not in steps:
-      steps[step] = {"label": stepLabel[step], "desc": stepDesc[step]}
-  return steps
-
-def exportObject(var, obj):
-  return "IceDiagram." + var + " = " + json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')) + ";\n"
-
-#Load step label and descriptions
-stepLabel = {}
-stepDesc = {}
-with open(os.path.join(INPUT_DIRECTORY, "0_steps.csv"), "r") as stepsFile:
-  reader = csv.DictReader(stepsFile)
-  for row in reader:
-    stepLabel[row["code"]] = row["label"]
-    stepDesc[row["code"]] = row["desc"]
-
-#Load holds
-holdLabel = {}
-holdDesc = {}
-with open(os.path.join(INPUT_DIRECTORY, "0_holds.csv"), "r") as stepsFile:
-  reader = csv.DictReader(stepsFile)
-  for row in reader:
-    holdLabel[row["code"]] = row["label"]
-    holdDesc[row["code"]] = row["desc"]
-
-#Create edge params
-# The following codes consisting of a # and a character represent parameterized edge features in text.
-# A lower case character (e.g. #e) represent the short text version (e.g. RFO) and an upper case
-# character (e.g. #E) represents a long text version (e.g. Right Forward Outside). Examples are given
-# in paratheses for the edge code RFO.
-
-# #e  edge (RFO, Right Forward Outside)
-# #m  mirrored edge (LFO, Left Forward Outside)
-# #f  skating foot (R, Right)
-# #r  free foot (L, Left)
-# #d  direction (F, Forward)
-# #b  opposite direction (B, Backward)
-# #q  quality (O, Outside)
-# #o  opposite quality (I, Inside)
-# ##  escaped # character (#)
-edgeParams = {}
-for edge in ('LB', 'LBI', 'LBO', 'LF', 'LFI', 'LFO', 'RB', 'RBI', 'RBO', 'RF', 'RFI', 'RFO'):
-  params = {'#': '#'}
-  if 'L' in edge:
-    params["f"] = 'L'
-    params["r"] = 'R'
-    params["F"] = 'Left'
-    params["R"] = 'Right'
-  if 'R' in edge:
-    params["f"] = 'R'
-    params["r"] = 'L'
-    params["F"] = 'Right'
-    params["R"] = 'Left'
-  if 'F' in edge:
-    params["d"] = 'F'
-    params["b"] = 'B'
-    params["D"] = 'Forward'
-    params["B"] = 'Backward'
-  if 'B' in edge:
-    params["d"] = 'B'
-    params["b"] = 'F'
-    params["D"] = 'Backward'
-    params["B"] = 'Forward'
-  if 'I' in edge:
-    params["q"] = 'I'
-    params["o"] = 'O'
-    params["Q"] = 'Inside'
-    params["O"] = 'Outside'
-  if 'O' in edge:
-    params["q"] = 'O'
-    params["o"] = 'I'
-    params["Q"] = 'Outside'
-    params["O"] = 'Inside'
-  params["e"] = params["f"] + params["d"] + params.get("q", "")
-  params["E"] = (params["F"] + " " + params["D"] + " " + params.get("Q", "")).strip()
-  params["m"] = params["r"] + params["d"] + params.get("q", "")
-  params["M"] = (params["R"] + " " + params["D"] + " " + params.get("Q", "")).strip()
-  edgeParams[edge] = params
-
-messages = {
-  "errorContact": '\n\nLet me know at icediagrams@shawnpan.com if this problem continues.',
-  "errorServer": 'Cannot find pattern file for selected dance.',
-  "errorConnection": 'Cannot connect to server to load dance. Please check your internet connection. Press OK to refresh the page.',
-  "errorVersion": 'Incompatible pattern version. Webpage has probably been updated. Press OK refresh the page.',
-  "errorDev": 'Warning: This pattern is still under development.'
-};
-
-#Output files
-with open("jstarget/icediagram.js", "w") as outputFile, open("js/icediagram.js", "r") as inputFile:
-  line = inputFile.readline()
-  while "###End Auto-Generated Code" not in line:
-    outputFile.write(line)
-    line = inputFile.readline()
-
-  outputFile.write(exportObject("_EDGE_PARAMS", edgeParams))
-  outputFile.write(exportObject("_HOLD_LABELS", holdLabel))
-  outputFile.write(exportObject("_HOLD_DESCRIPTIONS", holdDesc))
-  outputFile.write(exportObject("_MESSAGES", messages))
-  outputFile.write(exportObject("_STEP_LABELS", stepLabel))
-  outputFile.write(exportObject("_STEP_DESCRIPTIONS", stepDesc))
-
-  outputFile.write(line)
-  line = inputFile.readline()
-  while line:
-    outputFile.write(line)
-    line = inputFile.readline()
-
 #Load dances
 dances = []
 with open(os.path.join(INPUT_DIRECTORY, "0_dances.csv"), "r") as dancesFile:
@@ -310,7 +199,6 @@ for danceData in dances:
   with open(os.path.join(INPUT_DIRECTORY, patternName + EXT_CSV), "r") as csvFile:
     components = extractStepsFromCSV(csvFile, processedPaths)
     danceData["components"] = components
-    danceData["steps"] = createStepList(components)
 
   #Output files
   with open(os.path.join(OUTPUT_DIRECTORY, patternName + EXT_JSON), "w") as jsonFile:

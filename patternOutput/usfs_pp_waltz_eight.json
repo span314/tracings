@@ -169,20 +169,6 @@
     }
   }, 
   "patternsPerLap": "1", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "Xtt": {
-      "desc": "3-turn: Turn onto #E Edge", 
-      "label": ""
-    }, 
-    "tt": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }
-  }, 
   "timeSignatureBottom": "8", 
   "timeSignatureTop": "6", 
   "version": "2016"

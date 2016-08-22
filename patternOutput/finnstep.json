@@ -3840,12 +3840,6 @@
     }
   }, 
   "patternsPerLap": "1", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "2", 
   "version": "2016"

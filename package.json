@@ -3,13 +3,13 @@
   "version": "0.3.0",
   "description": "Ice diagrams website",
   "scripts": {
-    "build": "npm run patterns && npm run minifyjs && npm run minifycss && npm run lint && npm test",
+    "build": "npm run minifyjs && npm run minifycss && npm run patterns && npm run lint && npm test",
     "lint": "jshint js/*.js",
-    "minifyjs": "uglifyjs jstarget/*.js --output www/tracings-all.min.js --compress --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map www/tracings-all.min.js.map --source-map-include-sources --prefix relative --mangle-props --mangle-regex='/^_/' --reserve-domprops",
+    "minifyjs": "uglifyjs js/*.js --output www/tracings-all.min.js --compress --mangle --screw-ie8 --comments '/!.*/' --verbose --source-map www/tracings-all.min.js.map --source-map-include-sources --prefix relative --mangle-props --mangle-regex='/^_/' --reserve-domprops",
     "minifycss": "cleancss -o www/style-all.min.css css/style.css --source-map --source-map-inline-sources",
-    "patterns": "cp js/* jstarget && python processPatterns.py",
+    "patterns": "python processPatterns.py",
     "test": "mocha jstest -u bdd -R spec",
-    "watch": "watch-run -i -p 'js/*, css/*, patternData/*' npm run build"
+    "watch": "watch-run -i -p 'js/*, css/*, patternData/*, processPatterns.py' npm run build"
   },
   "author": "Shawn Pan",
   "license": "UNLICENSED",

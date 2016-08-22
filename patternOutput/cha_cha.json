@@ -387,52 +387,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "bk": {
-      "desc": "Stroke onto #E Edge, Double Lift Free Leg Back", 
-      "label": "#e-bk"
-    }, 
-    "ch": {
-      "desc": "#E Chass\u00e9", 
-      "label": "#e-Ch"
-    }, 
-    "pr": {
-      "desc": "Progressive: Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "prx": {
-      "desc": "Progressive: Cross onto #E Edge", 
-      "label": "#e-Pr"
-    }, 
-    "slm": {
-      "desc": "#E / #R #D #O Slalom", 
-      "label": "#e/#r#d#o-slm"
-    }, 
-    "slme": {
-      "desc": "#E / #R #D #O Slalom, Push onto #E Edge", 
-      "label": "#e/#r#d#o-slm-#e"
-    }, 
-    "swr": {
-      "desc": "Stroke onto #E Edge, Swing Roll", 
-      "label": "#e-swR"
-    }, 
-    "wd": {
-      "desc": "Wide Step onto #E Edge", 
-      "label": "Wd-#e"
-    }, 
-    "xb": {
-      "desc": "Cross Behind onto #E Edge", 
-      "label": "XB-#e"
-    }, 
-    "xf": {
-      "desc": "Cross in Front onto #E Edge", 
-      "label": "XF-#e"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

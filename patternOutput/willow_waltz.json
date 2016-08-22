@@ -952,44 +952,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "Xtt": {
-      "desc": "3-turn: Turn onto #E Edge", 
-      "label": ""
-    }, 
-    "ch": {
-      "desc": "#E Chass\u00e9", 
-      "label": "#e-Ch"
-    }, 
-    "mox": {
-      "desc": "Mohawk: Turn onto #E Edge", 
-      "label": "#e"
-    }, 
-    "opmo": {
-      "desc": "#E Open Mohawk", 
-      "label": "#e-opMo"
-    }, 
-    "pr": {
-      "desc": "Progressive: Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "prx": {
-      "desc": "Progressive: Cross onto #E Edge", 
-      "label": "#e-Pr"
-    }, 
-    "slch": {
-      "desc": "#E Slide Chass\u00e9", 
-      "label": "#e-slCh"
-    }, 
-    "tt": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "3", 
   "version": "2016"

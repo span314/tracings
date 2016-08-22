@@ -609,32 +609,6 @@
     }
   }, 
   "patternsPerLap": "1", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "ch": {
-      "desc": "#E Chass\u00e9", 
-      "label": "#e-Ch"
-    }, 
-    "mox": {
-      "desc": "Mohawk: Turn onto #E Edge", 
-      "label": "#e"
-    }, 
-    "opmo": {
-      "desc": "#E Open Mohawk", 
-      "label": "#e-opMo"
-    }, 
-    "slch": {
-      "desc": "#E Slide Chass\u00e9", 
-      "label": "#e-slCh"
-    }, 
-    "swr": {
-      "desc": "Stroke onto #E Edge, Swing Roll", 
-      "label": "#e-swR"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

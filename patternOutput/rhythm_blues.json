@@ -351,28 +351,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "pr": {
-      "desc": "Progressive: Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "prx": {
-      "desc": "Progressive: Cross onto #E Edge", 
-      "label": "#e-Pr"
-    }, 
-    "swr": {
-      "desc": "Stroke onto #E Edge, Swing Roll", 
-      "label": "#e-swR"
-    }, 
-    "xb": {
-      "desc": "Cross Behind onto #E Edge", 
-      "label": "XB-#e"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

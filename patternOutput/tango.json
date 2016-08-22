@@ -957,56 +957,6 @@
     }
   }, 
   "patternsPerLap": "2", 
-  "steps": {
-    "": {
-      "desc": "Stroke onto #E Edge", 
-      "label": "#e"
-    }, 
-    "Xrk": {
-      "desc": "Rocker: Turn onto #E Edge", 
-      "label": ""
-    }, 
-    "Xtt": {
-      "desc": "3-turn: Turn onto #E Edge", 
-      "label": ""
-    }, 
-    "ch": {
-      "desc": "#E Chass\u00e9", 
-      "label": "#e-Ch"
-    }, 
-    "cr": {
-      "desc": "Cross Roll onto #E Edge", 
-      "label": "CR-#e"
-    }, 
-    "crtt": {
-      "desc": "Cross Roll into a #E 3-turn", 
-      "label": "CR-#e3"
-    }, 
-    "swclmo": {
-      "desc": "#E Swing Closed Mohawk", 
-      "label": "#e-SwClMo"
-    }, 
-    "swr": {
-      "desc": "Stroke onto #E Edge, Swing Roll", 
-      "label": "#e-swR"
-    }, 
-    "tt": {
-      "desc": "#E 3-turn", 
-      "label": "#e3"
-    }, 
-    "xb": {
-      "desc": "Cross Behind onto #E Edge", 
-      "label": "XB-#e"
-    }, 
-    "xf": {
-      "desc": "Cross in Front onto #E Edge", 
-      "label": "XF-#e"
-    }, 
-    "xfsrk": {
-      "desc": "Cross in Front into a Shallow #E Rocker", 
-      "label": "XF-#e-Rk"
-    }
-  }, 
   "timeSignatureBottom": "4", 
   "timeSignatureTop": "4", 
   "version": "2016"

@@ -41,7 +41,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   //Width is 870 in diagram generation to compensate for rulebook diagram being not quite the right aspect ratio
   IceDiagram._RINK_WIDTH = 900;
   IceDiagram._RINK_HEIGHT = IceDiagram._RINK_WIDTH / 2;
-  IceDiagram._RINK_TO_VIEWPORT_RATIO = 0.9;
+  IceDiagram._RINK_TO_VIEWPORT_RATIO = 0.88;
   IceDiagram._BASE_WIDTH = IceDiagram._RINK_WIDTH / IceDiagram._RINK_TO_VIEWPORT_RATIO;
   IceDiagram._BASE_HEIGHT = IceDiagram._RINK_HEIGHT / IceDiagram._RINK_TO_VIEWPORT_RATIO;
 
@@ -54,12 +54,6 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   IceDiagram._COLOR_TEXT_LABEL_COUNT = '#F70';
   IceDiagram._COLOR_RINK = '#DDD';
   IceDiagram._FADE_MASK = 'rgba(255,255,255,0.75)';
-
-  IceDiagram._ERROR_CONTACT = '\n\nLet me know at icediagrams\x40shawnpan.com if this problem continues.';
-  IceDiagram._ERROR_SERVER = 'Cannot find pattern file for selected dance.' + IceDiagram._ERROR_CONTACT;
-  IceDiagram._ERROR_CONNECTION = 'Cannot connect to server to load dance. Please check your internet connection. Press OK to refresh the page.' + IceDiagram._ERROR_CONTACT;
-  IceDiagram._ERROR_VERSION = 'Incompatible pattern version. Webpage has probably been updated. Press OK refresh the page.' + IceDiagram._ERROR_CONTACT;
-  IceDiagram._ERROR_DEV = 'Warning: This pattern is still under development.' + IceDiagram._ERROR_CONTACT;
 
   IceDiagram.prototype.controlEvent = function(eventType, value) {
     console.log('UI ' + eventType + ' ' + (value || ''));
@@ -103,7 +97,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     request.onload = function() {
       var dance, version;
       if (request.status < 200 || request.status >= 400) {
-        window.alert(IceDiagram._ERROR_SERVER);
+        window.alert(IceDiagram._MESSAGES._ERROR_SERVER + IceDiagram._MESSAGES._ERROR_CONTACT);
         return;
       }
       dance = JSON.parse(request.responseText);
@@ -111,14 +105,14 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       //TODO remove conditional once all production patterns have a version
       version = dance.dataVersion ? parseInt(dance.dataVersion) : 1;
       if (version < IceDiagram._DATA_VERSION_MIN || version > IceDiagram._DATA_VERSION_MAX) {
-        if (window.confirm(IceDiagram._ERROR_VERSION)) {
+        if (window.confirm(IceDiagram._MESSAGES._ERROR_VERSION + IceDiagram._MESSAGES._ERROR_CONTACT)) {
           window.location.reload(true);
         }
         return;
       }
 
       if (dance.dev) {
-        window.alert(IceDiagram._ERROR_DEV);
+        window.alert(IceDiagram._MESSAGES._ERROR_DEV + IceDiagram._MESSAGES._ERROR_CONTACT);
       }
 
       widget._dance = dance;
@@ -127,7 +121,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     };
 
     request.onerror = function() {
-      if (window.confirm(IceDiagram._ERROR_CONNECTION)) {
+      if (window.confirm(IceDiagram._MESSAGES._ERROR_CONNECTION + IceDiagram._MESSAGES._ERROR_CONTACT)) {
         window.location.reload(true);
       }
     };
@@ -233,7 +227,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         //Draw hold and count
         labelList = [];
         if (showHold && position.hold) {
-          labelList.push(position.hold);
+          labelList.push(IceDiagram._HOLD_LABELS[position.hold]);
         }
         if (showCount && position.countLabel) {
           labelList.push(position.countLabel);
@@ -249,9 +243,11 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 
     //Draw text
     IceDiagram._drawTextOver(ctx, currentPosition.desc, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE);
-    labelText = currentPosition.count + ' beat' + (currentPosition.duration > IceDiagram._TICKS_PER_BEAT ? 's' : '');
+    labelText = currentPosition.count;
+    labelText += currentPosition.duration > IceDiagram._TICKS_PER_BEAT ? ' beats, ' : ' beat, ';
+    labelText += currentPosition.edge;
+    labelText += IceDiagram._HOLD_DESCRIPTIONS[currentPosition.hold] ? ', ' + IceDiagram._HOLD_DESCRIPTIONS[currentPosition.hold] : '';
     IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE * 2.2);
-    IceDiagram._drawTextOver(ctx, currentPosition.edge, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE * 3.4);
     labelText = this._controls.speed === 1 ? '' : Math.round(this._controls.speed * this._dance.beatsPerMinute) + 'bpm of ';
     labelText += this._dance.beatsPerMinute + 'bpm';
     IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height / zoom - IceDiagram._BASE_LABEL_OFFSET);
@@ -456,8 +452,8 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
           //Check mirroring
           position.edge = mirror ? IceDiagram._EDGE_PARAMS[component.edge].m : component.edge;
           //Generate text
-          position.label = IceDiagram._resolveParams(position.edge, dance.steps[component.step].label);
-          position.desc = IceDiagram._resolveParams(position.edge, dance.steps[component.step].desc);
+          position.label = IceDiagram._resolveParams(position.edge, IceDiagram._STEP_LABELS[component.step]);
+          position.desc = IceDiagram._resolveParams(position.edge, IceDiagram._STEP_DESCRIPTIONS[component.step]);
           //Add lap index and offset
           position.lapIndex = lapIndex;
           position.offset = offset;
@@ -712,9 +708,403 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     return Math.max(isHeightLimited ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
   };
 
-  //###Auto-Generated Code by processPatterns.py
-  //###Defines the following constants on IceDiagram: _EDGE_PARAMS, _HOLD_LABELS, _HOLD_DESCRIPTIONS, _MESSAGES, _STEP_LABELS, _STEP_DESCRIPTIONS
-  //###End Auto-Generated Code
+  //###Constant code maps below generated by processCodes.py###
+  IceDiagram._EDGE_PARAMS = {
+    "LB": {
+      "#": "#",
+      "B": "Forward",
+      "D": "Backward",
+      "E": "Left Backward",
+      "F": "Left",
+      "M": "Right Backward",
+      "R": "Right",
+      "b": "F",
+      "d": "B",
+      "e": "LB",
+      "f": "L",
+      "m": "RB",
+      "r": "R"
+    },
+    "LBI": {
+      "#": "#",
+      "B": "Forward",
+      "D": "Backward",
+      "E": "Left Backward Inside",
+      "F": "Left",
+      "M": "Right Backward Inside",
+      "O": "Outside",
+      "Q": "Inside",
+      "R": "Right",
+      "b": "F",
+      "d": "B",
+      "e": "LBI",
+      "f": "L",
+      "m": "RBI",
+      "o": "O",
+      "q": "I",
+      "r": "R"
+    },
+    "LBO": {
+      "#": "#",
+      "B": "Forward",
+      "D": "Backward",
+      "E": "Left Backward Outside",
+      "F": "Left",
+      "M": "Right Backward Outside",
+      "O": "Inside",
+      "Q": "Outside",
+      "R": "Right",
+      "b": "F",
+      "d": "B",
+      "e": "LBO",
+      "f": "L",
+      "m": "RBO",
+      "o": "I",
+      "q": "O",
+      "r": "R"
+    },
+    "LF": {
+      "#": "#",
+      "B": "Backward",
+      "D": "Forward",
+      "E": "Left Forward",
+      "F": "Left",
+      "M": "Right Forward",
+      "R": "Right",
+      "b": "B",
+      "d": "F",
+      "e": "LF",
+      "f": "L",
+      "m": "RF",
+      "r": "R"
+    },
+    "LFI": {
+      "#": "#",
+      "B": "Backward",
+      "D": "Forward",
+      "E": "Left Forward Inside",
+      "F": "Left",
+      "M": "Right Forward Inside",
+      "O": "Outside",
+      "Q": "Inside",
+      "R": "Right",
+      "b": "B",
+      "d": "F",
+      "e": "LFI",
+      "f": "L",
+      "m": "RFI",
+      "o": "O",
+      "q": "I",
+      "r": "R"
+    },
+    "LFO": {
+      "#": "#",
+      "B": "Backward",
+      "D": "Forward",
+      "E": "Left Forward Outside",
+      "F": "Left",
+      "M": "Right Forward Outside",
+      "O": "Inside",
+      "Q": "Outside",
+      "R": "Right",
+      "b": "B",
+      "d": "F",
+      "e": "LFO",
+      "f": "L",
+      "m": "RFO",
+      "o": "I",
+      "q": "O",
+      "r": "R"
+    },
+    "RB": {
+      "#": "#",
+      "B": "Forward",
+      "D": "Backward",
+      "E": "Right Backward",
+      "F": "Right",
+      "M": "Left Backward",
+      "R": "Left",
+      "b": "F",
+      "d": "B",
+      "e": "RB",
+      "f": "R",
+      "m": "LB",
+      "r": "L"
+    },
+    "RBI": {
+      "#": "#",
+      "B": "Forward",
+      "D": "Backward",
+      "E": "Right Backward Inside",
+      "F": "Right",
+      "M": "Left Backward Inside",
+      "O": "Outside",
+      "Q": "Inside",
+      "R": "Left",
+      "b": "F",
+      "d": "B",
+      "e": "RBI",
+      "f": "R",
+      "m": "LBI",
+      "o": "O",
+      "q": "I",
+      "r": "L"
+    },
+    "RBO": {
+      "#": "#",
+      "B": "Forward",
+      "D": "Backward",
+      "E": "Right Backward Outside",
+      "F": "Right",
+      "M": "Left Backward Outside",
+      "O": "Inside",
+      "Q": "Outside",
+      "R": "Left",
+      "b": "F",
+      "d": "B",
+      "e": "RBO",
+      "f": "R",
+      "m": "LBO",
+      "o": "I",
+      "q": "O",
+      "r": "L"
+    },
+    "RF": {
+      "#": "#",
+      "B": "Backward",
+      "D": "Forward",
+      "E": "Right Forward",
+      "F": "Right",
+      "M": "Left Forward",
+      "R": "Left",
+      "b": "B",
+      "d": "F",
+      "e": "RF",
+      "f": "R",
+      "m": "LF",
+      "r": "L"
+    },
+    "RFI": {
+      "#": "#",
+      "B": "Backward",
+      "D": "Forward",
+      "E": "Right Forward Inside",
+      "F": "Right",
+      "M": "Left Forward Inside",
+      "O": "Outside",
+      "Q": "Inside",
+      "R": "Left",
+      "b": "B",
+      "d": "F",
+      "e": "RFI",
+      "f": "R",
+      "m": "LFI",
+      "o": "O",
+      "q": "I",
+      "r": "L"
+    },
+    "RFO": {
+      "#": "#",
+      "B": "Backward",
+      "D": "Forward",
+      "E": "Right Forward Outside",
+      "F": "Right",
+      "M": "Left Forward Outside",
+      "O": "Inside",
+      "Q": "Outside",
+      "R": "Left",
+      "b": "B",
+      "d": "F",
+      "e": "RFO",
+      "f": "R",
+      "m": "LFO",
+      "o": "I",
+      "q": "O",
+      "r": "L"
+    }
+  };
+
+  IceDiagram._HOLD_LABELS = {
+    "ch": "*",
+    "cl": "C",
+    "cs": "S",
+    "cto": "C2T",
+    "f": "F",
+    "hh": "H",
+    "k": "K",
+    "oc": "C*",
+    "op": "O",
+    "out": "T",
+    "po": "T*",
+    "rk": "R"
+  };
+
+  IceDiagram._HOLD_DESCRIPTIONS = {
+    "ch": "Changing",
+    "cl": "Closed / Waltz",
+    "cs": "Change Sides",
+    "cto": "Closed to Outside",
+    "f": "Foxtrot",
+    "hh": "Hand-to-Hand",
+    "k": "Kilian",
+    "oc": "Offset Closed",
+    "op": "Open",
+    "out": "Outside",
+    "po": "Partial Outside",
+    "rk": "Reversed Kilian"
+  };
+
+  IceDiagram._MESSAGES = {
+    "_ERROR_CONNECTION": "Cannot connect to server to load dance. Please check your internet connection. Press OK to refresh the page.",
+    "_ERROR_CONTACT": "\n\nLet me know at icediagrams@shawnpan.com if this problem continues.",
+    "_ERROR_DEV": "Warning: This pattern is still under development.",
+    "_ERROR_SERVER": "Cannot find pattern file for selected dance.",
+    "_ERROR_VERSION": "Incompatible pattern version. Webpage has probably been updated. Press OK refresh the page."
+  };
+
+  IceDiagram._STEP_LABELS = {
+    "": "#e",
+    "Xce": "",
+    "Xcett": "",
+    "Xctr": "",
+    "Xrk": "",
+    "Xtt": "",
+    "Xttibtt": "#e-InBa-3",
+    "bk": "#e-bk",
+    "ce": "#e#o",
+    "cece": "#e#o#q",
+    "ceopmo": "",
+    "cesw": "#e#o-sw",
+    "cett": "#e#o3",
+    "cexrk": "#e-Rk",
+    "ch": "#e-Ch",
+    "chox": "#e",
+    "choxb": "",
+    "clcho": "#e-ClCho",
+    "clmo": "#e-ClMo",
+    "co": "#e",
+    "cr": "CR-#e",
+    "crswr": "CR-#e-swR",
+    "crtt": "CR-#e3",
+    "dl": "#e",
+    "e": "",
+    "ff": "#e-#rff",
+    "mox": "#e",
+    "moxdl": "#e",
+    "opmo": "#e-opMo",
+    "pr": "#e",
+    "prb": "#e-Pr",
+    "prx": "#e-Pr",
+    "s": "#e",
+    "slch": "#e-slCh",
+    "slchk": "#e-slCh",
+    "slm": "#e/#r#d#o-slm",
+    "slme": "#e/#r#d#o-slm-#e",
+    "spr": "#e-spr",
+    "swclcho": "Sw-ClCho",
+    "swclmo": "#e-SwClMo",
+    "swctr": "#e-SwCtr",
+    "swopcho": "Sw-opCho",
+    "swr": "#e-swR",
+    "swrk": "#e-SwRk",
+    "swtt": "#e-Sw3",
+    "tt": "#e3",
+    "ttxce": "#e#o",
+    "tw.": "",
+    "tw1": "#e-Tw1",
+    "twl1": "Sw-\u201cTw1\u201d",
+    "twl1.": "",
+    "wd": "Wd-#e",
+    "wds": "Wd-#e",
+    "wdtt": "Wd-#e3",
+    "wdxbclcho": "Wd-XB-ClCho",
+    "wdxfopcho": "Wd-XF-opCho",
+    "xb": "XB-#e",
+    "xbce": "XB-#e#o",
+    "xbch": "XB-#e-Ch",
+    "xbctr": "XB-#e-Ctr",
+    "xbopmo": "XB-#e-opMo",
+    "xcut": "Xcut-#e",
+    "xf": "XF-#e",
+    "xfce": "XF-#e#o",
+    "xfopcho": "XF-OpCho",
+    "xfsrk": "XF-#e-Rk",
+    "xfttt": "#e-XFt3",
+    "xftw1": "XF-#e-Tw1"
+  };
+
+  IceDiagram._STEP_DESCRIPTIONS = {
+    "": "Stroke onto #E Edge",
+    "Xce": "Change to #Q Edge",
+    "Xcett": "Change to #Q Edge for a #E 3-turn",
+    "Xctr": "Counter: Turn onto #E Edge",
+    "Xrk": "Rocker: Turn onto #E Edge",
+    "Xtt": "3-turn: Turn onto #E Edge",
+    "Xttibtt": "3-turn into a #E Ina Bauer into another 3-turn",
+    "bk": "Stroke onto #E Edge, Double Lift Free Leg Back",
+    "ce": "Stroke onto #E Edge",
+    "cece": "Stroke onto #E Edge",
+    "ceopmo": "Change to #Q Edge, Open Mohawk",
+    "cesw": "Stroke onto #E Edge, Swing",
+    "cett": "Stroke onto #E Edge",
+    "cexrk": "Change to #Q Edge for a #E Rocker",
+    "ch": "#E Chass\u00e9",
+    "chox": "Choctow: Turn onto #E Edge",
+    "choxb": "Choctow: Turn onto #E Edge",
+    "clcho": "#E Closed Choctow",
+    "clmo": "#E Closed Mohawk",
+    "co": "Crossover onto #E Edge",
+    "cr": "Cross Roll onto #E Edge",
+    "crswr": "Cross Roll onto #E Edge, Swing",
+    "crtt": "Cross Roll into a #E 3-turn",
+    "dl": "Stroke onto #E Edge, Double Lift Free Leg",
+    "e": "Continue on #E Edge",
+    "ff": "#E Slip Step",
+    "mox": "Mohawk: Turn onto #E Edge",
+    "moxdl": "Mohawk: Turn onto #E Edge, Double Lift Free Leg",
+    "opmo": "#E Open Mohawk",
+    "pr": "Progressive: Stroke onto #E Edge",
+    "prb": "Progressive: Stroke onto #E Edge",
+    "prx": "Progressive: Cross onto #E Edge",
+    "s": "Step Briefly on #E Edge",
+    "slch": "#E Slide Chass\u00e9",
+    "slchk": "#E Slide Chass\u00e9, Fold #R Leg and Kick",
+    "slm": "#E / #R #D #O Slalom",
+    "slme": "#E / #R #D #O Slalom, Push onto #E Edge",
+    "spr": "#E Spiral",
+    "swclcho": "Swing Closed Choctow",
+    "swclmo": "#E Swing Closed Mohawk",
+    "swctr": "#E Swing Counter",
+    "swopcho": "Swing Open Choctow",
+    "swr": "Stroke onto #E Edge, Swing Roll",
+    "swrk": "#E Swing Rocker",
+    "swtt": "#E Swing 3-turn",
+    "tt": "#E 3-turn",
+    "ttxce": "3-turn: Turn onto #E Edge",
+    "tw.": "Twizzle",
+    "tw1": "Stroke into a #E Twizzle",
+    "twl1": "Twizzle Like Motion",
+    "twl1.": "Twizzle Like Motion",
+    "wd": "Wide Step onto #E Edge",
+    "wds": "Wide Step Briefly onto #E Edge",
+    "wdtt": "Wide Step into a #E 3-turn",
+    "wdxbclcho": "Wide Step Cross Behind Closed Choctow",
+    "wdxfopcho": "Wide Step Cross in Front Open Choctow",
+    "xb": "Cross Behind onto #E Edge",
+    "xbce": "Cross Behind onto #E Edge",
+    "xbch": "Cross Behind into a #E Chass\u00e9",
+    "xbctr": "Cross Behind into a #E Counter",
+    "xbopmo": "Cross Behind into a #E Open Mohawk",
+    "xcut": "Cross Cut onto #E Edge",
+    "xf": "Cross in Front onto #E Edge",
+    "xfce": "Cross in Front onto #E Edge",
+    "xfopcho": "Crossed in Front Open Choctow",
+    "xfsrk": "Cross in Front into a Shallow #E Rocker",
+    "xfttt": "#E Behind Cross Foot 3-turn",
+    "xftw1": "Cross in Front onto #E Edge for a 1 Rotation Twizzle"
+  };
+
+  //###End generated code###
 
   //Return UMD factory result
   return IceDiagram;
