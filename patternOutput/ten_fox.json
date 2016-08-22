@@ -216,7 +216,7 @@
           -182.034
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "1", 
@@ -515,7 +515,7 @@
           194.746
         ]
       ], 
-      "step": "_ce"
+      "step": "Xce"
     }, 
     {
       "beats": "1", 
@@ -615,7 +615,7 @@
           98.136
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "2", 
@@ -872,11 +872,11 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "_ce": {
+    "Xce": {
       "desc": "Change to #Q Edge", 
       "label": ""
     }, 
-    "_tt": {
+    "Xtt": {
       "desc": "3-turn: Turn onto #E Edge", 
       "label": ""
     }, 

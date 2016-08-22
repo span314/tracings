@@ -252,7 +252,7 @@
           -169.454
         ]
       ], 
-      "step": "_ce"
+      "step": "Xce"
     }, 
     {
       "beats": "1", 
@@ -891,7 +891,7 @@
           -168.263
         ]
       ], 
-      "step": "_ce"
+      "step": "Xce"
     }, 
     {
       "beats": "1", 
@@ -1243,7 +1243,7 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "_ce": {
+    "Xce": {
       "desc": "Change to #Q Edge", 
       "label": ""
     }, 

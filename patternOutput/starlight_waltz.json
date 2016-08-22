@@ -191,7 +191,7 @@
           -40.529
         ]
       ], 
-      "step": "_ce"
+      "step": "Xce"
     }, 
     {
       "beats": "6", 
@@ -269,7 +269,7 @@
           -199.287
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "3", 
@@ -328,7 +328,7 @@
           -88.89
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "3", 
@@ -739,7 +739,7 @@
           -191.33
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "2", 
@@ -931,7 +931,7 @@
           -43.597
         ]
       ], 
-      "step": "_ce"
+      "step": "Xce"
     }, 
     {
       "beats": "6", 
@@ -990,7 +990,7 @@
           -180.421
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "3", 
@@ -1049,7 +1049,7 @@
           -166.528
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "3", 
@@ -1108,7 +1108,7 @@
           -13.523
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "2", 
@@ -1401,7 +1401,7 @@
           201.562
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "3", 
@@ -1518,11 +1518,11 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "_ce": {
+    "Xce": {
       "desc": "Change to #Q Edge", 
       "label": ""
     }, 
-    "_tt": {
+    "Xtt": {
       "desc": "3-turn: Turn onto #E Edge", 
       "label": ""
     }, 

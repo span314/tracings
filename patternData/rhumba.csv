@@ -2,8 +2,8 @@ index,pathCount,beats,edge,step,group,optional,hold,labelOffset
 1,,1,LFO,,,,k,
 2,,1,RFI,ch,,,k,
 3,,2,LFO,cece,,,k,
-,,1_,LFI,_ce,,,k,
-,,1_,LFO,_ce,,,k,
+,,1_,LFI,Xce,,,k,
+,,1_,LFO,Xce,,,k,
 4,,2,RFI,xf,,,k,
 5,,4,LFO,,,,k,
 6,,2,RFO,cr,,,k,
@@ -17,6 +17,6 @@ index,pathCount,beats,edge,step,group,optional,hold,labelOffset
 ,,0.25*,RBO,wdxbclcho,12,,k,
 13,,4,LFI,chox,12,,k,
 14,,4,RFI,tt,14,,k,
-,,2_,RBO,_tt,14,,k,
+,,2_,RBO,Xtt,14,,k,
 15,,2,LBO,cr,,,k,0.3
 16,,2,RBI,xf,,,k,

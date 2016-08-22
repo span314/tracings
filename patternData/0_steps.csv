@@ -1,10 +1,10 @@
 code,label,desc
-_ce,,Change to #Q Edge
-_cett,,Change to #Q Edge for a #E 3-turn
-_ctr,,Counter: Turn onto #E Edge
-_rk,,Rocker: Turn onto #E Edge
-_tt,,3-turn: Turn onto #E Edge
-_ttibtt,#e-InBa-3,3-turn into a #E Ina Bauer into another 3-turn
+Xce,,Change to #Q Edge
+Xcett,,Change to #Q Edge for a #E 3-turn
+Xctr,,Counter: Turn onto #E Edge
+Xrk,,Rocker: Turn onto #E Edge
+Xtt,,3-turn: Turn onto #E Edge
+Xttibtt,#e-InBa-3,3-turn into a #E Ina Bauer into another 3-turn
 bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back"
 ce,#e#o,Stroke onto #E Edge
 cece,#e#o#q,Stroke onto #E Edge

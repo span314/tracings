@@ -125,7 +125,7 @@
           -78.843
         ]
       ], 
-      "step": "_rk"
+      "step": "Xrk"
     }, 
     {
       "beats": "2", 
@@ -452,7 +452,7 @@
           176.104
         ]
       ], 
-      "step": "_tt"
+      "step": "Xtt"
     }, 
     {
       "beats": "2", 
@@ -647,11 +647,11 @@
       "desc": "Stroke onto #E Edge", 
       "label": "#e"
     }, 
-    "_rk": {
+    "Xrk": {
       "desc": "Rocker: Turn onto #E Edge", 
       "label": ""
     }, 
-    "_tt": {
+    "Xtt": {
       "desc": "3-turn: Turn onto #E Edge", 
       "label": ""
     }, 
