@@ -560,38 +560,6 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
             6 * ti * (p2 - 2 * p1 + p0) + 6 * t * (p3 - 2 * p2 + p1)];
   };
 
-  /**
-    Hashmap of all the edges to the corresponding edge parameters.
-
-    The following codes consisting of a # and a character represent parameterized edge features in text.
-    A lower case character (e.g. #e) represent the short text version (e.g. RFO) and an upper case
-    character (e.g. #E) represents a long text version (e.g. Right Forward Outside). Examples are given
-    in paratheses for the edge code RFO.
-
-    #e  edge (RFO, Right Forward Outside)
-    #m  mirrored edge (LFO, Left Forward Outside)
-    #f  skating foot (R, Right)
-    #r  free foot (L, Left)
-    #d  direction (F, Forward)
-    #b  opposite direction (B, Backward)
-    #q  quality (O, Outside)
-    #o  opposite quality (I, Inside)
-    ##  escaped # character (#)
-  */
-  IceDiagram._EDGE_PARAMS = {
-    'LB': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'B', b: 'F', D: 'Backward', B: 'Forward', e: 'LB', E: 'Left Backward', m: 'RB', M: 'Right Backward'},
-    'LBI': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'B', b: 'F', D: 'Backward', B: 'Forward', q: 'I', o: 'O', Q: 'Inside', O: 'Outside', e: 'LBI', E: 'Left Backward Inside', m: 'RBI', M: 'Right Backward Inside'},
-    'LBO': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'B', b: 'F', D: 'Backward', B: 'Forward', q: 'O', o: 'I', Q: 'Outside', O: 'Inside', e: 'LBO', E: 'Left Backward Outside', m: 'RBO', M: 'Right Backward Outside'},
-    'LF': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'F', b: 'B', D: 'Forward', B: 'Backward', e: 'LF', E: 'Left Forward', m: 'RF', M: 'Right Forward'},
-    'LFI': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'F', b: 'B', D: 'Forward', B: 'Backward', q: 'I', o: 'O', Q: 'Inside', O: 'Outside', e: 'LFI', E: 'Left Forward Inside', m: 'RFI', M: 'Right Forward Inside'},
-    'LFO': {'#': '#', f: 'L', r: 'R', F: 'Left', R: 'Right', d: 'F', b: 'B', D: 'Forward', B: 'Backward', q: 'O', o: 'I', Q: 'Outside', O: 'Inside', e: 'LFO', E: 'Left Forward Outside', m: 'RFO', M: 'Right Forward Outside'},
-    'RB': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'B', b: 'F', D: 'Backward', B: 'Forward', e: 'RB', E: 'Right Backward', m: 'LB', M: 'Left Backward'},
-    'RBI': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'B', b: 'F', D: 'Backward', B: 'Forward', q: 'I', o: 'O', Q: 'Inside', O: 'Outside', e: 'RBI', E: 'Right Backward Inside', m: 'LBI', M: 'Left Backward Inside'},
-    'RBO': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'B', b: 'F', D: 'Backward', B: 'Forward', q: 'O', o: 'I', Q: 'Outside', O: 'Inside', e: 'RBO', E: 'Right Backward Outside', m: 'LBO', M: 'Left Backward Outside'},
-    'RF': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'F', b: 'B', D: 'Forward', B: 'Backward', e: 'RF', E: 'Right Forward', m: 'LF', M: 'Left Forward'},
-    'RFI': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'F', b: 'B', D: 'Forward', B: 'Backward', q: 'I', o: 'O', Q: 'Inside', O: 'Outside', e: 'RFI', E: 'Right Forward Inside', m: 'LFI', M: 'Left Forward Inside'},
-    'RFO': {'#': '#', f: 'R', r: 'L', F: 'Right', R: 'Left', d: 'F', b: 'B', D: 'Forward', B: 'Backward', q: 'O', o: 'I', Q: 'Outside', O: 'Inside', e: 'RFO', E: 'Right Forward Outside', m: 'LFO', M: 'Left Forward Outside'}
-  };
   //Resolve edge parameters in text. All text should use edge parameters where appropriate to support features such as mirroring.
   IceDiagram._resolveParams = function(edgeCode, label) {
     var i, curChar,
@@ -743,6 +711,10 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     var isHeightLimited = width * IceDiagram._BASE_HEIGHT > height * IceDiagram._BASE_WIDTH;
     return Math.max(isHeightLimited ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
   };
+
+  //###Auto-Generated Code by processPatterns.py
+  //###Defines the following constants on IceDiagram: _EDGE_PARAMS, _HOLD_LABELS, _HOLD_DESCRIPTIONS, _MESSAGES, _STEP_LABELS, _STEP_DESCRIPTIONS
+  //###End Auto-Generated Code
 
   //Return UMD factory result
   return IceDiagram;

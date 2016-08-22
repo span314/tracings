@@ -1,5 +1,5 @@
 var should = require('should'),
-    IceDiagram = require('../js/icediagram.js');
+    IceDiagram = require('../jstarget/icediagram.js');
 
 describe('Bezier curve', function() {
   const CUBIC = [10, 20, 30, 40, 50, 60, 70, 80],
