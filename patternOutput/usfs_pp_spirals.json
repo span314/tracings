@@ -18,7 +18,8 @@
           -105.798
         ]
       ], 
-      "step": "spr"
+      "step": "spr", 
+      "transition": ""
     }, 
     {
       "beats": "8*", 
@@ -37,7 +38,8 @@
           -105.798
         ]
       ], 
-      "step": "spr"
+      "step": "spr", 
+      "transition": ""
     }
   ], 
   "dataVersion": 2, 

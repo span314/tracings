@@ -19,7 +19,8 @@
           -98.038
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -39,7 +40,8 @@
           -138.064
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "2", 
@@ -59,7 +61,8 @@
           -130.835
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "2", 
@@ -78,7 +81,8 @@
           -201.366
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -98,7 +102,8 @@
           -203.129
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -118,7 +123,8 @@
           -178.443
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "1", 
@@ -139,7 +145,8 @@
           -127.308
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -158,7 +165,8 @@
           -95.217
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "0.75", 
@@ -178,7 +186,8 @@
           -147.233
         ]
       ], 
-      "step": "xb_e"
+      "step": "xb_e", 
+      "transition": "xb"
     }, 
     {
       "beats": "0.25", 
@@ -198,7 +207,8 @@
           -144.038
         ]
       ], 
-      "step": "xf_opcho"
+      "step": "xf_opcho", 
+      "transition": "xf"
     }, 
     {
       "beats": "1", 
@@ -218,7 +228,8 @@
           -176.504
         ]
       ], 
-      "step": "cho_e"
+      "step": "cho_e", 
+      "transition": "cho"
     }, 
     {
       "beats": "1", 
@@ -237,7 +248,8 @@
           -148.644
         ]
       ], 
-      "step": "xb_e"
+      "step": "xb_e", 
+      "transition": "xb"
     }, 
     {
       "beats": "1", 
@@ -256,7 +268,8 @@
           -92.925
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -275,7 +288,8 @@
           -33.326
         ]
       ], 
-      "step": "xf_e"
+      "step": "xf_e", 
+      "transition": "xf"
     }, 
     {
       "beats": "1", 
@@ -294,7 +308,8 @@
           33.502
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }
   ], 
   "dataVersion": 2, 

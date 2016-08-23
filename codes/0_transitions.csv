@@ -1,14 +1,19 @@
 code,label,desc
-xb,XB-,Cross Behind to
-wd,Wd-,Wide Step to
-xf,XF-,Cross in Front to
-cr,CR-,Cross Roll to
-co,,Crossover to
-ctr,,Counter Turn to
-rk,,Rocker Turn to
-tt,,3-turn to
-mo,,Mohawk Turn to
-cho,,Choctow Turn to
-s,,Stroke to
-wdxf,Wd-XF-,Wide Step Cross in Front
-wdxb,Wd-XB-,Wide Step Cross Behind
+ce,,Change
+cho,,Choctow Turn
+co,X,Crossover
+cr,CR,Cross Roll
+ctr,,Counter Turn
+mo,,Mohawk Turn
+pr,,Progressive: Stroke
+prx,,Progressive: Cross
+rk,,Rocker Turn
+sb,,Step Briefly
+s,,Stroke
+tt,,3-turn
+wd,Wd,Wide Step
+wdsb,,Wide Step Briefly
+wdxb,Wd-XB,Wide Step Cross Behind
+wdxf,Wd-XF,Wide Step Cross in Front
+xb,XB,Cross Behind
+xf,XF,Cross in Front

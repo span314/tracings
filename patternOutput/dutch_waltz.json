@@ -19,7 +19,8 @@
           203.983
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -39,7 +40,8 @@
           200.121
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "3", 
@@ -59,7 +61,8 @@
           123.584
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "6", 
@@ -78,7 +81,8 @@
           113.051
         ]
       ], 
-      "step": "s_swr"
+      "step": "s_swr", 
+      "transition": "s"
     }, 
     {
       "beats": "6", 
@@ -97,7 +101,8 @@
           106.174
         ]
       ], 
-      "step": "s_swr"
+      "step": "s_swr", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -117,7 +122,8 @@
           71.973
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -137,7 +143,8 @@
           64.249
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "3", 
@@ -157,7 +164,8 @@
           134.343
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "3", 
@@ -176,7 +184,8 @@
           201.525
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -195,7 +204,8 @@
           191.344
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -215,7 +225,8 @@
           149.564
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -235,7 +246,8 @@
           125.052
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "3", 
@@ -255,7 +267,8 @@
           69.867
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "6", 
@@ -274,7 +287,8 @@
           -67.409
         ]
       ], 
-      "step": "s_swr"
+      "step": "s_swr", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -293,7 +307,8 @@
           -128.148
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -312,7 +327,8 @@
           -193.801
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }
   ], 
   "dataVersion": 2, 

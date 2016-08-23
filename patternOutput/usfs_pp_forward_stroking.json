@@ -18,7 +18,8 @@
           145.032
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "4*", 
@@ -37,7 +38,8 @@
           190.188
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "4*", 
@@ -56,7 +58,8 @@
           145.429
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "4*", 
@@ -75,7 +78,8 @@
           190.81
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "4*", 
@@ -94,7 +98,8 @@
           157.116
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "4*", 
@@ -113,7 +118,8 @@
           199.14
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2*", 
@@ -133,7 +139,8 @@
           162.214
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2*", 
@@ -153,7 +160,8 @@
           122.801
         ]
       ], 
-      "step": "co_e"
+      "step": "co_e", 
+      "transition": "co"
     }, 
     {
       "beats": "2*", 
@@ -173,7 +181,8 @@
           70.956
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2*", 
@@ -193,7 +202,8 @@
           9.413
         ]
       ], 
-      "step": "co_e"
+      "step": "co_e", 
+      "transition": "co"
     }, 
     {
       "beats": "2*", 
@@ -213,7 +223,8 @@
           -53.498
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2*", 
@@ -233,7 +244,8 @@
           -104.598
         ]
       ], 
-      "step": "co_e"
+      "step": "co_e", 
+      "transition": "co"
     }, 
     {
       "beats": "2*", 
@@ -253,7 +265,8 @@
           -152.34
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2*", 
@@ -273,7 +286,8 @@
           -186.282
         ]
       ], 
-      "step": "co_e"
+      "step": "co_e", 
+      "transition": "co"
     }
   ], 
   "dataVersion": 2, 

@@ -18,7 +18,8 @@
           -46.082
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -37,7 +38,8 @@
           -88.876
         ]
       ], 
-      "step": "ch"
+      "step": "ch", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -57,7 +59,8 @@
           -127.128
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -77,7 +80,8 @@
           -162.761
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "3.75", 
@@ -97,7 +101,8 @@
           -103.897
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "0.25*", 
@@ -117,7 +122,8 @@
           -101.976
         ]
       ], 
-      "step": "swclcho"
+      "step": "swclcho", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -137,7 +143,8 @@
           -71.584
         ]
       ], 
-      "step": "ce"
+      "step": "ce", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -157,7 +164,8 @@
           -113.155
         ]
       ], 
-      "step": "Xce"
+      "step": "Xce", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -176,7 +184,8 @@
           -79.793
         ]
       ], 
-      "step": "xb_e"
+      "step": "xb_e", 
+      "transition": "xb"
     }, 
     {
       "beats": "1", 
@@ -195,7 +204,8 @@
           -52.195
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -214,7 +224,8 @@
           -71.409
         ]
       ], 
-      "step": "xf_e"
+      "step": "xf_e", 
+      "transition": "xf"
     }, 
     {
       "beats": "4", 
@@ -233,7 +244,8 @@
           -62.85
         ]
       ], 
-      "step": "xb_e"
+      "step": "xb_e", 
+      "transition": "xb"
     }, 
     {
       "beats": "2", 
@@ -252,7 +264,8 @@
           -112.98
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -271,7 +284,8 @@
           -191.93
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -291,7 +305,8 @@
           -178.306
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -311,7 +326,8 @@
           -151.756
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "1", 
@@ -331,7 +347,8 @@
           -112.456
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -350,7 +367,8 @@
           -76.3
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "0.5", 
@@ -370,7 +388,8 @@
           -60.23
         ]
       ], 
-      "step": "xb_ce"
+      "step": "xb_ce", 
+      "transition": "xb"
     }, 
     {
       "beats": "0.5_", 
@@ -390,7 +409,8 @@
           -46.955
         ]
       ], 
-      "step": "Xce"
+      "step": "Xce", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -409,7 +429,8 @@
           -1.541
         ]
       ], 
-      "step": "xf_e"
+      "step": "xf_e", 
+      "transition": "xf"
     }
   ], 
   "dataVersion": 2, 

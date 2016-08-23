@@ -14,8 +14,8 @@ def exportObject(var, obj):
 #Load step label and descriptions
 stepLabel = {}
 stepDesc = {}
-with open(os.path.join(INPUT_DIRECTORY, "0_steps.csv"), "r") as stepsFile:
-  reader = csv.DictReader(stepsFile)
+with open(os.path.join(INPUT_DIRECTORY, "0_steps.csv"), "r") as inputFile:
+  reader = csv.DictReader(inputFile)
   for row in reader:
     stepLabel[row["code"]] = row["label"]
     stepDesc[row["code"]] = row["desc"]
@@ -23,11 +23,20 @@ with open(os.path.join(INPUT_DIRECTORY, "0_steps.csv"), "r") as stepsFile:
 #Load holds
 holdLabel = {}
 holdDesc = {}
-with open(os.path.join(INPUT_DIRECTORY, "0_holds.csv"), "r") as stepsFile:
-  reader = csv.DictReader(stepsFile)
+with open(os.path.join(INPUT_DIRECTORY, "0_holds.csv"), "r") as inputFile:
+  reader = csv.DictReader(inputFile)
   for row in reader:
     holdLabel[row["code"]] = row["label"]
     holdDesc[row["code"]] = row["desc"]
+
+#Load transitions
+transitionLabel = {}
+transitionDesc = {}
+with open(os.path.join(INPUT_DIRECTORY, "0_transitions.csv"), "r") as inputFile:
+  reader = csv.DictReader(inputFile)
+  for row in reader:
+    transitionLabel[row["code"]] = row["label"]
+    transitionDesc[row["code"]] = row["desc"]
 
 #Create edge params
 # The following codes consisting of a # and a character represent parameterized edge features in text.
@@ -100,4 +109,6 @@ with open(os.path.join(OUTPUT_DIRECTORY, "codes.js"), "w") as outputFile:
   outputFile.write(exportObject("_MESSAGES", messages))
   outputFile.write(exportObject("_STEP_LABELS", stepLabel))
   outputFile.write(exportObject("_STEP_DESCRIPTIONS", stepDesc))
+  outputFile.write(exportObject("_TRANSITION_LABELS", transitionLabel))
+  outputFile.write(exportObject("_TRANSITION_DESCRIPTIONS", transitionDesc))
   outputFile.write("//###End generated code###")

@@ -8,10 +8,12 @@ EXT_CSV = ".csv"
 
 #Load step label and descriptions
 stepMapping = {}
+transMapping = {}
 with open(os.path.join("codes", "0_steps.csv"), "r") as stepsFile:
   reader = csv.DictReader(stepsFile)
   for row in reader:
-    stepMapping[row["code"]] = row["trans"]
+    stepMapping[row["code"]] = row["code"]
+    transMapping[row["code"]] = row["trans"]
 
 #Load dances
 dances = []
@@ -31,11 +33,12 @@ for danceData in dances:
 
   #Extract steps from csv
   with open(backuppath, "r") as inputFile, open(filepath, "w") as outputFile:
-    headers = ["index", "pathCount", "beats", "edge", "step", "group", "optional", "hold", "labelOffset"]
+    headers = ["index", "pathCount", "beats", "edge", "transition", "step", "group", "optional", "hold", "labelOffset"]
     reader = csv.DictReader(inputFile)
     writer = csv.DictWriter(outputFile, headers, lineterminator='\n')
     writer.writeheader()
     for row in reader:
+      row["transition"] = transMapping[row["step"]]
       row["step"] = stepMapping[row["step"]]
       writer.writerow(row)
 

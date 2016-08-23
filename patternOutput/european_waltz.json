@@ -18,7 +18,8 @@
           -32.205
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -38,7 +39,8 @@
           -19.284
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -58,7 +60,8 @@
           -21.667
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -77,7 +80,8 @@
           -101.827
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -96,7 +100,8 @@
           -177.846
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -116,7 +121,8 @@
           -190.516
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -136,7 +142,8 @@
           -187.757
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -155,7 +162,8 @@
           -107.723
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -174,7 +182,8 @@
           -31.201
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -194,7 +203,8 @@
           -18.657
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -214,7 +224,8 @@
           -20.413
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -233,7 +244,8 @@
           -101.199
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -252,7 +264,8 @@
           -175.087
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -272,7 +285,8 @@
           -195.409
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -292,7 +306,8 @@
           -194.781
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -311,7 +326,8 @@
           -134.944
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -331,7 +347,8 @@
           -62.813
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -351,7 +368,8 @@
           -40.735
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -370,7 +388,8 @@
           39.299
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -390,7 +409,8 @@
           106.178
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -410,7 +430,8 @@
           126.757
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -429,7 +450,8 @@
           179.18
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -449,7 +471,8 @@
           186.454
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -469,7 +492,8 @@
           182.123
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -488,7 +512,8 @@
           116.733
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -508,7 +533,8 @@
           54.788
         ]
       ], 
-      "step": "cr_tt"
+      "step": "cr_tt", 
+      "transition": "cr"
     }, 
     {
       "beats": "1_", 
@@ -528,7 +554,8 @@
           36.368
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -547,7 +574,8 @@
           36.546
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -566,7 +594,8 @@
           109.105
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -586,7 +615,8 @@
           170.31
         ]
       ], 
-      "step": "cr_tt"
+      "step": "cr_tt", 
+      "transition": "cr"
     }, 
     {
       "beats": "1_", 
@@ -606,7 +636,8 @@
           188.405
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -625,7 +656,8 @@
           187.873
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -644,7 +676,8 @@
           115.846
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -664,7 +697,8 @@
           54.528
         ]
       ], 
-      "step": "cr_tt"
+      "step": "cr_tt", 
+      "transition": "cr"
     }, 
     {
       "beats": "1_", 
@@ -684,7 +718,8 @@
           35.481
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -703,7 +738,8 @@
           35.659
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -722,7 +758,8 @@
           108.218
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -742,7 +779,8 @@
           171.197
         ]
       ], 
-      "step": "cr_tt"
+      "step": "cr_tt", 
+      "transition": "cr"
     }, 
     {
       "beats": "1_", 
@@ -762,7 +800,8 @@
           186.986
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -781,7 +820,8 @@
           184.148
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -801,7 +841,8 @@
           147.425
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -821,7 +862,8 @@
           132.168
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -840,7 +882,8 @@
           59.076
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -860,7 +903,8 @@
           -16.854
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -880,7 +924,8 @@
           -39.562
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -899,7 +944,8 @@
           -117.62
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -919,7 +965,8 @@
           -172.292
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -939,7 +986,8 @@
           -183.092
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "3", 
@@ -958,7 +1006,8 @@
           -177.051
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -977,7 +1026,8 @@
           -106.976
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }
   ], 
   "dataVersion": 2, 

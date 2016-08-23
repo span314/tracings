@@ -18,7 +18,8 @@
           -40.258
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "1", 
@@ -37,7 +38,8 @@
           -10.866
         ]
       ], 
-      "step": "xf_e"
+      "step": "xf_e", 
+      "transition": "xf"
     }, 
     {
       "beats": "2", 
@@ -56,7 +58,8 @@
           -86.394
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -75,7 +78,8 @@
           -131.818
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "1", 
@@ -94,7 +98,8 @@
           -168.514
         ]
       ], 
-      "step": "xf_e"
+      "step": "xf_e", 
+      "transition": "xf"
     }, 
     {
       "beats": "4", 
@@ -113,7 +118,8 @@
           -126.474
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -132,7 +138,8 @@
           -64.84
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "4", 
@@ -151,7 +158,8 @@
           72.322
         ]
       ], 
-      "step": "cr_swr"
+      "step": "cr_swr", 
+      "transition": "cr"
     }, 
     {
       "beats": "2", 
@@ -171,7 +179,8 @@
           152.303
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -191,7 +200,8 @@
           196.302
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "1", 
@@ -211,7 +221,8 @@
           208.95
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "2", 
@@ -231,7 +242,8 @@
           131.462
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "2", 
@@ -261,7 +273,8 @@
           84.969
         ]
       ], 
-      "step": "clcho"
+      "step": "clcho", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -281,7 +294,8 @@
           57.181
         ]
       ], 
-      "step": "cho_e"
+      "step": "cho_e", 
+      "transition": "cho"
     }, 
     {
       "beats": "4", 
@@ -301,7 +315,8 @@
           92.629
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "2", 
@@ -320,7 +335,8 @@
           187.039
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -340,7 +356,8 @@
           208.059
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -360,7 +377,8 @@
           200.043
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "2", 
@@ -379,7 +397,8 @@
           103.851
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -398,7 +417,8 @@
           46.849
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "1", 
@@ -417,7 +437,8 @@
           17.635
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "2", 
@@ -436,7 +457,8 @@
           92.807
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -456,7 +478,8 @@
           144.377
         ]
       ], 
-      "step": "cr_tt"
+      "step": "cr_tt", 
+      "transition": "cr"
     }, 
     {
       "beats": "1_", 
@@ -476,7 +499,8 @@
           174.748
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "4", 
@@ -495,7 +519,8 @@
           133.421
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -514,7 +539,8 @@
           70.897
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "4", 
@@ -533,7 +559,8 @@
           -68.403
         ]
       ], 
-      "step": "cr_swr"
+      "step": "cr_swr", 
+      "transition": "cr"
     }, 
     {
       "beats": "2", 
@@ -553,7 +580,8 @@
           -148.206
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "1", 
@@ -573,7 +601,8 @@
           -192.383
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "1", 
@@ -593,7 +622,8 @@
           -204.853
         ]
       ], 
-      "step": "pr"
+      "step": "pr", 
+      "transition": "pr"
     }, 
     {
       "beats": "2", 
@@ -613,7 +643,8 @@
           -127.365
         ]
       ], 
-      "step": "prx"
+      "step": "prx", 
+      "transition": "prx"
     }, 
     {
       "beats": "2", 
@@ -643,7 +674,8 @@
           -80.527
         ]
       ], 
-      "step": "clcho"
+      "step": "clcho", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -663,7 +695,8 @@
           -53.535
         ]
       ], 
-      "step": "cho_e"
+      "step": "cho_e", 
+      "transition": "cho"
     }, 
     {
       "beats": "4", 
@@ -683,7 +716,8 @@
           -88.176
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "2", 
@@ -702,7 +736,8 @@
           -180.27
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -721,7 +756,8 @@
           -202.537
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -740,7 +776,8 @@
           -197.015
         ]
       ], 
-      "step": "ch"
+      "step": "ch", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -759,7 +796,8 @@
           -97.082
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }
   ], 
   "dataVersion": 2, 

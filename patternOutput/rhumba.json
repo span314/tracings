@@ -18,7 +18,8 @@
           -46.115
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "1", 
@@ -37,7 +38,8 @@
           -82.67
         ]
       ], 
-      "step": "ch"
+      "step": "ch", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -56,7 +58,8 @@
           -146.078
         ]
       ], 
-      "step": "cece"
+      "step": "cece", 
+      "transition": "s"
     }, 
     {
       "beats": "1_", 
@@ -75,7 +78,8 @@
           -167.729
         ]
       ], 
-      "step": "Xce"
+      "step": "Xce", 
+      "transition": ""
     }, 
     {
       "beats": "1_", 
@@ -94,7 +98,8 @@
           -192.334
         ]
       ], 
-      "step": "Xce"
+      "step": "Xce", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -113,7 +118,8 @@
           -197.114
         ]
       ], 
-      "step": "xf_e"
+      "step": "xf_e", 
+      "transition": "xf"
     }, 
     {
       "beats": "4", 
@@ -132,7 +138,8 @@
           -77.608
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "2", 
@@ -151,7 +158,8 @@
           -50.614
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "1", 
@@ -170,7 +178,8 @@
           -92.23
         ]
       ], 
-      "step": "xb_e"
+      "step": "xb_e", 
+      "transition": "xb"
     }, 
     {
       "beats": "1", 
@@ -189,7 +198,8 @@
           -140.876
         ]
       ], 
-      "step": "wd_e"
+      "step": "wd_e", 
+      "transition": "wd"
     }, 
     {
       "beats": "2", 
@@ -208,7 +218,8 @@
           -180.383
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "4", 
@@ -227,7 +238,8 @@
           -66.923
         ]
       ], 
-      "step": "xb_e"
+      "step": "xb_e", 
+      "transition": "xb"
     }, 
     {
       "beats": "3.75", 
@@ -247,7 +259,8 @@
           -47.38
         ]
       ], 
-      "step": "wd_e"
+      "step": "wd_e", 
+      "transition": "wd"
     }, 
     {
       "beats": "0.25*", 
@@ -267,7 +280,8 @@
           -52.02
         ]
       ], 
-      "step": "wdxf_opcho"
+      "step": "wdxf_opcho", 
+      "transition": "wdxf"
     }, 
     {
       "beats": "3.75", 
@@ -287,7 +301,8 @@
           -67.626
         ]
       ], 
-      "step": "cho_e"
+      "step": "cho_e", 
+      "transition": "cho"
     }, 
     {
       "beats": "0.25*", 
@@ -307,7 +322,8 @@
           -80.42
         ]
       ], 
-      "step": "wdxb_clcho"
+      "step": "wdxb_clcho", 
+      "transition": "wdxb"
     }, 
     {
       "beats": "4", 
@@ -327,7 +343,8 @@
           -126.395
         ]
       ], 
-      "step": "cho_e"
+      "step": "cho_e", 
+      "transition": "cho"
     }, 
     {
       "beats": "4", 
@@ -347,7 +364,8 @@
           -106.29
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "2_", 
@@ -367,7 +385,8 @@
           -57.644
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "2", 
@@ -387,7 +406,8 @@
           -27.978
         ]
       ], 
-      "step": "cr_e"
+      "step": "cr_e", 
+      "transition": "cr"
     }, 
     {
       "beats": "2", 
@@ -406,7 +426,8 @@
           29.665
         ]
       ], 
-      "step": "xf_e"
+      "step": "xf_e", 
+      "transition": "xf"
     }
   ], 
   "dataVersion": 2, 

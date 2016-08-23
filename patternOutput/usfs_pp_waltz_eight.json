@@ -18,7 +18,8 @@
           37.341
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "3_", 
@@ -37,7 +38,8 @@
           121.752
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "6", 
@@ -56,7 +58,8 @@
           110.313
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "6", 
@@ -75,7 +78,8 @@
           -1.583
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "3", 
@@ -94,7 +98,8 @@
           -37.39
         ]
       ], 
-      "step": "s_tt"
+      "step": "s_tt", 
+      "transition": "s"
     }, 
     {
       "beats": "3_", 
@@ -113,7 +118,8 @@
           -36.396
         ]
       ], 
-      "step": "tt_e"
+      "step": "tt_e", 
+      "transition": "tt"
     }, 
     {
       "beats": "6", 
@@ -132,7 +138,8 @@
           -111.739
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }, 
     {
       "beats": "6", 
@@ -151,7 +158,8 @@
           -2.827
         ]
       ], 
-      "step": ""
+      "step": "", 
+      "transition": ""
     }
   ], 
   "dataVersion": 2, 
