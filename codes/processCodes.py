@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#This script processes csv (steps and timing) and svg (paths) files into json dance pattern components.
+#This script compiles the csv steps into JSON
 import json
 import os
 import csv
