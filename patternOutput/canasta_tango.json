@@ -97,7 +97,7 @@
           132.521
         ]
       ], 
-      "step": "swr"
+      "step": "s_swr"
     }, 
     {
       "beats": "2", 
@@ -154,7 +154,7 @@
           129.064
         ]
       ], 
-      "step": "swr"
+      "step": "s_swr"
     }, 
     {
       "beats": "2", 
@@ -272,7 +272,7 @@
           -59.009
         ]
       ], 
-      "step": "swr"
+      "step": "s_swr"
     }, 
     {
       "beats": "4", 
@@ -292,7 +292,7 @@
           -58.633
         ]
       ], 
-      "step": "cr"
+      "step": "cr_e"
     }
   ], 
   "dataVersion": 2, 

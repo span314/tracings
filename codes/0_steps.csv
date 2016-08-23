@@ -1,69 +1,82 @@
-code,label,desc,comp,trans
-Xce,,Change to #Q Edge,ce_e,Xce
-Xcett,,Change to #Q Edge for a #E 3-turn,ce_e_tt,Xcett
-Xctr,,Counter: Turn onto #E Edge,ctr_e,ctr_e
-Xrk,,Rocker: Turn onto #E Edge,rk_e,rk_e
-Xtt,,3-turn: Turn onto #E Edge,tt_e,tt_e
-Xttibtt,#e-InBa-3,3-turn into a #E Ina Bauer into another 3-turn,tt_ib_tt,Xttibtt
-bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back",s_e_bk,bk
-ce,#e#o,Stroke onto #E Edge,s_ce,ce
-cece,#e#o#q,Stroke onto #E Edge,s_ce_ce,cece
-ceopmo,,"Change to #Q Edge, Open Mohawk",ce_op_mo,ce_opmo
-cesw,#e#o-sw,"Stroke onto #E Edge, Swing",s_ce_sw,cesw
-cett,#e#o3,Stroke onto #E Edge,s_ce_tt,cett
-cexrk,#e-Rk,Change to #Q Edge for a #E Rocker,ce_rk,Xcerk
-ch,#e-Ch,#E Chassé,ch,ch
-chox,#e,Choctow: Turn onto #E Edge,cho_e,cho_e
-choxb,,Choctow: Turn onto #E Edge,cho_e.,Xcho
-clcho,#e-ClCho,#E Closed Choctow,cl_cho,clcho
-clmo,#e-ClMo,#E Closed Mohawk,cl_mo,clmo
-co,#e,Crossover onto #E Edge,co_e,co_e
-cr,CR-#e,Cross Roll onto #E Edge,cr_e,cr_e
-crswr,CR-#e-swR,"Cross Roll onto #E Edge, Swing",cr_e_sw,cr_swr
-crtt,CR-#e3,Cross Roll into a #E 3-turn,cr_e_tt,cr_tt
-dl,#e,"Stroke onto #E Edge, Double Lift Free Leg",s_e_dl,dl
-e,,#E Edge,e,e
-ff,#e-#rff,#E Slip Step,ff,ff
-mox,#e,Mohawk: Turn onto #E Edge,mo_e,mo_e
-moxdl,#e,"Mohawk: Turn onto #E Edge, Double Lift Free Leg",mo_e_bk,mo_dl
-opmo,#e-opMo,#E Open Mohawk,op_mo,opmo
-pr,#e,Progressive: Stroke onto #E Edge,s_pr_e,pr
-prb,#e-Pr,Progressive: Stroke onto #E Edge,s_prb_e,prb
-prx,#e-Pr,Progressive: Cross onto #E Edge,x_pr_e,prx
-s,#e,Step Briefly on #E Edge,sb_e,sb
-slch,#e-slCh,#E Slide Chassé,sl_ch,slch
-slchk,#e-slCh,"#E Slide Chassé, Fold #R Leg and Kick",sl_ch_k,slchk
-slm,#e/#r#d#o-slm,#E / #R #D #O Slalom,slm,slm
-slme,#e/#r#d#o-slm-#e,"#E / #R #D #O Slalom, Push onto #E Edge",slm_e,slme
-spr,#e-spr,#E Spiral,spr,spr
-swclmo,#e-SwClMo,#E Swing Closed Mohawk,sw_cl_mo,swclmo
-swctr,#e-SwCtr,#E Swing Counter,sw_ctr,swctr
-swclcho,Sw-ClCho,Swing Closed Choctow,sw_cl_cho,swclcho
-swopcho,Sw-opCho,Swing Open Choctow,sw_op_cho,swopcho
-swr,#e-swR,"Stroke onto #E Edge, Swing Roll",s_e_sw,s_swr
-swrk,#e-SwRk,#E Swing Rocker,sw_rk,swrk
-swtt,#e-Sw3,#E Swing 3-turn,sw_tt,swtt
-tt,#e3,#E 3-turn,tt,s_tt
-ttxce,#e#o,3-turn: Turn onto #E Edge,tt_ce,tt_ce
-tw1,#e-Tw1,Stroke into a #E Twizzle,tw1,s_tw1
-tw.,,Twizzle,tw.,tw
-twl1,Sw-“Tw1”,Twizzle Like Motion,twl1,twl1
-twl1.,,Twizzle Like Motion,twl1.,twl
-wd,Wd-#e,Wide Step onto #E Edge,wd_e,wd_e
-wds,Wd-#e,Wide Step Briefly onto #E Edge,wd_b_e,wdbe
-wdtt,Wd-#e3,Wide Step into a #E 3-turn,wd_tt,wd_tt
-wdxfopcho,Wd-XF-opCho,Wide Step Cross in Front Open Choctow,wd_xf_op_cho,wdxf_opcho
-wdxbclcho,Wd-XB-ClCho,Wide Step Cross Behind Closed Choctow,wd_xb_cl_cho,wdxb_clcho
-xb,XB-#e,Cross Behind onto #E Edge,xb_e,xb_e
-xbce,XB-#e#o,Cross Behind onto #E Edge,xb_ce,xb_ce
-xbch,XB-#e-Ch,Cross Behind into a #E Chassé,xb_ch,xb_ch
-xbctr,XB-#e-Ctr,Cross Behind into a #E Counter,xb_ctr,xb_ctr
-xbopmo,XB-#e-opMo,Cross Behind into a #E Open Mohawk,xb_op_mo,xb_opmo
-xcut,Xcut-#e,Cross Cut onto #E Edge,xcut,xcut
-xf,XF-#e,Cross in Front onto #E Edge,xf_e,xf_e
-xfce,XF-#e#o,Cross in Front onto #E Edge,xf_ce,xf_ce
-xfopcho,XF-OpCho,Crossed in Front Open Choctow,xf_op_cho,xf_opcho
-xfsrk,XF-#e-Rk,Cross in Front into a Shallow #E Rocker,xf_s_rk,xf_srk
-xfttt,#e-XFt3,#E Behind Cross Foot 3-turn,xft_tt,xfttt
-xftw1,XF-#e-Tw1,Cross in Front onto #E Edge for a 1 Rotation Twizzle,xf_tw1,xf_tw1
-,#e,Stroke onto #E Edge,,
+code,label,desc
+bk,#e-bk,"Stroke onto #E Edge, Double Lift Free Leg Back"
+ce,#e#o,Stroke onto #E Edge
+ce_opmo,,"Change to #Q Edge, Open Mohawk"
+cece,#e#o#q,Stroke onto #E Edge
+cesw,#e#o-sw,"Stroke onto #E Edge, Swing"
+cett,#e#o3,Stroke onto #E Edge
+ch,#e-Ch,#E Chassé
+cho_e,#e,Choctow: Turn onto #E Edge
+clcho,#e-ClCho,#E Closed Choctow
+clmo,#e-ClMo,#E Closed Mohawk
+co_e,#e,Crossover onto #E Edge
+cr_e,CR-#e,Cross Roll onto #E Edge
+cr_swr,CR-#e-swR,"Cross Roll onto #E Edge, Swing"
+cr_tt,CR-#e3,Cross Roll into a #E 3-turn
+ctr_e,,Counter: Turn onto #E Edge
+dl,#e,"Stroke onto #E Edge, Double Lift Free Leg"
+e,,#E Edge
+ff,#e-#rff,#E Slip Step
+mo_dl,#e,"Mohawk: Turn onto #E Edge, Double Lift Free Leg"
+mo_e,#e,Mohawk: Turn onto #E Edge
+opmo,#e-opMo,#E Open Mohawk
+pr,#e,Progressive: Stroke onto #E Edge
+prb,#e-Pr,Progressive: Stroke onto #E Edge
+prx,#e-Pr,Progressive: Cross onto #E Edge
+rk_e,,Rocker: Turn onto #E Edge
+s_swr,#e-swR,"Stroke onto #E Edge, Swing Roll"
+s_tt,#e3,#E 3-turn
+s_tw1,#e-Tw1,Stroke into a #E Twizzle
+sb,#e,Step Briefly on #E Edge
+slch,#e-slCh,#E Slide Chassé
+slchk,#e-slCh,"#E Slide Chassé, Fold #R Leg and Kick"
+slm,#e/#r#d#o-slm,#E / #R #D #O Slalom
+slme,#e/#r#d#o-slm-#e,"#E / #R #D #O Slalom, Push onto #E Edge"
+spr,#e-spr,#E Spiral
+swclcho,Sw-ClCho,Swing Closed Choctow
+swclmo,#e-SwClMo,#E Swing Closed Mohawk
+swctr,#e-SwCtr,#E Swing Counter
+swopcho,Sw-opCho,Swing Open Choctow
+swrk,#e-SwRk,#E Swing Rocker
+swtt,#e-Sw3,#E Swing 3-turn
+tt_ce,#e#o,3-turn: Turn onto #E Edge
+tt_e,,3-turn: Turn onto #E Edge
+tw,,Twizzle
+twl,,Twizzle Like Motion
+twl1,Sw-“Tw1”,Twizzle Like Motion
+wd_e,Wd-#e,Wide Step onto #E Edge
+wd_tt,Wd-#e3,Wide Step into a #E 3-turn
+wdbe,Wd-#e,Wide Step Briefly onto #E Edge
+wdxb_clcho,Wd-XB-ClCho,Wide Step Cross Behind Closed Choctow
+wdxf_opcho,Wd-XF-opCho,Wide Step Cross in Front Open Choctow
+xb_ce,XB-#e#o,Cross Behind onto #E Edge
+xb_ch,XB-#e-Ch,Cross Behind into a #E Chassé
+xb_ctr,XB-#e-Ctr,Cross Behind into a #E Counter
+xb_e,XB-#e,Cross Behind onto #E Edge
+xb_opmo,XB-#e-opMo,Cross Behind into a #E Open Mohawk
+Xce,,Change to #Q Edge
+Xcerk,#e-Rk,Change to #Q Edge for a #E Rocker
+Xcett,,Change to #Q Edge for a #E 3-turn
+Xcho,,Choctow: Turn onto #E Edge
+xcut,Xcut-#e,Cross Cut onto #E Edge
+xf_ce,XF-#e#o,Cross in Front onto #E Edge
+xf_e,XF-#e,Cross in Front onto #E Edge
+xf_opcho,XF-OpCho,Crossed in Front Open Choctow
+xf_srk,XF-#e-Rk,Cross in Front into a Shallow #E Rocker
+xf_tw1,XF-#e-Tw1,Cross in Front onto #E Edge for a 1 Rotation Twizzle
+xfttt,#e-XFt3,#E Behind Cross Foot 3-turn
+Xttibtt,#e-InBa-3,3-turn into a #E Ina Bauer into another 3-turn
+,#e,Stroke onto #E Edge
+xb,XB-,Cross Behind to
+wd,Wd-,Wide Step to
+xf,XF-,Cross in Front to
+cr,CR-,Cross Roll to
+co,,Crossover to
+ctr,,Counter Turn to
+rk,,Rocker Turn to
+tt,,3-turn to
+mo,,Mohawk Turn to
+cho,,Choctow Turn to
+s,,Stroke to
+wdxf,Wd-XF-,Wide Step Cross in Front
+wdxb,Wd-XB-,Wide Step Cross Behind
