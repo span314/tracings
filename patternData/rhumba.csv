@@ -16,7 +16,7 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 12,,3.75,RBO,cho,ee,12,,k,
 ,,0.25*,RBO,wdxb,wdxb_clcho,12,,k,
 13,,4,LFI,cho,ee,12,,k,
-14,,4,RFI,s,s_tt,14,,k,
+14,,4,RFI,s,tt,14,,k,
 ,,2_,RBO,tt,e,14,,k,
 15,,2,LBO,cr,ee,,,k,0.3
 16,,2,RBI,xf,ee,,,k,

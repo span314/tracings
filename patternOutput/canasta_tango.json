@@ -40,7 +40,7 @@
           148.307
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -100,7 +100,7 @@
           132.521
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -158,7 +158,7 @@
           129.064
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -238,7 +238,7 @@
           138.385
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -280,7 +280,7 @@
           -59.009
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {

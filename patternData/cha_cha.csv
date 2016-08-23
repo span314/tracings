@@ -1,6 +1,6 @@
 index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 1,,2,LFO,pr,ee,pr1,,k,
-2,,2,RFI,prx,prx,pr1,,k,
+2,,2,RFI,prx,pr,pr1,,k,
 3,,1,LFI,,,,,k,
 4,,1,RFO,,ch,,,k,
 5,,2,LFI,wd,ee,,,k,
@@ -11,8 +11,8 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 8,2,1.5,RFO,,slme,s,,k,
 9,,0.5,LFI,,ch,,,k,
 10,,2,RFI,,,,,k,
-11,,4,LFO,s,s_swr,,,k,
+11,,4,LFO,s,swr,,,k,
 12,,2,RFO,,,,no,k,
 12,,2,RFO,xf,ee,,yes,k,
 13,,2,LFI,xb,ee,,,k,
-14,,4,RFI,s,s_swr,,,k,
+14,,4,RFI,s,swr,,,k,

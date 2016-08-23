@@ -38,7 +38,7 @@
           69.453
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -117,7 +117,7 @@
           -118.163
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -319,7 +319,7 @@
           -83.602
         ]
       ], 
-      "step": "cr_tt", 
+      "step": "tt", 
       "transition": "cr"
     }, 
     {
@@ -456,7 +456,7 @@
           -180.867
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -496,7 +496,7 @@
           67.601
         ]
       ], 
-      "step": "cr_swr", 
+      "step": "swr", 
       "transition": "cr"
     }, 
     {
@@ -536,7 +536,7 @@
           164.125
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -636,7 +636,7 @@
           187.127
         ]
       ], 
-      "step": "cr_tt", 
+      "step": "tt", 
       "transition": "cr"
     }, 
     {
@@ -777,7 +777,7 @@
           115.558
         ]
       ], 
-      "step": "cr_swr", 
+      "step": "swr", 
       "transition": "cr"
     }, 
     {
@@ -838,7 +838,7 @@
           69.68
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -917,7 +917,7 @@
           -117.833
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -1119,7 +1119,7 @@
           -38.199
         ]
       ], 
-      "step": "s_tt", 
+      "step": "tt", 
       "transition": "s"
     }, 
     {
@@ -1218,7 +1218,7 @@
           -180.047
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -1258,7 +1258,7 @@
           67.564
         ]
       ], 
-      "step": "cr_swr", 
+      "step": "swr", 
       "transition": "cr"
     }, 
     {
@@ -1298,7 +1298,7 @@
           164.245
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -1516,7 +1516,7 @@
           122.437
         ]
       ], 
-      "step": "cr_swr", 
+      "step": "swr", 
       "transition": "cr"
     }
   ], 

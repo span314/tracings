@@ -211,7 +211,7 @@
           -116.365
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -251,7 +251,7 @@
           -192.449
         ]
       ], 
-      "step": "s_tt", 
+      "step": "tt", 
       "transition": "s"
     }, 
     {
@@ -312,7 +312,7 @@
           -106.792
         ]
       ], 
-      "step": "s_tt", 
+      "step": "tt", 
       "transition": "s"
     }, 
     {
@@ -476,7 +476,7 @@
           83.171
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -538,7 +538,7 @@
           132.153
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -678,7 +678,7 @@
           196.925
         ]
       ], 
-      "step": "xb_ch", 
+      "step": "ch", 
       "transition": "xb"
     }, 
     {
@@ -717,7 +717,7 @@
           -68.252
         ]
       ], 
-      "step": "cr_swr", 
+      "step": "swr", 
       "transition": "cr"
     }, 
     {
@@ -972,7 +972,7 @@
           -119.571
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -993,7 +993,7 @@
           -160.548
         ]
       ], 
-      "step": "s_tt", 
+      "step": "tt", 
       "transition": "s"
     }, 
     {
@@ -1054,7 +1054,7 @@
           -172.683
         ]
       ], 
-      "step": "s_tt", 
+      "step": "tt", 
       "transition": "s"
     }, 
     {
@@ -1115,7 +1115,7 @@
           -37.441
         ]
       ], 
-      "step": "s_tt", 
+      "step": "tt", 
       "transition": "s"
     }, 
     {
@@ -1178,7 +1178,7 @@
           77.4
         ]
       ], 
-      "step": "prb", 
+      "step": "pr", 
       "transition": "pr"
     }, 
     {
@@ -1257,7 +1257,7 @@
           79.862
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -1315,7 +1315,7 @@
           129.456
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -1416,7 +1416,7 @@
           178.172
         ]
       ], 
-      "step": "cr_tt", 
+      "step": "tt", 
       "transition": "cr"
     }, 
     {
@@ -1495,7 +1495,7 @@
           -71.911
         ]
       ], 
-      "step": "cr_swr", 
+      "step": "swr", 
       "transition": "cr"
     }, 
     {

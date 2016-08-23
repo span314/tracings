@@ -40,7 +40,7 @@
           200.121
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -81,7 +81,7 @@
           113.051
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -101,7 +101,7 @@
           106.174
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {
@@ -143,7 +143,7 @@
           64.249
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -244,7 +244,7 @@
           125.052
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -285,7 +285,7 @@
           -67.409
         ]
       ], 
-      "step": "s_swr", 
+      "step": "swr", 
       "transition": "s"
     }, 
     {

@@ -40,7 +40,7 @@
           133.03
         ]
       ], 
-      "step": "prb", 
+      "step": "pr", 
       "transition": "pr"
     }, 
     {
@@ -530,7 +530,7 @@
           128.795
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -612,7 +612,7 @@
           130.066
         ]
       ], 
-      "step": "cr_swr", 
+      "step": "swr", 
       "transition": "cr"
     }, 
     {
@@ -696,7 +696,7 @@
           134.505
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -974,7 +974,7 @@
           -188.902
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -995,7 +995,7 @@
           -155.145
         ]
       ], 
-      "step": "xb_opmo", 
+      "step": "opmo", 
       "transition": "xb"
     }, 
     {
@@ -1173,7 +1173,7 @@
           129.608
         ]
       ], 
-      "step": "prx", 
+      "step": "pr", 
       "transition": "prx"
     }, 
     {
@@ -1254,7 +1254,7 @@
           164.94
         ]
       ], 
-      "step": "cr_swr", 
+      "step": "swr", 
       "transition": "cr"
     }
   ], 

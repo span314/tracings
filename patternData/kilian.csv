@@ -1,10 +1,10 @@
 index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 1,,1,LFO,pr,ee,1,,k,
-2,,1,RFI,prx,prx,1,,k,
+2,,1,RFI,prx,pr,1,,k,
 3,,2,LFO,pr,ee,1,,k,
 4,,2,RFO,,,,,k,
 5,,1,LFO,pr,ee,2,,k,
-6,,1,RFI,prx,prx,2,,k,
+6,,1,RFI,prx,pr,2,,k,
 7,,1,LFO,pr,ee,2,,k,0.3
 8,,1,RFO,cr,ee,,,k,
 9,,0.75,LFI,xb,ee,3,,k,
