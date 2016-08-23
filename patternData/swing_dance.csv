@@ -11,7 +11,7 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 10,,2,RFI,,,,,hh,
 11,,2,LFO,,,,,hh,
 12,,2,RFI,s,opmo,m,,hh,
-13,,2,LBI,mo,mo_e,m,,hh,
+13,,2,LBI,mo,ee,m,,hh,
 14,,2,RBO,,,,,cl,
 15,,4,LBO,s,s_swr,,,cl,
 16,,1,RBO,,,,,cl,

@@ -1,9 +1,9 @@
 index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 ,,3,RFO,s,s_tt,,,,
-,,3_,RBI,tt,tt_e,,,,
+,,3_,RBI,tt,e,,,,
 ,,6,LBO,,,,,,
 ,,6,RFO,,,,,,
 ,,3,LFO,s,s_tt,,,,
-,,3_,LBI,tt,tt_e,,,,
+,,3_,LBI,tt,e,,,,
 ,,6,RBO,,,,,,
 ,,6,LFO,,,,,,
