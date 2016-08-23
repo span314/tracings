@@ -18,8 +18,7 @@
           -46.115
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "1", 
@@ -38,8 +37,7 @@
           -82.67
         ]
       ], 
-      "step": "ch", 
-      "transition": ""
+      "step": "ch"
     }, 
     {
       "beats": "2", 
@@ -78,8 +76,7 @@
           -167.729
         ]
       ], 
-      "step": "Xce", 
-      "transition": ""
+      "step": "Xce"
     }, 
     {
       "beats": "1_", 
@@ -98,8 +95,7 @@
           -192.334
         ]
       ], 
-      "step": "Xce", 
-      "transition": ""
+      "step": "Xce"
     }, 
     {
       "beats": "2", 
@@ -138,8 +134,7 @@
           -77.608
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "2", 
@@ -218,8 +213,7 @@
           -180.383
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "4", 

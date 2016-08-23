@@ -184,8 +184,7 @@
           201.525
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "3", 
@@ -204,8 +203,7 @@
           191.344
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "2", 
@@ -307,8 +305,7 @@
           -128.148
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "3", 
@@ -327,8 +324,7 @@
           -193.801
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }
   ], 
   "dataVersion": 2, 

@@ -101,8 +101,7 @@
           -195.0
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "1", 
@@ -435,8 +434,7 @@
           164.746
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "1", 
@@ -540,8 +538,7 @@
           194.746
         ]
       ], 
-      "step": "Xce", 
-      "transition": ""
+      "step": "Xce"
     }, 
     {
       "beats": "1", 
@@ -665,8 +662,7 @@
           151.017
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "2", 
@@ -685,8 +681,7 @@
           182.288
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "1", 
@@ -852,8 +847,7 @@
           -23.136
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }, 
     {
       "beats": "1", 
@@ -892,8 +886,7 @@
           -164.746
         ]
       ], 
-      "step": "", 
-      "transition": ""
+      "step": ""
     }
   ], 
   "dataVersion": 2, 
