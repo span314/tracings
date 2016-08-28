@@ -509,7 +509,7 @@
           191.594
         ]
       ], 
-      "step": "xf_tw1", 
+      "step": "tw1", 
       "transition": "xf"
     }, 
     {
@@ -813,7 +813,7 @@
           159.709
         ]
       ], 
-      "step": "s_tw1", 
+      "step": "tw1", 
       "transition": "s"
     }, 
     {

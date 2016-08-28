@@ -12,7 +12,7 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 9,,2,LFO,,,,,k,
 10,,4,RFI,xb,ee,,,k,
 11,,3.75,LFI,wd,ee,11,,k,
-,,0.25*,LFI,wdxf,wdxf_opcho,11,,k,
+,,0.25*,LFI,wdxf,opcho,11,,k,
 12,,3.75,RBO,cho,ee,12,,k,
 ,,0.25*,RBO,wdxb,wdxb_clcho,12,,k,
 13,,4,LFI,cho,ee,12,,k,

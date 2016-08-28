@@ -29,7 +29,7 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 4,,1,LFO,xf,ee,,,out,
 5,,1,RFI,xb,ee,,,out,
 6,,4,LFO,,,,,cto,
-7,,1,RFO,xf,xf_srk,,,out,
+7,,1,RFO,xf,rks,,,out,
 ,,1_,RBO,rk,e,,,out,
 8,,1,LBO,xb,ee,,,out,
 9,,1,RBI,xf,ee,,,out,
