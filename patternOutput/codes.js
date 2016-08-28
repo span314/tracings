@@ -255,15 +255,10 @@ IceDiagram._MESSAGES = {
 IceDiagram._STEP_LABELS = {
   "": "#e",
   "Xce": "",
-  "Xcerk": "#e-Rk",
-  "Xcett": "",
-  "Xttibtt": "#e-InBa-3",
   "bk": "#e-bk",
   "ce": "#e#o",
-  "ce_opmo": "",
   "cece": "#e#o#q",
   "cesw": "#e#o-sw",
-  "cett": "#e#o3",
   "ch": "#e-Ch",
   "clcho": "#e-ClCho",
   "clmo": "#e-ClMo",
@@ -295,23 +290,18 @@ IceDiagram._STEP_LABELS = {
   "tw1": "#e-Tw1",
   "twl": "",
   "twl1": "Sw-\u201cTw1\u201d",
-  "wdxb_clcho": "ClCho",
-  "xb_ctr": "#e-Ctr",
+  "wdxbclcho": "#e-Wd-XB-ClCho",
+  "wdxfopcho": "#e-Wd-XF-opCho",
   "xfttt": "#e-XFt3"
 };
 
 IceDiagram._STEP_DESCRIPTIONS = {
   "": "Stroke onto #E Edge",
   "Xce": "Change to #Q Edge",
-  "Xcerk": "#Q Edge, #E Rocker",
-  "Xcett": "#Q Edge, #E 3-turn",
-  "Xttibtt": "#E Ina Bauer into 3-turn",
   "bk": "#E Edge, Double Lift Free Leg Back",
   "ce": "#E Edge",
-  "ce_opmo": "#Q Edge, Open Mohawk",
   "cece": "#E Edge",
   "cesw": "#E Edge, Swing",
-  "cett": "#E Edge",
   "ch": "#E Chass\u00e9",
   "clcho": "#E Closed Choctow",
   "clmo": "#E Closed Mohawk",
@@ -343,8 +333,8 @@ IceDiagram._STEP_DESCRIPTIONS = {
   "tw1": "#E Twizzle",
   "twl": "Twizzle Like Motion",
   "twl1": "Twizzle Like Motion",
-  "wdxb_clcho": "Closed Choctow",
-  "xb_ctr": "#E Counter",
+  "wdxbclcho": "#E Wide Cross Behind Closed Choctow",
+  "wdxfopcho": "#E Wide Cross in Front Open Choctow",
   "xfttt": "#E Behind Cross Foot 3-turn"
 };
 
@@ -363,8 +353,6 @@ IceDiagram._TRANSITION_LABELS = {
   "tt": "",
   "wd": "Wd",
   "wdsb": "",
-  "wdxb": "Wd-XB",
-  "wdxf": "Wd-XF",
   "xb": "XB",
   "xf": "XF"
 };
@@ -384,8 +372,6 @@ IceDiagram._TRANSITION_DESCRIPTIONS = {
   "tt": "3-turn",
   "wd": "Wide Step",
   "wdsb": "Wide Step Briefly",
-  "wdxb": "Wide Step Cross Behind",
-  "wdxf": "Wide Step Cross in Front",
   "xb": "Cross Behind",
   "xf": "Cross in Front"
 };

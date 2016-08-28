@@ -236,9 +236,8 @@
       "transition": "xb"
     }, 
     {
-      "beats": "3.75", 
+      "beats": "4", 
       "edge": "LFI", 
-      "group": "11", 
       "hold": "k", 
       "index": "11", 
       "paths": [
@@ -251,18 +250,7 @@
           -6.766, 
           -122.317, 
           -47.38
-        ]
-      ], 
-      "step": "ee", 
-      "transition": "wd"
-    }, 
-    {
-      "beats": "0.25*", 
-      "edge": "LFI", 
-      "group": "11", 
-      "hold": "k", 
-      "index": "", 
-      "paths": [
+        ], 
         [
           -122.458, 
           -47.099, 
@@ -274,13 +262,12 @@
           -52.02
         ]
       ], 
-      "step": "opcho", 
-      "transition": "wdxf"
+      "step": "wdxfopcho", 
+      "transition": "wd"
     }, 
     {
-      "beats": "3.75", 
+      "beats": "4", 
       "edge": "RBO", 
-      "group": "12", 
       "hold": "k", 
       "index": "12", 
       "paths": [
@@ -293,18 +280,7 @@
           -104.949, 
           -220.171, 
           -67.626
-        ]
-      ], 
-      "step": "ee", 
-      "transition": "cho"
-    }, 
-    {
-      "beats": "0.25*", 
-      "edge": "RBO", 
-      "group": "12", 
-      "hold": "k", 
-      "index": "", 
-      "paths": [
+        ], 
         [
           -220.106, 
           -67.684, 
@@ -316,8 +292,8 @@
           -80.42
         ]
       ], 
-      "step": "wdxb_clcho", 
-      "transition": "wdxb"
+      "step": "wdxbclcho", 
+      "transition": "cho"
     }, 
     {
       "beats": "4", 
@@ -430,11 +406,11 @@
   "name": "Rhumba", 
   "patterns": {
     "lady": {
-      "endComponent": "21", 
+      "endComponent": "19", 
       "startComponent": "0"
     }, 
     "man": {
-      "endComponent": "21", 
+      "endComponent": "19", 
       "startComponent": "0"
     }
   }, 
