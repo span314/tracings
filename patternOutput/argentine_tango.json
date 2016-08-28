@@ -1019,7 +1019,7 @@
           -68.933
         ]
       ], 
-      "step": "xb_ctr", 
+      "step": "ctr", 
       "transition": "xb"
     }, 
     {

@@ -1,20 +1,23 @@
 code,label,desc,trans,step
 bk,#e-bk,"#E Edge, Double Lift Free Leg Back",s,
 ce,#e#o,#E Edge,s,
-ce_opmo,,"#Q Edge, Open Mohawk",ce,
+ce_opmo,,"#Q Edge, Open Mohawk",ce,opmo
 cece,#e#o#q,#E Edge,s,
 cesw,#e#o-sw,"#E Edge, Swing",s,
-cett,#e#o3,#E Edge,s,
+cett,#e#o3,#E Edge,s,ce
 ch,#e-Ch,#E Chassé,,
 clcho,#e-ClCho,#E Closed Choctow,s,
 clmo,#e-ClMo,#E Closed Mohawk,s,
+ctr,#e-Ctr,#E Counter,,
 dl,#e,"#E Edge, Double Lift Free Leg",s,
 e,,#E Edge,,
 ee,#e,#E Edge,,
 ff,#e-#rff,#E Slip Step,,
+ibtt,#e-InBa-3,#E Ina Bauer 3-turn,,
 opcho,opCho,Open Choctow,,
 opmo,#e-opMo,#E Open Mohawk,s,
 pr,#e-Pr,#E Edge,,
+rk,#e-Rk,#E Rocker,,
 rks,#e-Rk,Shallow #E Rocker,,
 slch,#e-slCh,#E Slide Chassé,,
 slchk,#e-slCh,"#E Slide Chassé, Fold #R Leg and Kick",,
@@ -34,10 +37,10 @@ tw1,#e-Tw1,#E Twizzle,,
 twl,,Twizzle Like Motion,,
 twl1,Sw-“Tw1”,Twizzle Like Motion,,
 wdxb_clcho,ClCho,Closed Choctow,wdxb,
-xb_ctr,#e-Ctr,#E Counter,xb,
+xb_ctr,#e-Ctr,#E Counter,xb,ctr
 Xce,,Change to #Q Edge,,
-Xcerk,#e-Rk,"#Q Edge, #E Rocker",ce,
-Xcett,,"#Q Edge, #E 3-turn",ce,
+Xcerk,#e-Rk,"#Q Edge, #E Rocker",ce,rk
+Xcett,,"#Q Edge, #E 3-turn",ce,tt
 xfttt,#e-XFt3,#E Behind Cross Foot 3-turn,,
-Xttibtt,#e-InBa-3,#E Ina Bauer into 3-turn,tt,
+Xttibtt,#e-InBa-3,#E Ina Bauer into 3-turn,tt,ibtt
 ,#e,Stroke onto #E Edge,,

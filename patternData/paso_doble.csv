@@ -29,7 +29,7 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 26,,1,RFO,cr,ee,,,op,
 27,,1,LFO,cr,ee,,,op,
 28,,2,RFO,cr,swr,4,,op,
-,,0.5*,RFI,ce,ce_opmo,4,,op,
+,,0.5*,RFI,ce,opmo,4,,op,
 ,,0.5*,LBI,mo,ee,4,,op,
 1,,1,LFO,pr,ee,1,,out,
 2,,1,RFI,prx,pr,1,,out,

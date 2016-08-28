@@ -49,7 +49,7 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 8,,1,RFO,cr,ee,,,op,
 9,,1,LFI,xb,ce,9,,op,
 ,,2_,LFO,,Xce,9,,op,
-10,,1,RFI,xb,xb_ctr,10,,op,
+10,,1,RFI,xb,ctr,10,,op,
 ,,1_,RBI,ctr,e,10,,op,
 11,,2,LBO,,,,,cl,
 12,,2,RBO,,,,,cl,
