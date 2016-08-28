@@ -557,7 +557,7 @@
           126.478
         ]
       ], 
-      "step": ""
+      "step": "swtwl1"
     }, 
     {
       "beats": "0.25*", 
@@ -577,7 +577,7 @@
           113.024
         ]
       ], 
-      "step": "twl1"
+      "step": "Xce"
     }, 
     {
       "beats": "0.25*", 
@@ -597,7 +597,8 @@
           102.039
         ]
       ], 
-      "step": "twl"
+      "step": "e", 
+      "transition": "tw"
     }, 
     {
       "beats": "4", 
@@ -1317,17 +1318,7 @@
           233.765, 
           -284.567, 
           136.746
-        ]
-      ], 
-      "step": ""
-    }, 
-    {
-      "beats": "0.25*", 
-      "edge": "LFO", 
-      "group": "23", 
-      "hold": "k", 
-      "index": "", 
-      "paths": [
+        ], 
         [
           -284.567, 
           137.12, 
@@ -1342,7 +1333,7 @@
       "step": "swopcho"
     }, 
     {
-      "beats": "0.25*", 
+      "beats": "0.5*", 
       "edge": "RBI", 
       "group": "23", 
       "hold": "k", 
@@ -1529,7 +1520,7 @@
       "startComponent": "0"
     }, 
     "man": {
-      "endComponent": "76", 
+      "endComponent": "75", 
       "startComponent": "40"
     }
   }, 

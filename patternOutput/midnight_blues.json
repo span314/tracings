@@ -530,7 +530,8 @@
           195.864
         ]
       ], 
-      "step": "tw"
+      "step": "e", 
+      "transition": "tw"
     }, 
     {
       "beats": "0.25*", 
@@ -550,7 +551,8 @@
           199.28
         ]
       ], 
-      "step": "tw"
+      "step": "e", 
+      "transition": "tw"
     }, 
     {
       "beats": "0.5*", 
@@ -834,7 +836,8 @@
           165.972
         ]
       ], 
-      "step": "tw"
+      "step": "e", 
+      "transition": "tw"
     }, 
     {
       "beats": "0.5*", 
@@ -854,7 +857,8 @@
           171.95
         ]
       ], 
-      "step": "tw"
+      "step": "e", 
+      "transition": "tw"
     }, 
     {
       "beats": "2*", 

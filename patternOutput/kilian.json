@@ -168,7 +168,7 @@
       "transition": "cr"
     }, 
     {
-      "beats": "0.75", 
+      "beats": "1", 
       "edge": "LFI", 
       "group": "3", 
       "hold": "k", 
@@ -183,18 +183,7 @@
           -105.147, 
           -146.352, 
           -147.233
-        ]
-      ], 
-      "step": "ee", 
-      "transition": "xb"
-    }, 
-    {
-      "beats": "0.25", 
-      "edge": "LFI", 
-      "group": "3", 
-      "hold": "k", 
-      "index": "", 
-      "paths": [
+        ], 
         [
           -146.727, 
           -146.991, 
@@ -206,8 +195,8 @@
           -144.038
         ]
       ], 
-      "step": "opcho", 
-      "transition": "xf"
+      "step": "xfopcho", 
+      "transition": "xb"
     }, 
     {
       "beats": "1", 
@@ -314,11 +303,11 @@
   "name": "Kilian", 
   "patterns": {
     "lady": {
-      "endComponent": "15", 
+      "endComponent": "14", 
       "startComponent": "0"
     }, 
     "man": {
-      "endComponent": "15", 
+      "endComponent": "14", 
       "startComponent": "0"
     }
   }, 

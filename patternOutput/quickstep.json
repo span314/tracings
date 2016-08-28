@@ -82,9 +82,8 @@
       "transition": "prx"
     }, 
     {
-      "beats": "3.75", 
+      "beats": "4", 
       "edge": "LFO", 
-      "group": "2", 
       "hold": "k", 
       "index": "5", 
       "paths": [
@@ -97,17 +96,7 @@
           -190.22, 
           218.676, 
           -103.897
-        ]
-      ], 
-      "step": ""
-    }, 
-    {
-      "beats": "0.25*", 
-      "edge": "LFO", 
-      "group": "2", 
-      "hold": "k", 
-      "index": "", 
-      "paths": [
+        ], 
         [
           218.851, 
           -103.723, 
@@ -119,7 +108,8 @@
           -101.976
         ]
       ], 
-      "step": "swclcho"
+      "step": "swclcho", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -429,11 +419,11 @@
   "name": "Quickstep", 
   "patterns": {
     "lady": {
-      "endComponent": "21", 
+      "endComponent": "20", 
       "startComponent": "0"
     }, 
     "man": {
-      "endComponent": "21", 
+      "endComponent": "20", 
       "startComponent": "0"
     }
   }, 
