@@ -120,7 +120,8 @@
           55.097
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -178,7 +179,8 @@
           191.905
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 

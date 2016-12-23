@@ -309,7 +309,8 @@
           -115.884
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 

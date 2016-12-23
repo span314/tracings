@@ -102,7 +102,8 @@
           -139.468
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -165,7 +166,8 @@
           -120.621
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -184,7 +186,8 @@
           -206.93
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -203,7 +206,8 @@
           -147.482
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -264,7 +268,8 @@
           -119.212
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -283,7 +288,8 @@
           -146.602
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "1", 
@@ -374,7 +380,8 @@
           148.435
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -495,7 +502,8 @@
           150.372
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -577,7 +585,8 @@
           -22.598
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "5", 
@@ -723,7 +732,8 @@
           -139.821
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -786,7 +796,8 @@
           -120.863
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -805,7 +816,8 @@
           -206.528
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "3", 
@@ -824,7 +836,8 @@
           -147.194
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "6", 
@@ -863,7 +876,8 @@
           -147.019
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "1", 
@@ -954,7 +968,8 @@
           148.95
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "6", 
@@ -973,7 +988,8 @@
           154.392
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -1052,7 +1068,8 @@
           150.179
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -1114,7 +1131,8 @@
           -23.084
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "5", 

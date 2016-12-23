@@ -18,7 +18,8 @@
           -46.082
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "1", 
@@ -190,7 +191,8 @@
           -52.195
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "1", 
@@ -249,7 +251,8 @@
           -112.98
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "2", 
@@ -268,7 +271,8 @@
           -191.93
         ]
       ], 
-      "step": ""
+      "step": "ee", 
+      "transition": "s"
     }, 
     {
       "beats": "1", 

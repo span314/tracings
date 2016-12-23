@@ -31,9 +31,9 @@ for danceData in dances:
     for row in reader:
       #Edit rows here
       step = row["step"]
-      if step == "Xce":
-        row["step"] = "e"
-        row["transition"] = "c"
+      if step == "":
+        row["step"] = "ee"
+        row["transition"] = "s"
       writer.writerow(row)
 
   os.remove(backuppath)

@@ -253,8 +253,6 @@ IceDiagram._MESSAGES = {
 };
 
 IceDiagram._STEP_LABELS = {
-  "": "#e",
-  "Xce": "",
   "bk": "#e-bk",
   "ce": "#e#o",
   "cece": "#e#o#q",
@@ -294,8 +292,6 @@ IceDiagram._STEP_LABELS = {
 };
 
 IceDiagram._STEP_DESCRIPTIONS = {
-  "": "Stroke to #E Edge",
-  "Xce": "Change to #Q Edge",
   "bk": "#E Edge, Double Lift Free Leg Back",
   "ce": "#E Edge",
   "cece": "#E Edge",

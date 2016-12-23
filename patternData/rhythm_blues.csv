@@ -13,6 +13,6 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 12,,1,RFI,prx,pr,pr3,,k,
 13,,2,LFO,pr,ee,pr3,,k,
 14,,2,RFI,xb,ee,,,k,
-15,,2,LFO,,,,no,k,
+15,,2,LFO,s,ee,,no,k,
 15,,2,LFO,xb,ee,,yes,k,
 16,,2,RFI,xb,ee,,,k,
