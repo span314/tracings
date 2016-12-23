@@ -1,39 +1,38 @@
-code,label,desc,step
-bk,#e-bk,"#E Edge, Double Lift Free Leg Back",
-ce,#e#o,#E Edge,
-cece,#e#o#q,#E Edge,
-cesw,#e#o-sw,"#E Edge, Swing",
-ch,#e-Ch,#E Chassé,
-clcho,#e-ClCho,#E Closed Choctow,
-clmo,#e-ClMo,#E Closed Mohawk,
-ctr,#e-Ctr,#E Counter,
-dl,#e,"#E Edge, Double Lift Free Leg",
-e,,#E Edge,
-ee,#e,#E Edge,
-ff,#e-#rff,#E Slip Step,
-ibtt,#e-InBa-3,#E Ina Bauer 3-turn,
-opmo,#e-OpMo,#E Open Mohawk,
-pr,#e-Pr,#E Edge,
-rk,#e-Rk,#E Rocker,
-rks,#e-Rk,#E Shallow Rocker,
-slch,#e-slCh,#E Slide Chassé,
-slchk,#e-slCh,"#E Slide Chassé, Fold #R Leg and Kick",
-slm,#e/#r#d#o-slm,#E / #R #D #O Slalom,
-slme,#e/#r#d#o-slm-#e,"#E / #R #D #O Slalom, Push onto #E Edge",
-spr,#e-spr,#E Spiral,
-swclcho,#e-SwClCho,#E Swing Closed Choctow,
-swclmo,#e-SwClMo,#E Swing Closed Mohawk,
-swctr,#e-SwCtr,#E Swing Counter,
-swopcho,#e-SwOpCho,#E Swing Open Choctow,
-swr,#e-SwR,"#E Edge, Swing Roll",
-swrk,#e-SwRk,#E Swing Rocker,
-swtt,#e-Sw3,#E Swing 3-turn,
-swtwl1,#e-Sw-“Tw1”,#E Swing Twizzle Like Motion (1 revolution),
-tt,#e3,#E 3-turn,
-tw1,#e-Tw1,#E Twizzle (1 revolution),
-wdxbclcho,#e-WdXB-ClCho,#E Wide Cross Behind Closed Choctow,
-wdxfopcho,#e-WdXF-OpCho,#E Wide Cross in Front Open Choctow,
-Xce,,Change to #Q Edge,
-xfopcho,#e-XF-OpCho,#E Cross In Front Open Choctow,
-xfttt,#e-XFt3,#E Behind Cross Foot 3-turn,
-,#e,Stroke to #E Edge,
+code,label,desc
+bk,#e-bk,"#E Edge, Double Lift Free Leg Back"
+ce,#e#o,#E Edge
+cece,#e#o#q,#E Edge
+cesw,#e#o-sw,"#E Edge, Swing"
+ch,#e-Ch,#E Chassé
+clcho,#e-ClCho,#E Closed Choctow
+clmo,#e-ClMo,#E Closed Mohawk
+ctr,#e-Ctr,#E Counter
+dl,#e,"#E Edge, Double Lift Free Leg"
+e,,#E Edge
+ee,#e,#E Edge
+ff,#e-#rff,#E Slip Step
+ibtt,#e-InBa-3,#E Ina Bauer 3-turn
+opmo,#e-OpMo,#E Open Mohawk
+pr,#e-Pr,#E Edge
+rk,#e-Rk,#E Rocker
+rks,#e-Rk,#E Shallow Rocker
+slch,#e-slCh,#E Slide Chassé
+slchk,#e-slCh,"#E Slide Chassé, Fold #R Leg and Kick"
+slm,#e/#r#d#o-slm,#E / #R #D #O Slalom
+slme,#e/#r#d#o-slm-#e,"#E / #R #D #O Slalom, Push onto #E Edge"
+spr,#e-spr,#E Spiral
+swclcho,#e-SwClCho,#E Swing Closed Choctow
+swclmo,#e-SwClMo,#E Swing Closed Mohawk
+swctr,#e-SwCtr,#E Swing Counter
+swopcho,#e-SwOpCho,#E Swing Open Choctow
+swr,#e-SwR,"#E Edge, Swing Roll"
+swrk,#e-SwRk,#E Swing Rocker
+swtt,#e-Sw3,#E Swing 3-turn
+swtwl1,#e-Sw-“Tw1”,#E Swing Twizzle Like Motion (1 revolution)
+tt,#e3,#E 3-turn
+tw1,#e-Tw1,#E Twizzle (1 revolution)
+wdxbclcho,#e-WdXB-ClCho,#E Wide Cross Behind Closed Choctow
+wdxfopcho,#e-WdXF-OpCho,#E Wide Cross in Front Open Choctow
+xfopcho,#e-XF-OpCho,#E Cross In Front Open Choctow
+xfttt,#e-XFt3,#E Behind Cross Foot 3-turn
+,#e,Stroke to #E Edge

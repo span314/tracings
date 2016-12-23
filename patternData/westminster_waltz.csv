@@ -2,7 +2,7 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 1,,2,LFO,pr,ee,1,,k,
 2,,1,RFI,prx,pr,1,,k,
 3,,2,LFO,s,ce,2,,k,
-,,1_,LFI,,Xce,2,,k,
+,,1_,LFI,c,e,2,,k,
 4,,3,RFI,,,,,k,
 5,,3,LFI,s,opmo,3,,k,0.6
 6,,3,RBI,mo,ee,3,,rk,0.3
@@ -28,11 +28,11 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 ,,1_,RBI,tt,e,7,,rk,
 21b,,3,LBO,,,,,rk,
 22,,5,RFO,s,cesw,8,,cs,0.7
-,,1_,RFI,,Xce,8,,cs,
+,,1_,RFI,c,e,8,,cs,
 1,,2,LFO,pr,ee,1,,k,
 2,,1,RFI,prx,pr,1,,k,
 3,,2,LFO,s,ce,2,,k,
-,,1_,LFI,,Xce,2,,k,
+,,1_,LFI,c,e,2,,k,
 4,,3,RFI,,,,,k,
 5,,3,LFI,s,opmo,3,,k,0.6
 6,,3,RBI,mo,ee,3,,rk,0.3
@@ -54,4 +54,4 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 ,,1_,RBI,tt,e,5,,cl,
 21,,6,LBO,,,,,rk,0.3
 22,,5,RFO,s,cesw,6,,cs,0.6
-,,1_,RFI,,Xce,6,,cs,
+,,1_,RFI,c,e,6,,cs,

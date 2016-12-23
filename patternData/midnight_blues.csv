@@ -6,7 +6,7 @@ index,pathCount,beats,edge,transition,step,group,optional,hold,labelOffset
 3b,,0.5,RFO,,xfttt,3b,,,
 ,,0.5_,RBI,tt,e,3b,,,
 4,,3,LBO,xb,ce,4,,,
-,,1_,LBI,,Xce,4,,,
+,,1_,LBI,c,e,4,,,
 5,,1,RBO,,,,,,
 6,,1,LBI,pr,pr,,,,
 7,,2,RBO,s,ce,7,,,

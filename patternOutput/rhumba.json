@@ -76,7 +76,8 @@
           -167.729
         ]
       ], 
-      "step": "Xce"
+      "step": "e", 
+      "transition": "c"
     }, 
     {
       "beats": "1_", 
@@ -95,7 +96,8 @@
           -192.334
         ]
       ], 
-      "step": "Xce"
+      "step": "e", 
+      "transition": "c"
     }, 
     {
       "beats": "2", 

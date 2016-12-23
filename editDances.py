@@ -6,13 +6,6 @@ INPUT_DIRECTORY = "patternData"
 EXT_SVG = ".svg"
 EXT_CSV = ".csv"
 
-#Load step label and descriptions
-stepMapping = {}
-with open(os.path.join("codes", "0_steps.csv"), "r") as stepsFile:
-  reader = csv.DictReader(stepsFile)
-  for row in reader:
-    stepMapping[row["code"]] = row["step"]
-
 #Load dances
 dances = []
 with open(os.path.join(INPUT_DIRECTORY, "0_dances.csv"), "r") as dancesFile:
@@ -36,9 +29,11 @@ for danceData in dances:
     writer = csv.DictWriter(outputFile, headers, lineterminator='\n')
     writer.writeheader()
     for row in reader:
-      newStep = stepMapping[row["step"]]
-      if newStep:
-        row["step"] = newStep
+      #Edit rows here
+      step = row["step"]
+      if step == "Xce":
+        row["step"] = "e"
+        row["transition"] = "c"
       writer.writerow(row)
 
   os.remove(backuppath)

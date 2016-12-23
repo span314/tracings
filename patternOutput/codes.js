@@ -335,6 +335,7 @@ IceDiagram._STEP_DESCRIPTIONS = {
 };
 
 IceDiagram._TRANSITION_LABELS = {
+  "c": "",
   "ce": "",
   "cho": "",
   "co": "X",
@@ -355,6 +356,7 @@ IceDiagram._TRANSITION_LABELS = {
 };
 
 IceDiagram._TRANSITION_DESCRIPTIONS = {
+  "c": "Change",
   "ce": "Change Edge",
   "cho": "Choctow Turn",
   "co": "Crossover",
