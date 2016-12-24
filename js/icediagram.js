@@ -235,7 +235,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_COUNT;
-          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[position.paths.length - 1], -IceDiagram._BASE_LABEL_OFFSET);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[0], -IceDiagram._BASE_LABEL_OFFSET);
         }
       }
     }
