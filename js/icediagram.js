@@ -4,15 +4,15 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
-    define(factory);
+    define(['./diagramcodes.js'], factory);
   } else if (typeof exports === 'object') {
     // Node, CommonJS-like
-    module.exports = factory();
+    module.exports = factory(require('./diagramcodes.js'));
   } else {
     // Browser globals (root is window)
-    root.IceDiagram = factory();
+    root.IceDiagram = factory(root.DiagramCodes);
   }
-}(this, function () {
+}(this, function (DiagramCodes) {
   'use strict';
   var IceDiagram = function(canvas, options) {
     //store parameters
@@ -97,7 +97,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     request.onload = function() {
       var dance, version;
       if (request.status < 200 || request.status >= 400) {
-        window.alert(IceDiagram._MESSAGES._ERROR_SERVER + IceDiagram._MESSAGES._ERROR_CONTACT);
+        window.alert(DiagramCodes._MESSAGES._ERROR_SERVER + DiagramCodes._MESSAGES._ERROR_CONTACT);
         return;
       }
       dance = JSON.parse(request.responseText);
@@ -105,14 +105,14 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       //TODO remove conditional once all production patterns have a version
       version = dance.dataVersion ? parseInt(dance.dataVersion) : 1;
       if (version < IceDiagram._DATA_VERSION_MIN || version > IceDiagram._DATA_VERSION_MAX) {
-        if (window.confirm(IceDiagram._MESSAGES._ERROR_VERSION + IceDiagram._MESSAGES._ERROR_CONTACT)) {
+        if (window.confirm(DiagramCodes._MESSAGES._ERROR_VERSION + DiagramCodes._MESSAGES._ERROR_CONTACT)) {
           window.location.reload(true);
         }
         return;
       }
 
       if (dance.dev) {
-        window.alert(IceDiagram._MESSAGES._ERROR_DEV + IceDiagram._MESSAGES._ERROR_CONTACT);
+        window.alert(DiagramCodes._MESSAGES._ERROR_DEV + DiagramCodes._MESSAGES._ERROR_CONTACT);
       }
 
       widget._dance = dance;
@@ -121,7 +121,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     };
 
     request.onerror = function() {
-      if (window.confirm(IceDiagram._MESSAGES._ERROR_CONNECTION + IceDiagram._MESSAGES._ERROR_CONTACT)) {
+      if (window.confirm(DiagramCodes._MESSAGES._ERROR_CONNECTION + DiagramCodes._MESSAGES._ERROR_CONTACT)) {
         window.location.reload(true);
       }
     };
@@ -227,7 +227,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         //Draw hold and count
         labelList = [];
         if (showHold && position.hold) {
-          labelList.push(IceDiagram._HOLD_LABELS[position.hold]);
+          labelList.push(DiagramCodes._HOLD_LABELS[position.hold]);
         }
         if (showCount && position.countLabel) {
           labelList.push(position.countLabel);
@@ -246,7 +246,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     labelText = currentPosition.count;
     labelText += currentPosition.duration > IceDiagram._TICKS_PER_BEAT ? ' beats, ' : ' beat, ';
     labelText += currentPosition.edge;
-    labelText += IceDiagram._HOLD_DESCRIPTIONS[currentPosition.hold] ? ', ' + IceDiagram._HOLD_DESCRIPTIONS[currentPosition.hold] : '';
+    labelText += DiagramCodes._HOLD_DESCRIPTIONS[currentPosition.hold] ? ', ' + DiagramCodes._HOLD_DESCRIPTIONS[currentPosition.hold] : '';
     IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE * 2.2);
     labelText = this._controls.speed === 1 ? '' : Math.round(this._controls.speed * this._dance.beatsPerMinute) + 'bpm of ';
     labelText += this._dance.beatsPerMinute + 'bpm';
@@ -450,16 +450,16 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
             position.paths.push(path);
           }
           //Check mirroring
-          position.edge = mirror ? IceDiagram._EDGE_PARAMS[component.edge].m : component.edge;
+          position.edge = mirror ? DiagramCodes._EDGE_PARAMS[component.edge].m : component.edge;
           //Generate text
-          position.label = IceDiagram._resolveParams(position.edge, IceDiagram._STEP_LABELS[component.step]);
-          position.desc = IceDiagram._resolveParams(position.edge, IceDiagram._STEP_DESCRIPTIONS[component.step]);
+          position.label = IceDiagram._resolveParams(position.edge, DiagramCodes._STEP_LABELS[component.step]);
+          position.desc = IceDiagram._resolveParams(position.edge, DiagramCodes._STEP_DESCRIPTIONS[component.step]);
           if (component.transition) {
-            if (IceDiagram._TRANSITION_LABELS[component.transition]) {
-              position.label = IceDiagram._TRANSITION_LABELS[component.transition] + '-' + position.label;
+            if (DiagramCodes._TRANSITION_LABELS[component.transition]) {
+              position.label = DiagramCodes._TRANSITION_LABELS[component.transition] + '-' + position.label;
             }
-            if (IceDiagram._TRANSITION_DESCRIPTIONS[component.transition]) {
-              position.desc = IceDiagram._TRANSITION_DESCRIPTIONS[component.transition] + ' to ' + position.desc;
+            if (DiagramCodes._TRANSITION_DESCRIPTIONS[component.transition]) {
+              position.desc = DiagramCodes._TRANSITION_DESCRIPTIONS[component.transition] + ' to ' + position.desc;
             }
           }
           //Add lap index and offset
@@ -569,7 +569,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     var i, curChar,
         inParam = false,
         result = '',
-        edgeParams = IceDiagram._EDGE_PARAMS[edgeCode];
+        edgeParams = DiagramCodes._EDGE_PARAMS[edgeCode];
         for (i = 0; i < label.length; i++) {
           curChar = label.charAt(i);
           if (inParam) {
@@ -715,382 +715,6 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     var isHeightLimited = width * IceDiagram._BASE_HEIGHT > height * IceDiagram._BASE_WIDTH;
     return Math.max(isHeightLimited ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
   };
-
-  //###Constant code maps below generated by processCodes.py###
-  IceDiagram._EDGE_PARAMS = {
-    "LB": {
-      "#": "#",
-      "B": "Forward",
-      "D": "Backward",
-      "E": "Left Backward",
-      "F": "Left",
-      "M": "Right Backward",
-      "R": "Right",
-      "b": "F",
-      "d": "B",
-      "e": "LB",
-      "f": "L",
-      "m": "RB",
-      "r": "R"
-    },
-    "LBI": {
-      "#": "#",
-      "B": "Forward",
-      "D": "Backward",
-      "E": "Left Backward Inside",
-      "F": "Left",
-      "M": "Right Backward Inside",
-      "O": "Outside",
-      "Q": "Inside",
-      "R": "Right",
-      "b": "F",
-      "d": "B",
-      "e": "LBI",
-      "f": "L",
-      "m": "RBI",
-      "o": "O",
-      "q": "I",
-      "r": "R"
-    },
-    "LBO": {
-      "#": "#",
-      "B": "Forward",
-      "D": "Backward",
-      "E": "Left Backward Outside",
-      "F": "Left",
-      "M": "Right Backward Outside",
-      "O": "Inside",
-      "Q": "Outside",
-      "R": "Right",
-      "b": "F",
-      "d": "B",
-      "e": "LBO",
-      "f": "L",
-      "m": "RBO",
-      "o": "I",
-      "q": "O",
-      "r": "R"
-    },
-    "LF": {
-      "#": "#",
-      "B": "Backward",
-      "D": "Forward",
-      "E": "Left Forward",
-      "F": "Left",
-      "M": "Right Forward",
-      "R": "Right",
-      "b": "B",
-      "d": "F",
-      "e": "LF",
-      "f": "L",
-      "m": "RF",
-      "r": "R"
-    },
-    "LFI": {
-      "#": "#",
-      "B": "Backward",
-      "D": "Forward",
-      "E": "Left Forward Inside",
-      "F": "Left",
-      "M": "Right Forward Inside",
-      "O": "Outside",
-      "Q": "Inside",
-      "R": "Right",
-      "b": "B",
-      "d": "F",
-      "e": "LFI",
-      "f": "L",
-      "m": "RFI",
-      "o": "O",
-      "q": "I",
-      "r": "R"
-    },
-    "LFO": {
-      "#": "#",
-      "B": "Backward",
-      "D": "Forward",
-      "E": "Left Forward Outside",
-      "F": "Left",
-      "M": "Right Forward Outside",
-      "O": "Inside",
-      "Q": "Outside",
-      "R": "Right",
-      "b": "B",
-      "d": "F",
-      "e": "LFO",
-      "f": "L",
-      "m": "RFO",
-      "o": "I",
-      "q": "O",
-      "r": "R"
-    },
-    "RB": {
-      "#": "#",
-      "B": "Forward",
-      "D": "Backward",
-      "E": "Right Backward",
-      "F": "Right",
-      "M": "Left Backward",
-      "R": "Left",
-      "b": "F",
-      "d": "B",
-      "e": "RB",
-      "f": "R",
-      "m": "LB",
-      "r": "L"
-    },
-    "RBI": {
-      "#": "#",
-      "B": "Forward",
-      "D": "Backward",
-      "E": "Right Backward Inside",
-      "F": "Right",
-      "M": "Left Backward Inside",
-      "O": "Outside",
-      "Q": "Inside",
-      "R": "Left",
-      "b": "F",
-      "d": "B",
-      "e": "RBI",
-      "f": "R",
-      "m": "LBI",
-      "o": "O",
-      "q": "I",
-      "r": "L"
-    },
-    "RBO": {
-      "#": "#",
-      "B": "Forward",
-      "D": "Backward",
-      "E": "Right Backward Outside",
-      "F": "Right",
-      "M": "Left Backward Outside",
-      "O": "Inside",
-      "Q": "Outside",
-      "R": "Left",
-      "b": "F",
-      "d": "B",
-      "e": "RBO",
-      "f": "R",
-      "m": "LBO",
-      "o": "I",
-      "q": "O",
-      "r": "L"
-    },
-    "RF": {
-      "#": "#",
-      "B": "Backward",
-      "D": "Forward",
-      "E": "Right Forward",
-      "F": "Right",
-      "M": "Left Forward",
-      "R": "Left",
-      "b": "B",
-      "d": "F",
-      "e": "RF",
-      "f": "R",
-      "m": "LF",
-      "r": "L"
-    },
-    "RFI": {
-      "#": "#",
-      "B": "Backward",
-      "D": "Forward",
-      "E": "Right Forward Inside",
-      "F": "Right",
-      "M": "Left Forward Inside",
-      "O": "Outside",
-      "Q": "Inside",
-      "R": "Left",
-      "b": "B",
-      "d": "F",
-      "e": "RFI",
-      "f": "R",
-      "m": "LFI",
-      "o": "O",
-      "q": "I",
-      "r": "L"
-    },
-    "RFO": {
-      "#": "#",
-      "B": "Backward",
-      "D": "Forward",
-      "E": "Right Forward Outside",
-      "F": "Right",
-      "M": "Left Forward Outside",
-      "O": "Inside",
-      "Q": "Outside",
-      "R": "Left",
-      "b": "B",
-      "d": "F",
-      "e": "RFO",
-      "f": "R",
-      "m": "LFO",
-      "o": "I",
-      "q": "O",
-      "r": "L"
-    }
-  };
-
-  IceDiagram._HOLD_LABELS = {
-    "ch": "*",
-    "cl": "C",
-    "cs": "S",
-    "cto": "C2T",
-    "f": "F",
-    "hh": "H",
-    "k": "K",
-    "oc": "C*",
-    "op": "O",
-    "out": "T",
-    "po": "T*",
-    "rk": "R"
-  };
-
-  IceDiagram._HOLD_DESCRIPTIONS = {
-    "ch": "Changing",
-    "cl": "Closed / Waltz",
-    "cs": "Change Sides",
-    "cto": "Closed to Outside",
-    "f": "Foxtrot",
-    "hh": "Hand-to-Hand",
-    "k": "Kilian",
-    "oc": "Offset Closed",
-    "op": "Open",
-    "out": "Outside",
-    "po": "Partial Outside",
-    "rk": "Reversed Kilian"
-  };
-
-  IceDiagram._MESSAGES = {
-    "_ERROR_CONNECTION": "Cannot connect to server to load dance. Please check your internet connection. Press OK to refresh the page.",
-    "_ERROR_CONTACT": "\n\nLet me know at icediagrams@shawnpan.com if this problem continues.",
-    "_ERROR_DEV": "Warning: This pattern is still under development.",
-    "_ERROR_SERVER": "Cannot find pattern file for selected dance.",
-    "_ERROR_VERSION": "Incompatible pattern version. Webpage has probably been updated. Press OK refresh the page."
-  };
-
-  IceDiagram._STEP_LABELS = {
-    "bk": "#e-bk",
-    "ce": "#e#o",
-    "cece": "#e#o#q",
-    "cesw": "#e#o-sw",
-    "ch": "#e-Ch",
-    "clcho": "#e-ClCho",
-    "clmo": "#e-ClMo",
-    "ctr": "#e-Ctr",
-    "dl": "#e",
-    "e": "",
-    "ee": "#e",
-    "ff": "#e-#rff",
-    "ibtt": "#e-InBa-3",
-    "opmo": "#e-OpMo",
-    "pr": "#e-Pr",
-    "rk": "#e-Rk",
-    "rks": "#e-Rk",
-    "slch": "#e-slCh",
-    "slchk": "#e-slCh",
-    "slm": "#e/#r#d#o-slm",
-    "slme": "#e/#r#d#o-slm-#e",
-    "spr": "#e-spr",
-    "swclcho": "#e-SwClCho",
-    "swclmo": "#e-SwClMo",
-    "swctr": "#e-SwCtr",
-    "swopcho": "#e-SwOpCho",
-    "swr": "#e-SwR",
-    "swrk": "#e-SwRk",
-    "swtt": "#e-Sw3",
-    "swtwl1": "#e-Sw-\u201cTw1\u201d",
-    "tt": "#e3",
-    "tw1": "#e-Tw1",
-    "wdxbclcho": "#e-WdXB-ClCho",
-    "wdxfopcho": "#e-WdXF-OpCho",
-    "xfopcho": "#e-XF-OpCho",
-    "xfttt": "#e-XFt3"
-  };
-
-  IceDiagram._STEP_DESCRIPTIONS = {
-    "bk": "#E Edge, Double Lift Free Leg Back",
-    "ce": "#E Edge",
-    "cece": "#E Edge",
-    "cesw": "#E Edge, Swing",
-    "ch": "#E Chass\u00e9",
-    "clcho": "#E Closed Choctow",
-    "clmo": "#E Closed Mohawk",
-    "ctr": "#E Counter",
-    "dl": "#E Edge, Double Lift Free Leg",
-    "e": "#E Edge",
-    "ee": "#E Edge",
-    "ff": "#E Slip Step",
-    "ibtt": "#E Ina Bauer 3-turn",
-    "opmo": "#E Open Mohawk",
-    "pr": "#E Edge",
-    "rk": "#E Rocker",
-    "rks": "#E Shallow Rocker",
-    "slch": "#E Slide Chass\u00e9",
-    "slchk": "#E Slide Chass\u00e9, Fold #R Leg and Kick",
-    "slm": "#E / #R #D #O Slalom",
-    "slme": "#E / #R #D #O Slalom, Push onto #E Edge",
-    "spr": "#E Spiral",
-    "swclcho": "#E Swing Closed Choctow",
-    "swclmo": "#E Swing Closed Mohawk",
-    "swctr": "#E Swing Counter",
-    "swopcho": "#E Swing Open Choctow",
-    "swr": "#E Edge, Swing Roll",
-    "swrk": "#E Swing Rocker",
-    "swtt": "#E Swing 3-turn",
-    "swtwl1": "#E Swing Twizzle Like Motion (1 revolution)",
-    "tt": "#E 3-turn",
-    "tw1": "#E Twizzle (1 revolution)",
-    "wdxbclcho": "#E Wide Cross Behind Closed Choctow",
-    "wdxfopcho": "#E Wide Cross in Front Open Choctow",
-    "xfopcho": "#E Cross In Front Open Choctow",
-    "xfttt": "#E Behind Cross Foot 3-turn"
-  };
-
-  IceDiagram._TRANSITION_LABELS = {
-    "c": "",
-    "ce": "",
-    "cho": "",
-    "co": "X",
-    "cr": "CR",
-    "ctr": "",
-    "mo": "",
-    "pr": "",
-    "prx": "",
-    "rk": "",
-    "s": "",
-    "sb": "",
-    "tt": "",
-    "tw": "",
-    "wd": "Wd",
-    "wdsb": "",
-    "xb": "XB",
-    "xf": "XF"
-  };
-
-  IceDiagram._TRANSITION_DESCRIPTIONS = {
-    "c": "Change",
-    "ce": "Change Edge",
-    "cho": "Choctow Turn",
-    "co": "Crossover",
-    "cr": "Cross Roll",
-    "ctr": "Counter Turn",
-    "mo": "Mohawk Turn",
-    "pr": "Progressive: Stroke",
-    "prx": "Progressive: Cross",
-    "rk": "Rocker Turn",
-    "s": "Stroke",
-    "sb": "Step Briefly",
-    "tt": "3-turn",
-    "tw": "Twizzle",
-    "wd": "Wide Step",
-    "wdsb": "Wide Step Briefly",
-    "xb": "Cross Behind",
-    "xf": "Cross in Front"
-  };
-
-  //###End generated code###
 
   //Return UMD factory result
   return IceDiagram;
