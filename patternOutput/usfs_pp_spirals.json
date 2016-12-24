@@ -2,7 +2,8 @@
   "beatsPerMinute": "100", 
   "components": [
     {
-      "beats": "8*", 
+      "beatGrouping": "*", 
+      "beats": "8", 
       "edge": "RF", 
       "hold": "", 
       "index": "", 
@@ -21,7 +22,8 @@
       "step": "spr"
     }, 
     {
-      "beats": "8*", 
+      "beatGrouping": "*", 
+      "beats": "8", 
       "edge": "LF", 
       "hold": "", 
       "index": "", 

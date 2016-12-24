@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#Utility script to edit csv format
 import os
 import csv
 
@@ -24,16 +25,21 @@ for danceData in dances:
 
   #Extract steps from csv
   with open(backuppath, "r") as inputFile, open(filepath, "w") as outputFile:
-    headers = ["index", "pathCount", "beats", "edge", "transition", "step", "group", "optional", "hold", "labelOffset"]
+    headers = ["index", "pathCount", "beats", "beatGrouping", "edge", "transition", "step", "group", "optional", "hold", "labelOffset"]
     reader = csv.DictReader(inputFile)
     writer = csv.DictWriter(outputFile, headers, lineterminator='\n')
     writer.writeheader()
     for row in reader:
       #Edit rows here
-      step = row["step"]
-      if step == "":
-        row["step"] = "ee"
-        row["transition"] = "s"
+      beat = row["beats"]
+      if "_" in beat:
+        row["beats"] = beat[:-1]
+        row["beatGrouping"] = "+"
+      elif "*" in beat:
+        row["beats"] = beat[:-1]
+        row["beatGrouping"] = "*"
+      else:
+        row["beats"] = beat
       writer.writerow(row)
 
   os.remove(backuppath)

@@ -2,6 +2,7 @@
   "beatsPerMinute": "96", 
   "components": [
     {
+      "beatGrouping": "", 
       "beats": "1", 
       "edge": "LFO", 
       "hold": "cl", 
@@ -22,6 +23,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "1", 
       "edge": "RFI", 
       "hold": "cl", 
@@ -41,6 +43,7 @@
       "step": "ch"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "LFO", 
       "hold": "cl", 
@@ -61,6 +64,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "1", 
       "edge": "RFO", 
       "hold": "cl", 
@@ -81,6 +85,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "1", 
       "edge": "LFI", 
       "hold": "cl", 
@@ -100,6 +105,7 @@
       "step": "ch"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RFO", 
       "hold": "cl", 
@@ -120,6 +126,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "4", 
       "edge": "LFO", 
       "hold": "cl", 
@@ -140,6 +147,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "4", 
       "edge": "RFO", 
       "hold": "cl", 
@@ -160,6 +168,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "LFO", 
       "hold": "hh", 
@@ -180,6 +189,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RFI", 
       "hold": "hh", 
@@ -200,6 +210,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "LFO", 
       "hold": "hh", 
@@ -220,6 +231,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RFI", 
       "group": "m", 
@@ -241,6 +253,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "LBI", 
       "group": "m", 
@@ -262,6 +275,7 @@
       "transition": "mo"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RBO", 
       "hold": "cl", 
@@ -282,6 +296,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "4", 
       "edge": "LBO", 
       "hold": "cl", 
@@ -302,6 +317,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "1", 
       "edge": "RBO", 
       "hold": "cl", 
@@ -322,6 +338,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "1", 
       "edge": "LBI", 
       "hold": "cl", 
@@ -341,6 +358,7 @@
       "step": "ch"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RBO", 
       "hold": "cl", 
@@ -361,6 +379,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "1", 
       "edge": "LBO", 
       "hold": "cl", 
@@ -381,6 +400,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "1", 
       "edge": "RBI", 
       "hold": "cl", 
@@ -400,6 +420,7 @@
       "step": "ch"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "LBO", 
       "hold": "cl", 
@@ -420,6 +441,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "4", 
       "edge": "RBO", 
       "hold": "cl", 
@@ -440,6 +462,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "4", 
       "edge": "LBO", 
       "hold": "cl", 
@@ -460,6 +483,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RBO", 
       "hold": "hh", 
@@ -480,6 +504,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "LFO", 
       "hold": "hh", 
@@ -500,6 +525,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RFI", 
       "hold": "hh", 
@@ -520,6 +546,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "LFO", 
       "hold": "hh", 
@@ -540,6 +567,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RFI", 
       "hold": "hh", 
@@ -561,6 +589,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "RFI", 
       "hold": "hh", 
@@ -581,6 +610,7 @@
       "step": "slch"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "2", 
       "edge": "LFO", 
       "hold": "cl", 
@@ -601,6 +631,7 @@
       "transition": "s"
     }, 
     {
+      "beatGrouping": "", 
       "beats": "4", 
       "edge": "RFO", 
       "hold": "cl", 

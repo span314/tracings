@@ -436,9 +436,9 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
           position.index = component.index;
           position.step = component.step;
           position.group = component.group;
+          position.beatGrouping = component.beatGrouping;
           //Parse timing
           position.beats = parseFloat(component.beats);
-          position.beatGrouping = component.beats.slice(-1);
           position.count = IceDiagram._toMixedNumber(position.beats);
           position.duration = Math.round(position.beats * IceDiagram._TICKS_PER_BEAT);
           //Generate paths
@@ -476,7 +476,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     countTotal = 0;
     for (positionIndex = positions.length - 1; positionIndex >= 0; positionIndex--) {
       position = positions[positionIndex];
-      if (position.beatGrouping === '_') { //Display with plus notation, e.g. 1+1
+      if (position.beatGrouping === '+') { //Display with plus notation, e.g. 1+1
         countLabel = '+' + position.count + countLabel;
       } else if (position.beatGrouping === '*') { //Display as sum of durations
         countTotal += position.beats;

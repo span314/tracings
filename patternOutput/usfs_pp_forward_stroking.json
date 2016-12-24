@@ -2,7 +2,8 @@
   "beatsPerMinute": "100", 
   "components": [
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LF", 
       "hold": "", 
       "index": "", 
@@ -22,7 +23,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RF", 
       "hold": "", 
       "index": "", 
@@ -42,7 +44,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LF", 
       "hold": "", 
       "index": "", 
@@ -62,7 +65,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RF", 
       "hold": "", 
       "index": "", 
@@ -82,7 +86,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LF", 
       "hold": "", 
       "index": "", 
@@ -102,7 +107,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RF", 
       "hold": "", 
       "index": "", 
@@ -122,7 +128,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "2*", 
+      "beatGrouping": "*", 
+      "beats": "2", 
       "edge": "LFO", 
       "group": "1", 
       "hold": "", 
@@ -143,7 +150,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "2*", 
+      "beatGrouping": "*", 
+      "beats": "2", 
       "edge": "RFI", 
       "group": "1", 
       "hold": "", 
@@ -164,7 +172,8 @@
       "transition": "co"
     }, 
     {
-      "beats": "2*", 
+      "beatGrouping": "*", 
+      "beats": "2", 
       "edge": "LFO", 
       "group": "2", 
       "hold": "", 
@@ -185,7 +194,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "2*", 
+      "beatGrouping": "*", 
+      "beats": "2", 
       "edge": "RFI", 
       "group": "2", 
       "hold": "", 
@@ -206,7 +216,8 @@
       "transition": "co"
     }, 
     {
-      "beats": "2*", 
+      "beatGrouping": "*", 
+      "beats": "2", 
       "edge": "LFO", 
       "group": "3", 
       "hold": "", 
@@ -227,7 +238,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "2*", 
+      "beatGrouping": "*", 
+      "beats": "2", 
       "edge": "RFI", 
       "group": "3", 
       "hold": "", 
@@ -248,7 +260,8 @@
       "transition": "co"
     }, 
     {
-      "beats": "2*", 
+      "beatGrouping": "*", 
+      "beats": "2", 
       "edge": "LFO", 
       "group": "4", 
       "hold": "", 
@@ -269,7 +282,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "2*", 
+      "beatGrouping": "*", 
+      "beats": "2", 
       "edge": "RFI", 
       "group": "4", 
       "hold": "", 

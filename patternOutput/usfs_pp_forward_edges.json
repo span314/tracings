@@ -2,7 +2,8 @@
   "beatsPerMinute": "100", 
   "components": [
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RFO", 
       "hold": "", 
       "index": "", 
@@ -22,7 +23,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LFO", 
       "hold": "", 
       "index": "", 
@@ -42,7 +44,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RFO", 
       "hold": "", 
       "index": "", 
@@ -62,7 +65,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LFO", 
       "hold": "", 
       "index": "", 
@@ -82,7 +86,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RFO", 
       "hold": "", 
       "index": "", 
@@ -102,7 +107,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LFO", 
       "hold": "", 
       "index": "", 
@@ -122,7 +128,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RFI", 
       "hold": "", 
       "index": "", 
@@ -142,7 +149,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LFI", 
       "hold": "", 
       "index": "", 
@@ -162,7 +170,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RFI", 
       "hold": "", 
       "index": "", 
@@ -182,7 +191,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LFI", 
       "hold": "", 
       "index": "", 
@@ -202,7 +212,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RFI", 
       "hold": "", 
       "index": "", 
@@ -222,7 +233,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LFI", 
       "hold": "", 
       "index": "", 
@@ -242,7 +254,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RBO", 
       "hold": "", 
       "index": "", 
@@ -272,7 +285,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LBO", 
       "hold": "", 
       "index": "", 
@@ -302,7 +316,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RBO", 
       "hold": "", 
       "index": "", 
@@ -332,7 +347,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LBO", 
       "hold": "", 
       "index": "", 
@@ -362,7 +378,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RBO", 
       "hold": "", 
       "index": "", 
@@ -392,7 +409,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LBO", 
       "hold": "", 
       "index": "", 
@@ -422,7 +440,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RBI", 
       "hold": "", 
       "index": "", 
@@ -452,7 +471,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LBI", 
       "hold": "", 
       "index": "", 
@@ -482,7 +502,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RBI", 
       "hold": "", 
       "index": "", 
@@ -512,7 +533,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LBI", 
       "hold": "", 
       "index": "", 
@@ -542,7 +564,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "RBI", 
       "hold": "", 
       "index": "", 
@@ -572,7 +595,8 @@
       "transition": "s"
     }, 
     {
-      "beats": "4*", 
+      "beatGrouping": "*", 
+      "beats": "4", 
       "edge": "LBI", 
       "hold": "", 
       "index": "", 
