@@ -5,7 +5,7 @@ import os
 import csv
 
 INPUT_DIRECTORY = "codes"
-OUTPUT_DIRECTORY = "js"
+OUTPUT_DIRECTORY = "patternOutput"
 PREFIX = "DiagramCodes."
 
 def exportObject(var, obj):
