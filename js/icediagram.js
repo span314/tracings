@@ -204,8 +204,8 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
         path = position.paths[pathIndex];
         ctx.beginPath();
-        ctx.moveTo.apply(ctx, path.cubic.slice(0, 2));
-        ctx.bezierCurveTo.apply(ctx, path.cubic.slice(2, 8));
+        ctx.moveTo.apply(ctx, path.slice(0, 2));
+        ctx.bezierCurveTo.apply(ctx, path.slice(2, 8));
         ctx.stroke();
       }
 
@@ -222,7 +222,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_STEP;
-          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[0], IceDiagram._BASE_LABEL_OFFSET);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.labelPoint, IceDiagram._BASE_LABEL_OFFSET);
         }
         //Draw hold and count
         labelList = [];
@@ -235,7 +235,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_COUNT;
-          IceDiagram._drawTextOnPath(ctx, labelText, position.paths[0], -IceDiagram._BASE_LABEL_OFFSET);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.labelPoint, -IceDiagram._BASE_LABEL_OFFSET);
         }
       }
     }
@@ -287,7 +287,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     if (stepTickCount >= currentPosition.duration) {
       this._position = this._position === this._patternPositions.length - 1 ? 0 : this._position + 1;
     }
-    this._activeCenter = IceDiagram._cubicValueAt(currentPosition.paths[0].cubic, stepTickCount / currentPosition.duration);
+    this._activeCenter = IceDiagram._cubicValueAt(currentPosition.paths[0], stepTickCount / currentPosition.duration);
   };
 
   IceDiagram.prototype._movePosition = function(index) {
@@ -295,7 +295,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     index = (index + this._patternPositions.length) % this._patternPositions.length;
     this._position = index;
     this._currentBeatInfo = this._beatInfo(this._patternPositions[index].offset);
-    this._activeCenter = this._patternPositions[this._position].paths[0].value.slice();
+    this._activeCenter = this._patternPositions[this._position].labelPoint.value.slice();
     this._drawPattern();
   };
 
@@ -401,11 +401,11 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 
   //Static utility functions
 
-  //Draw text next to a cubic path
-  IceDiagram._drawTextOnPath = function(ctx, text, path, offset) {
-    var x = path.value[0] + path.normal[0] * offset,
-        y = path.value[1] + path.normal[1] * offset;
-        ctx.textAlign = path.value[0] > x ? 'end' : 'start';
+  //Draw text next to a path given a point, normal, and offset
+  IceDiagram._drawTextOnPath = function(ctx, text, point, offset) {
+    var x = point.value[0] + point.normal[0] * offset,
+        y = point.value[1] + point.normal[1] * offset;
+        ctx.textAlign = point.value[0] > x ? 'end' : 'start';
         ctx.fillText(text, x, y);
   };
 
@@ -445,10 +445,10 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
           position.paths = [];
           for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
             cubic = IceDiagram._transformCoordinates(component.paths[pathIndex], transformMatrix);
-            path = IceDiagram._cubicNormalAt(cubic, component.labelOffset || 0.5);
-            path.cubic = cubic;
-            position.paths.push(path);
+            position.paths.push(cubic);
           }
+          //Generate label points
+          position.labelPoint = IceDiagram._cubicNormalAt(position.paths[0], component.labelOffset || 0.5);
           //Check mirroring
           position.edge = mirror ? DiagramCodes._EDGE_PARAMS[component.edge].m : component.edge;
           //Generate text
@@ -593,7 +593,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     for (posIndex = 0; posIndex < positions.length; posIndex++) {
       position = positions[posIndex];
       for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
-        cubic = position.paths[pathIndex].cubic;
+        cubic = position.paths[pathIndex];
         for (t = 0; t <= position.duration; t++) {
           point = IceDiagram._cubicValueAt(cubic, t / position.duration);
           point.push(posIndex);
