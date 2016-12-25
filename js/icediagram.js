@@ -210,7 +210,6 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       }
 
       if (position.paths.length) {
-        ctx.textBaseline = 'middle';
         //Draw index and label
         labelList = [];
         if (showNumber && position.index) {
@@ -222,7 +221,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_STEP;
-          IceDiagram._drawTextOnPath(ctx, labelText, position.labelPoint, IceDiagram._BASE_LABEL_OFFSET);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.labelPoint, IceDiagram._BASE_LABEL_OFFSET, this._positionSearchTree);
         }
         //Draw hold and count
         labelList = [];
@@ -235,7 +234,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         labelText = labelList.join(' ');
         if (labelText) {
           ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_COUNT;
-          IceDiagram._drawTextOnPath(ctx, labelText, position.labelPoint, -IceDiagram._BASE_LABEL_OFFSET);
+          IceDiagram._drawTextOnPath(ctx, labelText, position.labelPoint, -IceDiagram._BASE_LABEL_OFFSET, this._positionSearchTree);
         }
       }
     }
@@ -402,11 +401,26 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   //Static utility functions
 
   //Draw text next to a path given a point, normal, and offset
-  IceDiagram._drawTextOnPath = function(ctx, text, point, offset) {
-    var x = point.value[0] + point.normal[0] * offset,
-        y = point.value[1] + point.normal[1] * offset;
-        ctx.textAlign = point.value[0] > x ? 'end' : 'start';
-        ctx.fillText(text, x, y);
+  IceDiagram._drawTextOnPath = function(ctx, text, point, offset, kdTree) {
+    var x1 = point.value[0] + point.normal[0] * offset,
+        y1 = point.value[1] + point.normal[1] * offset,
+        w = ctx.measureText(text).width,
+        h = IceDiagram._BASE_FONT_SIZE,
+        x2 = x1 - w,
+        y2 = y1 - h,
+        xc = x1 - w / 2,
+        yc = y1 - h / 2;
+
+        if (!IceDiagram._boxCollides(xc, yc, w, h, kdTree)) {
+          ctx.strokeRect(xc, yc, w, h);
+          ctx.fillText(text, xc, yc + h);
+        } else if (!IceDiagram._boxCollides(x1, yc, w, h, kdTree)) {
+          ctx.strokeRect(x1, yc, w, h);
+          ctx.fillText(text, x1, yc + h);
+        } else {
+          ctx.strokeRect(x2, yc, w, h);
+          ctx.fillText(text, x2, yc + h);
+        }
   };
 
   //Draw text with faded background over diagram
@@ -651,6 +665,30 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         break;
       }
     }
+  };
+
+  //Check if any points in the tree collide with the given box
+  IceDiagram._boxCollides = function(x, y, w, h, kdTree) {
+    return IceDiagram._boxCollidesHelper([x, y], [x + w, y + h], kdTree, 0, kdTree.length, 0);
+  };
+  IceDiagram._boxCollidesHelper = function(point1, point2, kdTree, start, end, k) {
+    var mid, midpoint, kNext, leftTree, rightTree;
+    //Base case
+    if (start >= end) {
+      return false;
+    }
+    mid = (start + end) >> 1;
+    midpoint = kdTree[mid];
+    //Check if midpoint collides
+    if (point1[0] <= midpoint[0] && midpoint[0] <= point2[0] &&
+        point1[1] <= midpoint[1] && midpoint[1] <= point2[1]) {
+      return true;
+    }
+    //Recurse on subtrees
+    kNext = (k + 1) % 2;
+    leftTree = midpoint[k] >= point1[k] && IceDiagram._boxCollidesHelper(point1, point2, kdTree, start, mid, kNext);
+    rightTree = midpoint[k] <= point2[k] && IceDiagram._boxCollidesHelper(point1, point2, kdTree, mid + 1, end, kNext);
+    return rightTree || leftTree;
   };
 
   //Find the nearest neighbor to a point given a kd search tree and a maximum allowed distance
