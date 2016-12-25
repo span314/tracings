@@ -10,7 +10,7 @@
     "patterns": "python processPatterns.py",
     "codes": "python processCodes.py",
     "test": "mocha jstest -u bdd -R spec",
-    "watch": "watch-run -i -p 'js/*, css/*, patternData/*, codes/*, *.py' npm run build"
+    "watch": "watch-run -i -p 'js/*, css/*, patternData/*, codes/*, *.py' -d 500 npm run build"
   },
   "author": "Shawn Pan",
   "license": "UNLICENSED",

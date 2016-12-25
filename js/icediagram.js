@@ -83,7 +83,11 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       case 'part': case 'optional': case 'mirror': case 'rotate':
         this._loadPattern();
         break;
-      case 'step': case 'number': case 'count': case 'hold': case 'speed': case 'resize':
+      case 'step': case 'number': case 'count': case 'hold':
+        this._remakeLabels();
+        this._drawPattern();
+        break;
+      case 'speed': case 'resize':
         this._drawPattern();
     }
   };
@@ -134,11 +138,13 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         optionalFlag = this._controls.optional ? 'yes' : 'no',
         mirrorFlag = this._controls.mirror,
         rotateFlag = this._controls.rotate,
-        part = this._controls.part;
-    this._patternPositions = IceDiagram._generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag);
+        part = this._controls.part,
+        generatedPositions = IceDiagram._generatePositions(this._dance, part, optionalFlag, mirrorFlag, rotateFlag);
+    this._patternPositions = generatedPositions.positions;
+    this._positionSearchTree = generatedPositions.positionSearchTree;
     lastPosition = this._patternPositions[this._patternPositions.length - 1];
     this._ticksPerLap = lastPosition.offset + lastPosition.duration;
-    this._positionSearchTree = IceDiagram._positionTree(this._patternPositions);
+    this._remakeLabels();
     this._movePosition(0);
   };
 
@@ -158,12 +164,49 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     }
   };
 
-  IceDiagram.prototype._drawPattern = function() {
-    var path, positionIndex, pathIndex, position, labelList, labelText,
+  IceDiagram.prototype._remakeLabels = function() {
+    var position, positionIndex, labelList, labelText,
         showStep = this._controls.step,
         showNumber = this._controls.number,
         showCount = this._controls.count,
         showHold = this._controls.hold,
+        ctx = this._canvasContext;
+    ctx.font = IceDiagram._FONT;
+    for (positionIndex = 0; positionIndex < this._patternPositions.length; positionIndex++) {
+      position = this._patternPositions[positionIndex];
+      if (position.paths.length) {
+        //Index and label
+        labelList = [];
+        if (showNumber && position.index) {
+          labelList.push(position.index);
+        }
+        if (showStep && position.label) {
+          labelList.push(position.label);
+        }
+        labelText = labelList.join(' ');
+        position.labelOutside = labelText;
+        if (labelText) {
+          position.labelOutsideLoc = IceDiagram._bestLabelLocation(ctx, this._positionSearchTree, position.paths[0], labelText, IceDiagram._BASE_LABEL_OFFSET);
+        }
+        //Hold and count
+        labelList = [];
+        if (showHold && position.hold) {
+          labelList.push(DiagramCodes._HOLD_LABELS[position.hold]);
+        }
+        if (showCount && position.countLabel) {
+          labelList.push(position.countLabel);
+        }
+        labelText = labelList.join(' ');
+        position.labelInside = labelText;
+        if (labelText) {
+          position.labelInsideLoc = IceDiagram._bestLabelLocation(ctx, this._positionSearchTree, position.paths[0], labelText, -IceDiagram._BASE_LABEL_OFFSET);
+        }
+      }
+    }
+  };
+
+  IceDiagram.prototype._drawPattern = function() {
+    var path, positionIndex, pathIndex, position, labelText,
         zoom = IceDiagram._getDefaultZoom(this._canvasElement.width, this._canvasElement.height),
         center = this._getCenter(),
         ctx = this._canvasContext,
@@ -209,33 +252,15 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         ctx.stroke();
       }
 
-      if (position.paths.length) {
-        //Draw index and label
-        labelList = [];
-        if (showNumber && position.index) {
-          labelList.push(position.index);
-        }
-        if (showStep && position.label) {
-          labelList.push(position.label);
-        }
-        labelText = labelList.join(' ');
-        if (labelText) {
-          ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_STEP;
-          IceDiagram._drawTextOnPath(ctx, labelText, position.labelPoint, IceDiagram._BASE_LABEL_OFFSET, this._positionSearchTree);
-        }
-        //Draw hold and count
-        labelList = [];
-        if (showHold && position.hold) {
-          labelList.push(DiagramCodes._HOLD_LABELS[position.hold]);
-        }
-        if (showCount && position.countLabel) {
-          labelList.push(position.countLabel);
-        }
-        labelText = labelList.join(' ');
-        if (labelText) {
-          ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_COUNT;
-          IceDiagram._drawTextOnPath(ctx, labelText, position.labelPoint, -IceDiagram._BASE_LABEL_OFFSET, this._positionSearchTree);
-        }
+      //Draw labels
+      ctx.textBaseline = 'top';
+      if (position.labelOutside) {
+        ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_STEP;
+        ctx.fillText(position.labelOutside, position.labelOutsideLoc[0], position.labelOutsideLoc[1]);
+      }
+      if (position.labelInside) {
+        ctx.fillStyle = IceDiagram._COLOR_TEXT_LABEL_COUNT;
+        ctx.fillText(position.labelInside, position.labelInsideLoc[0], position.labelInsideLoc[1]);
       }
     }
     ctx.restore(); //translate
@@ -294,7 +319,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     index = (index + this._patternPositions.length) % this._patternPositions.length;
     this._position = index;
     this._currentBeatInfo = this._beatInfo(this._patternPositions[index].offset);
-    this._activeCenter = this._patternPositions[this._position].labelPoint.value.slice();
+    this._activeCenter = this._patternPositions[this._position].centerPoint.slice();
     this._drawPattern();
   };
 
@@ -400,29 +425,6 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 
   //Static utility functions
 
-  //Draw text next to a path given a point, normal, and offset
-  IceDiagram._drawTextOnPath = function(ctx, text, point, offset, kdTree) {
-    var x1 = point.value[0] + point.normal[0] * offset,
-        y1 = point.value[1] + point.normal[1] * offset,
-        w = ctx.measureText(text).width,
-        h = IceDiagram._BASE_FONT_SIZE,
-        x2 = x1 - w,
-        y2 = y1 - h,
-        xc = x1 - w / 2,
-        yc = y1 - h / 2;
-
-        if (!IceDiagram._boxCollides(xc, yc, w, h, kdTree)) {
-          ctx.strokeRect(xc, yc, w, h);
-          ctx.fillText(text, xc, yc + h);
-        } else if (!IceDiagram._boxCollides(x1, yc, w, h, kdTree)) {
-          ctx.strokeRect(x1, yc, w, h);
-          ctx.fillText(text, x1, yc + h);
-        } else {
-          ctx.strokeRect(x2, yc, w, h);
-          ctx.fillText(text, x2, yc + h);
-        }
-  };
-
   //Draw text with faded background over diagram
   IceDiagram._drawTextOver = function(ctx, text, x, y) {
     ctx.textBaseline = 'bottom';
@@ -434,7 +436,9 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 
   //Generate individual positions for a dance
   IceDiagram._generatePositions = function(dance, part, optional, mirror, rotate) {
-    var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic, path, positionIndex, countLabel, countTotal,
+    var lapIndex, componentIndex, pathIndex, transformMatrix, component, offset, position, cubic,
+        positionIndex, countLabel, countTotal, point, t,
+        positionSearchTree = [],
         positions = [],
         pattern = dance.patterns[part];
 
@@ -460,9 +464,15 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
           for (pathIndex = 0; pathIndex < component.paths.length; pathIndex++) {
             cubic = IceDiagram._transformCoordinates(component.paths[pathIndex], transformMatrix);
             position.paths.push(cubic);
+            //Generate search tree guide points
+            for (t = 0; t <= position.duration * 2; t++) {
+              point = IceDiagram._cubicValueAt(cubic, t * 0.5 / position.duration);
+              point.push(positions.length); //length is current index
+              positionSearchTree.push(point);
+            }
           }
-          //Generate label points
-          position.labelPoint = IceDiagram._cubicNormalAt(position.paths[0], component.labelOffset || 0.5);
+          //Generate center
+          position.centerPoint = IceDiagram._cubicValueAt(position.paths[0], 0.5);
           //Check mirroring
           position.edge = mirror ? DiagramCodes._EDGE_PARAMS[component.edge].m : component.edge;
           //Generate text
@@ -485,11 +495,15 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       }
     }
 
-    //Iterate backwards through steps to generate count labels, taking into account combination steps
+    //Create kd-tree for searching
+    IceDiagram._kdTree(positionSearchTree);
+
+    //Iterate backwards through all positions
     countLabel = '';
     countTotal = 0;
     for (positionIndex = positions.length - 1; positionIndex >= 0; positionIndex--) {
       position = positions[positionIndex];
+      //Generate count labels, taking into account combination steps
       if (position.beatGrouping === '+') { //Display with plus notation, e.g. 1+1
         countLabel = '+' + position.count + countLabel;
       } else if (position.beatGrouping === '*') { //Display as sum of durations
@@ -503,7 +517,49 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       }
     }
 
-    return positions;
+    return {'positions': positions, 'positionSearchTree': positionSearchTree};
+  };
+
+  IceDiagram._bestLabelLocation = function(ctx, searchTree, cubic, text, offset) {
+    var i, labelPoint, x1, x2, y1, y2, xc, yc,
+        w = ctx.measureText(text).width,
+        h = IceDiagram._BASE_FONT_SIZE,
+        //margin = w > h ? h * 0.2 : h * 0.5,
+        margin = h * 0.2,
+        candidates = [ //candidate label locations (t, offset multiplier)
+          [0.5, 1],
+          [0.5, 1.5],
+          [0.35, 1],
+          [0.15, 1],
+          [0.5, 2.5],
+          [0.7, 1],
+          [0.85, 1],
+          [0.6, -1],
+          [0.4, -1],
+          [0.45, 1]
+        ];
+    for (i = 0; i < candidates.length; i++) {
+      labelPoint = IceDiagram._cubicNormalAt(cubic, candidates[i][0]);
+      x1 = labelPoint.value[0] + labelPoint.normal[0] * offset * candidates[i][1];
+      y1 = labelPoint.value[1] + labelPoint.normal[1] * offset * candidates[i][1];
+      x2 = x1 - w;
+      y2 = y1 - h;
+      xc = x1 - w / 2;
+      yc = y1 - h / 2;
+      //ctx.strokeRect(xc, yc, w, h);
+      if (!IceDiagram._patternCollides(xc, yc, w, h, searchTree, margin)) {
+        return [xc, yc];
+      }
+      //ctx.strokeRect(x1, yc, w, h);
+      if (!IceDiagram._patternCollides(x1, yc, w, h, searchTree, margin)) {
+        return [x1, yc];
+      }
+      //ctx.strokeRect(x2, yc, w, h);
+      if (!IceDiagram._patternCollides(x2, yc, w, h, searchTree, margin)) {
+        return [x2, yc];
+      }
+    }
+    return [xc, yc];
   };
 
   //Convert a positive decimal to mixed-number String
@@ -598,26 +654,6 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     return result;
   };
 
-  //Creates a kd search tree of the paths in the list of positions
-  //Creates a point per tick including both end points--roughly
-  //means that longer steps have more guide points
-  IceDiagram._positionTree = function(positions) {
-    var posIndex, position, pathIndex, cubic, point, t,
-        points = [];
-    for (posIndex = 0; posIndex < positions.length; posIndex++) {
-      position = positions[posIndex];
-      for (pathIndex = 0; pathIndex < position.paths.length; pathIndex++) {
-        cubic = position.paths[pathIndex];
-        for (t = 0; t <= position.duration; t++) {
-          point = IceDiagram._cubicValueAt(cubic, t / position.duration);
-          point.push(posIndex);
-          points.push(point);
-        }
-      }
-    }
-    IceDiagram._kdTree(points);
-    return points;
-  };
   //Creates a 2D tree in-place for an array of points
   IceDiagram._kdTree = function(points) {
     IceDiagram._kdTreeHelper(points, 0, points.length, 0);
@@ -668,27 +704,31 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   };
 
   //Check if any points in the tree collide with the given box
-  IceDiagram._boxCollides = function(x, y, w, h, kdTree) {
-    return IceDiagram._boxCollidesHelper([x, y], [x + w, y + h], kdTree, 0, kdTree.length, 0);
+  IceDiagram._patternCollides = function(x, y, w, h, kdTree, margin) {
+    return IceDiagram._patternCollidesHelper([x - margin, y - margin], [x + w + margin, y + h + margin], kdTree, 0, kdTree.length, 0);
   };
-  IceDiagram._boxCollidesHelper = function(point1, point2, kdTree, start, end, k) {
-    var mid, midpoint, kNext, leftTree, rightTree;
+  IceDiagram._patternCollidesHelper = function(point1, point2, kdTree, start, end, k) {
+    var mid, kNext, leftTree, rightTree;
     //Base case
     if (start >= end) {
       return false;
     }
     mid = (start + end) >> 1;
-    midpoint = kdTree[mid];
     //Check if midpoint collides
-    if (point1[0] <= midpoint[0] && midpoint[0] <= point2[0] &&
-        point1[1] <= midpoint[1] && midpoint[1] <= point2[1]) {
+    if (IceDiagram._boxCollides(point1, point2, kdTree[mid])) {
       return true;
     }
     //Recurse on subtrees
     kNext = (k + 1) % 2;
-    leftTree = midpoint[k] >= point1[k] && IceDiagram._boxCollidesHelper(point1, point2, kdTree, start, mid, kNext);
-    rightTree = midpoint[k] <= point2[k] && IceDiagram._boxCollidesHelper(point1, point2, kdTree, mid + 1, end, kNext);
+    leftTree = kdTree[mid][k] >= point1[k] && IceDiagram._patternCollidesHelper(point1, point2, kdTree, start, mid, kNext);
+    rightTree = kdTree[mid][k] <= point2[k] && IceDiagram._patternCollidesHelper(point1, point2, kdTree, mid + 1, end, kNext);
     return rightTree || leftTree;
+  };
+
+  //Box collision detection
+  IceDiagram._boxCollides = function(corner1, corner2, point) {
+    return corner1[0] <= point[0] && point[0] <= corner2[0] &&
+           corner1[1] <= point[1] && point[1] <= corner2[1];
   };
 
   //Find the nearest neighbor to a point given a kd search tree and a maximum allowed distance

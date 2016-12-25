@@ -31,15 +31,9 @@ for danceData in dances:
     writer.writeheader()
     for row in reader:
       #Edit rows here
-      beat = row["beats"]
-      if "_" in beat:
-        row["beats"] = beat[:-1]
-        row["beatGrouping"] = "+"
-      elif "*" in beat:
-        row["beats"] = beat[:-1]
-        row["beatGrouping"] = "*"
-      else:
-        row["beats"] = beat
+      offset = row["labelOffset"]
+      if offset:
+        print patternName
       writer.writerow(row)
 
   os.remove(backuppath)
