@@ -386,7 +386,6 @@
       "edge": "LBO", 
       "hold": "k", 
       "index": "15", 
-      "labelOffset": "0.3", 
       "paths": [
         [
           -364.14, 
@@ -425,7 +424,6 @@
     }
   ], 
   "dataVersion": 2, 
-  "dev": "1", 
   "level": "International", 
   "name": "Rhumba", 
   "patterns": {

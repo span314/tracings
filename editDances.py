@@ -25,15 +25,13 @@ for danceData in dances:
 
   #Extract steps from csv
   with open(backuppath, "r") as inputFile, open(filepath, "w") as outputFile:
-    headers = ["index", "pathCount", "beats", "beatGrouping", "edge", "transition", "step", "group", "optional", "hold", "labelOffset"]
+    headers = ["index", "pathCount", "beats", "beatGrouping", "edge", "transition", "step", "group", "optional", "hold"]
     reader = csv.DictReader(inputFile)
     writer = csv.DictWriter(outputFile, headers, lineterminator='\n')
     writer.writeheader()
     for row in reader:
       #Edit rows here
-      offset = row["labelOffset"]
-      if offset:
-        print patternName
+      offset = row.pop("labelOffset")
       writer.writerow(row)
 
   os.remove(backuppath)

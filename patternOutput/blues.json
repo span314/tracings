@@ -317,7 +317,6 @@
       "edge": "LBO", 
       "hold": "op", 
       "index": "14", 
-      "labelOffset": "0.3", 
       "paths": [
         [
           -98.864, 
@@ -737,7 +736,6 @@
       "edge": "LBO", 
       "hold": "op", 
       "index": "14", 
-      "labelOffset": "0.3", 
       "paths": [
         [
           100.467, 
