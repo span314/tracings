@@ -4,10 +4,10 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
-    define(['../patternOutput/diagramcodes.js'], factory);
+    define(['./package/diagramcodes.js'], factory);
   } else if (typeof exports === 'object') {
     // Node, CommonJS-like
-    module.exports = factory(require('../patternOutput/diagramcodes.js'));
+    module.exports = factory(require('./package/diagramcodes.js'));
   } else {
     // Browser globals (root is window)
     root.IceDiagram = factory(root.DiagramCodes);
