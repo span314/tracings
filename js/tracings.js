@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
       infoModalEl = document.getElementById('infoModal'),
       audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
-      diagram, touchStart, getCoordinates, resizeWindow, createNavigationButton, createStateButton, createToggleButton;
+      diagram, touchStart, resizeWindow, createNavigationButton, createStateButton, createToggleButton, mc;
 
   //Check compatibility
   if (!canvasEl.getContext) {
@@ -103,30 +103,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  //Bind touch and mouse events
-  getCoordinates = function(e) {
-    //Note: calcuating offsets from page, because Firefox does not have offsetX/offsetY in mouse events
-    var bounds = canvasEl.getBoundingClientRect(),
-        x = e.pageX - bounds.left - document.body.scrollLeft,
-        y = e.pageY - bounds.top - document.body.scrollTop;
-    return [x, y];
-  };
+  //Bind touch and mouse events with hammer.js library
+  mc = new Hammer.Manager(canvasEl);
 
-  canvasEl.addEventListener('click', function(e) {
-    diagram.controlEvent('click', getCoordinates(e));
+  //Panning
+  mc.add(new Hammer.Pan({
+    direction: Hammer.DIRECTION_ALL,
+    threshold: 3
+  }));
+  mc.on('panstart', function(e) {
+    touchStart = [0, 0];
   });
-
-  canvasEl.addEventListener('touchstart', function(e) {
-    touchStart = getCoordinates(e.touches[0]);
-  });
-
-  canvasEl.addEventListener('touchmove', function(e) {
-    var touchEnd = getCoordinates(e.touches[0]),
+  mc.on('pan', function(e) {
+    var touchEnd = [e.deltaX, e.deltaY],
         dx = touchEnd[0] - touchStart[0],
         dy = touchEnd[1] - touchStart[1];
     touchStart = touchEnd;
     diagram.controlEvent('shift', [dx, dy]);
   });
+
+  //Tapping
+  mc.add(new Hammer.Tap());
+  mc.on('tap', function(e) {
+    diagram.controlEvent('click', [e.center.x, e.center.y]);
+  });
+
+  // var rotateStart, rotateEnd;
+
+  // //Pinching
+  // var pinch = new Hammer.Pinch({
+  //   threshold: 5
+  // });
+  // mc.add(pinch);
+  // mc.on('pinch', function(e) {
+  //   console.log("pinch");
+  //   console.log(e);
+  // });
+
+  // //Rotating
+  // var rotate = new Hammer.Rotate({
+  //   threshold: 150
+  // });
+  // mc.add(rotate);
+  // pinch.recognizeWith(rotate);
+  // mc.on('rotatestart', function(e) {
+  //   rotateStart = e.rotation;
+  // });
+
+  // mc.on('rotateend', function(e) {
+  //   var rotateDiff = (e.rotation - rotateStart + 360) % 360;
+  //   console.log("rotate");
+  //   console.log(rotateDiff);
+  //   console.log(e);
+  // });
 
   //Bind navigation control buttons
   createNavigationButton = function(command) {
