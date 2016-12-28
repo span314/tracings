@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
       infoModalEl = document.getElementById('infoModal'),
       audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
-      diagram, touchStart, resizeWindow, createNavigationButton, createStateButton, createToggleButton, mc;
+      touchStart = [0, 0],
+      pinchStart = 1.0,
+      diagram, resizeWindow, createNavigationButton, createStateButton, createToggleButton, mc;
 
   //Check compatibility
   if (!canvasEl.getContext) {
@@ -128,19 +130,20 @@ document.addEventListener('DOMContentLoaded', function() {
     diagram.controlEvent('click', [e.center.x, e.center.y]);
   });
 
-  // var rotateStart, rotateEnd;
-
-  // //Pinching
-  // var pinch = new Hammer.Pinch({
-  //   threshold: 5
-  // });
-  // mc.add(pinch);
-  // mc.on('pinch', function(e) {
-  //   console.log("pinch");
-  //   console.log(e);
-  // });
+  //Pinching
+  mc.add(new Hammer.Pinch());
+  mc.on('pinchstart', function(e) {
+    pinchStart = 1.0;
+  });
+  mc.on('pinch', function(e) {
+    diagram.controlEvent('zoom', e.scale / pinchStart);
+    pinchStart = e.scale;
+  });
 
   // //Rotating
+
+  // var rotateStart, rotateEnd;
+
   // var rotate = new Hammer.Rotate({
   //   threshold: 150
   // });
@@ -154,6 +157,10 @@ document.addEventListener('DOMContentLoaded', function() {
   //   var rotateDiff = (e.rotation - rotateStart + 360) % 360;
   //   console.log("rotate");
   //   console.log(rotateDiff);
+  //   console.log("zoom");
+  //   console.log(e.scale);
+  //   diagram.controlEvent('zoom', e.scale);
+  //   console.log("event");
   //   console.log(e);
   // });
 

@@ -27,6 +27,7 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       this._audioContext = new webkitAudioContext();
     }
     //initialize
+    this._zoom = 1;
     this._loadDance();
   };
 
@@ -87,7 +88,11 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
         this._remakeLabels();
         this._drawPattern();
         break;
-      case 'speed': case 'resize':
+      case 'zoom':
+        this._updateZoom();
+        this._drawPattern();
+        break;
+      case 'resize': case 'speed':
         this._drawPattern();
     }
   };
@@ -151,17 +156,25 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._getCenter = function() {
     var w = this._canvasElement.width,
         h = this._canvasElement.height,
-        cx = IceDiagram._trimCenter(this._activeCenter[0], IceDiagram._BASE_WIDTH, w),
-        cy = IceDiagram._trimCenter(this._activeCenter[1], IceDiagram._BASE_HEIGHT, h);
+        cx = IceDiagram._trimCenter(this._activeCenter[0] * this._zoom, IceDiagram._BASE_WIDTH * this._zoom, w),
+        cy = IceDiagram._trimCenter(this._activeCenter[1] * this._zoom, IceDiagram._BASE_HEIGHT * this._zoom, h);
     return [w / 2 - cx, h / 2 - cy];
   };
 
   IceDiagram.prototype._shiftCenter = function() {
     if (!this._playing) {
-      this._activeCenter[0] = IceDiagram._trimCenter(this._activeCenter[0] - this._controls.shift[0], IceDiagram._BASE_WIDTH, this._canvasElement.width);
-      this._activeCenter[1] = IceDiagram._trimCenter(this._activeCenter[1] - this._controls.shift[1], IceDiagram._BASE_HEIGHT, this._canvasElement.height);
+      this._activeCenter[0] = IceDiagram._trimCenter(this._activeCenter[0] - this._controls.shift[0], IceDiagram._BASE_WIDTH  * this._zoom, this._canvasElement.width);
+      this._activeCenter[1] = IceDiagram._trimCenter(this._activeCenter[1] - this._controls.shift[1], IceDiagram._BASE_HEIGHT * this._zoom, this._canvasElement.height);
       this._drawPattern();
     }
+  };
+
+  IceDiagram.prototype._updateZoom = function() {
+    var desiredZoom = this._controls.zoom * this._zoom,
+        fullPatternZoom = IceDiagram._getFullPatternZoom(this._canvasElement.width, this._canvasElement.height),
+        minZoom = Math.min(fullPatternZoom, 1),
+        maxZoom = 2;
+    this._zoom = Math.min(maxZoom, Math.max(minZoom, desiredZoom));
   };
 
   IceDiagram.prototype._remakeLabels = function() {
@@ -207,7 +220,8 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 
   IceDiagram.prototype._drawPattern = function() {
     var path, positionIndex, pathIndex, position, labelText,
-        zoom = IceDiagram._getDefaultZoom(this._canvasElement.width, this._canvasElement.height),
+        defaultZoom = IceDiagram._getDefaultZoom(this._canvasElement.width, this._canvasElement.height),
+        zoom = this._zoom * defaultZoom,
         center = this._getCenter(),
         ctx = this._canvasContext,
         currentPosition = this._patternPositions[this._position];
@@ -264,8 +278,12 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
       }
     }
     ctx.restore(); //translate
+    ctx.restore(); //scale
 
     //Draw text
+    ctx.save();
+    ctx.scale(defaultZoom, defaultZoom);
+
     IceDiagram._drawTextOver(ctx, currentPosition.desc, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE);
     labelText = currentPosition.count;
     labelText += currentPosition.duration > IceDiagram._TICKS_PER_BEAT ? ' beats, ' : ' beat, ';
@@ -274,7 +292,8 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
     IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, IceDiagram._BASE_LABEL_OFFSET + IceDiagram._BASE_FONT_SIZE * 2.2);
     labelText = this._controls.speed === 1 ? '' : Math.round(this._controls.speed * this._dance.beatsPerMinute) + 'bpm of ';
     labelText += this._dance.beatsPerMinute + 'bpm';
-    IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height / zoom - IceDiagram._BASE_LABEL_OFFSET);
+    IceDiagram._drawTextOver(ctx, labelText, IceDiagram._BASE_LABEL_OFFSET, this._canvasElement.height / defaultZoom - IceDiagram._BASE_LABEL_OFFSET);
+
     ctx.restore(); //scale
   };
 
@@ -362,7 +381,8 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   };
 
   IceDiagram.prototype._click = function() {
-    var zoom = IceDiagram._getDefaultZoom(this._canvasElement.width, this._canvasElement.height),
+    var defaultZoom = IceDiagram._getDefaultZoom(this._canvasElement.width, this._canvasElement.height),
+        zoom = this._zoom * defaultZoom,
         center = this._getCenter(),
         point = [(this._controls.click[0] - center[0]) / zoom, (this._controls.click[1] - center[1]) / zoom],
         nearest = IceDiagram._nearestNeighbor(point, this._positionSearchTree, 16);
@@ -790,8 +810,13 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
 
   //Get zoom scale factor, stretching above 1 if possible
   IceDiagram._getDefaultZoom = function(width, height) {
+    return Math.max(IceDiagram._getFullPatternZoom(width, height), 1);
+  };
+
+  //Get the zoom scale factor to show the full pattern
+  IceDiagram._getFullPatternZoom = function(width, height) {
     var isHeightLimited = width * IceDiagram._BASE_HEIGHT > height * IceDiagram._BASE_WIDTH;
-    return Math.max(isHeightLimited ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH, 1);
+    return isHeightLimited ? height / IceDiagram._BASE_HEIGHT : width / IceDiagram._BASE_WIDTH;
   };
 
   //Return UMD factory result

@@ -107,10 +107,10 @@ describe('Diagram', function() {
       IceDiagram._getDefaultZoom(IceDiagram._BASE_WIDTH, 0.8 * IceDiagram._BASE_HEIGHT).should.equal(1);
     });
     it('should be width limited', function() {
-      IceDiagram._getDefaultZoom(2 * IceDiagram._BASE_WIDTH, 3 * IceDiagram._BASE_HEIGHT).should.equal(2);
+      IceDiagram._getFullPatternZoom(2 * IceDiagram._BASE_WIDTH, 3 * IceDiagram._BASE_HEIGHT).should.equal(2);
     });
     it('should be height limited', function() {
-      IceDiagram._getDefaultZoom(3 * IceDiagram._BASE_WIDTH, 2 * IceDiagram._BASE_HEIGHT).should.equal(2);
+      IceDiagram._getFullPatternZoom(3 * IceDiagram._BASE_WIDTH, 2 * IceDiagram._BASE_HEIGHT).should.equal(2);
     });
   });
 });
