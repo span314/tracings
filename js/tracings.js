@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
       infoModalEl = document.getElementById('infoModal'),
       audioCompatible = window.AudioContext || window.webkitAudioContext, //http://caniuse.com/#feat=audio-api
       compatiblityErrors = [],
+      rotateStart = 0,
       touchStart = [0, 0],
       pinchStart = 1.0,
       diagram, resizeWindow, createNavigationButton, createStateButton, createToggleButton, mc;
@@ -106,13 +107,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   //Bind touch and mouse events with hammer.js library
-  mc = new Hammer.Manager(canvasEl);
+  mc = new Hammer.Manager(canvasEl, {
+    recognizers: [
+      // RecognizerClass, [options], [recognizeWith, ...], [requireFailure, ...]
+      [Hammer.Pan, {direction: Hammer.DIRECTION_ALL}],
+      [Hammer.Tap],
+      [Hammer.Pinch],
+      [Hammer.Rotate, {}, ['pinch']]
+    ]
+  });
 
   //Panning
-  mc.add(new Hammer.Pan({
-    direction: Hammer.DIRECTION_ALL,
-    threshold: 3
-  }));
   mc.on('panstart', function(e) {
     touchStart = [0, 0];
   });
@@ -125,13 +130,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   //Tapping
-  mc.add(new Hammer.Tap());
   mc.on('tap', function(e) {
     diagram.controlEvent('click', [e.center.x, e.center.y]);
   });
 
   //Pinching
-  mc.add(new Hammer.Pinch());
   mc.on('pinchstart', function(e) {
     pinchStart = 1.0;
   });
@@ -140,29 +143,19 @@ document.addEventListener('DOMContentLoaded', function() {
     pinchStart = e.scale;
   });
 
-  // //Rotating
-
-  // var rotateStart, rotateEnd;
-
-  // var rotate = new Hammer.Rotate({
-  //   threshold: 150
-  // });
-  // mc.add(rotate);
-  // pinch.recognizeWith(rotate);
-  // mc.on('rotatestart', function(e) {
-  //   rotateStart = e.rotation;
-  // });
-
-  // mc.on('rotateend', function(e) {
-  //   var rotateDiff = (e.rotation - rotateStart + 360) % 360;
-  //   console.log("rotate");
-  //   console.log(rotateDiff);
-  //   console.log("zoom");
-  //   console.log(e.scale);
-  //   diagram.controlEvent('zoom', e.scale);
-  //   console.log("event");
-  //   console.log(e);
-  // });
+  //Rotating
+  mc.on('rotatestart', function(e) {
+    rotateStart = e.rotation;
+  });
+  mc.on('rotateend', function(e) {
+    var rotateButton = document.getElementById('rotateButton'),
+        newState = rotateButton.dataset.active !== 'true',
+        rotateDiff = (e.rotation - rotateStart + 360) % 360;
+    if (rotateDiff > 45 && rotateDiff < 315) {
+      rotateButton.dataset.active = newState;
+      diagram.controlEvent('rotate', newState);
+    }
+  });
 
   //Bind navigation control buttons
   createNavigationButton = function(command) {
