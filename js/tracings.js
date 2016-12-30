@@ -157,6 +157,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  //Bind mouse wheel
+  canvasEl.addEventListener('wheel', function(e) {
+    diagram.controlEvent('zoom', (500 - e.deltaY) / 500);
+  });
+
   //Bind navigation control buttons
   createNavigationButton = function(command) {
     var elem = document.getElementById(command + 'Button');

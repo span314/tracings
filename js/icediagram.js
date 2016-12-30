@@ -156,15 +156,16 @@ Ice Diagram Widget v0.3.0 | Software Copyright (c) Shawn Pan
   IceDiagram.prototype._getCenter = function() {
     var w = this._canvasElement.width,
         h = this._canvasElement.height,
-        cx = IceDiagram._trimCenter(this._activeCenter[0] * this._zoom, IceDiagram._BASE_WIDTH * this._zoom, w),
-        cy = IceDiagram._trimCenter(this._activeCenter[1] * this._zoom, IceDiagram._BASE_HEIGHT * this._zoom, h);
+        defaultZoom = IceDiagram._getDefaultZoom(w, h),
+        cx = IceDiagram._trimCenter(this._activeCenter[0] * this._zoom, IceDiagram._BASE_WIDTH * this._zoom * defaultZoom, w),
+        cy = IceDiagram._trimCenter(this._activeCenter[1] * this._zoom, IceDiagram._BASE_HEIGHT * this._zoom * defaultZoom, h);
     return [w / 2 - cx, h / 2 - cy];
   };
 
   IceDiagram.prototype._shiftCenter = function() {
     if (!this._playing) {
-      this._activeCenter[0] = IceDiagram._trimCenter(this._activeCenter[0] - this._controls.shift[0], IceDiagram._BASE_WIDTH  * this._zoom, this._canvasElement.width);
-      this._activeCenter[1] = IceDiagram._trimCenter(this._activeCenter[1] - this._controls.shift[1], IceDiagram._BASE_HEIGHT * this._zoom, this._canvasElement.height);
+      this._activeCenter[0] -= this._controls.shift[0];
+      this._activeCenter[1] -= this._controls.shift[1];
       this._drawPattern();
     }
   };
