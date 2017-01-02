@@ -1,5 +1,5 @@
 /*!
-Ice Diagram Pattern Codes v0.3.0 | Software Copyright (c) Shawn Pan
+Ice Diagram Pattern Codes v0.3.1 | Software Copyright (c) Shawn Pan
 */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
